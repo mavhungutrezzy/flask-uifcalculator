@@ -1,0 +1,371 @@
+{% extends 'base.html' %}
+{% block meta %}
+  <title>UIF Unemployment Benefits Calculator | South Africa 2025 | UIFCalculators</title>
+  <meta name="description"
+        content="Calculate your UIF unemployment benefits instantly with our free online calculator. Get an accurate estimate of your UIF claim amount based on your salary and employment history.">
+  <meta name="keywords"
+        content="uif unemployment calculator, uif benefits calculator, uif unemployment benefits, uif claim calculator, uif payout calculator, uif south africa, uif benefits 2025, uif unemployment claim, uif calculator online, uif benefits estimate">
+  <meta name="robots" content="index, follow">
+        
+{% endblock %}
+{% block title %}UIF Unemployment Benefits Calculator | South Africa 2025{% endblock %}
+{% block content %}
+  {% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
+  <!-- Hero Section -->
+  <section class="py-5 bg-gradient-primary text-black">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <div class="mb-3">
+            <span class="badge bg-success-subtle text-success fw-semibold border border-success px-3 py-2 small rounded-pill">
+              <i class="bi bi-check-circle-fill me-2"></i>Updated 2025 UIF Rules
+            </span>
+          </div>
+          <h1 class="fw-bold mb-3">Calculate Your UIF Unemployment Benefits</h1>
+          <p class="lead mb-4 text-muted">
+            Instant estimates built on the latest South African UIF regulations. Know your payout for unemployment, maternity, or illness in seconds.
+          </p>
+          <div class="d-flex flex-column flex-md-row gap-2">
+            <a href="#calculatorSection" class="btn btn-primary btn-lg px-4">
+              <i class="bi bi-calculator me-2"></i>Start Calculating
+            </a>
+            <a href="{{ url_for("uif.leave_benefit_calculator")}}" class="btn btn-outline-secondary btn-lg px-4">Leave Benefit Calculator</a>
+          </div>
+        </div>
+        <div class="col-lg-5 mt-4 mt-lg-0">
+          <div class="border rounded-4 p-4 bg-white text-center shadow-sm">
+            <p class="fw-semibold mb-2 text-primary text-uppercase small">How it works</p>
+            <p class="text-muted mb-0">
+              Enter your average salary and the date range you need covered. We use UIF’s official sliding scale to estimate your daily and monthly benefits.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Hero and Calculator Form Section -->
+  <section class="py-4 bg-gradient-primary text-white" id="calculatorSection">
+    <div class="container">
+      <!-- Calculator Form -->
+      <div class="row mb-4 justify-content-center" id="calculator">
+        <div class="col-md-8 col-lg-6">
+          <div class="border rounded-4 p-4 bg-white shadow-sm">
+            <div class="card-body p-4 bg-white rounded-3 text-black">
+              <h3 class="h6 mb-3 text-center text-primary">Quick UIF Estimate</h3>
+              <form id="quickCalc"
+                    method="post"
+                    action=""
+                    class="mx-auto"
+                    style="max-width: 340px">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="sameSalaryCheck" value="on">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label for="singleSalary" class="form-label mb-1 small text-uppercase">
+                        Average Monthly Salary (R)
+                    </label>
+                    <!-- NAME must be 'single_salary' to match the Python route -->
+                    <input type="number"
+                           step="0.01"
+                           min="0"
+                           class="form-control form-control-md"
+                           id="singleSalary"
+                           name="single_salary" 
+                           placeholder="e.g., 15000.00"
+                           required>
+                </div>
+                
+                <!-- Start Date -->
+                <div class="col-12">
+                    <label for="startDate" class="form-label mb-1 small text-uppercase">Start Date</label>
+                    <input type="text"
+                           class="form-control form-control-md"
+                           id="startDate"
+                           name="start_date"
+                           data-select="datepicker"
+                           placeholder="Select start date"
+                           autocomplete="off"
+                           required>
+                </div>
+                
+                <!-- End Date -->
+                <div class="col-12">
+                    <label for="endDate" class="form-label mb-1 small text-uppercase">End Date</label>
+                    <input type="text"
+                           class="form-control form-control-md"
+                           id="endDate"
+                           name="end_date"
+                           data-select="datepicker"
+                           placeholder="Select end date"
+                           autocomplete="off"
+                           required>
+                </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mt-3">See Estimate</button>
+              </form>
+              <p class="text-muted small mt-3 mb-0 text-center">* Approximate calculation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Main Article Content with Modern UI Layout -->
+  <section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10 text-center">
+                <h2 class="fw-bold mb-4">Complete Guide to UIF Benefits in South Africa (Updated 2025)</h2>
+                <p class="lead text-muted">Everything you need to know about claiming UIF – who qualifies, how much you get, and how to apply.</p>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-lg-8 mx-auto">
+
+                <!-- Adoption Benefits -->
+                <h3 class="h4 fw-bold text-primary">Adoption Benefits</h3>
+                <p>Application for Adoption Benefits must be submitted <strong>within 6 months</strong> after the court issues the adoption order. To qualify, the adopted child must be <strong>younger than 2 years</strong>, and only <strong>one of the adopting parents</strong> can apply for the benefit, which covers the time spent caring for the child.</p>
+
+                <p>The benefit amount is calculated as the difference between any pay received from your employer and the prescribed UIF benefit rate, ensuring your total income <strong>does not exceed 100 percent</strong> of your normal salary. Your employer must <strong>declare any pay</strong> given during the adoption leave. Subject to available credits, benefits can be claimed for up to <strong>365 days</strong> within a four-year cycle.</p>
+                <hr class="my-4">
+
+                <!-- Death / Dependants’ Benefits -->
+                <h3 class="h4 fw-bold text-primary">Can I Claim If My Spouse Passed Away?</h3>
+                <p>A surviving <strong>spouse or life partner</strong> must apply for benefits <strong>within 18 months</strong> from the contributor’s date of death. A dependent child may only apply if the spouse or life partner has not claimed within 14 days after the 18-month period ends.</p>
+
+                <p>A child aged between 21 and 25 may also qualify if they are a <strong>student or learner</strong> and were <strong>wholly dependent</strong> on the deceased contributor. Subject to available credits, benefits can be paid for a maximum of <strong>365 days</strong> within a four-year period.</p>
+
+                <p>Contributors may nominate their own beneficiaries for the death benefit <strong>only when there is no surviving spouse, life partner, or child</strong>.</p>
+                <hr class="my-4">
+
+                <!-- Benefit Amount -->
+                <h3 class="h4 fw-bold text-primary">How Much Will I Get From UIF?</h3>
+                <p>The calculation of benefit days is based on earning <strong>one day of credit for every four days worked</strong>. If you have contributed for four years or more, you qualify for up to <strong>365 days of benefits</strong>.</p>
+
+                <p>For Maternity and Adoption claims, the maximum period payable is capped at <strong>121 days</strong>. The amount you receive is based on a sliding scale, calculated from a <strong>percentage of your previous salary</strong>.</p>
+
+                <p>The total benefit amount is capped at approximately <strong>R65,000</strong>.</p>
+                <hr class="my-4">
+
+                <!-- How to Apply -->
+                <h3 class="h4 fw-bold text-primary">How to Apply for UIF – Step by Step</h3>
+                <p>You can apply for UIF by visiting your nearest Labour Centre or by submitting an online application through the uFiling portal. Before applying, consider estimating your benefit using UIF calculators such as those on <a href="https://uifcalculators.co.za">uifcalculators.co.za</a>. You will need essential documents such as your bar-coded ID, the last six payslips, and a UI-19 form from your employer. If applying online, ensure you first create an account on the uFiling platform at <a href="https://uifonline.labour.gov.za/uifOnline/loginJsp">uifonline.labour.gov.za</a> before submitting your claim.</p>
+                <hr class="my-4">
+
+                <!-- Unemployment Documents -->
+                <h3 class="h4 fw-bold text-primary">Documents Needed (Unemployment)</h3>
+                <ul class="small">
+                    <li>13-digit bar-coded ID or passport</li>
+                    <li>UI-19 form (from employer)</li>
+                    <li>Last 6 payslips</li>
+                    <li>Bank details & proof (UI-2.8)</li>
+                    <li>Proof of registration as a work seeker</li>
+                </ul>
+                <hr class="my-4">
+
+                <!-- Maternity Documents -->
+                <h3 class="h4 fw-bold text-primary">Documents Needed (Maternity)</h3>
+                <ul class="small">
+                    <li>13-digit bar-coded ID or passport</li>
+                    <li>UI-19 form (from employer)</li>
+                    <li>UI-2.7 form (maternity application)</li>
+                    <li>Last 6 payslips</li>
+                    <li>Bank details & proof (UI-2.8)</li>
+                    <li>Original birth certificate or medical certificate</li>
+                </ul>
+                <hr class="my-4">
+
+                <!-- Illness Documents -->
+                <h3 class="h4 fw-bold text-primary">Documents Needed (Illness)</h3>
+                <ul class="small">
+                    <li>13-digit bar-coded ID or passport</li>
+                    <li>UI-19 form (from employer)</li>
+                    <li>UI-2.2 form (illness application)</li>
+                    <li>Last 6 payslips</li>
+                    <li>Bank details & proof (UI-2.8)</li>
+                    <li>Comprehensive medical certificate from a doctor</li>
+                </ul>
+                <hr class="my-4">
+
+                <!-- Status Meanings -->
+                <h3 class="h4 fw-bold text-primary">UIF Status Meanings</h3>
+                <p>The initial statuses show the application's early processing stage. <strong>No Employee Found</strong> means your employer has not submitted your details, and you must contact them immediately. If the status shows <strong>Application in Progress</strong>, the UIF has received your claim and is verifying your documents. When it changes to <strong>Sent to Assessor</strong>, your documents are undergoing final review.</p>
+
+                <p>Once reviewed, statuses such as <strong>Assessed</strong> (a decision has been made) and <strong>Approved</strong> (you qualify for payment) will appear. After approval, payment statuses follow: <strong>Payment Reserved</strong> means funds have been allocated, and <strong>Payment Processed</strong> means the UIF has released the payment to your bank, though it may take a few days to reflect.</p>
+
+                <p>If your status shows <strong>Rejected</strong>, the claim was unsuccessful due to issues such as insufficient credits or late submission—but you may appeal. <strong>Submission for Continuation of Benefits (COB)</strong> indicates you have successfully submitted documents to continue receiving payments after the initial period.</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-white border-top">
+  <div class="container">
+      <div class="row justify-content-center mb-5">
+          <div class="col-lg-10 text-center">
+              <h2 class="fw-bold mb-4">UIF Benefits FAQ (2025)</h2>
+              <p class="lead text-muted">Answers to the most common questions about UIF benefits in South Africa, including payments, eligibility, and application timelines.</p>
+          </div>
+      </div>
+
+      <div class="row g-5">
+          <div class="col-lg-8 mx-auto">
+
+              <div class="accordion" id="uifBenefitsFaq">
+
+                  <!-- FAQ 1 -->
+                  <div class="card shadow-sm mb-3">
+                      <div class="card-header" id="faqHeading1">
+                          <h5 class="mb-0">
+                              <button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                  ❓ How long does it take to receive UIF payments after applying?
+                              </button>
+                          </h5>
+                      </div>
+                      <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#uifBenefitsFaq">
+                          <div class="card-body text-muted">
+                              <p>UIF payments typically take <strong>4–8 weeks</strong> after submission of a complete application. This may vary depending on case complexity, document accuracy, and the Department’s workload.</p>
+                              <p>Applications with all required documents and accurate information are processed faster. Track your claim via the <a href="https://ufiling.labour.gov.za" target="_blank" rel="noopener noreferrer">uFiling portal</a> using your reference number.</p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- FAQ 2 -->
+                  <div class="card shadow-sm mb-3">
+                      <div class="card-header" id="faqHeading2">
+                          <h5 class="mb-0">
+                              <button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                  ❓ Can I work while receiving UIF benefits?
+                              </button>
+                          </h5>
+                      </div>
+                      <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#uifBenefitsFaq">
+                          <div class="card-body text-muted">
+                              <p>Yes, you may work while receiving UIF benefits, but you must declare any income earned. Your benefits may be reduced or suspended depending on what you earn.</p>
+                              <p>Always report new employment or income to avoid penalties. UIF is intended to support job seekers, not to provide income while already earning.</p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- FAQ 3 -->
+                  <div class="card shadow-sm mb-3">
+                      <div class="card-header" id="faqHeading3">
+                          <h5 class="mb-0">
+                              <button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                  ❓ What happens if my UIF claim is rejected?
+                              </button>
+                          </h5>
+                      </div>
+                      <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#uifBenefitsFaq">
+                          <div class="card-body text-muted">
+                              <p>If your claim is rejected, you will receive a written notice explaining the reason. Common reasons include incomplete documents, missing the 12-month deadline, or voluntary resignation.</p>
+                              <p>You can appeal within <strong>90 days</strong> to the UIF Appeals Committee by submitting a written appeal with supporting documents addressing the rejection reasons.</p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- FAQ 4 -->
+                  <div class="card shadow-sm mb-3">
+                      <div class="card-header" id="faqHeading4">
+                          <h5 class="mb-0">
+                              <button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                  ❓ What percentage of my salary will I receive as UIF benefits?
+                              </button>
+                          </h5>
+                      </div>
+                      <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#uifBenefitsFaq">
+                          <div class="card-body text-muted">
+                              <p>UIF benefits are calculated on a sliding scale from <strong>38 percent to 58 percent</strong> of your gross monthly salary. Lower-income earners receive a higher percentage.</p>
+                              <p>Benefits are capped at <strong>R17,712 per month (2025)</strong>. The scale ensures fair support across all income levels.</p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- FAQ 5 -->
+                  <div class="card shadow-sm mb-3">
+                      <div class="card-header" id="faqHeading5">
+                          <h5 class="mb-0">
+                              <button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                  ❓ Can I claim UIF if I resigned from my job?
+                              </button>
+                          </h5>
+                      </div>
+                      <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#uifBenefitsFaq">
+                          <div class="card-body text-muted">
+                              <p>Generally, <strong>no</strong>. UIF benefits do not cover voluntary resignation. They are meant for retrenchment, dismissal (except gross misconduct), contract expiry, or company closure.</p>
+                              <p>Exceptions exist in rare cases like harassment or unsafe conditions, but these require solid evidence.</p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- FAQ 6 -->
+                  <div class="card shadow-sm mb-3">
+                      <div class="card-header" id="faqHeading6">
+                          <h5 class="mb-0">
+                              <button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                  ❓ How many months can I receive UIF benefits?
+                              </button>
+                          </h5>
+                      </div>
+                      <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#uifBenefitsFaq">
+                          <div class="card-body text-muted">
+                              <p>UIF benefits depend on your <strong>credit days</strong>, earned at one day of benefit for every five days worked. You can accumulate up to <strong>365 days</strong> (about 12 months) of benefits.</p>
+                              <p>Long-term contributors (4+ years) may qualify for the maximum duration, while newer workers have shorter benefit periods.</p>
+                          </div>
+                      </div>
+                  </div>
+
+              </div> <!-- End Accordion -->
+          </div>
+      </div>
+  </div>
+</section>
+
+
+  
+  <!-- Final Call to Action -->
+  <section class="py-4 bg-primary text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-8 mx-auto">
+          <h2>Calculate Your UIF Benefits Today</h2>
+          <p class="text-white">
+            Don't wait until you need it - understand your UIF entitlements now. Our free calculators give you instant, accurate results based on your specific situation.
+          </p>
+          <div class="d-flex flex-column flex-md-row gap-2 justify-content-center">
+            <a href="{{ url_for("uif.unemployment_calculator")}}"
+               class="btn btn-outline-light btn-sm">Calculate Unemployment Benefits</a>
+            <a href="{{ url_for("uif.leave_benefit_calculator")}}"
+               class="btn btn-outline-light btn-sm">Calculate Maternity Benefits</a>
+          </div>
+          <p class="text-white small mt-3">
+            Join thousands of South Africans who've used our UIF calculator to plan their finances
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Final Disclaimer -->
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+    // Datepicker initialization
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize datepickers
+        const dateInputs = document.querySelectorAll('[data-select="datepicker"]');
+        dateInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.type = 'date';
+            });
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.type = 'text';
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

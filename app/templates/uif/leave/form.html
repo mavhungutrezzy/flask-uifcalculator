@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block meta %}
+  <title>UIF Leave Benefit Top-Up Calculator | South Africa 2025 | UIFCalculators</title>
+  <meta name="description" content="Estimate your UIF top-up amount while on maternity, adoption, parental or illness leave. Enter your normal salary and the income you will receive during leave to see the daily UIF payout.">
+  <meta name="keywords"
+  content="uif calculator, uif calculator 2025, uif payments status check,uif calculator 2025 south africa, uif maternity calculator, uif calculator online, uif ussd code, uif status check online, uif status chek, uif calculator online login, uif calculator online south africa, uif maternity benefit calculator, 2025 uif calculator, uif calculator on salary in south africa, uif payout calculator, uif calculator maternity, uif benefit helper app, uif calculator south africa 2025, maternity leave calculator south africa, uif benefits calculator, uif calculator south africa, uif calculator 2025 south africa online, uif benefit calculator, uif credits calculator, uif maternity calculator 2025 south africa, maternity uif calculator south africa, 2025 uif calculator south africa">
+
+  {% endblock %}
+{% block title %}UIF Leave Benefit Top-Up Calculator{% endblock %}
+{% block content %}
+  {% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
+
+  <section class="py-5 bg-gradient-primary text-black">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="border rounded-4 p-4 bg-white shadow-sm">
+            <h1 class="h5 mb-3 text-center text-primary">UIF Leave Benefit Top-Up</h1>
+            <form method="post" action="">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+              <div class="mb-3">
+                <label for="monthlySalary" class="form-label small text-uppercase">Normal Monthly Salary (R)</label>
+                <input type="number" step="0.01" min="0" class="form-control" id="monthlySalary" name="monthly_salary" placeholder="e.g. 30000" required>
+              </div>
+              <div class="mb-3">
+                <label for="leaveSalary" class="form-label small text-uppercase">Monthly Salary While on Leave (R)</label>
+                <input type="number" step="0.01" min="0" class="form-control" id="leaveSalary" name="leave_salary" placeholder="e.g. 25000" required>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Calculate Top-Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-4 bg-primary text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-8 mx-auto">
+          <h2>Calculate Your UIF Benefits Today</h2>
+          <p class="text-white">
+            Don't wait until you need it - understand your UIF entitlements now. Our free calculators give you instant, accurate results based on your specific situation.
+          </p>
+          <div class="d-flex flex-column flex-md-row gap-2 justify-content-center">
+            <a href="/uif/unemployment-calculator"
+               class="btn btn-outline-light btn-sm">Calculate Unemployment Benefits</a>
+            <a href="/uif/leave-benefit-calculator"
+               class="btn btn-outline-light btn-sm">Calculate Maternity Benefits</a>
+          </div>
+          <p class="text-white small mt-3">
+            Join thousands of South Africans who've used our UIF calculator to plan their finances
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

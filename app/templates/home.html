@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+
+{% block title %}UIF Calculator 2025 - Calculate Your UIF Benefits Online | South Africa{% endblock %}
+
+{% block content %}
+
+
+<!-- Main Content -->
+<main class="py-3">
+    <!-- Hero Section -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <div class="mb-2">
+                        <span class="badge bg-success-subtle p-2 rounded-pill border border-success text-success fw-semibold small">
+                            <i class="bi bi-check-circle-fill me-1"></i>UIF Rules
+                            <i class="bi bi-check-circle-fill ms-2 me-1"></i>Accurate
+                            <i class="bi bi-check-circle-fill ms-2 me-1"></i>Updated 2025
+                        </span>
+                    </div>
+                    <h1 class="fw-bold mb-2">Calculate Your UIF Benefits in 30 Seconds</h1>
+                    <p class="lead mb-3">
+                        Instant estimates for unemployment, maternity & illness benefits. <strong>UIF Calculator</strong>
+                    </p>
+                    <div class="d-grid gap-2 d-md-flex mb-3">
+                        <a href="/uif/unemployment-calculator/"
+                           class="btn btn-success btn-lg px-4 pulse-btn shadow">
+                            <i class="bi bi-calculator me-2"></i>Calculate Now
+                        </a>
+                        <a class="btn btn-outline-primary btn-lg"
+                           href="{{ url_for("uif.leave_benefit_calculator")}}"
+                           role="link">Maternity UIF Calculator</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-3 mt-lg-0">
+                    <!-- Quick Calculator Preview Widget -->
+                    <div class="card border rounded-3 border-primary shadow-sm">
+                        <div class="card-body p-4 bg-white rounded-3">
+                            <h3 class="h6 mb-3 text-center text-primary">Quick UIF Estimate</h3>
+                            <form id="quickCalc"
+                                  method="post"
+                                  action="/uif/unemployment-calculator/"
+                                  class="mx-auto"
+                                  style="max-width: 340px">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                <input type="hidden" name="sameSalaryCheck" value="on">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label for="singleSalary" class="form-label mb-1 small text-uppercase text-muted">
+                                            Average Monthly Salary (R)
+                                        </label>
+                                        <!-- NAME must be 'single_salary' to match the Python route -->
+                                        <input type="number"
+                                               step="0.01"
+                                               min="0"
+                                               class="form-control form-control-md"
+                                               id="singleSalary"
+                                               name="single_salary"
+                                               placeholder="e.g., 15000.00"
+                                               required>
+                                    </div>
+                                    
+                                    <!-- Start Date -->
+                                    <div class="col-12">
+                                        <label for="startDate" class="form-label mb-1 small text-uppercase text-muted">Start Date</label>
+                                        <input type="text"
+                                               class="form-control form-control-md"
+                                               id="startDate"
+                                               name="start_date"
+                                               data-select="datepicker"
+                                               placeholder="Select start date"
+                                               autocomplete="off"
+                                               required>
+                                    </div>
+                                    
+                                    <!-- End Date -->
+                                    <div class="col-12">
+                                        <label for="endDate" class="form-label mb-1 small text-uppercase text-muted">End Date</label>
+                                        <input type="text"
+                                               class="form-control form-control-md"
+                                               id="endDate"
+                                               name="end_date"
+                                               data-select="datepicker"
+                                               placeholder="Select end date"
+                                               autocomplete="off"
+                                               required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 mt-3">See Estimate</button>
+                            </form>
+                            <p class="text-muted small mt-3 mb-0 text-center">* Approximate calculation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10 text-center">
+                    <h2 class="fw-bold mb-4">Complete Guide to UIF Benefits in South Africa (Updated 2025)</h2>
+                    <p class="lead text-muted">Everything you need to know about claiming UIF – who qualifies, how much you get, and how to apply.</p>
+                </div>
+            </div>
+
+            <div class="row g-5">
+
+                <!-- Who Can Claim -->
+                <div class="col-lg-8 mx-auto">
+                    <h3 class="h4 fw-bold text-primary">Who Can Claim From the UIF Fund?</h3>
+                    <p>You can claim from the Unemployment Insurance Fund (UIF) if you are an employee registered with the UIF and have been contributing monthly through your salary.</p>
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">Can I Claim UIF If I Resigned?</h3>
+                    <p><strong>No.</strong> You <strong>cannot claim unemployment benefits if you resigned voluntarily</strong>.</p>
+                    <p class="bg-warning-subtle p-3 rounded">You can claim for UIF benefits only if:</p>
+                    <ul class="list-check">
+                        <li>You were <strong>dismissed</strong> (except for misconduct)</li>
+                        <li>You were <strong>retrenched</strong> or laid off</li>
+                        <li>Your fixed-term contract <strong>expired</strong></li>
+                    </ul>
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">Types of UIF Benefits (2025)</h3>
+                    <p>The UIF provides <strong>five types</strong> of benefits:</p>
+                    <ul class="list-check">
+                        <li><strong>Unemployment benefits</strong></li>
+                        <li><strong>Illness benefits</strong></li>
+                        <li><strong>Maternity benefits</strong></li>
+                        <li><strong>Adoption benefits</strong></li>
+                        <li><strong>Dependants’ Death benefits</strong></li>
+                    </ul>
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">When Can I Claim Illness Benefits?</h3>
+                    <p>To qualify for the benefits, you must be receiving less than your normal wages while you are on sick leave.</p>
+                    <p>To qualify for illness benefits, you must submit your application <strong>within 6 months</strong> of the date you stopped working due to your condition. Payments are calculated starting from the day you ceased working and became fully or partially unpaid, but please note that benefits are only payable if your illness lasts <strong>longer than 7 days</strong>. To validate the specific period of your condition, you are required to submit a <strong>medical certificate</strong>.</p>
+
+<p><a href="{{ url_for("uif.unemployment_calculator") }}">The benefit amount</a> is calculated as the difference between what your employer pays you and the standard rate prescribed by the <strong>Unemployment Insurance Act</strong>. It is important to know that the combined total of the benefit and any payment from your employer <strong>cannot exceed 100 percent</strong> of the normal salary you would have received if you were working. To facilitate this, your employer must formally declare whether you will receive full, partial, or no remuneration while on sick leave.</p>
+
+<p>Finally, the duration of these payments depends on your accumulated credits. Subject to these credits, you may receive benefits for a <strong>maximum of 365 days</strong> within any four-year cycle.</p>
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">How Do Maternity Benefits Work?</h3>
+                    <p>You should submit your application either prior to the birth or <strong>within 12 months</strong> of the child being born. To qualify for these benefits, you must have been employed for at least <strong>13 weeks</strong> before the date of your application, and you must be receiving <strong>less than your normal remuneration</strong> while on maternity leave.</p>
+
+<p>Benefits are generally payable at a <strong>flat rate of 66 percent</strong> for the confinement period. The actual amount paid is calculated as the difference between what your employer pays and the prescribed rate, ensuring that the total combined income does <strong>not exceed 100 percent</strong> of your normal salary. To verify this, your employer must <strong>declare</strong> whether you will receive full, partial, or no pay while on leave.</p>
+
+<p>Payments are provided for a maximum of <strong>121 days</strong>, which also applies in the unfortunate event of a <strong>miscarriage or stillbirth</strong>. Importantly, claiming maternity benefits does not affect your right to claim <strong>Unemployment benefits</strong> later should you become unemployed.</p>
+
+<p>Additionally, you may wish to use <strong><a href="{{ url_for("uif.leave_benefit_calculator") }}">our UIF Maternity Benefit calculator</a></strong> to estimate your potential benefit amount.</p>
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">Adoption Benefits</h3>
+                    <p>Application for Adoption Benefits must be submitted <strong>within 6 months</strong> after the court issues the adoption order. To qualify, the adopted child must be <strong>younger than 2 years</strong>, and only <strong>one of the adopting parents</strong> is eligible to apply for the benefit, which covers the time spent caring for the child.</p>
+
+<p>The benefit amount is calculated as the difference between any pay received from the employer and the prescribed benefit rate, ensuring your total income <strong>does not exceed 100 percent</strong> of your normal salary. The employer must <strong>declare any pay</strong> given during the adoption leave. Subject to credits, benefits can be claimed for a maximum of <strong>365 days</strong> within a four-year period.</p>
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">Can I Claim If My Spouse Passed Away?</h3>
+                    <p>A surviving <strong>spouse or life partner</strong> must apply for benefits <strong>within 18 months</strong> from the contributor’s date of death. A dependent child can only apply if the spouse or life partner has not claimed the benefit within 14 days after that initial 18-month period expires.</p>
+
+<p>A child aged between 21 and 25 may also qualify if they are a <strong>learner or student</strong> and were <strong>wholly dependent</strong> on the deceased contributor. Subject to credits, benefits can be paid for a maximum of <strong>365 days</strong> within a four-year period.</p>
+
+<p>Contributors are allowed to nominate their own beneficiaries for the death benefit <strong>only if there is no surviving spouse, life partner, or child</strong>.</p>
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">How Much Will I Get From UIF?</h3>
+                    <p>The calculation of general benefit days is now based on receiving <strong>one day of benefit credit for every four days worked</strong>. If you have contributed for four years or more, you remain eligible for up to <strong>365 days of benefits</strong>.</p>
+
+<p>For Maternity or Adoption claims, the maximum payment duration is fixed at <strong>121 days</strong>. The amount you receive is calculated on a sliding scale, based on a <strong>percentage of your previous salary</strong>.</p>
+
+<p>The total benefit amount payable is subject to a maximum ceiling of approximately <strong>R65,000</strong>.</p>
+                    
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">How to Apply for UIF – Step by Step</h3>
+                    <p>
+                        You can apply for UIF either by visiting your nearest Labour Centre or by submitting your application online through the uFiling website. Before you apply, it’s a good idea to estimate your UIF benefit using our UIF calculators on <a href="https://uifcalculators.co.za">uifcalculators.co.za</a> so you know what to expect. Whether applying in person or online, you will need key documents such as your bar-coded ID, your last six payslips, and the UI-19 form provided by your employer. If you choose to apply online, make sure you first register an account on the uFiling platform at <a href="https://uifonline.labour.gov.za/uifOnline/loginJsp">uifonline.labour.gov.za</a> before submitting your claim.
+                        </p>
+                        
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">Documents Needed (Unemployment)</h3>
+                    <ul class="small">
+                        <li>13-digit bar-coded ID or passport</li>
+                        <li>UI-19 form (from employer)</li>
+                        <li>Last 6 payslips</li>
+                        <li>Bank details & proof</li>
+                        <li>Proof of registration as work seeker</li>
+                    </ul>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+    <section class="py-4 bg-primary text-white">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-8 mx-auto">
+              <h2>Calculate Your UIF Benefits Today</h2>
+              <p class="text-white">
+                Don't wait until you need it - understand your UIF entitlements now. Our free calculators give you instant, accurate results based on your specific situation.
+              </p>
+              <div class="d-flex flex-column flex-md-row gap-2 justify-content-center">
+                <a href="{{ url_for("uif.unemployment_calculator")}}"
+                   class="btn btn-outline-light btn-sm">Calculate Unemployment Benefits</a>
+                <a href="{{ url_for("uif.leave_benefit_calculator")}}"
+                   class="btn btn-outline-light btn-sm">Calculate Maternity Benefits</a>
+              </div>
+              <p class="text-white small mt-3">
+                Join thousands of South Africans who've used our UIF calculator to plan their finances
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+</main>
+{% endblock %}
+
+

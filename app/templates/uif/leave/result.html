@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block meta %}
+  <title>UIF Leave Benefit Top-Up Results | UIFCalculators</title>
+{% endblock %}
+{% block title %}Top-Up Estimate{% endblock %}
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm border rounded-3">
+          <!-- Top Hero Section -->
+          <div class="card-body text-center pt-5 pb-4">
+            <div class="mb-3">
+              <span class="badge bg-success-subtle p-2 rounded-pill border border-success text-success fw-semibold small">
+                Calculation Complete
+              </span>
+            </div>
+            <h1 class="display-4 fw-bold text-dark mb-1">R{{ "%.2f"|format(top_up_daily) }}</h1>
+            <p class="text-secondary small">Daily UIF Top-Up Amount</p>
+          </div>
+
+          <!-- Clean List Group -->
+          <ul class="list-group list-group-flush border-top border-bottom">
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Normal Monthly Salary</span>
+              <span class="fw-semibold text-dark">R{{ monthly_salary }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Monthly Salary on Leave</span>
+              <span class="fw-semibold text-dark">R{{ leave_salary }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Daily Benefit Amount (DBA)</span>
+              <span class="fw-semibold text-dark">R{{ daily_benefit_amount }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4 bg-light">
+              <span class="text-muted">Difference (Y1 − Y2)</span>
+              <span class="fw-bold text-success">R{{ difference }}</span>
+            </li>
+          </ul>
+
+          <div class="card-body p-4">
+            <div class="alert alert-light border text-center small text-muted mb-3">
+              Disclaimer: This is an estimation tool only. Actual UIF payouts depend on final adjudication.
+            </div>
+            <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="btn btn-dark w-100 py-2">
+              Start New Calculation
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

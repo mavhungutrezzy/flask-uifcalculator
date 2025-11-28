@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}UIF Estimate Result{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        
+        <div class="card shadow-sm border rounded-3">
+          
+          <!-- Top Hero Section -->
+          <div class="card-body text-center pt-5 pb-4">
+            <div class="mb-3">
+              <span class="badge bg-success-subtle p-2 rounded-pill border border-success text-success fw-semibold small">
+                Calculation Complete
+              </span>
+            </div>
+            <h1 class="display-4 fw-bold text-dark mb-1">R{{ "%.2f"|format(total_benefit) }}</h1>
+            <p class="text-secondary small">Total Estimated Benefit Amount</p>
+          </div>
+
+          <!-- Clean List Group -->
+          <ul class="list-group list-group-flush border-top border-bottom">
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Potential Credit Days</span>
+              <span class="fw-semibold text-dark">{{ credit_days }} days</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Monthly Payout (Avg)</span>
+              <span class="fw-semibold text-dark">
+                {% if credit_days > 0 %}
+                   R{{ "%.2f"|format(average_monthly_benefit) }}
+                {% else %}
+                   R0.00
+                {% endif %}
+              </span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4 bg-light">
+              <span class="text-muted">Est. Duration</span>
+              <span class="fw-bold text-success">
+                 {% if credit_days > 0 %}
+                   {{ months_for_benefits|round|int }} months
+                 {% else %}
+                   0 months
+                 {% endif %}
+              </span>
+            </li>
+
+          </ul>
+
+          <div class="card-body p-4">
+            <div class="alert alert-light border text-center small text-muted mb-3">
+              Disclaimer: This is an estimation tool only. Actual payouts depend on final adjudication.
+            </div>
+            <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-dark w-100 py-2">
+              Start New Calculation
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
