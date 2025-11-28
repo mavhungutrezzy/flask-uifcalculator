@@ -15,3 +15,8 @@ class Config:
     # Flask-Caching configuration
     CACHE_TYPE = os.environ.get("CACHE_TYPE") or "SimpleCache"
     CACHE_DEFAULT_TIMEOUT = int(os.environ.get("CACHE_DEFAULT_TIMEOUT") or 300)
+
+    # Scout APM configuration
+    SCOUT_MONITOR = os.environ.get("SCOUT_MONITOR", "True").lower() in ["true", "1", "yes"]
+    SCOUT_KEY = os.environ.get("SCOUT_KEY", "")
+    SCOUT_NAME = os.environ.get("SCOUT_NAME", "uifcalculators")

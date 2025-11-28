@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_squeeze import Squeeze
+from scout_apm.flask import ScoutApm
 from flask_wtf.csrf import CSRFProtect
 from flask_caching import Cache
 
@@ -9,6 +10,9 @@ from config import Config
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
+
+    # Attach Scout APM monitoring
+    ScoutApm(app)
 
     CSRFProtect(app)
 
