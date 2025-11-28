@@ -22,3 +22,11 @@ def sitemap_xml():
     return send_from_directory(
         current_app.static_folder, "sitemap.xml", mimetype="application/xml"
     )
+
+
+@home_bp.route("/ads.txt")
+def ads_txt():
+    """Serve the ads.txt file from the static directory."""
+    return send_from_directory(
+        current_app.static_folder, "ads.txt", mimetype="text/plain"
+    )
