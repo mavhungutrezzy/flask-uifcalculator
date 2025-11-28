@@ -11,4 +11,14 @@ def index():
 @home_bp.route("/robots.txt")
 def robots_txt():
     """Serve the robots.txt file from the static directory."""
-    return send_from_directory(current_app.static_folder, "robots.txt", mimetype="text/plain")
+    return send_from_directory(
+        current_app.static_folder, "robots.txt", mimetype="text/plain"
+    )
+
+
+@home_bp.route("/sitemap.xml")
+def sitemap_xml():
+    """Serve the sitemap.xml file from the static directory."""
+    return send_from_directory(
+        current_app.static_folder, "sitemap.xml", mimetype="application/xml"
+    )
