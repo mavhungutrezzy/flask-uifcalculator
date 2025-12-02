@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+
+{% block title %}UIF Status Check Online | UIF Calculator{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="Check your UIF status online using the official uFiling website. This guide helps you see if your claim is approved, pending, rejected or already paid.">
+    <meta name="keywords" content="uif status check online, uif status check, uif status, uif status check online 2025, uif status check online south africa, uif status check online login, uif status check online south africa, uif status check online login south africa, uif status check online south africa login, uif status check online south africa login 2025">
+    <meta name="robots" content="index, follow">
+{% endblock %}
+{% block content %}
+<div class="container py-4">
+
+    <h1 class="fw-bold mb-3">UIF Status Check Online (Updated 2025)</h1>
+
+    <p class="lead mb-4">
+        You can check your UIF status online using the official uFiling website. This guide helps you see if your claim is 
+        <strong>approved</strong>, <strong>pending</strong>, <strong>rejected</strong> or <strong>already paid</strong>.
+        The steps below explain everything you need to know about checking your UIF status online.
+    </p>
+
+    <div class="d-grid gap-2 d-md-flex mb-4">
+        <a href="https://uifonline.labour.gov.za/uifOnline/loginJsp"
+           class="btn btn-success btn-lg px-4 shadow" target="_blank" rel="noopener">
+            <i class="bi bi-box-arrow-in-right me-2"></i>Go to uFiling Login
+        </a>
+        <a class="btn btn-outline-primary btn-lg"
+           href="{{ url_for('uif.unemployment_calculator') }}">
+            UIF Calculator
+        </a>
+    </div>
+
+    <hr class="my-4">
+    <div class="row g-4">
+        <div class="col-lg-8">
+    
+            <!-- Section 1: Check Online -->
+            <section class="mb-5">
+                <h2 class="h3 fw-bold text-primary mb-3">1. Check Online via uFiling Website</h2>
+                <p>This is the primary method for checking your claim status, available credits, and contribution history.</p>
+                
+                <ol class="list-group list-group-numbered mb-4">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Visit the website</div>
+                            Go to the official <a href="https://uifonline.labour.gov.za/uifOnline/loginJsp" target="_blank">UIF uFiling website</a>.
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Log in</div>
+                            Use your South African ID number and password. If you are new, you must register first.
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Navigate to your status</div>
+                            Click on <strong>Benefit Payments</strong> on the dashboard, then select <strong>View My Claims</strong>.
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">View progress</div>
+                            Your claim status and case number will appear. <br>
+                            <span class="text-muted small"><i class="bi bi-info-circle me-1"></i> "Sent to Assessor" means under review. "Payment Reserved" means ready to pay.</span>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+    
+            <!-- Section 2: Check via USSD -->
+            <section class="mb-5">
+                <div class="card bg-light border-0 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="h4 fw-bold text-primary mb-3"><i class="bi bi-phone me-2"></i>Check via USSD (No Internet)</h2>
+                        <p class="card-text">For a quick check using your mobile phone:</p>
+                        <ol class="mb-0">
+                            <li>Dial <strong>*134*843#</strong> on any mobile phone.</li>
+                            <li>Follow the menu prompts to check your <strong>Claims and Payment Status</strong>.</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Section 3: UIF Status Explanation -->
+            <section class="mb-5">
+                <h2 class="h3 fw-bold text-primary mb-3">What Your UIF Status Means</h2>
+                <p>Use the list below to understand the specific status code on your application.</p>
+    
+                <div class="list-group shadow-sm mb-4">
+                    <div class="list-group-item">
+                        <h5 class="mb-1 text-primary">Cancelled</h5>
+                        <p class="mb-1">Your application has been cancelled. You must call the contact center to find the specific reason.</p>
+                    </div>
+    
+                    <div class="list-group-item">
+                        <h5 class="mb-1 text-primary">Auto Close</h5>
+                        <p class="mb-1">The UIF specialist has not accepted your application yet. It is currently sitting in the database waiting for processing.</p>
+                    </div>
+    
+                    <div class="list-group-item">
+                        <h5 class="mb-1 text-primary">Payment Finalised / Completed</h5>
+                        <p class="mb-1">You have either claimed all your available credits, or you have <strong>No Credits</strong> left. No further payments will be made on this claim.</p>
+                    </div>
+    
+                    <div class="list-group-item">
+                        <h5 class="mb-1 text-primary">Parked / Leave / Adoption</h5>
+                        <p class="mb-1">Application is on hold. Outstanding documents must be submitted to proceed.</p>
+                    </div>
+    
+                    <div class="list-group-item">
+                        <h5 class="mb-1 text-primary">Payment Blocked</h5>
+                        <p class="mb-1">Failed banking verification or incorrect details. You likely need to submit <strong>UI 2.8 & UI 49</strong>.</p>
+                    </div>
+    
+                    <div class="list-group-item">
+                        <h5 class="mb-1 text-primary">Payment Reversed</h5>
+                        <p class="mb-1">Payment bounced (often due to surname changes/marriage). You must update your details at the bank and submit UI 2.8.</p>
+                    </div>
+    
+                    <div class="list-group-item">
+                        <h5 class="mb-1 text-primary">Removal Final</h5>
+                        <p class="mb-1">Closing of old periods. UIF is awaiting an outstanding declaration from a previous employer.</p>
+                    </div>
+    
+                    <div class="list-group-item">
+                        <h5 class="mb-1 text-primary">Completed by Assessor</h5>
+                        <p class="mb-1">An assessor has processed the application. <strong>Note:</strong> This does not guarantee approval; it could be approved, rejected, or refused.</p>
+                    </div>
+    
+                    <div class="list-group-item">
+                        <h5 class="mb-1 text-primary">Call Log (Open Payment Grid)</h5>
+                        <p class="mb-1">A Continuation of Benefits (COB) was received. Payment is waiting to be processed by the paymaster.</p>
+                    </div>
+    
+                    <div class="list-group-item">
+                        <h5 class="mb-1 text-primary">Sent to Paymaster</h5>
+                        <p class="mb-1">The payment request has been successfully sent to the paymaster for processing.</p>
+                    </div>
+    
+                    <div class="list-group-item">
+                        <h5 class="mb-1 text-primary">Cancelled by Paymaster</h5>
+                        <p class="mb-1">The paymaster stopped the payment. You will not receive funds for this specific request.</p>
+                    </div>
+    
+                    <div class="list-group-item">
+                        <h5 class="mb-1 text-primary">Pending Adjudicate</h5>
+                        <p class="mb-1">A previous employer did not declare you, affecting your credits. The file is being fixed (adjudicated) to add missing declarations.</p>
+                    </div>
+                </div>
+    
+                <div class="alert alert-warning d-flex align-items-center" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill flex-shrink-0 me-3 fs-4"></i>
+                    <div>
+                        <strong>Note:</strong> If your status says "Claim Finalised" or "No credit days remaining," you have used up all your accumulated UIF points (Maximum 365 days) and cannot claim further until you are employed again.
+                    </div>
+                </div>
+            </section>
+    
+        </div>
+    </div>
+    <section class="mb-5">
+        <h2 class="h3 fw-bold text-primary mb-4">UIF Status & Balance Check FAQ</h2>
+    
+        <div class="accordion" id="uifStatusFaq">
+    
+            <!-- FAQ 1 -->
+            <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="faq1">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                        How do I check my UIF status online via uFiling?
+                    </button>
+                </h2>
+                <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="faq1" data-bs-parent="#uifStatusFaq">
+                    <div class="accordion-body">
+                        You can check your UIF status online using the <strong>uFiling login</strong> portal. Visit the official <a href="https://uifonline.labour.gov.za/uifOnline/loginJsp" target="_blank">uFiling website</a>, log in with your South African ID number, and navigate to <strong>View My Claims</strong> under <strong>Benefit Payments</strong>.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- FAQ 2 -->
+            <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="faq2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                        Can I check my UIF balance online?
+                    </button>
+                </h2>
+                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#uifStatusFaq">
+                    <div class="accordion-body">
+                        Yes! You can check your UIF balance using the online calculator on <a href="https://uifcalculators.co.za/uif/unemployment-calculator/" target="_blank">uifcalculators.co.za</a>. Enter your monthly salary and contributions to see your estimated UIF payout.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- FAQ 3 -->
+            <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="faq3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                        How long can I receive UIF payments?
+                    </button>
+                </h2>
+                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#uifStatusFaq">
+                    <div class="accordion-body">
+                        UIF payments are limited to the number of accumulated credit days, up to a maximum of 365 days. Use the <a href="https://uifcalculators.co.za/uif/unemployment-calculator/" target="_blank">UIF calculator</a> to see how many months you can be paid based on your contributions.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- FAQ 4 -->
+            <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="faq4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                        What do different UIF status codes mean?
+                    </button>
+                </h2>
+                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#uifStatusFaq">
+                    <div class="accordion-body">
+                        Status codes indicate the progress of your claim:
+                        <ul>
+                            <li><strong>Sent to Assessor:</strong> Your claim is under review.</li>
+                            <li><strong>Payment Reserved:</strong> Ready to pay.</li>
+                            <li><strong>Payment Finalised:</strong> All credits claimed.</li>
+                            <li><strong>Cancelled:</strong> Claim stopped; contact UIF for details.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- FAQ 5 -->
+            <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="faq5">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                        Can I check UIF via USSD without internet?
+                    </button>
+                </h2>
+                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#uifStatusFaq">
+                    <div class="accordion-body">
+                        Yes! Dial <strong>*134*843#</strong> on your mobile phone and follow the menu to check your <strong>Claims and Payment Status</strong>. This is a quick option if you don’t have internet access.
+                    </div>
+                </div>
+            </div>
+    
+            <!-- FAQ 6 -->
+            <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="faq6">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                        How do I calculate my UIF payout?
+                    </button>
+                </h2>
+                <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="faq6" data-bs-parent="#uifStatusFaq">
+                    <div class="accordion-body">
+                        Use the online UIF payout calculator at <a href="https://uifcalculators.co.za/uif/unemployment-calculator/" target="_blank">uifcalculators.co.za</a>. Enter your salary, contributions, and leave type to estimate your unemployment insurance benefits.
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+    
+
+    
+
+
+</div>
+<section class="py-4 bg-primary text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-8 mx-auto">
+          <h2>Calculate Your UIF Benefits Today</h2>
+          <p class="text-white">
+            Don't wait until you need it - understand your UIF entitlements now. Our free calculators give you instant, accurate results based on your specific situation.
+          </p>
+          <div class="d-flex flex-column flex-md-row gap-2 justify-content-center">
+            <a href="{{ url_for("uif.unemployment_calculator")}}"
+               class="btn btn-outline-light btn-sm">Calculate Unemployment Benefits</a>
+            <a href="{{ url_for("uif.leave_benefit_calculator")}}"
+               class="btn btn-outline-light btn-sm">Calculate Maternity Benefits</a>
+          </div>
+          <p class="text-white small mt-3">
+            Join thousands of South Africans who've used our UIF calculator to plan their finances
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

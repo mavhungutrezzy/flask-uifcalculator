@@ -8,6 +8,11 @@ def index():
     return render_template("home.html")
 
 
+@home_bp.route("/uif-status-check-online")
+def uif_status_check_online():
+    return render_template("pages/uif_status_check.html")
+
+
 @home_bp.route("/robots.txt")
 def robots_txt():
     """Serve the robots.txt file from the static directory."""
