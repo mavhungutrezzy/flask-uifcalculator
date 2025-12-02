@@ -25,7 +25,7 @@
                         Instant estimates for unemployment, maternity & illness benefits. <strong>UIF Calculator</strong>
                     </p>
                     <div class="d-grid gap-2 d-md-flex mb-3">
-                        <a href="/uif/unemployment-calculator/"
+                        <a href="{{ url_for('uif.unemployment_calculator') }}"
                            class="btn btn-success btn-lg px-4 pulse-btn shadow">
                             <i class="bi bi-calculator me-2"></i>Calculate Now
                         </a>
@@ -41,7 +41,7 @@
                             <h3 class="h6 mb-3 text-center text-primary">Quick UIF Estimate</h3>
                             <form id="quickCalc"
                                   method="post"
-                                  action="/uif/unemployment-calculator/"
+                                  action="{{ url_for('uif.unemployment_calculator') }}"
                                   class="mx-auto"
                                   style="max-width: 340px">
                                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">

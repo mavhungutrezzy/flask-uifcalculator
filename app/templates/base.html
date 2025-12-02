@@ -62,7 +62,7 @@
 <body>
     <header class="navbar navbar-expand-md bg-body shadow-sm">
     <div class="container-xl px-lg-5">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
             <i class="bi bi-calculator"></i>
             <strong>UIF</strong>calculators
         </a>
@@ -78,7 +78,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/uif/unemployment-calculator/">UIF Calculator</a>
+                    <a class="nav-link" href="{{ url_for('uif.unemployment_calculator') }}">UIF Calculator</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('uif.leave_benefit_calculator')}}">Maternity UIF Calculator</a>
