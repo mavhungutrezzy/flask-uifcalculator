@@ -41,9 +41,9 @@
             Don't wait until you need it - understand your UIF entitlements now. Our free calculators give you instant, accurate results based on your specific situation.
           </p>
           <div class="d-flex flex-column flex-md-row gap-2 justify-content-center">
-            <a href="/uif/unemployment-calculator"
+            <a href="{{ url_for('uif.unemployment_calculator') }}"
                class="btn btn-outline-light btn-sm">Calculate Unemployment Benefits</a>
-            <a href="/uif/leave-benefit-calculator"
+            <a href="{{ url_for('uif.leave_benefit_calculator') }}"
                class="btn btn-outline-light btn-sm">Calculate Maternity Benefits</a>
           </div>
           <p class="text-white small mt-3">
