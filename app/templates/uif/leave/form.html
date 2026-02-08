@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
+
 {% block meta %}
-  <meta name="description" content="Estimate your UIF top-up during maternity, adoption, parental, or illness leave. Enter your salary and leave income to see your daily UIF payout.">
+  <meta name="description" content="Estimate your UIF top-up during maternity, adoption, parental, or illness leave. Enter your salary and leave income to see your daily UIF payout. Learn about maternity UIF, forms, calculation, and application process.">
   <meta name="keywords"
   content="uif calculator, uif calculator 2026, uif payments status check,uif calculator 2026 south africa, uif maternity calculator, uif calculator online, uif ussd code, uif status check online, uif status chek, uif calculator online login, uif calculator online south africa, uif maternity benefit calculator, 2026 uif calculator, uif calculator on salary in south africa, uif payout calculator, uif calculator maternity, uif benefit helper app, uif calculator south africa 2026, maternity leave calculator south africa, uif benefits calculator, uif calculator south africa, uif calculator 2026 south africa online, uif benefit calculator, uif credits calculator, uif maternity calculator 2026 south africa, maternity uif calculator south africa, 2026 uif calculator south africa">
+{% endblock %}
 
-  {% endblock %}
-{% block title %}UIF Leave Benefit Top-Up Calculator |UIF Calculator{% endblock %}
+{% block title %}UIF Leave Benefit Top-Up Calculator | UIF Calculator{% endblock %}
+
 {% block content %}
   {% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
 
+  <!-- Calculator Form Section -->
   <section class="py-5 bg-gradient-primary text-black">
     <div class="container">
       <div class="row justify-content-center">
@@ -32,6 +35,8 @@
       </div>
     </div>
   </section>
+
+  <!-- Call-to-Action Section -->
   <section class="py-4 bg-primary text-white">
     <div class="container">
       <div class="row text-center">
@@ -49,6 +54,71 @@
           <p class="text-white small mt-3">
             Join thousands of South Africans who've used our UIF calculator to plan their finances
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Maternity UIF Content Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+
+          <h2>How Does Maternity UIF Work in South Africa?</h2>
+          <p>
+            Maternity UIF provides financial support to employees during maternity, adoption, or parental leave. It ensures you receive a portion of your normal salary while you are away from work due to childbirth or adoption.
+          </p>
+
+          <h2>How Is Maternity UIF Calculated?</h2>
+          <p>
+            The maternity UIF payout is calculated using your normal salary, your leave salary, your UIF contribution history, and credit days. Typically, the income replacement rate ranges from 38% to 60% of your normal salary. Use our <a href="{{ url_for('uif.leave_benefit_calculator') }}">Maternity UIF Calculator</a> for accurate results.
+          </p>
+
+          <h2>How Much Is Maternity UIF and How Long Is It Paid?</h2>
+          <p>
+            Monthly payouts vary depending on your salary and contributions. The maximum benefit period is usually 17–18 weeks (about 4 months). Your payout may be capped based on UIF salary limits.
+          </p>
+
+          <h2>How Long Does Maternity UIF Take to Pay Out?</h2>
+          <p>
+            First payments can take several weeks depending on the UIF office or online submission. If this is your second maternity claim, processing may take longer. Always apply as early as possible to avoid delays.
+          </p>
+
+          <h2>When Should I Apply for Maternity UIF?</h2>
+          <p>
+            You can apply for maternity UIF before or after the birth or adoption. Early submission ensures your claim is processed promptly and you receive your payouts on time.
+          </p>
+
+          <h2>Can I Claim Maternity UIF After 6 Months?</h2>
+          <p>
+            In most cases, maternity UIF claims must be submitted within a few months after birth or adoption. Late claims may be rejected or require additional documentation.
+          </p>
+
+          <h2>Documents Needed for Maternity UIF Claims</h2>
+          <p>
+            Required documents include the <a href="{{ url_for('uif.ui19_form_explained') }}">UI-19 Form</a>, UI-2.8 form, medical certificate, ID document, and banking details.
+          </p>
+
+          <h2>Maternity UIF Forms Explained</h2>
+          <p>
+            The UI-19 form confirms your employment history, while the UI-2.8 confirms your leave and salary. Submitting these correctly ensures accurate calculation and faster payments.
+          </p>
+
+          <h2>How to Apply for Maternity UIF (Step-by-Step)</h2>
+          <p>
+            Apply online via uFiling or at your nearest UIF office. Complete all forms accurately, attach required documents, and submit before your leave period ends.
+          </p>
+
+          <h2>Frequently Asked Questions About Maternity UIF</h2>
+          <ul>
+            <li>How much is maternity UIF?</li>
+            <li>How long does maternity UIF take to pay out?</li>
+            <li>How is maternity UIF calculated?</li>
+            <li>Can I claim maternity UIF after 6 months?</li>
+            <li>How long does a second maternity UIF claim take?</li>
+          </ul>
+
         </div>
       </div>
     </div>

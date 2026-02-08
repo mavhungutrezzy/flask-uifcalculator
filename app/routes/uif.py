@@ -110,3 +110,13 @@ def leave_benefit_calculator():
         )
 
     return render_template("uif/leave/form.html")
+
+
+@uif_bp.route("/how-to-calculate-uif/", methods=["GET"])
+def how_to_calculate_uif():
+    return render_template("pages/how-to-calculate-uif.html")
+
+
+@uif_bp.route("/ui19-form-explained/", methods=["GET"])
+def ui19_form_explained():
+    return render_template("pages/ui19-form-explained.html")

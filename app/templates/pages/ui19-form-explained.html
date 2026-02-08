@@ -1,0 +1,696 @@
+{% extends "base.html" %}
+
+{% block title %}UI-19 Form Explained (UIF Declaration of Employment){% endblock %}
+{% block meta %}
+    <meta name="description" content="Understand what the UI-19 form is, who must complete it, how to get it, and how it affects your UIF claim and payout in South Africa.">
+    <meta name="keywords" content="ui-19 form, uif ui-19 form, ui-19 form south africa, what is ui-19 form, ui-19 form uif, ui-19 form download, ui-19 form required for uif, uif declaration of employment">
+    <meta name="robots" content="index, follow">
+{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "UI-19 Form Explained (UIF Declaration of Employment)",
+  "description": "Complete guide to the UI-19 form for UIF claims in South Africa. Learn who must complete it, how to get it, and how it affects your unemployment benefits.",
+  "author": {
+    "@type": "Organization",
+    "name": "UIF Calculators"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "UIF Calculators"
+  },
+  "datePublished": "2024-01-01",
+  "dateModified": "2024-01-01",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ url_for('uif.ui19_form_explained', _external=True) }}"
+  },
+  "image": "{{ url_for('static', filename='images/ui19-form-og.jpg', _external=True) }}",
+  "articleSection": [
+    "UI-19 Form",
+    "UIF Declaration of Employment",
+    "Employment Verification",
+    "UIF Documentation",
+    "UIF Claim Process"
+  ],
+  "about": {
+    "@type": "Thing",
+    "name": "UI-19 Form - Unemployment Insurance Fund South Africa"
+  },
+  "educationalLevel": "Beginner",
+  "learningResourceType": "Guide",
+  "teaches": [
+    "What is the UI-19 form",
+    "Who must complete the UI-19 form",
+    "How to get the UI-19 form",
+    "How the UI-19 form affects UIF claims",
+    "UI-19 form requirements and submission"
+  ],
+  "audience": {
+    "@type": "EducationalAudience",
+    "educationalRole": "Student"
+  },
+  "inLanguage": "en-ZA",
+  "isAccessibleForFree": true,
+  "isFamilyFriendly": true,
+  "offers": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": "UIF Calculator",
+      "description": "Free online UIF payout calculator to estimate unemployment benefits in South Africa",
+      "url": "{{ url_for('uif.unemployment_calculator', _external=True) }}"
+    }
+  },
+  "citation": [
+    {
+      "@type": "WebPage",
+      "name": "UI-19 Form Download",
+      "url": "https://www.labour.gov.za/DocumentCenter/Forms/Unemployment%20Insurance%20Fund/Unemployment%20benefit%20forms/UI19_employers%20declarations.pdf"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a UI-19 form?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The UI-19 form is a declaration of employment that employers must complete when employees leave their jobs. It contains employment details, salary information, and termination reasons that UIF uses to process benefit claims."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who must sign the UI-19 form?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The UI-19 form must be signed by an authorized representative of your employer, such as a manager, HR representative, or company director. Employee signatures alone are not sufficient for UIF processing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I submit UIF without a UI-19 form?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, UIF will not process your claim without a UI-19 form. This document is mandatory for verifying your employment details. Without it, your claim will be delayed until UIF can obtain the required information from your employer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does UIF take to process the UI-19?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the UI-19 form is complete and accurate, UIF typically processes it within 1-2 weeks. However, if there are errors or missing information, processing can take 4-8 weeks or longer while UIF contacts your employer for corrections."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can UIF reject my claim because of the UI-19?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, UIF can reject your claim if the UI-19 form is missing, incomplete, or contains serious errors. Incorrect termination reasons or missing signatures are common reasons for rejection. However, most issues can be resolved by submitting a corrected form."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the UI-19 form required for all UIF claims?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The UI-19 form is required for unemployment benefit claims. Other UIF benefits like maternity, illness, or adoption use different forms. However, if you're claiming unemployment benefits, the UI-19 form is always mandatory regardless of why you left your job."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+            <article class="blog-post">
+                
+                <header class="mb-5">
+                    <h1 class="display-4 fw-bold text-primary mb-4">UI-19 Form Explained (UIF Declaration of Employment)</h1>
+                    <div class="border-bottom pb-3"></div>
+                </header>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">What Is the UI-19 Form?</h2>
+                    
+                    <p class="lead">The UI-19 form is an official document that employers must complete when employees leave their jobs. It serves as a declaration of employment details that the Unemployment Insurance Fund uses to process claims.</p>
+                    
+                    <div class="card border-info bg-light mb-4">
+                        <div class="card-body">
+                            <p class="card-text">Think of the UI-19 form as your employment reference letter for UIF purposes. It contains all the essential information UIF needs to verify your work history, salary details, and the circumstances under which you left your job.</p>
+                        </div>
+                    </div>
+                    
+                    <p>Without this form, UIF cannot process your claim because they have no official record of your employment details. The form bridges the gap between your employer's records and the UIF system.</p>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">What Is the UI-19 Form Used For?</h2>
+                    
+                    <p class="lead">UIF uses the UI-19 form to verify critical information about your employment and ensure your claim is legitimate and accurate.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-primary h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-primary"><i class="bi bi-person-badge"></i> Employment Verification</h6>
+                                    <p class="card-text small">UIF verifies that you were actually employed and for how long. This helps determine if you meet the minimum contribution requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-success h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-success"><i class="bi bi-cash-stack"></i> Salary Confirmation</h6>
+                                    <p class="card-text small">The form confirms your salary details, which directly affects how much UIF you'll receive. This information is crucial for accurate <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="link-primary">UIF payout calculation</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-info h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-info"><i class="bi bi-calendar-x"></i> Termination Details</h6>
+                                    <p class="card-text small">UIF needs to know why and when you left your job. This determines if you qualify for benefits and affects your claim processing time.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-warning h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-warning"><i class="bi bi-shield-check"></i> Fraud Prevention</h6>
+                                    <p class="card-text small">The form helps UIF prevent fraudulent claims by ensuring only legitimate employees receive benefits they're entitled to.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">Who Must Complete the UI-19 Form?</h2>
+                    
+                    <p class="lead">The responsibility for completing the UI-19 form falls primarily on the employer, but understanding the process helps you ensure it gets done correctly.</p>
+                    
+                    <div class="alert alert-primary mb-4">
+                        <h5 class="alert-heading"><i class="bi bi-building"></i> Employer Responsibility</h5>
+                        <p>Your employer must complete and sign the UI-19 form when your employment ends. This is a legal requirement under South African labour law. The form should be provided to you free of charge.</p>
+                    </div>
+                    
+                    <div class="card border-secondary bg-light mb-4">
+                        <div class="card-body">
+                            <h6 class="card-title text-secondary">Can Employees Fill It In?</h6>
+                            <p class="card-text">While you can help gather the information, the form must be completed and signed by your employer or an authorized representative. UIF will not accept a UI-19 form completed only by the employee.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning">
+                        <h5 class="alert-heading"><i class="bi bi-exclamation-triangle"></i> What If Employer Refuses?</h5>
+                        <p class="mb-0">If your employer refuses to complete the form, you can report them to the Department of Labour. UIF may also accept alternative documentation, but this can delay your claim significantly.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">When Is the UI-19 Form Required?</h2>
+                    
+                    <p class="lead">The UI-19 form is required in most employment termination scenarios, but the urgency and requirements may vary depending on your situation.</p>
+                    
+                    <div class="accordion" id="scenariosAccordion">
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#retrenchment">
+                                    <strong>Retrenchment</strong>
+                                </button>
+                            </h3>
+                            <div id="retrenchment" class="accordion-collapse collapse show" data-bs-parent="#scenariosAccordion">
+                                <div class="accordion-body">
+                                    <p>When you're retrenched, the UI-19 form is essential. Retrenchments qualify for UIF benefits, and the form proves the termination was due to operational requirements. Your employer should provide this form immediately after retrenchment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#contract">
+                                    <strong>Contract Ending</strong>
+                                </button>
+                            </h3>
+                            <div id="contract" class="accordion-collapse collapse" data-bs-parent="#scenariosAccordion">
+                                <div class="accordion-body">
+                                    <p>When your fixed-term contract ends naturally, you need the UI-19 form to claim UIF. The form should indicate that the contract reached its natural end date rather than being terminated early.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dismissal">
+                                    <strong>Dismissal</strong>
+                                </button>
+                            </h3>
+                            <div id="dismissal" class="accordion-collapse collapse" data-bs-parent="#scenariosAccordion">
+                                <div class="accordion-body">
+                                    <p>For dismissals, the UI-19 form must clearly state the reason for dismissal. Only certain dismissals qualify for UIF benefits. Fair dismissals for operational reasons or misconduct may still qualify depending on the circumstances.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#resignation">
+                                    <strong>Resignation</strong>
+                                </button>
+                            </h3>
+                            <div id="resignation" class="accordion-collapse collapse" data-bs-parent="#scenariosAccordion">
+                                <div class="accordion-body">
+                                    <p>Even if you resign, UIF may require the UI-19 form. While resignations typically don't qualify for benefits, the form helps UIF track your employment history and may be needed if you claim constructive dismissal.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">Information Required on the UI-19 Form</h2>
+                    
+                    <p class="lead">The UI-19 form collects comprehensive employment information. Understanding what's required helps you ensure accuracy and avoid claim delays.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-info h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-info"><i class="bi bi-person"></i> Employee Details</h6>
+                                    <p class="card-text small">Your full name, ID number, and contact information. These must match your UIF registration details exactly to avoid processing delays.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-primary h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-primary"><i class="bi bi-calendar-range"></i> Employment Dates</h6>
+                                    <p class="card-text small">Your start date and end date of employment. These dates determine your credit days and affect how long you can claim benefits. Use our <a href="{{ url_for('uif.unemployment_calculator') }}" class="link-primary">UIF calculator</a> to see how dates affect your payout.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-success h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-success"><i class="bi bi-file-text"></i> Reason for Termination</h6>
+                                    <p class="card-text small">Specific reason why employment ended. This determines if you qualify for benefits and affects processing time. Be honest and accurate.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-warning h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-warning"><i class="bi bi-cash"></i> Salary Information</h6>
+                                    <p class="card-text small">Your monthly salary and any additional earnings. This directly impacts your benefit amount. Accurate salary information ensures correct <a href="{{ url_for('uif.unemployment_calculator') }}" class="link-primary">UIF payout calculation</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-danger mt-4">
+                        <h5 class="alert-heading"><i class="bi bi-exclamation-triangle"></i> Why Accuracy Matters</h5>
+                        <p class="mb-0">Errors on the UI-19 form can reduce your benefits or delay your claim by weeks or months. Double-check all information before submission and correct any mistakes immediately.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">How to Get the UI-19 Form</h2>
+                    
+                    <p class="lead">Getting the UI-19 form should be straightforward, but knowing your options helps if you encounter delays or resistance from your employer.</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item mb-4">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success"><span class="badge bg-success me-2">1</span>From Your Employer</h5>
+                                    <p class="card-text">The easiest way is to request it directly from your employer. They should provide it when you leave the company. Ask for it in writing to create a paper trail.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-4">
+                            <div class="card border-info">
+                                <div class="card-body">
+                                    <h5 class="card-title text-info"><span class="badge bg-info me-2">2</span>Download from UIF Website</h5>
+                                    <p class="card-text">You can download UI-19 form directly from the official Department of Labour website. Print it and give it to your employer to complete.</p>
+                                    <div class="alert alert-primary mt-3">
+                                        <p class="mb-0"><strong>Official Download:</strong> <a href="https://www.labour.gov.za/DocumentCenter/Forms/Unemployment%20Insurance%20Fund/Unemployment%20benefit%20forms/UI19_employers%20declarations.pdf" target="_blank" class="btn btn-sm btn-primary">Download UI-19 Form</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-4">
+                            <div class="card border-warning">
+                                <div class="card-body">
+                                    <h5 class="card-title text-warning"><span class="badge bg-warning me-2">3</span>uFiling Platform</h5>
+                                    <p class="card-text">If your employer uses uFiling, they can complete the form online. You can then access it through your uFiling account.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="card border-danger">
+                                <div class="card-body">
+                                    <h5 class="card-title text-danger"><span class="badge bg-danger me-2">4</span>UIF Office Assistance</h5>
+                                    <p class="card-text">If your employer delays, visit your nearest UIF office. They can provide the form and may contact your employer on your behalf.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info mt-4">
+                        <p class="mb-0"><strong>Tip:</strong> Request the UI-19 form as soon as you know you're leaving your job. This gives you time to follow up if there are any delays.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">How to Submit the UI-19 Form to UIF</h2>
+                    
+                    <p class="lead">Submitting the UI-19 form correctly is crucial for timely claim processing. UIF offers multiple submission methods to accommodate different situations.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-primary h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-laptop text-primary fs-1 mb-3"></i>
+                                    <h5 class="card-title">Online via uFiling</h5>
+                                    <p class="card-text small">The fastest method is submitting through the uFiling platform. Upload a clear scan or photo of the completed form. This typically results in faster processing times.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-success h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-building text-success fs-1 mb-3"></i>
+                                    <h5 class="card-title">Manual Submission</h5>
+                                    <p class="card-text small">Submit the original form in person at your nearest UIF office. Bring your ID and any other required documents. Staff can verify the form immediately.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card border-info bg-light mt-4">
+                        <div class="card-body">
+                            <h6 class="card-title text-info">When to Submit During Claim Process</h6>
+                            <p class="card-text">Submit the UI-19 form when you first register your UIF claim. UIF will not process your claim without this form. If you submit it later, your claim processing will start from that date, not your original application date.</p>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">How the UI-19 Form Affects Your UIF Payout</h2>
+                    
+                    <p class="lead">The information on your UI-19 form directly impacts how much UIF you receive and how quickly you get paid. Understanding this connection helps you ensure accuracy.</p>
+                    
+                    <div class="card border-warning bg-light mb-4">
+                        <div class="card-body">
+                            <h6 class="card-title text-warning">Salary Impact on Calculations</h6>
+                            <p class="card-text">The salary listed on your UI-19 form determines your benefit amount. UIF uses this figure to <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="link-primary">calculate your UIF payout</a>. If the salary is incorrect, your benefits will be wrong. Use our <a href="{{ url_for('uif.unemployment_calculator') }}" class="link-primary">UIF calculator</a> to verify the amount seems correct based on your salary.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-danger h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-danger"><i class="bi bi-calendar-x"></i> Employment Dates and Credit Days</h6>
+                                    <p class="card-text small">Your employment dates on the UI-19 form determine your credit days. Incorrect dates can reduce your benefit duration or make you ineligible for benefits.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-info h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-info"><i class="bi bi-clock-history"></i> Processing Delays</h6>
+                                    <p class="card-text small">Errors or missing information on the UI-19 form can delay your payment by weeks. UIF may need to contact your employer for clarification.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-primary mt-4">
+                        <p class="mb-0">Always review the completed UI-19 form carefully before submission. Small errors can have big impacts on your <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="alert-link">how UIF payout is calculated</a> and when you receive your first payment.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">What Happens If the UI-19 Form Is Missing or Incorrect?</h2>
+                    
+                    <p class="lead">Missing or incorrect UI-19 forms are among the most common reasons for UIF claim delays and rejections. Knowing what to expect helps you avoid these issues.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card border-danger h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-clock text-danger fs-1 mb-3"></i>
+                                    <h5 class="card-title">Claim Delays</h5>
+                                    <p class="card-text small">Without a UI-19 form, UIF cannot process your claim. This can delay your first payment by 4-8 weeks or longer while UIF tries to obtain the form.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-3">
+                            <div class="card border-warning h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-x-circle text-warning fs-1 mb-3"></i>
+                                    <h5 class="card-title">Claim Rejections</h5>
+                                    <p class="card-text small">Serious errors or missing signatures can lead to claim rejection. You'll need to correct the issues and reapply, starting the process over.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-3">
+                            <div class="card border-info h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-arrow-repeat text-info fs-1 mb-3"></i>
+                                    <h5 class="card-title">What You Can Do</h5>
+                                    <p class="card-text small">Contact your employer immediately for corrections. If they're unresponsive, visit your nearest UIF office for assistance and possible intervention.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card border-secondary bg-light mt-4">
+                        <div class="card-body">
+                            <h6 class="card-title text-secondary">How to Fix Errors</h6>
+                            <p class="card-text">If you discover errors after submission, inform UIF immediately in writing. They may require a new, corrected UI-19 form from your employer. Keep copies of all correspondence.</p>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">UI-19 Form vs Other UIF Forms</h2>
+                    
+                    <p class="lead">UIF uses several forms for different purposes. Understanding which form to use prevents confusion and ensures you submit the right documentation.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card border-primary h-100">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0">UI-19 Form</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text small"><strong>Purpose:</strong> Declaration of employment when leaving a job</p>
+                                    <p class="card-text small"><strong>Who completes:</strong> Employer</p>
+                                    <p class="card-text small"><strong>When needed:</strong> When applying for UIF benefits</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-3">
+                            <div class="card border-success h-100">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0">UI-2.8 Form</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text small"><strong>Purpose:</strong> Continuation of UIF claim</p>
+                                    <p class="card-text small"><strong>Who completes:</strong> Employee</p>
+                                    <p class="card-text small"><strong>When needed:</strong> Monthly to continue receiving benefits</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-3">
+                            <div class="card border-info h-100">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="mb-0">UI-2.7 Form</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text small"><strong>Purpose:</strong> Application for maternity benefits</p>
+                                    <p class="card-text small"><strong>Who completes:</strong> Employee and doctor</p>
+                                    <p class="card-text small"><strong>When needed:</strong> When claiming maternity UIF</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-light border mt-4">
+                        <p class="mb-0">The UI-19 form is specifically for unemployment benefits. Other UIF benefits like illness, maternity, or adoption use different forms. Make sure you're using the correct form for your situation.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">Common UI-19 Form Mistakes</h2>
+                    
+                    <p class="lead">Avoiding these common mistakes can save you weeks of claim delays and ensure you receive the correct benefit amount.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-danger h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-danger"><i class="bi bi-cash-stack"></i> Wrong Salary</h6>
+                                    <p class="card-text small">Employers sometimes list basic salary only, excluding allowances. This can reduce your UIF benefits. Ensure the total monthly earnings are correct.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-warning h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-warning"><i class="bi bi-calendar-range"></i> Incorrect Dates</h6>
+                                    <p class="card-text small">Wrong employment dates affect your credit days and benefit duration. Double-check that start and end dates match your actual employment period.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-info h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-info"><i class="bi bi-pen"></i> Missing Signatures</h6>
+                                    <p class="card-text small">The form must be signed by an authorized employer representative. Unsigned forms are rejected immediately, causing significant delays.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-secondary h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-secondary"><i class="bi bi-file-text"></i> Wrong Reason for Termination</h6>
+                                    <p class="card-text small">Incorrect termination reasons can affect your eligibility. Ensure the reason accurately reflects why your employment ended.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-success mt-4">
+                        <p class="mb-0">Before submitting your UI-19 form, compare the salary and dates against your payslips and employment contract. Use our <a href="{{ url_for('uif.unemployment_calculator') }}" class="alert-link">UIF payout calculator</a> to verify the benefit amount seems reasonable.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">Frequently Asked Questions About the UI-19 Form</h2>
+                    
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    <strong>What is a UI-19 form?</strong>
+                                </button>
+                            </h3>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>The UI-19 form is a declaration of employment that employers must complete when employees leave their jobs. It contains employment details, salary information, and termination reasons that UIF uses to process benefit claims.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    <strong>Who must sign the UI-19 form?</strong>
+                                </button>
+                            </h3>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>The UI-19 form must be signed by an authorized representative of your employer, such as a manager, HR representative, or company director. Employee signatures alone are not sufficient for UIF processing.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    <strong>Can I submit UIF without a UI-19 form?</strong>
+                                </button>
+                            </h3>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>No, UIF will not process your claim without a UI-19 form. This document is mandatory for verifying your employment details. Without it, your claim will be delayed until UIF can obtain the required information from your employer.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    <strong>How long does UIF take to process the UI-19?</strong>
+                                </button>
+                            </h3>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>If the UI-19 form is complete and accurate, UIF typically processes it within 1-2 weeks. However, if there are errors or missing information, processing can take 4-8 weeks or longer while UIF contacts your employer for corrections.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    <strong>Can UIF reject my claim because of the UI-19?</strong>
+                                </button>
+                            </h3>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Yes, UIF can reject your claim if the UI-19 form is missing, incomplete, or contains serious errors. Incorrect termination reasons or missing signatures are common reasons for rejection. However, most issues can be resolved by submitting a corrected form.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    <strong>Is the UI-19 form required for all UIF claims?</strong>
+                                </button>
+                            </h3>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>The UI-19 form is required for unemployment benefit claims. Other UIF benefits like maternity, illness, or adoption use different forms. However, if you're claiming unemployment benefits, the UI-19 form is always mandatory regardless of why you left your job.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-primary mt-4">
+                        <p class="mb-0">For accurate benefit estimates and to understand how your UI-19 form details affect your claim, use our <a href="{{ url_for('uif.unemployment_calculator') }}" class="alert-link">UIF calculator</a> and read our guide on <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="alert-link">how UIF payout is calculated</a>.</p>
+                    </div>
+                </section>
+        
+            </article>
+        </div>
+    </div>
+</div>
+{% endblock %}

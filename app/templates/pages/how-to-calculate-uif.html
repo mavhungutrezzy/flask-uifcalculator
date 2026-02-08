@@ -1,0 +1,805 @@
+{% extends "base.html" %}
+
+{% block title %}How to Calculate UIF Payout in South Africa{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="Learn how to calculate your UIF payout in South Africa. Understand the UIF formula, salary limits, examples, and use our UIF calculator to estimate your monthly payout.">
+    <meta name="keywords" content="how to calculate uif payout, uif calculation, uif payout calculation south africa, uif calculator, uif payout per month, uif salary ceiling, maximum uif payout, calculate uif online, uif calculation example, uif benefits south africa">
+    <meta name="robots" content="index, follow">
+{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Calculate UIF Payout in South Africa",
+  "description": "Complete guide on how to calculate UIF payout in South Africa. Learn about UIF formula, salary limits, credit days, and use our calculator to estimate your benefits.",
+  "author": {
+    "@type": "Organization",
+    "name": "UIF Calculators"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "UIF Calculators"
+  },
+  "datePublished": "2024-01-01",
+  "dateModified": "2024-01-01",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ url_for('uif.how_to_calculate_uif', _external=True) }}"
+  },
+  "image": "{{ url_for('static', filename='images/uif-calculator-og.jpg', _external=True) }}",
+  "articleSection": [
+    "UIF Calculation",
+    "Salary Limits", 
+    "Credit Days",
+    "UIF Formula",
+    "Maximum Payout",
+    "UIF Examples"
+  ],
+  "about": {
+    "@type": "Thing",
+    "name": "Unemployment Insurance Fund (UIF) South Africa"
+  },
+  "educationalLevel": "Beginner",
+  "learningResourceType": "Guide",
+  "teaches": [
+    "How to calculate UIF benefits",
+    "UIF salary limits and maximum payouts",
+    "Understanding UIF credit days system",
+    "UIF income replacement rates",
+    "How to use UIF calculator"
+  ],
+  "audience": {
+    "@type": "EducationalAudience",
+    "educationalRole": "Student"
+  },
+  "inLanguage": "en-ZA",
+  "isAccessibleForFree": true,
+  "isFamilyFriendly": true,
+  "offers": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": "UIF Calculator",
+      "description": "Free online UIF payout calculator to estimate unemployment benefits in South Africa",
+      "url": "{{ url_for('uif.unemployment_calculator', _external=True) }}"
+    }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much UIF will I get per month?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your monthly UIF benefit depends on your salary. You'll receive between 38% and 60% of your daily income, with lower earners getting a higher percentage. The maximum monthly payout is R6,730.88. Use our UIF calculator for an accurate estimate based on your specific salary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the maximum UIF payout?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The maximum UIF payout is R6,730.88 per month, regardless of how much you earned. This amount is calculated as 38% of the UIF salary ceiling of R17,712. Even if you earned more than this, your benefits are capped at this maximum amount."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is UIF paid monthly or weekly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UIF benefits are paid monthly into your bank account. The payment usually comes through at the end of each month, covering the previous month's benefits. You need to sign in at the labour center every four weeks to continue receiving payments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I work while claiming UIF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can do temporary or part-time work while claiming UIF, but you must declare any earnings. Your UIF benefits will be reduced by the amount you earn. If you find permanent full-time employment, you must stop claiming UIF immediately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can UIF be backdated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UIF cannot be backdated. You must submit your claim within six months of losing your job. If you apply late, you might lose some or all of your benefits. It's important to apply as soon as you become unemployed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I claim UIF more than once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can claim UIF multiple times throughout your working life, as long as you meet the eligibility requirements each time. Each new claim requires that you've been employed and contributing to UIF since your last claim."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+            <article class="blog-post">
+                
+                <header class="mb-5">
+                    <h1 class="display-4 fw-bold text-primary mb-4">How to Calculate UIF Payout in South Africa</h1>
+                    <div class="border-bottom pb-3"></div>
+                </header>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">What Is UIF and How Does UIF Payout Work?</h2>
+                    
+                    <div class="card border-0 bg-light mb-3">
+                        <div class="card-body">
+                            <p class="card-text">The Unemployment Insurance Fund (UIF) is a South African government program that provides short-term financial relief to workers who lose their jobs or cannot work due to certain circumstances.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card border-0 bg-light mb-3">
+                        <div class="card-body">
+                            <p class="card-text">Both employees and employers contribute 1% each of the employee's salary to the fund. When you become unemployed, you can claim these benefits as monthly payments while you look for work.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card border-0 bg-light">
+                        <div class="card-body">
+                            <p class="card-text">The UIF payout system works by calculating your benefits based on your previous earnings and how long you contributed to the fund. The more you earned and contributed, the higher your monthly benefits will be.</p>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">Who Qualifies for UIF Payout?</h2>
+                    
+                    <p class="lead">UIF benefits are available to most South African workers who lose their jobs through no fault of their own. Here's who qualifies:</p>
+                    
+                    <div class="accordion" id="qualificationAccordion">
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#employees">
+                                    <strong>Employees</strong>
+                                </button>
+                            </h3>
+                            <div id="employees" class="accordion-collapse collapse show" data-bs-parent="#qualificationAccordion">
+                                <div class="accordion-body">
+                                    <p>Full-time employees who contributed to UIF and lose their jobs can claim benefits. This includes retrenchments, contract terminations, or dismissals for fair reasons.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#contract">
+                                    <strong>Contract Workers</strong>
+                                </button>
+                            </h3>
+                            <div id="contract" class="accordion-collapse collapse" data-bs-parent="#qualificationAccordion">
+                                <div class="accordion-body">
+                                    <p>Fixed-term contract workers qualify for UIF if their contract ends naturally and they contributed to the fund during their contract period.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#domestic">
+                                    <strong>Domestic Workers</strong>
+                                </button>
+                            </h3>
+                            <div id="domestic" class="accordion-collapse collapse" data-bs-parent="#qualificationAccordion">
+                                <div class="accordion-body">
+                                    <p>Domestic workers, including cleaners, gardeners, and child minders, are covered by UIF and can claim benefits when they lose their jobs.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#parttime">
+                                    <strong>Part-time Workers</strong>
+                                </button>
+                            </h3>
+                            <div id="parttime" class="accordion-collapse collapse" data-bs-parent="#qualificationAccordion">
+                                <div class="accordion-body">
+                                    <p>Part-time workers who earn more than the UIF threshold and contribute to the fund can claim benefits if they meet the minimum work requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info mt-4">
+                        <h4 class="alert-heading"><i class="bi bi-info-circle"></i> Resignations vs Dismissals</h4>
+                        <p class="mb-0">If you resign voluntarily, you generally cannot claim UIF benefits unless you can prove constructive dismissal (forced to resign due to intolerable working conditions). Dismissals for operational requirements (retrenchments) or fair dismissals do qualify for UIF benefits.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">When You Cannot Claim UIF</h2>
+                    
+                    <p class="lead">Certain situations disqualify you from claiming UIF benefits. Understanding these exclusions helps avoid wasted applications:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-danger h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-danger"><i class="bi bi-x-circle"></i> Voluntary Resignation</h5>
+                                    <p class="card-text">You cannot claim UIF if you resigned voluntarily without good reason. Simply finding a better job or deciding to stop working does not qualify.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-danger h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-danger"><i class="bi bi-x-circle"></i> Misconduct Dismissal</h5>
+                                    <p class="card-text">If you were dismissed for misconduct (fraud, theft, serious violation of company policies), you cannot claim UIF benefits.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-danger h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-danger"><i class="bi bi-x-circle"></i> Insufficient Contributions</h5>
+                                    <p class="card-text">You cannot claim if you have not contributed to UIF for at least 12 months before becoming unemployed. The fund requires a minimum contribution period.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-danger h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-danger"><i class="bi bi-x-circle"></i> Receiving UIF Pension</h5>
+                                    <p class="card-text">If you are receiving a pension from the Unemployment Insurance Fund, you cannot claim additional benefits simultaneously.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning mt-3">
+                        <p class="mb-0"><strong>Important:</strong> You cannot claim if you refuse suitable employment or training opportunities offered through the Department of Labour.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">How UIF Payout Is Calculated (Step-by-Step)</h2>
+                    
+                    <p class="lead">UIF calculations follow a specific process that considers your earnings and contribution history. Understanding each step helps you estimate your potential benefits.</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item mb-4">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success"><span class="badge bg-success me-2">1</span>Calculate Your Average Monthly Salary</h5>
+                                    <p class="card-text">The UIF uses your average monthly salary over the last six months of employment. This includes your basic salary plus regular allowances and commissions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-4">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success"><span class="badge bg-success me-2">2</span>Determine Your Daily Income</h5>
+                                    <p class="card-text">Your average monthly salary is divided by the number of calendar days in the month to calculate your daily income rate.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-4">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success"><span class="badge bg-success me-2">3</span>Calculate Your Credit Days</h5>
+                                    <p class="card-text">For every <strong>four days</strong> you worked as a contributing employee, you earn one credit day. You can accumulate up to 365 credit days maximum.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-4">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success"><span class="badge bg-success me-2">4</span>Apply the Income Replacement Rate</h5>
+                                    <p class="card-text">The UIF pays between 38% and 60% of your daily income. Lower earners receive a higher percentage (up to 60%), while higher earners receive 38%.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success"><span class="badge bg-success me-2">5</span>Determine Your Benefit Duration</h5>
+                                    <p class="card-text">You can claim benefits for one day for every six days worked, based on your credit days. The maximum duration is 12 months.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-primary mt-4">
+                        <p class="mb-0">For accurate calculations, use our <a href="{{ url_for('uif.unemployment_calculator') }}" class="alert-link">UIF calculator</a> to get precise estimates based on your specific situation.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">UIF Calculation Formula Explained</h2>
+                    
+                    <p class="lead">The UIF formula might seem complex, but it's designed to ensure fair benefits while maintaining fund sustainability. Here's how it works:</p>
+                    
+                    <div class="card border-info bg-light">
+                        <div class="card-body">
+                            <p class="card-text">Your daily benefit amount is calculated using the Income Replacement Rate (IRR), which decreases as your income increases. This progressive system ensures lower-income workers receive proportionally more support.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-gradient-start">
+                                <div class="card-body text-center">
+                                    <h3 class="text-success">60%</h3>
+                                    <p class="mb-0">Maximum IRR for lowest earners</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 bg-gradient-end">
+                                <div class="card-body text-center">
+                                    <h3 class="text-warning">38%</h3>
+                                    <p class="mb-0">Minimum IRR for highest earners</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-4">The IRR starts at 60% for the lowest earners and gradually decreases to 38% for higher earners. This sliding scale prevents the fund from being depleted while providing meaningful support to those who need it most.</p>
+                    
+                    <p>The formula considers that higher earners typically have more savings and can maintain their lifestyle with a smaller percentage of their previous income.</p>
+                    
+                    <p>To <a href="{{ url_for('uif.unemployment_calculator') }}" class="link-primary">calculate your UIF payout</a> accurately, the system applies this formula automatically, ensuring you get the correct benefit amount based on your earnings bracket.</p>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">UIF Salary Limits and Maximum Payout</h2>
+                    
+                    <p class="lead">The UIF system has specific limits that affect how much you can receive. These limits ensure the fund remains sustainable while providing meaningful support.</p>
+                    
+                    <div class="card border-warning mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0"><i class="bi bi-exclamation-triangle"></i> Important UIF Limits</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-primary">UIF Salary Ceiling</h6>
+                                    <p>R17,712 per month</p>
+                                    <p class="small text-muted">Benefits calculated on this maximum amount</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-success">Maximum Monthly Payout</h6>
+                                    <p>R6,730.88 per month</p>
+                                    <p class="small text-muted">38% of the salary ceiling</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="h4">Why High Earners Are Capped</h3>
+                    
+                    <p>The salary cap ensures that the UIF system remains affordable for employers and sustainable for the economy. It also recognizes that higher earners typically have more financial resources to weather unemployment periods.</p>
+                    
+                    <div class="alert alert-secondary">
+                        <p class="mb-0">Even if you earned R30,000 per month, your UIF benefits would be calculated based on the R17,712 ceiling, not your actual salary.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">Calculate Your UIF Payout Instantly</h2>
+                    
+                    <div class="card border-primary bg-primary bg-gradient text-white mb-4">
+                        <div class="card-body text-center py-5">
+                            <h3 class="card-title mb-3"><i class="bi bi-calculator"></i> Ready to Calculate Your Benefits?</h3>
+                            <p class="card-text lead">Manual UIF calculations can be complex and prone to errors. Our <a href="{{ url_for('uif.unemployment_calculator') }}" class="text-white text-decoration-underline fw-bold">UIF payout calculator</a> eliminates guesswork and provides accurate results instantly.</p>
+                            <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-light btn-lg mt-3">Use UIF Calculator Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-check-circle text-success fs-1 mb-3"></i>
+                                    <h5 class="card-title">Accurate Results</h5>
+                                    <p class="card-text">The calculator considers all factors including your salary range, contribution history, and the current UIF regulations.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-graph-up text-info fs-1 mb-3"></i>
+                                    <h5 class="card-title">Income-Based Rates</h5>
+                                    <p class="card-text">Using a <a href="{{ url_for('uif.unemployment_calculator') }}" class="link-primary">UIF calculator</a> is especially important because the income replacement rate changes based on your earnings bracket.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-clock-history text-warning fs-1 mb-3"></i>
+                                    <h5 class="card-title">Duration Insights</h5>
+                                    <p class="card-text">When you <a href="{{ url_for('uif.unemployment_calculator') }}" class="link-primary">calculate UIF online</a>, you also get insights into how long your benefits will last.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">UIF Payout Examples (Based on Salary)</h2>
+                    
+                    <p class="lead">Real examples help illustrate how UIF benefits work across different income levels. These calculations use current UIF rates and assume maximum credit days.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-success h-100">
+                                <div class="card-header bg-success text-white">
+                                    <h5 class="mb-0"><i class="bi bi-person-badge"></i> Low Income Example</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>Monthly Salary:</strong> R5,000</p>
+                                    <p><strong>Daily Income:</strong> ~R167</p>
+                                    <p><strong>Replacement Rate:</strong> 60%</p>
+                                    <p><strong>Daily Benefit:</strong> ~R100</p>
+                                    <div class="alert alert-success mt-3">
+                                        <strong>Monthly Payout: ~R3,000</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-info h-100">
+                                <div class="card-header bg-info text-white">
+                                    <h5 class="mb-0"><i class="bi bi-person-workspace"></i> Average Income Example</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>Monthly Salary:</strong> R12,000</p>
+                                    <p><strong>Daily Income:</strong> R400</p>
+                                    <p><strong>Replacement Rate:</strong> ~45%</p>
+                                    <p><strong>Daily Benefit:</strong> R180</p>
+                                    <div class="alert alert-info mt-3">
+                                        <strong>Monthly Payout: ~R5,400</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-warning h-100">
+                                <div class="card-header bg-warning text-dark">
+                                    <h5 class="mb-0"><i class="bi bi-person-badge-fill"></i> Maximum Salary Example</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>Monthly Salary:</strong> R17,712 (ceiling)</p>
+                                    <p><strong>Daily Income:</strong> R590</p>
+                                    <p><strong>Replacement Rate:</strong> 38%</p>
+                                    <p><strong>Daily Benefit:</strong> R224</p>
+                                    <div class="alert alert-warning mt-3">
+                                        <strong>Monthly Payout: R6,730.88</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-primary">
+                        <p class="mb-0">Use our <a href="{{ url_for('uif.unemployment_calculator') }}" class="alert-link">UIF calculator</a> to get precise calculations based on your actual salary and employment history.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">How Long Does UIF Pay You?</h2>
+                    
+                    <p class="lead">The duration of UIF benefits depends on your work history and accumulated credits. Understanding this helps you plan your job search effectively.</p>
+                    
+                    <div class="card border-info bg-light mb-4">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <h5 class="text-info">Maximum Duration</h5>
+                                    <p class="mb-0">You can claim UIF benefits for a maximum of 12 months</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="text-primary">Credit System</h5>
+                                    <p class="mb-0">You earn one credit day for every <strong>four days</strong> worked as a contributing employee</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h6 class="card-title text-success">4 Years Work</h6>
+                                    <p class="card-text">Maximum 12-month benefit period</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-warning">
+                                <div class="card-body">
+                                    <h6 class="card-title text-warning">1 Year Work</h6>
+                                    <p class="card-text">Shorter benefit period based on credits</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning">
+                        <p class="mb-0">Your benefits stop when your credit days are exhausted, even if you haven't found employment yet. This is why it's important to start your job search early and use our <a href="{{ url_for('uif.unemployment_calculator') }}" class="alert-link">UIF calculator</a> to understand your benefit duration.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">When and How UIF Pays Out</h2>
+                    
+                    <p class="lead">Understanding the payment timeline and process helps you manage your finances during unemployment. UIF payments follow a specific schedule after your claim is approved.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card border-primary h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-clock text-primary fs-1 mb-3"></i>
+                                    <h5 class="card-title">First Payment Timing</h5>
+                                    <p class="card-text">Your first UIF payment typically comes through 6-8 weeks after submitting a complete claim. This delay allows for verification of your details and processing of your application.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-3">
+                            <div class="card border-success h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-calendar-month text-success fs-1 mb-3"></i>
+                                    <h5 class="card-title">Monthly Payouts</h5>
+                                    <p class="card-text">UIF benefits are paid monthly into your bank account. The payment usually comes through at the end of each month, covering the previous month's benefits.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-3">
+                            <div class="card border-warning h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-exclamation-triangle text-warning fs-1 mb-3"></i>
+                                    <h5 class="card-title">Common Delays</h5>
+                                    <p class="card-text">Delays often occur due to incomplete documentation, incorrect banking details, or missing employment records. Ensure all your paperwork is correct to avoid payment delays.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info mt-4">
+                        <p class="mb-0">If you haven't received payment after 8 weeks, contact the UIF call center or visit your nearest labour office to check on your claim status.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">How to Apply for UIF After Calculation</h2>
+                    
+                    <p class="lead">Once you've used our <a href="{{ url_for('uif.unemployment_calculator') }}" class="link-primary">UIF calculator</a> to estimate your benefits, the next step is submitting your claim. The application process requires specific steps and documentation.</p>
+                    
+                    <div class="card border-info bg-light mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title text-info">Application Steps</h5>
+                            <ol class="mb-0">
+                                <li class="mb-2">Register on the UIF online portal with your South African ID number and banking details</li>
+                                <li class="mb-2">Submit your claim within six months of losing your job</li>
+                                <li class="mb-2">Visit your nearest labour center if you need assistance with the online application</li>
+                                <li>Sign in at the labour center every four weeks to confirm you're still unemployed and actively seeking work</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning">
+                        <p class="mb-0">Late claims may be rejected, so it's important to apply promptly after losing your job.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">Documents Needed to Claim UIF</h2>
+                    
+                    <p class="lead">Having the right documents ready speeds up your UIF claim process. Missing or incorrect documents are the most common reason for claim delays.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-primary h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-primary"><i class="bi bi-person-badge"></i> South African ID</h6>
+                                    <p class="card-text small">Your valid South African ID book or smart card is essential. The UIF uses this to verify your identity and ensure benefits go to the right person.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-success h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-success"><i class="bi bi-bank"></i> Banking Details</h6>
+                                    <p class="card-text small">You'll need your banking details including a recent bank statement showing your account number and branch code. UIF payments are made directly into your bank account.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-info h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-info"><i class="bi bi-file-text"></i> UI-19 Form</h6>
+                                    <p class="card-text small">A completed UI-19 form from your previous employer is required. This form details your employment history, salary information, and reason for leaving your job.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-warning h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-warning"><i class="bi bi-file-earmark-text"></i> Additional Documents</h6>
+                                    <p class="card-text small">If you were dismissed, include relevant disciplinary documents. Proof of previous employment payslips for the last six months helps verify your salary calculations.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">Common UIF Calculation Mistakes</h2>
+                    
+                    <p class="lead">Many people make errors when estimating their UIF benefits, leading to unrealistic expectations or financial planning mistakes. Understanding these common errors helps you avoid them.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-danger h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-danger"><i class="bi bi-x-circle"></i> Full Salary Expectation</h6>
+                                    <p class="card-text small">The most common mistake is assuming you'll receive your full salary. UIF only pays a percentage based on your income level, typically between 38% and 60%.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-warning h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-warning"><i class="bi bi-exclamation-triangle"></i> Ignoring Salary Ceiling</h6>
+                                    <p class="card-text small">Some people forget about the salary ceiling and expect benefits based on their actual earnings. Remember that benefits are capped at R17,712 per month for calculation purposes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-info h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-info"><i class="bi bi-calculator"></i> Not Accounting for Taxes</h6>
+                                    <p class="card-text small">Another error is not accounting for taxes. UIF benefits are subject to income tax, so your take-home amount will be less than the calculated benefit.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card border-secondary h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-secondary"><i class="bi bi-clock-history"></i> Overestimating Duration</h6>
+                                    <p class="card-text small">Many people overestimate their benefit duration by not understanding how credit days work. You might not qualify for the full 12 months if you have a shorter work history.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-success mt-4">
+                        <p class="mb-0">Using our <a href="{{ url_for('uif.unemployment_calculator') }}" class="alert-link">UIF payout calculator</a> helps avoid these mistakes by applying correct formulas and regulations automatically.</p>
+                    </div>
+                </section>
+        
+                <section class="mb-5">
+                    <h2 class="h2 fw-bold text-secondary mb-4">Frequently Asked Questions About UIF Payout</h2>
+                    
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    <strong>How much UIF will I get per month?</strong>
+                                </button>
+                            </h3>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Your monthly UIF benefit depends on your salary. You'll receive between 38% and 60% of your daily income, with lower earners getting a higher percentage. The maximum monthly payout is R6,730.88. Use our <a href="{{ url_for('uif.unemployment_calculator') }}" class="link-primary">UIF calculator</a> for an accurate estimate based on your specific salary.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    <strong>What is the maximum UIF payout?</strong>
+                                </button>
+                            </h3>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>The maximum UIF payout is R6,730.88 per month, regardless of how much you earned. This amount is calculated as 38% of the UIF salary ceiling of R17,712. Even if you earned more than this, your benefits are capped at this maximum amount.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    <strong>Is UIF paid monthly or weekly?</strong>
+                                </button>
+                            </h3>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>UIF benefits are paid monthly into your bank account. The payment usually comes through at the end of each month, covering the previous month's benefits. You need to sign in at the labour center every four weeks to continue receiving payments.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    <strong>Can I work while claiming UIF?</strong>
+                                </button>
+                            </h3>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>You can do temporary or part-time work while claiming UIF, but you must declare any earnings. Your UIF benefits will be reduced by the amount you earn. If you find permanent full-time employment, you must stop claiming UIF immediately.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    <strong>Can UIF be backdated?</strong>
+                                </button>
+                            </h3>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>UIF cannot be backdated. You must submit your claim within six months of losing your job. If you apply late, you might lose some or all of your benefits. It's important to apply as soon as you become unemployed.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-primary">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    <strong>Can I claim UIF more than once?</strong>
+                                </button>
+                            </h3>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Yes, you can claim UIF multiple times throughout your working life, as long as you meet the eligibility requirements each time. Each new claim requires that you've been employed and contributing to UIF since your last claim.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-primary mt-4">
+                        <p class="mb-0">For the most accurate calculations and up-to-date information, always use our <a href="{{ url_for('uif.unemployment_calculator') }}" class="alert-link">UIF calculator</a> when planning your unemployment benefits.</p>
+                    </div>
+                </section>
+        
+            </article>
+        </div>
+    </div>
+</div>
+{% endblock %}
