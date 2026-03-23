@@ -1,0 +1,391 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+  <meta name="description" content="The complete guide to compound interest in South Africa (2025). Learn formulas, account options, TFSA strategy, and practical examples to grow your money faster.">
+  <meta name="keywords" content="compound interest south africa, compound interest calculator, tfsa south africa, best savings account rates, fixed deposit rates south africa, compound growth guide">
+  <meta name="robots" content="index, follow">
+{% endblock %}
+
+{% block title %}Compound Interest Calculator South Africa | Complete Guide (2025){% endblock %}
+
+{% block content %}
+{% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
+
+<section class="py-5 bg-gradient-primary text-black">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-7">
+        <div class="border rounded-4 p-4 bg-white shadow-sm">
+          <h1 class="h4 mb-3 text-center text-primary">Compound Interest Calculator</h1>
+          <p class="text-muted text-center small mb-4">
+            Estimate your future investment value with compound growth and optional recurring contributions.
+          </p>
+          <form method="post" action="">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+            <div class="mb-3">
+              <label for="initialInvestment" class="form-label small text-uppercase">Initial Investment (R)</label>
+              <input type="number" step="0.01" min="0" class="form-control" id="initialInvestment" name="initial_investment" placeholder="e.g. 10000" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="annualInterestRate" class="form-label small text-uppercase">Annual Interest Rate (%)</label>
+              <input type="number" step="0.01" min="0" class="form-control" id="annualInterestRate" name="annual_interest_rate" placeholder="e.g. 8.5" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="years" class="form-label small text-uppercase">Investment Period (Years)</label>
+              <input type="number" step="0.01" min="0.01" class="form-control" id="years" name="years" placeholder="e.g. 10" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="compoundsPerYear" class="form-label small text-uppercase">Compounding Frequency</label>
+              <select class="form-select" id="compoundsPerYear" name="compounds_per_year" required>
+                <option value="1">Annually</option>
+                <option value="2">Semi-Annually</option>
+                <option value="4">Quarterly</option>
+                <option value="12" selected>Monthly</option>
+                <option value="365">Daily</option>
+              </select>
+            </div>
+
+            <div class="mb-4">
+              <label for="contributionPerPeriod" class="form-label small text-uppercase">Contribution Per Period (R, Optional)</label>
+              <input type="number" step="0.01" min="0" class="form-control" id="contributionPerPeriod" name="contribution_per_period" placeholder="e.g. 500">
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Calculate Growth</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 text-center">
+        <h2 class="fw-bold mb-3">The Complete Guide to Compound Interest in South Africa: How to Grow Your Rands Smarter (2025)</h2>
+        <p class="lead text-muted">Discover how South Africans are using compound interest to beat inflation, build emergency funds, and create generational wealth, starting with as little as R50.</p>
+      </div>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-9 mx-auto">
+        <h3 class="h4 fw-bold text-primary">What Is Compound Interest? (The South African Context)</h3>
+        <p>Compound interest is interest calculated on your initial principal plus all accumulated interest from previous periods. Unlike simple interest, where you only earn on the original amount, compound interest creates a snowball effect where your money grows exponentially.</p>
+        <p>In South Africa, this distinction is crucial. With inflation often around 4-6% annually, your money needs to grow faster than inflation to maintain purchasing power.</p>
+        <p><strong>Formula:</strong> A = P(1 + r/n)<sup>nt</sup></p>
+        <ul>
+          <li><strong>A</strong> = Final amount in Rands</li>
+          <li><strong>P</strong> = Principal (starting investment)</li>
+          <li><strong>r</strong> = Annual interest rate (decimal)</li>
+          <li><strong>n</strong> = Compounding frequency per year</li>
+          <li><strong>t</strong> = Time in years</li>
+        </ul>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Compound Interest vs. Simple Interest: The R15,000 Example</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Strategy</th>
+                <th>Initial Investment</th>
+                <th>After 3 Years</th>
+                <th>Total Growth</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Simple Interest (6% on principal only)</td>
+                <td>R15,000</td>
+                <td>R17,700</td>
+                <td>R2,700</td>
+              </tr>
+              <tr>
+                <td>Compound Interest (6% compounded quarterly)</td>
+                <td>R15,000</td>
+                <td>R18,148</td>
+                <td>R3,148</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The difference is R448 extra, without adding another rand.</p>
+        <p><strong>Old Mutual style illustration:</strong> R500 at 10% simple interest for 2 years earns R100 total; with compounding it earns R105.</p>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Understanding South African Interest Rate Terminology</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Term</th>
+                <th>Meaning</th>
+                <th>Why It Matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nominal Rate</td>
+                <td>Rate before compounding effects</td>
+                <td>What you would earn if interest was not reinvested</td>
+              </tr>
+              <tr>
+                <td>Effective Rate</td>
+                <td>Actual annual return with reinvestment</td>
+                <td>Your true return, often higher than nominal</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Best Compound Interest Accounts in South Africa (2025)</h3>
+        <h4 class="h5 fw-semibold mt-3">Emergency Funds and Short-Term Savings (Instant Access)</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Bank</th>
+                <th>Account</th>
+                <th>Min Deposit</th>
+                <th>Interest Rate</th>
+                <th>Special Conditions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>TymeBank</td><td>GoalSave Bonus Rate</td><td>R1</td><td>Up to 10%</td><td>10-day notice + activity conditions</td></tr>
+              <tr><td>Nedbank</td><td>JustSave</td><td>Any amount</td><td>6.25% - 7.5%</td><td>Tiered by balance</td></tr>
+              <tr><td>Capitec</td><td>Global One Savings</td><td>R1</td><td>2% - 6.25%</td><td>Balance-based</td></tr>
+              <tr><td>Absa</td><td>TruSave</td><td>R50</td><td>4.2% (6.1% online)</td><td>Digital bonus</td></tr>
+              <tr><td>FNB</td><td>Linked Savings</td><td>Any amount</td><td>Up to 5.9%</td><td>Linked to cheque account</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="h5 fw-semibold mt-4">Medium-Term Goals (Notice Accounts)</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Bank</th>
+                <th>Account</th>
+                <th>Notice Period</th>
+                <th>Interest Rate</th>
+                <th>Min Deposit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>African Bank</td><td>Notice Deposit</td><td>90 days</td><td>Up to 8%</td><td>R500</td></tr>
+              <tr><td>Discovery</td><td>Notice Savings</td><td>32-90 days</td><td>7.45% - 7.55%</td><td>None</td></tr>
+              <tr><td>Nedbank</td><td>Platinum Invest</td><td>24 hours</td><td>6.3% - 8.3%</td><td>R500</td></tr>
+              <tr><td>Capitec</td><td>Notice Deposit</td><td>7-32 days</td><td>3% - 7.76%</td><td>None</td></tr>
+              <tr><td>Absa</td><td>NoticeSelect</td><td>7-45 days</td><td>6.15% - 7.35%</td><td>R1,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="h5 fw-semibold mt-4">Long-Term Wealth Building (Fixed Deposits)</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Bank</th>
+                <th>Term</th>
+                <th>Interest Rate</th>
+                <th>Min Deposit</th>
+                <th>Key Feature</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>African Bank</td><td>60 months</td><td>10.41% effective</td><td>R1,000,000</td><td>High headline rate</td></tr>
+              <tr><td>Nedbank</td><td>60 months</td><td>Up to 11.31%*</td><td>R1,000</td><td>*55+ specific offers</td></tr>
+              <tr><td>Discovery</td><td>60 months</td><td>Up to 10.32%*</td><td>R10,000</td><td>*When reinvesting monthly interest</td></tr>
+              <tr><td>TymeBank</td><td>12 months</td><td>9%</td><td>Any amount</td><td>No monthly account fee</td></tr>
+              <tr><td>Absa</td><td>60 months</td><td>Up to 8.95%</td><td>R1,000</td><td>Digital bonus available</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small text-muted">Rates can change often. Confirm directly with each bank before investing.</p>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Tax-Free Savings Accounts (TFSA): The Compound Interest Advantage</h3>
+        <p>South African TFSAs currently allow up to R36,000 annual contributions and R500,000 lifetime contributions. Growth is tax-free.</p>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Bank</th>
+                <th>Account</th>
+                <th>Interest Rate</th>
+                <th>Min Deposit</th>
+                <th>Access</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>African Bank</td><td>Tax-Free Investment</td><td>8.25%</td><td>R50</td><td>After 12 months</td></tr>
+              <tr><td>Nedbank</td><td>Tax-Free Fixed Deposit</td><td>7.75%</td><td>R1,000</td><td>End of term</td></tr>
+              <tr><td>FNB</td><td>Tax-free Cash Deposit</td><td>7.45%</td><td>R300</td><td>32 days notice</td></tr>
+              <tr><td>Absa</td><td>Tax-Free Savings</td><td>7.25%</td><td>R1,000</td><td>Any time</td></tr>
+              <tr><td>Discovery</td><td>Tax-Free Demand Savings</td><td>7%</td><td>R1,000</td><td>Any time</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Strategy:</strong> Use your TFSA annual allowance first in the best available rate before taxable savings products.</p>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Real-World Compound Interest Scenarios for South Africans</h3>
+        <h4 class="h5 fw-semibold mt-3">Scenario 1: Early Starter vs. Late Saver</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th></th>
+                <th>Thandi (Starts at 25)</th>
+                <th>John (Starts at 35)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Monthly Contribution</td><td>R1,000</td><td>R2,000</td></tr>
+              <tr><td>Years Contributing</td><td>40 years</td><td>30 years</td></tr>
+              <tr><td>Total Invested</td><td>R480,000</td><td>R720,000</td></tr>
+              <tr><td>Final Amount (10% return)</td><td>R5.8 million</td><td>R3.9 million</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Starting earlier can beat contributing more later due to longer compounding time.</p>
+
+        <h4 class="h5 fw-semibold mt-4">Scenario 2: Emergency Fund Growth</h4>
+        <ul>
+          <li>Year 1: R50,000 to R55,000</li>
+          <li>Year 2: R55,000 to R60,500</li>
+          <li>Year 3: R60,500 to R66,550</li>
+        </ul>
+
+        <h4 class="h5 fw-semibold mt-4">Scenario 3: The Store Card Trap</h4>
+        <p>A R10,000 balance at 20% APR with minimum payments can take years to clear and cost substantial extra interest. Compound interest can work against you on debt.</p>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">How to Calculate Compound Interest: 4 Methods</h3>
+        <ol>
+          <li><strong>Mental estimate:</strong> Rule of 72 (72 / rate).</li>
+          <li><strong>Exact formula:</strong> Use A = P(1 + r/n)<sup>nt</sup>.</li>
+          <li><strong>Online calculators:</strong> Use South African bank and comparison tools.</li>
+          <li><strong>Spreadsheet:</strong> `=FV(8%/12, 60, 0, -20000)` for a basic example.</li>
+        </ol>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">7 Strategies to Maximize Compound Interest in South Africa</h3>
+        <ol>
+          <li>Start with an emergency fund in a high-interest access account.</li>
+          <li>Use your TFSA allowance first.</li>
+          <li>Prefer monthly compounding where possible.</li>
+          <li>Ladder fixed deposits across different maturities.</li>
+          <li>Reinvest interest at maturity.</li>
+          <li>Look for digital application bonuses.</li>
+          <li>Check age-related bonus rates if you qualify (55+).</li>
+        </ol>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Common Mistakes South Africans Make With Compound Interest</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Mistake</th>
+                <th>Why It Hurts</th>
+                <th>Solution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Keeping savings in current accounts</td><td>Low or no real growth</td><td>Move idle cash to high-interest savings</td></tr>
+              <tr><td>Breaking fixed deposits early</td><td>Penalties reduce returns</td><td>Keep emergency funds separate</td></tr>
+              <tr><td>Ignoring TFSA limits</td><td>Unnecessary tax leakage</td><td>Track annual and lifetime allowances</td></tr>
+              <tr><td>Chasing rate without terms</td><td>Rate may require high minimums</td><td>Choose products matching your balance</td></tr>
+              <tr><td>Not reinvesting interest</td><td>Stops compounding chain</td><td>Set automatic reinvestment</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-white border-top">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 text-center">
+        <h2 class="fw-bold mb-4">South African Compound Interest FAQs</h2>
+      </div>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-8 mx-auto">
+        <div class="accordion" id="compoundFaq">
+          <div class="card shadow-sm mb-3">
+            <div class="card-header" id="compoundFaqHeading1"><h5 class="mb-0"><button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#compoundFaq1">How much do I need to start?</button></h5></div>
+            <div id="compoundFaq1" class="accordion-collapse collapse" data-bs-parent="#compoundFaq"><div class="card-body text-muted">Some products allow starting from as little as R1 or R50.</div></div>
+          </div>
+
+          <div class="card shadow-sm mb-3">
+            <div class="card-header" id="compoundFaqHeading2"><h5 class="mb-0"><button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#compoundFaq2">How do I reduce tax on interest?</button></h5></div>
+            <div id="compoundFaq2" class="accordion-collapse collapse" data-bs-parent="#compoundFaq"><div class="card-body text-muted">Use your TFSA allowance first. Outside TFSA, annual exemptions may apply based on age.</div></div>
+          </div>
+
+          <div class="card shadow-sm mb-3">
+            <div class="card-header" id="compoundFaqHeading3"><h5 class="mb-0"><button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#compoundFaq3">Can I lose money in savings and fixed deposits?</button></h5></div>
+            <div id="compoundFaq3" class="accordion-collapse collapse" data-bs-parent="#compoundFaq"><div class="card-body text-muted">Capital is generally protected, but inflation can reduce real purchasing power if rates are too low.</div></div>
+          </div>
+
+          <div class="card shadow-sm mb-3">
+            <div class="card-header" id="compoundFaqHeading4"><h5 class="mb-0"><button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#compoundFaq4">Notice account or fixed deposit?</button></h5></div>
+            <div id="compoundFaq4" class="accordion-collapse collapse" data-bs-parent="#compoundFaq"><div class="card-body text-muted">Use instant or notice accounts for short-term needs and fixed deposits for long-term goals.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 mx-auto">
+        <h2 class="fw-bold mb-4 text-center">Your South African Compound Interest Action Plan</h2>
+        <h3 class="h5 fw-bold text-primary">This Week</h3>
+        <ol>
+          <li>Check your current account interest rate.</li>
+          <li>Open a high-interest savings account.</li>
+          <li>Move emergency savings to earn meaningful interest.</li>
+        </ol>
+
+        <h3 class="h5 fw-bold text-primary mt-4">This Month</h3>
+        <ol>
+          <li>Calculate available TFSA room this tax year.</li>
+          <li>Open a TFSA with a competitive rate.</li>
+          <li>Set automatic monthly transfers, even small amounts.</li>
+        </ol>
+
+        <h3 class="h5 fw-bold text-primary mt-4">This Quarter</h3>
+        <ol>
+          <li>Review fixed deposit ladder options.</li>
+          <li>Check for age-related bonus rates (55+).</li>
+          <li>Enable automatic interest reinvestment.</li>
+        </ol>
+
+        <h3 class="h5 fw-bold text-primary mt-4">Key Takeaways for South African Savers</h3>
+        <ul>
+          <li>Time beats amount. Starting earlier is powerful.</li>
+          <li>Use TFSAs first for tax-free growth.</li>
+          <li>Compare effective rates, not only nominal rates.</li>
+          <li>Watch fees because fees reduce compounding.</li>
+          <li>Aim to outpace inflation for real wealth growth.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

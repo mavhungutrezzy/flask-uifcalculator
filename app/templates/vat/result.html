@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}VAT Calculation Result{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm border rounded-3">
+          <div class="card-body text-center pt-5 pb-4">
+            <div class="mb-3">
+              <span class="badge bg-success-subtle p-2 rounded-pill border border-success text-success fw-semibold small">
+                Calculation Complete
+              </span>
+            </div>
+            <h1 class="display-5 fw-bold text-dark mb-1">R{{ "%.2f"|format(vat_amount) }}</h1>
+            <p class="text-secondary small">VAT Amount ({{ "%.2f"|format(vat_rate) }}%)</p>
+          </div>
+
+          <ul class="list-group list-group-flush border-top border-bottom">
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Input Amount</span>
+              <span class="fw-semibold text-dark">R{{ "%.2f"|format(amount) }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Amount Type</span>
+              <span class="fw-semibold text-dark">{{ amount_type|title }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Amount Excluding VAT</span>
+              <span class="fw-semibold text-dark">R{{ "%.2f"|format(amount_excluding_vat) }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4 bg-light">
+              <span class="text-muted">Amount Including VAT</span>
+              <span class="fw-bold text-success">R{{ "%.2f"|format(amount_including_vat) }}</span>
+            </li>
+          </ul>
+
+          <div class="card-body p-4">
+            <a href="{{ url_for('home.vat_calculator') }}" class="btn btn-dark w-100 py-2">
+              Start New Calculation
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

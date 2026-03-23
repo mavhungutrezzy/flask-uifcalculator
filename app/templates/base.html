@@ -77,11 +77,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('uif.unemployment_calculator') }}">UIF Calculator</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('uif.leave_benefit_calculator')}}">Maternity UIF Calculator</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Calculators
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('uif.unemployment_calculator') }}">UIF Calculator</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('uif.leave_benefit_calculator')}}">Maternity UIF Calculator</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('home.vat_calculator') }}">VAT Calculator</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('home.compound_interest_calculator') }}">Compound Interest Calculator</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('uif.how_to_calculate_uif') }}">How to Calculate UIF</a>
@@ -137,6 +146,18 @@
           "name": "Maternity UIF Calculator",
           "description": "Calculate maternity UIF benefits online",
           "url": "{{ url_for('uif.leave_benefit_calculator', _external=True) }}"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "VAT Calculator",
+          "description": "Calculate VAT amounts inclusive or exclusive",
+          "url": "{{ url_for('home.vat_calculator', _external=True) }}"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Compound Interest Calculator",
+          "description": "Calculate compound growth with optional recurring contributions",
+          "url": "{{ url_for('home.compound_interest_calculator', _external=True) }}"
         },
         {
           "@type": "SiteNavigationElement",

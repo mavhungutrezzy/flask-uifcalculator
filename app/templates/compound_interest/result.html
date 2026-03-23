@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Compound Interest Result{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-9 col-lg-7">
+        <div class="card shadow-sm border rounded-3">
+          <div class="card-body text-center pt-5 pb-4">
+            <div class="mb-3">
+              <span class="badge bg-success-subtle p-2 rounded-pill border border-success text-success fw-semibold small">
+                Calculation Complete
+              </span>
+            </div>
+            <h1 class="display-5 fw-bold text-dark mb-1">R{{ "%.2f"|format(future_value) }}</h1>
+            <p class="text-secondary small">Estimated Future Value</p>
+          </div>
+
+          <ul class="list-group list-group-flush border-top border-bottom">
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Initial Investment</span>
+              <span class="fw-semibold text-dark">R{{ "%.2f"|format(initial_investment) }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Annual Interest Rate</span>
+              <span class="fw-semibold text-dark">{{ "%.2f"|format(annual_interest_rate) }}%</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Investment Period</span>
+              <span class="fw-semibold text-dark">{{ "%.2f"|format(years) }} years</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Compounding Frequency</span>
+              <span class="fw-semibold text-dark">{{ compounding_label }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Contribution Per Period</span>
+              <span class="fw-semibold text-dark">R{{ "%.2f"|format(contribution_per_period) }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
+              <span class="text-muted">Total Contributions</span>
+              <span class="fw-semibold text-dark">R{{ "%.2f"|format(total_contributions) }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4 bg-light">
+              <span class="text-muted">Interest Earned</span>
+              <span class="fw-bold text-success">R{{ "%.2f"|format(interest_earned) }}</span>
+            </li>
+          </ul>
+
+          <div class="card-body p-4">
+            <a href="{{ url_for('home.compound_interest_calculator') }}" class="btn btn-dark w-100 py-2">
+              Start New Calculation
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

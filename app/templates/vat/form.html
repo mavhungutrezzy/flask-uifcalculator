@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+  <meta name="description" content="VAT Calculator South Africa: calculate VAT-inclusive and VAT-exclusive amounts, understand VAT rates, registration thresholds, filing rules, and common VAT mistakes.">
+  <meta name="keywords" content="vat calculator south africa, vat calculator 15 percent, add vat calculator, VAT calculation South Africa, vat inclusive calculator, vat exclusive calculator, calculate vat 15%, vat formula south africa, price including vat calculator, vat breakdown calculator, how to calculate vat south africa, vat amount calculator">
+  <meta name="robots" content="index, follow">
+{% endblock %}
+
+{% block title %}VAT Calculator South Africa | Complete Guide (2025-2026){% endblock %}
+
+{% block content %}
+{% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
+
+<section class="py-5 bg-gradient-primary text-black">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-7 col-lg-6">
+        <div class="border rounded-4 p-4 bg-white shadow-sm">
+          <h1 class="h4 mb-3 text-center text-primary">VAT Calculator</h1>
+          <p class="text-muted text-center small mb-4">
+            This VAT calculator helps you calculate VAT in South Africa at the standard 15% rate. You can add VAT to a price or remove VAT from a VAT-inclusive amount.
+          </p>
+
+          <form method="post" action="">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+            <div class="mb-3">
+              <label for="amount" class="form-label small text-uppercase">Amount (R)</label>
+              <input type="number" step="0.01" min="0" class="form-control" id="amount" name="amount" placeholder="e.g. 1000" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="vatRate" class="form-label small text-uppercase">VAT Rate (%)</label>
+              <input type="number" step="0.01" min="0" class="form-control" id="vatRate" name="vat_rate" value="{{ default_vat_rate }}" required>
+            </div>
+
+            <div class="mb-4">
+              <label for="amountType" class="form-label small text-uppercase">Amount Type</label>
+              <select class="form-select" id="amountType" name="amount_type" required>
+                <option value="exclusive">Amount Excluding VAT</option>
+                <option value="inclusive">Amount Including VAT</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Calculate VAT</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 text-center">
+        <h2 class="fw-bold mb-4">VAT Calculator South Africa: Complete Guide to Value-Added Tax (2025-2026)</h2>
+      </div>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-9 mx-auto">
+        <h3 class="h4 fw-bold text-primary">What is VAT in South Africa?</h3>
+        <p>Value-Added Tax (VAT) is a consumption tax levied on the value added to goods and services at each stage of production and distribution. In South Africa, VAT is administered by the South African Revenue Service (SARS) and is one of government’s primary revenue sources.</p>
+        <p>As of the current tax year, South Africa operates a standard VAT rate of <strong>15%</strong>, increased from 14% in April 2018. This rate applies to most goods and services consumed in the country.</p>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Current VAT Rates in South Africa (2025-2026)</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>VAT Rate</th>
+                <th>Applicability</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>15%</td>
+                <td>Standard rate for most goods and services</td>
+              </tr>
+              <tr>
+                <td>0%</td>
+                <td>Zero-rated supplies (exports, basic food items, petrol, diesel)</td>
+              </tr>
+              <tr>
+                <td>Exempt</td>
+                <td>Financial services, residential rental, educational services</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Zero-Rated vs. Exempt: What is the Difference?</h3>
+        <ul>
+          <li><strong>Zero-rated (0%)</strong>: VAT is charged at 0%, and the supplier can claim input VAT on related expenses.</li>
+          <li><strong>Exempt</strong>: No VAT is charged, and the supplier cannot claim input VAT on related expenses.</li>
+        </ul>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">How to Calculate VAT in South Africa</h3>
+        <h4 class="h5 fw-semibold mt-3">Formula 1: Adding VAT to a Price (Exclusive to Inclusive)</h4>
+        <p><strong>VAT Amount = Price Excl. VAT x 0.15</strong><br><strong>Price Incl. VAT = Price Excl. VAT x 1.15</strong></p>
+        <p><strong>Example:</strong> Price excl. VAT = R1,000, VAT = R150, Total incl. VAT = R1,150.</p>
+
+        <h4 class="h5 fw-semibold mt-4">Formula 2: Removing VAT from a Price (Inclusive to Exclusive)</h4>
+        <p><strong>Price Excl. VAT = Price Incl. VAT / 1.15</strong><br><strong>VAT Amount = Price Incl. VAT - Price Excl. VAT</strong></p>
+        <p><strong>Example:</strong> Price incl. VAT = R2,300, Price excl. VAT = R2,000, VAT = R300.</p>
+
+        <p class="alert alert-light border mt-3 mb-0"><strong>Quick tip:</strong> To estimate VAT from an inclusive price, multiply by <strong>0.1304</strong> (13.04%).</p>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">VAT Registration Requirements</h3>
+        <p><strong>Mandatory registration:</strong> Register if taxable supplies exceed <strong>R1 million</strong> in any 12-month period.</p>
+        <p><strong>Voluntary registration:</strong> You may register if taxable supplies exceed <strong>R50,000</strong> in the past 12 months.</p>
+        <p><strong>How to register:</strong></p>
+        <ul>
+          <li>Register for eFiling on the SARS website</li>
+          <li>Complete the VAT101 form</li>
+          <li>Submit supporting documents</li>
+          <li>Await your VAT registration number (starts with 4)</li>
+        </ul>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">VAT Return Filing and Payments</h3>
+        <p><strong>Tax periods:</strong></p>
+        <ul>
+          <li>Category A: Jan/Mar/May/Jul/Sep/Nov period-ends</li>
+          <li>Category B: Feb/Apr/Jun/Aug/Oct/Dec period-ends</li>
+          <li>Category C: Monthly (turnover above R30 million)</li>
+          <li>Category D: Six-month periods (specific industries)</li>
+        </ul>
+        <p><strong>Deadlines:</strong> VAT201 returns are due by the 25th of the following month, and payments must clear by due date.</p>
+        <p><strong>Penalties:</strong> Late filing up to R16,000/month, late payment 10%, plus interest at prescribed rates.</p>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Input VAT vs. Output VAT</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Output VAT</th>
+                <th>Input VAT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>VAT charged to customers on sales</td>
+                <td>VAT paid to suppliers on purchases</td>
+              </tr>
+              <tr>
+                <td>Collected on behalf of SARS</td>
+                <td>Claimed back from SARS</td>
+              </tr>
+              <tr>
+                <td>Recorded as a liability</td>
+                <td>Recorded as an asset</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Net VAT Payable = Output VAT - Input VAT</strong></p>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Common VAT Calculation Mistakes to Avoid</h3>
+        <ul>
+          <li>Using the wrong VAT category (standard, zero-rated, exempt)</li>
+          <li>Incorrect rounding (SARS expects nearest cent)</li>
+          <li>Claiming input VAT on exempt supplies</li>
+          <li>Missing valid tax invoices and records</li>
+          <li>Late registration after crossing threshold</li>
+        </ul>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Digital VAT Calculator: Save Time and Avoid Errors</h3>
+        <p>Use our VAT calculator to quickly add VAT, remove VAT, verify manual calculations, and speed up VAT working papers for returns.</p>
+        <ul>
+          <li>Add 15% VAT to any amount</li>
+          <li>Remove VAT from inclusive prices</li>
+          <li>Check multiple calculation scenarios quickly</li>
+        </ul>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">VAT on Special Transactions</h3>
+        <ul>
+          <li><strong>Discounts:</strong> VAT is generally calculated on the final discounted amount.</li>
+          <li><strong>Bad debts:</strong> Output VAT adjustments may be allowed when debts are written off.</li>
+          <li><strong>Second-hand goods:</strong> Notional input tax rules can apply when buying from non-vendors.</li>
+        </ul>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">2025-2026 VAT Updates and Considerations</h3>
+        <ul>
+          <li>Potential future VAT rate adjustments in budget cycles</li>
+          <li>Possible expansion of zero-rated basic food items</li>
+          <li>Digital services VAT rules for foreign suppliers</li>
+          <li>Phased e-invoicing implementation expectations</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-white border-top">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 text-center">
+        <h2 class="fw-bold mb-4">Frequently Asked Questions</h2>
+      </div>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-8 mx-auto">
+        <div class="accordion" id="vatFaq">
+          <div class="card shadow-sm mb-3">
+            <div class="card-header" id="vatFaqHeading1">
+              <h5 class="mb-0">
+                <button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#vatFaq1">
+                  Is VAT calculated before or after discount?
+                </button>
+              </h5>
+            </div>
+            <div id="vatFaq1" class="accordion-collapse collapse" data-bs-parent="#vatFaq">
+              <div class="card-body text-muted">VAT is calculated on the final selling price after discounts are applied.</div>
+            </div>
+          </div>
+
+          <div class="card shadow-sm mb-3">
+            <div class="card-header" id="vatFaqHeading2">
+              <h5 class="mb-0">
+                <button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#vatFaq2">
+                  Can I claim VAT on fuel?
+                </button>
+              </h5>
+            </div>
+            <div id="vatFaq2" class="accordion-collapse collapse" data-bs-parent="#vatFaq">
+              <div class="card-body text-muted">Petrol and diesel are generally zero-rated, so no input VAT is claimed on that VAT amount.</div>
+            </div>
+          </div>
+
+          <div class="card shadow-sm mb-3">
+            <div class="card-header" id="vatFaqHeading3">
+              <h5 class="mb-0">
+                <button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#vatFaq3">
+                  What is the VAT fraction for removing VAT?
+                </button>
+              </h5>
+            </div>
+            <div id="vatFaq3" class="accordion-collapse collapse" data-bs-parent="#vatFaq">
+              <div class="card-body text-muted">The VAT fraction is 15/115 (or 3/23), approximately 0.1304 (13.04%).</div>
+            </div>
+          </div>
+
+          <div class="card shadow-sm mb-3">
+            <div class="card-header" id="vatFaqHeading4">
+              <h5 class="mb-0">
+                <button class="accordion-button collapsed fw-semibold text-start" type="button" data-bs-toggle="collapse" data-bs-target="#vatFaq4">
+                  Do I charge VAT on delivery fees?
+                </button>
+              </h5>
+            </div>
+            <div id="vatFaq4" class="accordion-collapse collapse" data-bs-parent="#vatFaq">
+              <div class="card-body text-muted">Yes, delivery fees are generally standard-rated at 15% where the underlying supply is standard-rated.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-4 bg-primary text-white">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-8 mx-auto">
+        <h2>Calculate VAT Instantly</h2>
+        <p class="text-white">Use the calculator above to add VAT, remove VAT, and verify your VAT figures in seconds.</p>
+        <div class="d-flex flex-column flex-md-row gap-2 justify-content-center">
+          <a href="{{ url_for('home.vat_calculator') }}" class="btn btn-outline-light btn-sm">Use VAT Calculator</a>
+          <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-outline-light btn-sm">Use UIF Calculator</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
