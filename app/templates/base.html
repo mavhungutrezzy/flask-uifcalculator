@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% set site_url = url_for('home.index', _external=True) %}
+    {% set canonical_url = request.base_url %}
+    {% set default_og_image = url_for('static', filename='images/og-image.jpg', _external=True) %}
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5L6PR02V80"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5L6PR02V80"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-5L6PR02V80');
-</script>
+      gtag('config', 'G-5L6PR02V80');
+    </script>
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}UIF Benefits Calculator 2026 – South Africa{% endblock %}</title>
+    <meta name="theme-color" content="#0d6efd">
+    <title>{% block title %}UIF Calculator South Africa 2026 | UIFCalculators{% endblock %}</title>
     {% block meta %}
     <meta name="description"
-          content="Use our free UIF Calculator 2026 to estimate your unemployment or maternity benefits in South Africa. Fast, accurate UIF payout calculations online.">
-    <meta name="keywords"
-          content="uif calculator, uif calculator 2026, maternity uif calculator, uif calculator 2026 south africa, uif maternity calculator, uif calculator online, maternity leave payment calculator south africa, uif calculator online login, uif calculator online south africa, uif maternity benefit calculator, 2026 uif calculator, uif calculator on salary in south africa, uif payout calculator, uif calculator maternity, uif benefit helper app, uif calculator south africa 2026, maternity leave calculator south africa, uif benefits calculator, uif calculator south africa, uif calculator 2026 south africa online, uif benefit calculator, uif credits calculator, uif maternity calculator 2026 south africa, maternity uif calculator south africa, 2026 uif calculator south africa">
-    <meta name="robots" content="index, follow">
-    
+          content="Estimate UIF unemployment, maternity, illness and adoption benefits in South Africa with free online calculators updated for 2026.">
+    {% endblock %}
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="{% block canonical_href %}{{ canonical_url }}{% endblock %}">
+
     <!-- Open Graph  -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ request.url }}">
-    <meta property="og:title" content="{% block og_title %}UIF Calculator 2026 - Calculate Your UIF Benefits Online | South Africa{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}Free UIF calculator 2026 for South Africa. Calculate unemployment and maternity UIF benefits instantly. Get accurate estimates for UIF payouts, credits, and benefits online.{% endblock %}">
-    <meta property="og:image" content="{% block og_image %}{{ url_for('static', filename='images/og-image.jpg', _external=True) }}{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}{{ canonical_url }}{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}UIF Calculator South Africa 2026 | UIFCalculators{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Free South African UIF calculators for unemployment, maternity, illness and adoption benefit estimates. Updated for 2026.{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{{ default_og_image }}{% endblock %}">
+    <meta property="og:image:secure_url" content="{{ default_og_image }}">
+    <meta property="og:image:alt" content="UIFCalculators South Africa benefits calculator preview">
     <meta property="og:site_name" content="UIF Calculators">
     <meta property="og:locale" content="en_ZA">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="{{ request.url }}">
-    <meta name="twitter:title" content="{% block twitter_title %}UIF Calculator 2026 - Calculate Your UIF Benefits Online | South Africa{% endblock %}">
-    <meta name="twitter:description" content="{% block twitter_description %}Free UIF calculator 2026 for South Africa. Calculate unemployment and maternity UIF benefits instantly. Get accurate estimates for UIF payouts, credits, and benefits online.{% endblock %}">
-    <meta name="twitter:image" content="{% block twitter_image %}{{ url_for('static', filename='images/og-image.jpg', _external=True) }}{% endblock %}">
-    {% endblock %}
+    <meta name="twitter:url" content="{% block twitter_url %}{{ canonical_url }}{% endblock %}">
+    <meta name="twitter:title" content="{% block twitter_title %}UIF Calculator South Africa 2026 | UIFCalculators{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Estimate UIF unemployment, maternity, illness and adoption benefits online with free South African calculators updated for 2026.{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{{ default_og_image }}{% endblock %}">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7409979633558137"
      crossorigin="anonymous"></script>
@@ -57,6 +62,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block structured_data %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "{{ site_url }}#website",
+      "name": "UIF Calculators",
+      "alternateName": "UIFCalculators",
+      "url": "{{ site_url }}",
+      "inLanguage": "en-ZA",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "{{ site_url }}#organization",
+        "name": "UIF Calculators",
+        "url": "{{ site_url }}",
+        "logo": "{{ url_for('static', filename='favicon_io/favicon-32.png', _external=True) }}"
+      }
+    }
+    </script>
+    {% endblock %}
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -96,6 +121,9 @@
                     <a class="nav-link" href="{{ url_for('uif.how_to_calculate_uif') }}">How to Calculate UIF</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home.articles') }}">Articles</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('uif.ui19_form_explained') }}">UI-19 Form Explained</a>
                 </li>
             </ul>
@@ -111,7 +139,27 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <p class="mb-2"> 2026 UIF Calculators. All rights reserved.</p>
+            <p class="mb-2">&copy; 2026 UIF Calculators. All rights reserved.</p>
+            <p class="mb-0 small">
+              <a href="{{ url_for('home.about') }}">About</a>
+              <span class="mx-1 text-muted">|</span>
+              <a href="{{ url_for('home.contact') }}">Contact</a>
+              <span class="mx-1 text-muted">|</span>
+              <a href="{{ url_for('home.privacy_policy') }}">Privacy Policy</a>
+              <span class="mx-1 text-muted">|</span>
+              <a href="{{ url_for('home.popia') }}">POPIA</a>
+              <span class="mx-1 text-muted">|</span>
+              <a href="{{ url_for('home.cookie_policy') }}">Cookies</a>
+              <span class="mx-1 text-muted">|</span>
+              <a href="{{ url_for('home.terms_of_use') }}">Terms</a>
+              <span class="mx-1 text-muted">|</span>
+              <a href="{{ url_for('home.disclaimer') }}">Disclaimer</a>
+              <span class="mx-1 text-muted">|</span>
+              <a href="{{ url_for('home.methodology') }}">Methodology</a>
+            </p>
+            <p class="mt-2 mb-0 small text-muted">
+              Independent informational site. Not affiliated with the Department of Employment and Labour, UIF, or uFiling.
+            </p>
           </div>
           <div class="col-md-6 text-md-end">
             <p class="mb-0">

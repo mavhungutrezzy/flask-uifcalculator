@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Maternity UIF Documents Needed in South Africa 2026{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Checklist of maternity UIF documents needed in South Africa, including ID, UI-2.8, UI-2.7, UI-2.3, medical certificate or birth certificate.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.maternity_uif_documents_needed', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.maternity_uif_documents_needed', _external=True) }}{% endblock %}
+{% block og_title %}Maternity UIF Documents Needed in South Africa 2026{% endblock %}
+{% block og_description %}Prepare maternity UIF claim documents and understand timing, salary top-up rules and the 121-day benefit period.{% endblock %}
+{% block twitter_url %}{{ url_for('home.maternity_uif_documents_needed', _external=True) }}{% endblock %}
+{% block twitter_title %}Maternity UIF Documents Needed in South Africa 2026{% endblock %}
+{% block twitter_description %}Prepare maternity UIF claim documents and understand timing, salary top-up rules and the 121-day benefit period.{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-gradient-primary">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-10">
+        <span class="badge bg-primary-subtle text-primary fw-semibold border border-primary px-3 py-2 small rounded-pill mb-3">Maternity UIF</span>
+        <h1 class="fw-bold mb-3">Maternity UIF Documents Needed</h1>
+        <p class="lead text-muted mb-0">Prepare the key forms and supporting documents before applying for maternity UIF benefits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <article class="col-lg-8 mx-auto">
+        <h2 class="h4 fw-bold text-primary">Maternity UIF Document Checklist</h2>
+        <ul class="list-check">
+          <li>13-digit bar-coded ID, smart ID card or valid passport</li>
+          <li>UI-2.8 form for banking details</li>
+          <li>UI-2.7 form for employer remuneration information</li>
+          <li>UI-2.3 maternity application form or medical certificate, depending on the claim stage</li>
+          <li>Medical certificate from a doctor or the baby’s birth certificate</li>
+          <li>UI-4 follow-up form where required for continuation of payments</li>
+        </ul>
+
+        <hr class="my-4">
+
+        <h2 class="h4 fw-bold text-primary">When to Apply</h2>
+        <p>Official UIF maternity guidance says the application should be made before the birth or within 12 months after the birth of the child. The contributor must have been employed for at least 13 weeks before applying.</p>
+
+        <div class="bg-warning-subtle p-3 rounded my-4">
+          Maternity UIF is usually paid only if you receive less than your normal remuneration while on maternity leave.
+        </div>
+
+        <h2 class="h4 fw-bold text-primary">Estimate Your Maternity UIF</h2>
+        <p>Use the <a href="{{ url_for('uif.leave_benefit_calculator') }}">maternity UIF calculator</a> to estimate possible top-up benefits based on your income and leave details.</p>
+
+        <p class="small text-muted mb-0">Source: Department of Employment and Labour maternity UIF guidance. UIF may request extra documents depending on your claim.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}About UIF Calculators | South Africa{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Learn about UIF Calculators, an independent South African calculator website for UIF, VAT, and finance estimates.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.about', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.about', _external=True) }}{% endblock %}
+{% block og_title %}About UIF Calculators | South Africa{% endblock %}
+{% block og_description %}Learn about UIF Calculators, an independent South African calculator website for UIF, VAT, and finance estimates.{% endblock %}
+{% block twitter_url %}{{ url_for('home.about', _external=True) }}{% endblock %}
+{% block twitter_title %}About UIF Calculators | South Africa{% endblock %}
+{% block twitter_description %}Learn about UIF Calculators, an independent South African calculator website for UIF, VAT, and finance estimates.{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10 text-center">
+                <h1 class="fw-bold mb-4">About UIF Calculators</h1>
+                <p class="lead text-muted">Independent calculators and guides for South Africans planning around UIF and everyday finance questions.</p>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="h4 fw-bold text-primary">What This Site Does</h2>
+                <p>UIF Calculators provides free tools that help estimate UIF unemployment benefits, leave-related UIF top-ups, VAT amounts, and compound interest outcomes.</p>
+                <p>The goal is to make common calculations easier to understand before you use official services or seek professional advice.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Independent Website</h2>
+                <p>UIF Calculators is not affiliated with, endorsed by, or operated by the Department of Employment and Labour, UIF, uFiling, SARS, or any South African government department.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">How to Use the Results</h2>
+                <p>Use calculator results as planning estimates only. Official claims, payments, and approvals are handled by the relevant official bodies.</p>
+                <p>For details on formulas and assumptions, read our <a href="{{ url_for('home.methodology') }}">Methodology</a> page.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

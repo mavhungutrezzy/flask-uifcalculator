@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Cookie Policy | UIF Calculators{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Read the UIF Calculators cookie policy covering analytics, advertising, browser controls, and related privacy choices.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.cookie_policy', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.cookie_policy', _external=True) }}{% endblock %}
+{% block og_title %}Cookie Policy | UIF Calculators{% endblock %}
+{% block og_description %}Cookie policy for UIF Calculators, including analytics, advertising, browser controls, and privacy choices.{% endblock %}
+{% block twitter_url %}{{ url_for('home.cookie_policy', _external=True) }}{% endblock %}
+{% block twitter_title %}Cookie Policy | UIF Calculators{% endblock %}
+{% block twitter_description %}Cookie policy for UIF Calculators, including analytics, advertising, browser controls, and privacy choices.{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10 text-center">
+                <h1 class="fw-bold mb-4">Cookie Policy</h1>
+                <p class="lead text-muted">How cookies and similar technologies may be used on UIF Calculators.</p>
+                <p class="text-muted small mb-0">Last updated: 11 May 2026</p>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="h4 fw-bold text-primary">What Cookies Are</h2>
+                <p>Cookies are small files or identifiers stored by your browser. Websites use them to remember settings, measure usage, improve performance, and support advertising.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">How We Use Cookies</h2>
+                <p>UIF Calculators may use cookies and similar technologies for analytics, advertising, security, performance, and basic website functionality.</p>
+                <p>Google Analytics may help us understand which pages are useful. Google AdSense or related advertising services may use cookies to display and measure ads.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Managing Cookies</h2>
+                <p>You can block, delete, or restrict cookies through your browser settings. Some website features, analytics, or advertisements may not work as expected if cookies are blocked.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Related Notices</h2>
+                <p>For more detail on personal information and privacy, read our <a href="{{ url_for('home.privacy_policy') }}">Privacy Policy</a> and <a href="{{ url_for('home.popia') }}">POPIA Notice</a>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

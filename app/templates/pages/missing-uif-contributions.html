@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Missing UIF Contributions or Declarations? What to Do 2026{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Learn what missing UIF contributions or employer declarations mean, why they delay claims and what workers can check when UIF credits seem wrong.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.missing_uif_contributions', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.missing_uif_contributions', _external=True) }}{% endblock %}
+{% block og_title %}Missing UIF Contributions or Declarations? What to Do 2026{% endblock %}
+{% block og_description %}Guide to missing UIF contributions, monthly employer declarations, claim delays and credit day problems in South Africa.{% endblock %}
+{% block twitter_url %}{{ url_for('home.missing_uif_contributions', _external=True) }}{% endblock %}
+{% block twitter_title %}Missing UIF Contributions or Declarations? What to Do 2026{% endblock %}
+{% block twitter_description %}Guide to missing UIF contributions, monthly employer declarations, claim delays and credit day problems in South Africa.{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-gradient-primary">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-10">
+        <span class="badge bg-info-subtle text-info fw-semibold border border-info px-3 py-2 small rounded-pill mb-3">Contributions</span>
+        <h1 class="fw-bold mb-3">Missing UIF Contributions or Declarations?</h1>
+        <p class="lead text-muted mb-0">Missing declarations can delay claims, reduce visible credit days or send a claim into adjudication while UIF verifies employment history.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <article class="col-lg-8 mx-auto">
+        <h2 class="h4 fw-bold text-primary">Why Declarations Matter</h2>
+        <p>Employers must declare workers and pay UIF contributions. Official UIF communications have warned that benefit payments are often delayed when employer declarations and contributions are not up to date.</p>
+
+        <hr class="my-4">
+
+        <h2 class="h4 fw-bold text-primary">Signs There May Be a Declaration Problem</h2>
+        <ul class="list-check">
+          <li>Your status shows <strong>Pending Adjudicate</strong></li>
+          <li>Your credit days look too low for the time you worked</li>
+          <li>UIF asks for employer documents or salary schedules</li>
+          <li>Your former employer says they still need to submit information</li>
+        </ul>
+
+        <h2 class="h4 fw-bold text-primary">What Workers Can Do</h2>
+        <ol class="list-group list-group-numbered shadow-sm mb-4">
+          <li class="list-group-item p-3">Ask your employer whether all monthly declarations were submitted.</li>
+          <li class="list-group-item p-3">Keep payslips and employment records that show salary and dates worked.</li>
+          <li class="list-group-item p-3">Check your claim status regularly on uFiling.</li>
+          <li class="list-group-item p-3">Contact UIF or visit a labour centre if the employer does not cooperate.</li>
+        </ol>
+
+        <p>To understand how declarations affect duration, read <a href="{{ url_for('home.uif_credit_days_explained') }}">UIF credit days explained</a>.</p>
+        <p class="small text-muted mb-0">Source: Department of Employment and Labour/UIF declarations and employer contribution guidance.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

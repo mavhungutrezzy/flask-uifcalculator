@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Can I Claim UIF When a Fixed-Term Contract Ends? 2026{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Find out how UIF works when a fixed-term contract expires in South Africa, including eligibility, UI-19 documents, credit days and claim timing.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.uif_fixed_term_contracts', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.uif_fixed_term_contracts', _external=True) }}{% endblock %}
+{% block og_title %}Can I Claim UIF When a Fixed-Term Contract Ends? 2026{% endblock %}
+{% block og_description %}Guide to claiming UIF after fixed-term contract expiry, with eligibility checks, documents and calculator links.{% endblock %}
+{% block twitter_url %}{{ url_for('home.uif_fixed_term_contracts', _external=True) }}{% endblock %}
+{% block twitter_title %}Can I Claim UIF When a Fixed-Term Contract Ends? 2026{% endblock %}
+{% block twitter_description %}Guide to claiming UIF after fixed-term contract expiry, with eligibility checks, documents and calculator links.{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-gradient-primary">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-10">
+        <span class="badge bg-success-subtle text-success fw-semibold border border-success px-3 py-2 small rounded-pill mb-3">Contract work</span>
+        <h1 class="fw-bold mb-3">Can I Claim UIF When a Fixed-Term Contract Ends?</h1>
+        <p class="lead text-muted mb-0">Yes, UIF unemployment benefits may apply when a fixed-term employment contract expires, if you meet the normal UIF qualifying rules.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <article class="col-lg-8 mx-auto">
+        <h2 class="h4 fw-bold text-primary">Fixed-Term Contract Expiry and UIF</h2>
+        <p>Official UIF unemployment guidance says benefits are payable if an employer terminates the contributor’s services or a contract of employment has expired. That makes contract expiry different from a voluntary resignation.</p>
+
+        <hr class="my-4">
+
+        <h2 class="h4 fw-bold text-primary">What You Need to Check</h2>
+        <ul class="list-check">
+          <li>The contract end date and final day worked</li>
+          <li>The termination reason shown on the UI-19 form</li>
+          <li>Whether UIF contributions were deducted and declared</li>
+          <li>Whether you are registered as a work seeker</li>
+          <li>Your available credit days</li>
+        </ul>
+
+        <div class="card border-0 shadow-sm my-4">
+          <div class="card-body p-4">
+            <h2 class="h4 fw-bold text-primary">Estimate Your Claim</h2>
+            <p class="text-muted">If your contract has ended, estimate your possible unemployment benefit amount and duration.</p>
+            <a class="btn btn-primary" href="{{ url_for('uif.unemployment_calculator') }}">
+              <i class="bi bi-calculator me-2"></i>Use UIF Calculator
+            </a>
+          </div>
+        </div>
+
+        <h2 class="h4 fw-bold text-primary">If the Employer Records It Incorrectly</h2>
+        <p>If your UI-19 form says you resigned when your fixed-term contract actually expired, ask your employer to correct the record. The termination reason can affect your claim outcome.</p>
+
+        <p>For document preparation, read <a href="{{ url_for('home.uif_documents_needed') }}">UIF documents needed</a>.</p>
+        <p class="small text-muted mb-0">Source: UIF unemployment benefits guidance. Confirm official eligibility with UIF.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

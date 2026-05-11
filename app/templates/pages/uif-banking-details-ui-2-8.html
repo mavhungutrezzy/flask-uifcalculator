@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}UIF Banking Details and UI-2.8 Form Guide 2026{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Learn how UIF banking details work, when the UI-2.8 form is needed, why payments get blocked and how to avoid banking verification delays.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}{% endblock %}
+{% block og_title %}UIF Banking Details and UI-2.8 Form Guide 2026{% endblock %}
+{% block og_description %}Practical guide to UIF banking details, the UI-2.8 form, blocked payments and bank verification delays in South Africa.{% endblock %}
+{% block twitter_url %}{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}{% endblock %}
+{% block twitter_title %}UIF Banking Details and UI-2.8 Form Guide 2026{% endblock %}
+{% block twitter_description %}Practical guide to UIF banking details, the UI-2.8 form, blocked payments and bank verification delays in South Africa.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}#article",
+  "headline": "UIF Banking Details and UI-2.8 Form Guide",
+  "description": "Guide to UIF banking details, UI-2.8 forms and payment verification issues.",
+  "dateModified": "2026-05-11",
+  "inLanguage": "en-ZA",
+  "mainEntityOfPage": "{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}",
+  "publisher": {
+    "@id": "{{ url_for('home.index', _external=True) }}#organization"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-gradient-primary">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-10">
+        <span class="badge bg-warning-subtle text-warning fw-semibold border border-warning px-3 py-2 small rounded-pill mb-3">Banking</span>
+        <h1 class="fw-bold mb-3">UIF Banking Details and UI-2.8 Form Guide</h1>
+        <p class="lead text-muted mb-0">Your UIF payment depends on banking details that can be verified. Incorrect or outdated details can cause a blocked or delayed payment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <article class="col-lg-8 mx-auto">
+        <h2 class="h4 fw-bold text-primary">What Is the UI-2.8 Form?</h2>
+        <p>The UI-2.8 form is used for UIF banking details. Department of Employment and Labour unemployment and maternity claim guidance lists UI-2.8 among the documents needed for benefit claims.</p>
+
+        <hr class="my-4">
+
+        <h2 class="h4 fw-bold text-primary">When Banking Details Cause UIF Delays</h2>
+        <ul class="list-check">
+          <li>The bank account is closed or inactive</li>
+          <li>The account holder details do not match your UIF profile</li>
+          <li>Your surname changed and banking records were not updated</li>
+          <li>uFiling shows incorrect banking details and asks for an update</li>
+          <li>The claim status shows <strong>Payment Blocked</strong> or <strong>Payment Reversed</strong></li>
+        </ul>
+
+        <div class="bg-warning-subtle p-3 rounded my-4">
+          The uFiling training guidance notes that if banking details are incorrect on the system, claimants may need to download and complete the UI-2.8 form to update them.
+        </div>
+
+        <h2 class="h4 fw-bold text-primary">How to Reduce Banking Verification Problems</h2>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h5">Use Your Own Account</h3>
+                <p class="text-muted mb-0">Use an account in your name and make sure the name, ID and surname records match.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h5">Check Status Often</h3>
+                <p class="text-muted mb-0">If a payment is blocked, act quickly on any UIF request for banking documents.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>For related claim status messages, use the <a href="{{ url_for('home.uif_status_check_online') }}">UIF status check guide</a>.</p>
+        <p class="small text-muted mb-0">This guide is informational. Confirm banking form requirements with UIF or the Department of Employment and Labour.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

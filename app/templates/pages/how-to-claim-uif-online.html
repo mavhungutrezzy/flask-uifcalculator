@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}How to Claim UIF Online in South Africa 2026 | UIF Calculators{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Learn how to claim UIF online in South Africa through uFiling, including registration, benefit applications, bank details, documents and claim status checks.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.how_to_claim_uif_online', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.how_to_claim_uif_online', _external=True) }}{% endblock %}
+{% block og_title %}How to Claim UIF Online in South Africa 2026 | UIF Calculators{% endblock %}
+{% block og_description %}Step-by-step guide to claiming UIF online through uFiling, with documents, banking details, claim status and calculator links.{% endblock %}
+{% block twitter_url %}{{ url_for('home.how_to_claim_uif_online', _external=True) }}{% endblock %}
+{% block twitter_title %}How to Claim UIF Online in South Africa 2026 | UIF Calculators{% endblock %}
+{% block twitter_description %}Step-by-step guide to claiming UIF online through uFiling, with documents, banking details, claim status and calculator links.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "{{ url_for('home.how_to_claim_uif_online', _external=True) }}#article",
+  "headline": "How to Claim UIF Online in South Africa",
+  "description": "A practical guide to applying for UIF benefits online through uFiling.",
+  "dateModified": "2026-05-11",
+  "inLanguage": "en-ZA",
+  "mainEntityOfPage": "{{ url_for('home.how_to_claim_uif_online', _external=True) }}",
+  "publisher": {
+    "@id": "{{ url_for('home.index', _external=True) }}#organization"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-gradient-primary">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-10">
+        <span class="badge bg-success-subtle text-success fw-semibold border border-success px-3 py-2 small rounded-pill mb-3">UIF guide</span>
+        <h1 class="fw-bold mb-3">How to Claim UIF Online in South Africa</h1>
+        <p class="lead text-muted mb-0">Use uFiling to apply for UIF benefits online, upload or confirm the required information, and track your claim after submission.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <article class="col-lg-8 mx-auto">
+        <p class="lead text-muted">uFiling supports online applications for unemployment, maternity, illness and adoption benefits. The exact screens can change, but the core flow is usually registration, benefit selection, banking details, supporting information and submission.</p>
+
+        <h2 class="h4 fw-bold text-primary">Before You Start</h2>
+        <ul class="list-check">
+          <li>Your South African ID number or valid identity document</li>
+          <li>Your uFiling login details, or time to register a new profile</li>
+          <li>Your employer and termination details, including the reason you stopped working</li>
+          <li>Banking details and UIF documents such as UI-19 and UI-2.8 where required</li>
+        </ul>
+
+        <hr class="my-4">
+
+        <h2 class="h4 fw-bold text-primary">Step-by-Step Online Claim Process</h2>
+        <ol class="list-group list-group-numbered shadow-sm mb-4">
+          <li class="list-group-item p-3"><strong>Open uFiling.</strong> Go to the official <a href="https://uifonline.labour.gov.za/uifOnline/loginJsp" target="_blank" rel="noopener noreferrer">uFiling login page</a>.</li>
+          <li class="list-group-item p-3"><strong>Log in or register.</strong> Create a profile if you have not used uFiling before.</li>
+          <li class="list-group-item p-3"><strong>Choose the benefit type.</strong> Select the relevant UIF benefit, such as unemployment or maternity.</li>
+          <li class="list-group-item p-3"><strong>Confirm your information.</strong> Check personal details, employment information and banking details carefully.</li>
+          <li class="list-group-item p-3"><strong>Submit the application.</strong> Keep your reference number and check your status regularly.</li>
+        </ol>
+
+        <div class="bg-warning-subtle p-3 rounded mb-4">
+          If your banking details are incorrect on uFiling, the official uFiling guidance says you may need to update them using the UI-2.8 form.
+        </div>
+
+        <h2 class="h4 fw-bold text-primary">After You Apply</h2>
+        <p>Use the claim status screen on uFiling to track progress. Status messages such as <strong>Sent to Assessor</strong>, <strong>Payment Reserved</strong> or <strong>Sent to Paymaster</strong> can show where the claim is in the process.</p>
+        <p>For help understanding status messages, read the <a href="{{ url_for('home.uif_status_check_online') }}">UIF status check guide</a>.</p>
+
+        <hr class="my-4">
+
+        <h2 class="h4 fw-bold text-primary">Estimate Your Benefit First</h2>
+        <p>Before or after applying, you can use the <a href="{{ url_for('uif.unemployment_calculator') }}">UIF unemployment calculator</a> to estimate benefit amount, credit days and possible payout duration.</p>
+
+        <p class="small text-muted mb-0">Source: Department of Employment and Labour/uFiling guidance. This page is informational and is not an official UIF decision.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

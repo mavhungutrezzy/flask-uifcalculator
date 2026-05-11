@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}UIF Documents Needed for Unemployment Claims 2026 | UIF Calculators{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="UIF documents needed for unemployment claims in South Africa: UI-19, UI-2.8 banking form, ID or passport, last 6 payslips and work seeker proof.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.uif_documents_needed', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.uif_documents_needed', _external=True) }}{% endblock %}
+{% block og_title %}UIF Documents Needed for Unemployment Claims 2026 | UIF Calculators{% endblock %}
+{% block og_description %}Checklist of UIF unemployment claim documents, including UI-19, UI-2.8, ID or passport, last six payslips, work seeker proof and claim timeline notes.{% endblock %}
+{% block twitter_url %}{{ url_for('home.uif_documents_needed', _external=True) }}{% endblock %}
+{% block twitter_title %}UIF Documents Needed for Unemployment Claims 2026 | UIF Calculators{% endblock %}
+{% block twitter_description %}Checklist of UIF unemployment claim documents, including UI-19, UI-2.8, ID or passport, last six payslips, work seeker proof and claim timeline notes.{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-gradient-primary">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-10">
+        <span class="badge bg-warning-subtle text-warning fw-semibold border border-warning px-3 py-2 small rounded-pill mb-3">Documents</span>
+        <h1 class="fw-bold mb-3">UIF Documents Needed for Unemployment Claims</h1>
+        <p class="lead text-muted mb-0">Prepare your UI-19, UI-2.8 banking form, ID or passport, payslips and work seeker proof before you submit a UIF unemployment claim.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <article class="col-lg-8 mx-auto">
+        <p class="lead text-muted">To claim UIF in South Africa, you usually need a completed UI-19 form, UI-2.8 banking form, a copy of your 13-digit ID or passport, your last six payslips, and proof that you registered as a work seeker. You can apply at a Labour Centre or online through uFiling.</p>
+
+        <h2 class="h4 fw-bold text-primary">Core UIF Document Checklist</h2>
+        <ul class="list-check">
+          <li><strong>13-digit bar-coded ID or passport:</strong> keep a certified copy of your South African ID, smart ID card or valid passport where applicable.</li>
+          <li><strong>Form UI-19:</strong> completed by your employer to confirm employment status, employment history and the reason employment ended.</li>
+          <li><strong>Form UI-2.8:</strong> banking details form for UIF payments. This may need to be stamped or confirmed by your bank.</li>
+          <li><strong>Last six payslips:</strong> used to verify salary, employment and UIF contribution information.</li>
+          <li><strong>Proof of work seeker registration:</strong> unemployment claimants must register as work seekers with the Department of Employment and Labour.</li>
+          <li><strong>Service certificate:</strong> request this from your previous employer if UIF asks for extra employment confirmation.</li>
+          <li><strong>Proof of residential address:</strong> not always required, but useful to keep ready if requested.</li>
+        </ul>
+
+        <hr class="my-4">
+
+        <h2 class="h4 fw-bold text-primary">Where and When to Submit</h2>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <span class="badge bg-success-subtle text-success mb-3">Timeline</span>
+                <h3 class="h5">Apply Within 6 Months</h3>
+                <p class="text-muted mb-0">Submit your unemployment UIF claim within six months of becoming unemployed to avoid losing benefits.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <span class="badge bg-primary-subtle text-primary mb-3">Method</span>
+                <h3 class="h5">Labour Centre or uFiling</h3>
+                <p class="text-muted mb-0">You can submit at your nearest Labour Centre or apply online through the official uFiling portal.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="h4 fw-bold text-primary">Why the UI-19 Form Matters</h2>
+        <p>The UI-19 form helps UIF confirm that you are no longer working for your employer, when employment ended, and why it ended. Incorrect termination reasons can slow down or affect a claim.</p>
+        <p>Read the full <a href="{{ url_for('uif.ui19_form_explained') }}">UI-19 form guide</a> if you need help understanding what the form does.</p>
+
+        <hr class="my-4">
+
+        <h2 class="h4 fw-bold text-primary">Reason for Termination</h2>
+        <p>You generally cannot claim unemployment UIF if you resigned voluntarily. You may be able to claim if you were retrenched, dismissed subject to UIF rules, your fixed-term contract ended, or if constructive dismissal is proven through the CCMA.</p>
+        <p>For more detail, read <a href="{{ url_for('home.can_i_claim_uif_if_i_resigned') }}">can I claim UIF if I resigned?</a></p>
+
+        <hr class="my-4">
+
+        <h2 class="h4 fw-bold text-primary">Avoid Common Document Delays</h2>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h5">Check Names and ID Numbers</h3>
+                <p class="text-muted mb-0">Your documents, bank account and UIF profile should match as closely as possible.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h5">Ask About Declarations</h3>
+                <p class="text-muted mb-0">Missing employer declarations can affect credit days and trigger adjudication delays.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="h4 fw-bold text-primary">Estimate Before You Claim</h2>
+        <p>Once you have your salary and employment period, use the <a href="{{ url_for('uif.unemployment_calculator') }}">UIF calculator</a> to estimate your payout and credit days.</p>
+
+        <p class="small text-muted mb-0">Source: Department of Employment and Labour unemployment benefit guidance. UIF may request additional documents depending on your claim.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

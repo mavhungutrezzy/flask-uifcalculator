@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Contact | UIF Calculators{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Contact information and official UIF support guidance for UIF Calculators visitors.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.contact', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.contact', _external=True) }}{% endblock %}
+{% block og_title %}Contact | UIF Calculators{% endblock %}
+{% block og_description %}Contact information and official UIF support guidance for UIF Calculators visitors.{% endblock %}
+{% block twitter_url %}{{ url_for('home.contact', _external=True) }}{% endblock %}
+{% block twitter_title %}Contact | UIF Calculators{% endblock %}
+{% block twitter_description %}Contact information and official UIF support guidance for UIF Calculators visitors.{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10 text-center">
+                <h1 class="fw-bold mb-4">Contact</h1>
+                <p class="lead text-muted">Where to go for calculator questions, UIF claims, and official support.</p>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="h4 fw-bold text-primary">Website Enquiries</h2>
+                <p>For website feedback, correction requests, or privacy-related questions, use the contact method made available by the UIF Calculators site owner.</p>
+                <p>Please do not send ID numbers, banking details, passwords, claim numbers, or sensitive documents.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Official UIF Help</h2>
+                <p>UIF Calculators cannot access your UIF profile, claim status, payments, or uFiling account.</p>
+                <p>For official help, use the Department of Employment and Labour or uFiling website:</p>
+                <ul class="small">
+                    <li><a href="https://www.labour.gov.za/" target="_blank" rel="noopener noreferrer">Department of Employment and Labour</a></li>
+                    <li><a href="https://uifonline.labour.gov.za/uifOnline/loginJsp" target="_blank" rel="noopener noreferrer">uFiling login</a></li>
+                </ul>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Before You Contact UIF</h2>
+                <p>Have your ID, UI-19 form, payslips, banking confirmation, and claim reference ready where applicable. Never share passwords with anyone claiming to help with a UIF claim.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

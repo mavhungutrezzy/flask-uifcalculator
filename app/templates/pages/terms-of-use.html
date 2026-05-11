@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Terms of Use | UIF Calculators{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Read the UIF Calculators terms of use covering calculator estimates, acceptable use, external links, liability limits, and site changes.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.terms_of_use', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.terms_of_use', _external=True) }}{% endblock %}
+{% block og_title %}Terms of Use | UIF Calculators{% endblock %}
+{% block og_description %}Terms of use for UIF Calculators, including estimates, acceptable use, liability limits, and external links.{% endblock %}
+{% block twitter_url %}{{ url_for('home.terms_of_use', _external=True) }}{% endblock %}
+{% block twitter_title %}Terms of Use | UIF Calculators{% endblock %}
+{% block twitter_description %}Terms of use for UIF Calculators, including estimates, acceptable use, liability limits, and external links.{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10 text-center">
+                <h1 class="fw-bold mb-4">Terms of Use</h1>
+                <p class="lead text-muted">The terms that apply when you use UIF Calculators.</p>
+                <p class="text-muted small mb-0">Last updated: 11 May 2026</p>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="h4 fw-bold text-primary">Using This Website</h2>
+                <p>By using UIF Calculators, you agree to use the website lawfully and responsibly. If you do not agree with these terms, please stop using the website.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Calculator Results</h2>
+                <p>Calculator results are estimates based on the numbers you enter and the formulas used by the website. They may differ from official outcomes.</p>
+                <p>You are responsible for checking results against official sources before relying on them.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Acceptable Use</h2>
+                <p>You may not use this website to attempt unauthorised access, interfere with service availability, scrape at unreasonable volume, submit malicious input, or misrepresent the website as an official government service.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">No Professional Advice</h2>
+                <p>The website provides general information only. It does not provide legal, financial, tax, labour, or benefits advice.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Limitation of Liability</h2>
+                <p>To the fullest extent allowed by law, UIF Calculators is not liable for losses arising from use of the website, calculator results, external links, interruptions, errors, or outdated information.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Changes</h2>
+                <p>We may update the website, calculators, content, and these terms from time to time. Updated terms will be posted on this page.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

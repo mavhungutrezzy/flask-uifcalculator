@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Privacy Policy | UIF Calculators{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Read the UIF Calculators privacy policy to understand what information we collect, how analytics and advertising are used, and how to contact us.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.privacy_policy', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.privacy_policy', _external=True) }}{% endblock %}
+{% block og_title %}Privacy Policy | UIF Calculators{% endblock %}
+{% block og_description %}Learn how UIF Calculators handles calculator inputs, analytics, advertising, cookies, and external links.{% endblock %}
+{% block twitter_url %}{{ url_for('home.privacy_policy', _external=True) }}{% endblock %}
+{% block twitter_title %}Privacy Policy | UIF Calculators{% endblock %}
+{% block twitter_description %}Learn how UIF Calculators handles calculator inputs, analytics, advertising, cookies, and external links.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ url_for('home.privacy_policy', _external=True) }}#webpage",
+  "url": "{{ url_for('home.privacy_policy', _external=True) }}",
+  "name": "Privacy Policy",
+  "description": "Privacy policy for UIF Calculators.",
+  "inLanguage": "en-ZA",
+  "isPartOf": {
+    "@id": "{{ url_for('home.index', _external=True) }}#website"
+  },
+  "dateModified": "2026-05-11"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10 text-center">
+                <h1 class="fw-bold mb-4">Privacy Policy</h1>
+                <p class="lead text-muted">How UIF Calculators handles calculator inputs, analytics, advertising, cookies, and external links.</p>
+                <p class="text-muted small mb-0">Last updated: 11 May 2026</p>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="h4 fw-bold text-primary">Overview</h2>
+                <p>UIF Calculators provides free online calculators and informational guides for South African UIF and finance topics. This policy explains what information may be collected when you use this website and how it may be used.</p>
+                <p>By using this website, you agree to the practices described in this Privacy Policy.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Calculator Inputs</h2>
+                <p>When you use our calculators, you may enter information such as salary amounts, leave income, months employed, VAT amounts, or investment figures. These inputs are used to calculate and display your estimate.</p>
+                <p>We do not ask for sensitive identifying information such as your ID number, UIF login details, banking details, employer details, or uFiling password.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Analytics</h2>
+                <p>We use analytics tools, including Google Analytics, to understand how visitors use the website. Analytics may collect information such as pages viewed, device type, browser type, approximate location, referring pages, and interaction events.</p>
+                <p>This helps us improve page content, calculator usability, and site performance.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Advertising and Cookies</h2>
+                <p>This website may display advertising through Google AdSense or related advertising services. Advertising partners may use cookies or similar technologies to show ads, measure ad performance, and help prevent abuse.</p>
+                <p>You can control cookies through your browser settings. Blocking some cookies may affect how certain website features, analytics, or advertisements work.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">External Links</h2>
+                <p>Some pages link to external websites, including official government services and third-party resources. We are not responsible for the privacy practices, security, or content of external websites.</p>
+                <p>Always review the privacy policy of any external site before submitting personal information.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Information Security</h2>
+                <p>We take reasonable steps to keep the website secure. However, no website or internet transmission can be guaranteed to be completely secure.</p>
+                <p>Please do not enter private claim credentials, banking information, or identity numbers into any calculator field on this website.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Children's Privacy</h2>
+                <p>This website is intended for general informational use and is not directed at children. We do not knowingly collect personal information from children.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Policy Updates</h2>
+                <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Contact</h2>
+                <p>If you have questions about this Privacy Policy, please contact the site owner through the contact method provided on UIF Calculators.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

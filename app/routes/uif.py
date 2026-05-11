@@ -15,31 +15,43 @@ def unemployment_calculator():
     if request.method == "POST":
         try:
             # 1. Extract form data using the names from your HTML
-            start_date = request.form.get("start_date")
-            end_date = request.form.get("end_date")
+            months_employed_input = request.form.get("months_employed")
             salary_input = request.form.get(
                 "single_salary"
             )  # Matches HTML name="single_salary"
 
             # 2. Validation: Ensure all fields are present
-            if not all([start_date, end_date, salary_input]):
+            if not all([months_employed_input, salary_input]):
                 # You might want to flash a message here
                 return render_template(
                     "uif/unemployment/form.html", error="All fields are required"
                 )
 
-            # 3. Convert salary to float (Handle value errors)
+            # 3. Convert inputs to numbers (Handle value errors)
             try:
                 average_salary = float(salary_input)
+                months_employed = float(months_employed_input)
             except ValueError:
                 return render_template(
-                    "uif/unemployment/form.html", error="Invalid salary amount"
+                    "uif/unemployment/form.html", error="Invalid salary or months employed"
+                )
+
+            if average_salary <= 0:
+                return render_template(
+                    "uif/unemployment/form.html",
+                    error="Average monthly salary must be greater than zero",
+                )
+
+            if months_employed <= 0:
+                return render_template(
+                    "uif/unemployment/form.html",
+                    error="Months employed must be greater than zero",
                 )
 
             # 4. Call the Refactored Calculator
             # We pass the single float salary, not a list
             result = UnemploymentBenefitCalculator.calculate_benefits(
-                average_salary=average_salary, start_date=start_date, end_date=end_date
+                average_salary=average_salary, months_employed=months_employed
             )
 
             # 5. Calculate Average Monthly Benefit (derived for view)
@@ -64,7 +76,7 @@ def unemployment_calculator():
             )
 
         except ValueError as e:
-            # Catch errors from the calculator (like end_date before start_date)
+            # Catch validation errors from the calculator
             logger.warning(f"Calculation Logic Error: {e}")
             return render_template("uif/unemployment/form.html", error=str(e))
 

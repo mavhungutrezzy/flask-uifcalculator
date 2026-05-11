@@ -1,42 +1,106 @@
 {% extends "base.html" %}
 
 
-{% block title %}UIF Calculator 2026 - Calculate Your UIF Benefits Online | South Africa{% endblock %}
+{% block title %}UIF Calculator South Africa 2026 | Unemployment & Maternity Benefits{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Free UIF calculator for South Africa. Estimate unemployment, maternity, illness and adoption benefits, credit days and payout amounts with 2026 guidance.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.index', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.index', _external=True) }}{% endblock %}
+{% block og_title %}UIF Calculator South Africa 2026 | Unemployment & Maternity Benefits{% endblock %}
+{% block og_description %}Estimate UIF unemployment, maternity, illness and adoption benefits in South Africa with free online calculators updated for 2026.{% endblock %}
+{% block twitter_url %}{{ url_for('home.index', _external=True) }}{% endblock %}
+{% block twitter_title %}UIF Calculator South Africa 2026 | Unemployment & Maternity Benefits{% endblock %}
+{% block twitter_description %}Free South African UIF calculators for unemployment, maternity, illness and adoption benefit estimates, updated for 2026.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ url_for('home.index', _external=True) }}#webpage",
+  "url": "{{ url_for('home.index', _external=True) }}",
+  "name": "UIF Calculator South Africa 2026",
+  "description": "Free UIF calculators for South African unemployment, maternity, illness and adoption benefit estimates.",
+  "inLanguage": "en-ZA",
+  "isPartOf": {
+    "@id": "{{ url_for('home.index', _external=True) }}#website"
+  },
+  "dateModified": "2026-05-11",
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "South African benefit calculators",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "UIF Unemployment Calculator",
+        "url": "{{ url_for('uif.unemployment_calculator', _external=True) }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Maternity UIF Calculator",
+        "url": "{{ url_for('uif.leave_benefit_calculator', _external=True) }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "VAT Calculator",
+        "url": "{{ url_for('home.vat_calculator', _external=True) }}"
+      }
+    ]
+  }
+}
+</script>
+{% endblock %}
 
 {% block content %}
 
 
 <!-- Main Content -->
-<main class="py-3">
+<div class="py-3">
     <!-- Hero Section -->
-    <section class="py-4">
+    <section class="py-4 hero-home">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 text-center text-lg-start">
                     <div class="mb-2">
                         <span class="badge bg-success-subtle p-2 rounded-pill border border-success text-success fw-semibold small">
-                            <i class="bi bi-check-circle-fill me-1"></i>UIF Rules
-                            <i class="bi bi-check-circle-fill ms-2 me-1"></i>Accurate
-                            <i class="bi bi-check-circle-fill ms-2 me-1"></i>Updated 2026
+                            <i class="bi bi-check-circle-fill me-1"></i>South Africa
+                            <i class="bi bi-check-circle-fill ms-2 me-1"></i>Free estimate
+                            <i class="bi bi-check-circle-fill ms-2 me-1"></i>Updated May 2026
                         </span>
                     </div>
-                    <h1 class="fw-bold mb-2">Calculate Your UIF Benefits in 30 Seconds</h1>
+                    <h1 class="fw-bold mb-2">UIF Calculator South Africa 2026</h1>
                     <p class="lead mb-3">
-                        Instant estimates for unemployment, maternity & illness benefits. <strong>UIF Calculator</strong>
+                        Estimate unemployment, maternity, illness and adoption UIF benefits using your salary and months employed.
                     </p>
                     <div class="d-grid gap-2 d-md-flex mb-3">
                         <a href="{{ url_for('uif.unemployment_calculator') }}"
                            class="btn btn-success btn-lg px-4 pulse-btn shadow">
-                            <i class="bi bi-calculator me-2"></i>Calculate Now
+                            <i class="bi bi-calculator me-2"></i>Calculate UIF
                         </a>
                         <a class="btn btn-outline-primary btn-lg"
                            href="{{ url_for("uif.leave_benefit_calculator")}}"
                            role="link">Maternity UIF Calculator</a>
                     </div>
+                    <div class="small text-muted">
+                        Uses the official UIF benefit calculation guidance from the
+                        <a href="https://www.labour.gov.za/DocumentCenter/Publications/Unemployment%20Insurance%20Fund/Fact%20Sheet%20on%20the%20Calculation%20of%20normal%20UIF%20benefit.pdf"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Department of Employment and Labour
+                        </a>.
+                    </div>
                 </div>
                 <div class="col-lg-6 mt-3 mt-lg-0">
                     <!-- Quick Calculator Preview Widget -->
-                    <div class="card border rounded-3 border-primary shadow-sm">
+                    <div class="card border rounded-3 shadow-sm">
                         <div class="card-body p-4 bg-white rounded-3">
                             <h3 class="h6 mb-3 text-center text-primary">Quick UIF Estimate</h3>
                             <form id="quickCalc"
@@ -62,37 +126,65 @@
                                                required>
                                     </div>
                                     
-                                    <!-- Start Date -->
                                     <div class="col-12">
-                                        <label for="startDate" class="form-label mb-1 small text-uppercase text-muted">Start Date</label>
-                                        <input type="date"
+                                        <label for="monthsEmployed" class="form-label mb-1 small text-uppercase text-muted">Months Employed</label>
+                                        <input type="number"
+                                               step="1"
+                                               min="1"
                                                class="form-control form-control-md"
-                                               id="startDate"
-                                               name="start_date"
-                                               data-select="datepicker"
-                                               placeholder="Select start date"
-                                               autocomplete="off"
+                                               id="monthsEmployed"
+                                               name="months_employed"
+                                               placeholder="e.g., 24"
                                                required>
-                                    </div>
-                                    
-                                    <!-- End Date -->
-                                    <div class="col-12">
-                                        <label for="endDate" class="form-label mb-1 small text-uppercase text-muted">End Date</label>
-                                        <input type="date"
-                                               class="form-control form-control-md"
-                                               id="endDate"
-                                               name="end_date"
-                                               data-select="datepicker"
-                                               placeholder="Select end date"
-                                               autocomplete="off"
-                                               required>
+                                        <div class="form-text">
+                                            Count only working months where you were employed and contributing to UIF.
+                                        </div>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100 mt-3">See Estimate</button>
                             </form>
-                            <p class="text-muted small mt-3 mb-0 text-center">* Approximate calculation</p>
+                            <p class="text-muted small mt-3 mb-0 text-center">Estimate only. Confirm final claims with the Department of Employment and Labour.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <a class="text-decoration-none" href="{{ url_for('uif.unemployment_calculator') }}">
+                        <div class="card h-100 border-0 shadow-sm calculator-link-card">
+                            <div class="card-body">
+                                <i class="bi bi-cash-coin text-success fs-3"></i>
+                                <h2 class="h5 mt-3 text-dark">Unemployment UIF Calculator</h2>
+                                <p class="text-muted mb-0">Estimate payout days and benefit amount after retrenchment, dismissal or contract expiry.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a class="text-decoration-none" href="{{ url_for('uif.leave_benefit_calculator') }}">
+                        <div class="card h-100 border-0 shadow-sm calculator-link-card">
+                            <div class="card-body">
+                                <i class="bi bi-person-hearts text-primary fs-3"></i>
+                                <h2 class="h5 mt-3 text-dark">Maternity UIF Calculator</h2>
+                                <p class="text-muted mb-0">Estimate maternity, adoption, parental or illness leave top-up benefits.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a class="text-decoration-none" href="{{ url_for('uif.how_to_calculate_uif') }}">
+                        <div class="card h-100 border-0 shadow-sm calculator-link-card">
+                            <div class="card-body">
+                                <i class="bi bi-journal-text text-info fs-3"></i>
+                                <h2 class="h5 mt-3 text-dark">How UIF Is Calculated</h2>
+                                <p class="text-muted mb-0">Understand salary limits, income replacement rates, credit days and required documents.</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -101,7 +193,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="fw-bold mb-4">Complete Guide to UIF Benefits in South Africa (Updated 2026)</h2>
+                    <h2 class="fw-bold mb-4">Complete Guide to UIF Benefits in South Africa (Updated May 2026)</h2>
                     <p class="lead text-muted">Everything you need to know about claiming UIF – who qualifies, how much you get, and how to apply.</p>
                 </div>
             </div>
@@ -213,5 +305,5 @@
       </div>
     </div>
   </section>
-</main>
+</div>
 {% endblock %}

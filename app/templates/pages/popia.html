@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}POPIA Notice | UIF Calculators{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Read the UIF Calculators POPIA notice for South African visitors, including how we handle calculator inputs, cookies, analytics, advertising, and data subject rights.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.popia', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.popia', _external=True) }}{% endblock %}
+{% block og_title %}POPIA Notice | UIF Calculators{% endblock %}
+{% block og_description %}Learn how UIF Calculators approaches POPIA, personal information, calculator inputs, cookies, analytics, advertising, and user rights.{% endblock %}
+{% block twitter_url %}{{ url_for('home.popia', _external=True) }}{% endblock %}
+{% block twitter_title %}POPIA Notice | UIF Calculators{% endblock %}
+{% block twitter_description %}Learn how UIF Calculators approaches POPIA, personal information, calculator inputs, cookies, analytics, advertising, and user rights.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ url_for('home.popia', _external=True) }}#webpage",
+  "url": "{{ url_for('home.popia', _external=True) }}",
+  "name": "POPIA Notice",
+  "description": "POPIA notice for UIF Calculators.",
+  "inLanguage": "en-ZA",
+  "isPartOf": {
+    "@id": "{{ url_for('home.index', _external=True) }}#website"
+  },
+  "dateModified": "2026-05-11"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10 text-center">
+                <h1 class="fw-bold mb-4">POPIA Notice</h1>
+                <p class="lead text-muted">How UIF Calculators approaches personal information under South Africa's Protection of Personal Information Act.</p>
+                <p class="text-muted small mb-0">Last updated: 11 May 2026</p>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="h4 fw-bold text-primary">What POPIA Is</h2>
+                <p>The Protection of Personal Information Act, 2013 (POPIA) is South Africa's privacy law for the processing of personal information by public and private bodies.</p>
+                <p>The Act is intended to protect personal information, set minimum requirements for lawful processing, establish the Information Regulator, and give people rights relating to their personal information.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Our Approach</h2>
+                <p>UIF Calculators is designed to provide estimates without asking for unnecessary personal information. The unemployment, leave, VAT, and compound interest calculators use the numbers you enter to produce an estimate on the website.</p>
+                <p>We do not ask for your ID number, UIF claim number, uFiling password, banking details, employer details, or medical records.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Personal Information We May Process</h2>
+                <p>Depending on how you use the website, limited technical information may be processed through analytics, advertising, security, hosting, and browser technologies.</p>
+                <ul class="small">
+                    <li>Device, browser, and approximate location information</li>
+                    <li>Pages visited and interactions with website features</li>
+                    <li>Cookie identifiers used for analytics or advertising</li>
+                    <li>Information you voluntarily send if you contact the website owner</li>
+                </ul>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Why We Process Information</h2>
+                <p>We process limited information to operate the website, show calculator results, understand site performance, improve content, prevent abuse, and support advertising that keeps the calculators free to use.</p>
+                <p>We aim to collect only what is reasonably needed for these purposes.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Cookies, Analytics and Advertising</h2>
+                <p>This website may use cookies and similar technologies for analytics and advertising, including services such as Google Analytics and Google AdSense.</p>
+                <p>You can manage or block cookies in your browser settings. Some features, analytics, or advertisements may not work as expected if cookies are disabled.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Your POPIA Rights</h2>
+                <p>Subject to POPIA and other applicable laws, you may have rights to ask what personal information is held about you, request correction or deletion where appropriate, object to certain processing, and lodge a complaint with the Information Regulator.</p>
+                <p>If you contact us about your information, we may need enough detail to identify the request and respond appropriately.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Security</h2>
+                <p>We take reasonable steps to protect the website and reduce unnecessary personal information collection. No online service can guarantee complete security.</p>
+                <p>Please do not enter sensitive information, passwords, claim credentials, ID numbers, or banking details into calculator fields.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Third-Party Websites</h2>
+                <p>Some pages link to external websites, including government services and third-party resources. Those websites have their own privacy and POPIA practices.</p>
+                <p>Review the relevant external website's privacy notice before submitting personal information.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Information Regulator</h2>
+                <p>The Information Regulator is the independent South African body established under POPIA. It monitors and enforces compliance with POPIA and PAIA.</p>
+                <p>You can learn more from the <a href="https://inforegulator.org.za/about/" target="_blank" rel="noopener noreferrer">Information Regulator South Africa</a> or read the <a href="https://www.gov.za/documents/protection-personal-information-act" target="_blank" rel="noopener noreferrer">Protection of Personal Information Act 4 of 2013</a> on the South African Government website.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Related Policy</h2>
+                <p>For more detail about analytics, advertising, cookies, and external links, please read our <a href="{{ url_for('home.privacy_policy') }}">Privacy Policy</a>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

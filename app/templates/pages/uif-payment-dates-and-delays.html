@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}UIF Payment Dates, Processing Times and Delays 2026{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Understand UIF payment dates, claim processing stages and common payment delays such as missing documents, banking verification and employer declarations.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.uif_payment_dates_and_delays', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.uif_payment_dates_and_delays', _external=True) }}{% endblock %}
+{% block og_title %}UIF Payment Dates, Processing Times and Delays 2026{% endblock %}
+{% block og_description %}Guide to UIF payment timing, status messages and common reasons claims or payments are delayed in South Africa.{% endblock %}
+{% block twitter_url %}{{ url_for('home.uif_payment_dates_and_delays', _external=True) }}{% endblock %}
+{% block twitter_title %}UIF Payment Dates, Processing Times and Delays 2026{% endblock %}
+{% block twitter_description %}Guide to UIF payment timing, status messages and common reasons claims or payments are delayed in South Africa.{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-gradient-primary">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-10">
+        <span class="badge bg-success-subtle text-success fw-semibold border border-success px-3 py-2 small rounded-pill mb-3">Payments</span>
+        <h1 class="fw-bold mb-3">UIF Payment Dates, Processing Times and Delays</h1>
+        <p class="lead text-muted mb-0">UIF payment timing depends on claim approval, documents, banking verification, employer declarations and available credit days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <article class="col-lg-8 mx-auto">
+        <h2 class="h4 fw-bold text-primary">Is There a Fixed UIF Payment Date?</h2>
+        <p>UIF is not like a salary with one fixed monthly payday for everyone. Your payment timing depends on where your claim is in the process and whether the payment has been approved and sent for processing.</p>
+
+        <hr class="my-4">
+
+        <h2 class="h4 fw-bold text-primary">Common UIF Payment Statuses</h2>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h5">Payment Reserved</h3>
+                <p class="text-muted mb-0">A payment may be allocated, but it still needs to move through the final payment process.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h5">Sent to Paymaster</h3>
+                <p class="text-muted mb-0">The payment request has been sent for payment processing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="h4 fw-bold text-primary">Why UIF Payments Get Delayed</h2>
+        <ul class="list-check">
+          <li>Banking details do not pass verification</li>
+          <li>UI-19 or other supporting documents are missing or incorrect</li>
+          <li>Employer declarations are missing for part of your employment history</li>
+          <li>Your claim is still with an assessor or adjudicator</li>
+          <li>You have no credit days left for the claim</li>
+        </ul>
+
+        <hr class="my-4">
+
+        <h2 class="h4 fw-bold text-primary">What You Can Do</h2>
+        <p>Check your latest claim status on uFiling or by USSD, then respond to any document or banking requests as soon as possible. If the status is unclear, use the <a href="{{ url_for('home.uif_status_check_online') }}">UIF status check guide</a> to understand what it may mean.</p>
+        <p>You can also estimate your possible benefit duration with the <a href="{{ url_for('uif.unemployment_calculator') }}">UIF calculator</a>.</p>
+
+        <p class="small text-muted mb-0">This page explains common payment delays. Confirm official payment information with UIF or the Department of Employment and Labour.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

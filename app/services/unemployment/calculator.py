@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from datetime import datetime
 
 
 @dataclass
@@ -19,6 +18,7 @@ class UnemploymentBenefitCalculator:
     SALARY_CAP: float = 17_712.00  # Monthly ceiling
     MAX_CREDIT_DAYS: int = 365  # Maximum accruable days
     DAYS_PER_YEAR: int = 365  # Fixed year divisor
+    DAYS_PER_MONTH: float = 365 / 12  # Convert entered working months to days
 
     # IRR Formula Constants
     IRR_BASE: float = 29.2
@@ -26,40 +26,34 @@ class UnemploymentBenefitCalculator:
     IRR_DENOMINATOR_OFFSET: float = 232.92
 
     @staticmethod
-    def calculate_credit_days(start_date: str, end_date: str) -> tuple:
+    def calculate_credit_days(months_employed: float) -> tuple:
         """
         Calculate credit days: 1 credit day for every 4 days worked.
         Returns (credit_days, days_worked).
         """
-        try:
-            start = datetime.strptime(start_date, "%Y-%m-%d")
-            end = datetime.strptime(end_date, "%Y-%m-%d")
+        if months_employed <= 0:
+            raise ValueError("Months employed must be greater than zero")
 
-            # Calculate total days worked (inclusive)
-            days_worked = (end - start).days + 1
+        # Convert working months into days before applying the existing UIF credit rule.
+        days_worked = round(
+            months_employed * UnemploymentBenefitCalculator.DAYS_PER_MONTH
+        )
 
-            if days_worked < 0:
-                raise ValueError("End date cannot be before start date")
+        # Rule: 1 credit day for every 4 days worked
+        credit_days = days_worked // 4
 
-            # Rule: 1 credit day for every 4 days worked
-            credit_days = days_worked // 4
+        # Rule: Cap at 365 credit days
+        final_credits = min(
+            credit_days, UnemploymentBenefitCalculator.MAX_CREDIT_DAYS
+        )
 
-            # Rule: Cap at 365 credit days
-            final_credits = min(
-                credit_days, UnemploymentBenefitCalculator.MAX_CREDIT_DAYS
-            )
-
-            return final_credits, days_worked
-
-        except ValueError as e:
-            raise ValueError(f"Date calculation error: {str(e)}")
+        return final_credits, days_worked
 
     @classmethod
     def calculate_benefits(
         cls,
         average_salary: float,
-        start_date: str,
-        end_date: str,
+        months_employed: float,
     ) -> UnemploymentBenefitResult:
         """
         Calculate benefits using the formula:
@@ -94,7 +88,7 @@ class UnemploymentBenefitCalculator:
         daily_benefit = daily_income_y1 * (irr_percentage / 100)
 
         # 5. Calculate Credit Days
-        credit_days, days_worked = cls.calculate_credit_days(start_date, end_date)
+        credit_days, days_worked = cls.calculate_credit_days(months_employed)
 
         # 6. Calculate Total Benefit
         total_benefit = daily_benefit * credit_days

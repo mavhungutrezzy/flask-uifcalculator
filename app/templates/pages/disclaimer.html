@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Disclaimer | UIF Calculators{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Read the UIF Calculators disclaimer about estimates, official claim decisions, external links, and independent informational use.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.disclaimer', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.disclaimer', _external=True) }}{% endblock %}
+{% block og_title %}Disclaimer | UIF Calculators{% endblock %}
+{% block og_description %}Important disclaimer for UIF Calculators estimates, guidance, external links, and independent informational use.{% endblock %}
+{% block twitter_url %}{{ url_for('home.disclaimer', _external=True) }}{% endblock %}
+{% block twitter_title %}Disclaimer | UIF Calculators{% endblock %}
+{% block twitter_description %}Important disclaimer for UIF Calculators estimates, guidance, external links, and independent informational use.{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10 text-center">
+                <h1 class="fw-bold mb-4">Disclaimer</h1>
+                <p class="lead text-muted">Important limits on UIF estimates, guidance, and external links.</p>
+                <p class="text-muted small mb-0">Last updated: 11 May 2026</p>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="h4 fw-bold text-primary">Estimates Only</h2>
+                <p>UIF Calculators provides estimate tools for planning and general information. Calculator results are not official UIF decisions, guarantees, approvals, or payment confirmations.</p>
+                <p>Actual benefits depend on Department of Employment and Labour rules, contribution history, claim status, documents submitted, employer declarations, and final adjudication.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Not Government Affiliated</h2>
+                <p>UIF Calculators is an independent informational website. It is not affiliated with, endorsed by, or operated by the Department of Employment and Labour, the Unemployment Insurance Fund, uFiling, SARS, or any South African government department.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">No Legal or Financial Advice</h2>
+                <p>Information on this website is general educational content. It should not be treated as legal, financial, tax, employment, or benefits advice.</p>
+                <p>If your situation is complex, consult the Department of Employment and Labour, a labour practitioner, financial adviser, tax practitioner, or legal professional.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">Official Confirmation</h2>
+                <p>For official claim information, application requirements, payment status, or disputes, use official Department of Employment and Labour and uFiling channels.</p>
+                <p>Do not rely only on this website when making claim decisions or financial commitments.</p>
+
+                <hr class="my-4">
+
+                <h2 class="h4 fw-bold text-primary">External Links</h2>
+                <p>This website may link to government websites and third-party resources. External websites are controlled by their own operators, and their content or availability may change without notice.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

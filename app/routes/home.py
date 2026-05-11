@@ -1,4 +1,11 @@
-from flask import Blueprint, render_template, current_app, send_from_directory
+from flask import (
+    Blueprint,
+    current_app,
+    redirect,
+    render_template,
+    send_from_directory,
+    url_for,
+)
 from flask import request
 
 from app.services.compound_interest.calculator import CompoundInterestCalculator
@@ -15,6 +22,106 @@ def index():
 @home_bp.route("/uif-status-check-online")
 def uif_status_check_online():
     return render_template("pages/uif_status_check.html")
+
+
+@home_bp.route("/uif/status-check-online")
+def legacy_uif_status_check_online():
+    return redirect(url_for("home.uif_status_check_online"), code=301)
+
+
+@home_bp.route("/articles/")
+def articles():
+    return render_template("pages/articles.html")
+
+
+@home_bp.route("/articles/how-to-claim-uif-online/")
+def how_to_claim_uif_online():
+    return render_template("pages/how-to-claim-uif-online.html")
+
+
+@home_bp.route("/articles/uif-documents-needed/")
+def uif_documents_needed():
+    return render_template("pages/uif-documents-needed.html")
+
+
+@home_bp.route("/articles/can-i-claim-uif-if-i-resigned/")
+def can_i_claim_uif_if_i_resigned():
+    return render_template("pages/can-i-claim-uif-if-i-resigned.html")
+
+
+@home_bp.route("/articles/uif-payment-dates-and-delays/")
+def uif_payment_dates_and_delays():
+    return render_template("pages/uif-payment-dates-and-delays.html")
+
+
+@home_bp.route("/articles/uif-credit-days-explained/")
+def uif_credit_days_explained():
+    return render_template("pages/uif-credit-days-explained.html")
+
+
+@home_bp.route("/articles/uif-banking-details-ui-2-8/")
+def uif_banking_details_ui_2_8():
+    return render_template("pages/uif-banking-details-ui-2-8.html")
+
+
+@home_bp.route("/articles/why-uif-claim-rejected-cancelled/")
+def why_uif_claim_rejected_cancelled():
+    return render_template("pages/why-uif-claim-rejected-cancelled.html")
+
+
+@home_bp.route("/articles/missing-uif-contributions/")
+def missing_uif_contributions():
+    return render_template("pages/missing-uif-contributions.html")
+
+
+@home_bp.route("/articles/maternity-uif-documents-needed/")
+def maternity_uif_documents_needed():
+    return render_template("pages/maternity-uif-documents-needed.html")
+
+
+@home_bp.route("/articles/uif-fixed-term-contracts/")
+def uif_fixed_term_contracts():
+    return render_template("pages/uif-fixed-term-contracts.html")
+
+
+@home_bp.route("/privacy-policy/")
+def privacy_policy():
+    return render_template("pages/privacy-policy.html")
+
+
+@home_bp.route("/popia/")
+def popia():
+    return render_template("pages/popia.html")
+
+
+@home_bp.route("/disclaimer/")
+def disclaimer():
+    return render_template("pages/disclaimer.html")
+
+
+@home_bp.route("/terms-of-use/")
+def terms_of_use():
+    return render_template("pages/terms-of-use.html")
+
+
+@home_bp.route("/contact/")
+def contact():
+    return render_template("pages/contact.html")
+
+
+@home_bp.route("/about/")
+def about():
+    return render_template("pages/about.html")
+
+
+@home_bp.route("/cookie-policy/")
+def cookie_policy():
+    return render_template("pages/cookie-policy.html")
+
+
+@home_bp.route("/methodology/")
+def methodology():
+    return render_template("pages/methodology.html")
 
 
 @home_bp.route("/calculators/vat-calculator/", methods=["GET", "POST"])
