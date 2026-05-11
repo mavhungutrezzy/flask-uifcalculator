@@ -205,17 +205,19 @@
                 <h3 class="h4 fw-bold text-primary">Who Can Claim From the UIF Fund?</h3>
                 <p>You can claim from the Unemployment Insurance Fund (UIF) if you are an employee registered with the UIF and have been contributing monthly through your salary.</p>
                 <p>Use this guide to understand how to calculate your UIF benefits in 30 seconds. We explain how UIF payouts work, how much you can get, and how to estimate your benefits using our free UIF calculators.</p>
+                <p>If you are preparing a claim, start with the <a href="{{ url_for('home.uif_documents_needed') }}">UIF documents checklist</a>, then read how to <a href="{{ url_for('home.how_to_claim_uif_online') }}">claim UIF online through uFiling</a>. If your claim is already submitted, the <a href="{{ url_for('home.uif_status_check_online') }}">UIF status check guide</a> explains common status messages and payment progress.</p>
 
                 <hr class="my-4">
 
                 <h3 class="h4 fw-bold text-primary">Can I Claim UIF If I Resigned?</h3>
-                <p><strong>No.</strong> You cannot claim unemployment benefits if you resigned voluntarily.</p>
+                <p><strong>No.</strong> You cannot claim unemployment benefits if you resigned voluntarily. If you are unsure whether your situation counts as resignation or constructive dismissal, read our guide on <a href="{{ url_for('home.can_i_claim_uif_if_i_resigned') }}">claiming UIF after resignation</a>.</p>
                 <p class="bg-warning-subtle p-3 rounded">You can claim for UIF benefits only if:</p>
                 <ul class="list-check">
                     <li>You were <strong>dismissed</strong> (except for misconduct)</li>
                     <li>You were <strong>retrenched</strong> or laid off</li>
                     <li>Your fixed-term contract <strong>expired</strong></li>
                 </ul>
+                <p>If your contract ended naturally, the <a href="{{ url_for('home.uif_fixed_term_contracts') }}">fixed-term contract UIF guide</a> explains what to check on your UI-19 form before applying.</p>
                 <hr class="my-4">
 
                 <h3 class="h4 fw-bold text-primary">Types of UIF Benefits (2026)</h3>
@@ -233,7 +235,7 @@
                 <p>To qualify for the benefits, you must be receiving less than your normal wages while you are on sick leave.</p>
                 <p>To qualify for illness benefits, you must submit your application within 6 months of the date you stopped working due to your condition. Payments are calculated starting from the day you ceased working and became fully or partially unpaid, but please note that benefits are only payable if your illness lasts longer than 7 days. To validate the specific period of your condition, you are required to submit a medical certificate.</p><p><a href="{{ url_for("uif.unemployment_calculator") }}">The benefit amount</a> is calculated as the difference between what your employer pays you and the standard rate prescribed by the <strong>Unemployment Insurance Act</strong>. It is important to know that the combined total of the benefit and any payment from your employer cannot exceed 100 percent of the normal salary you would have received if you were working. To facilitate this, your employer must formally declare whether you will receive full, partial, or no remuneration while on sick leave.</p>
 
-<p>Finally, the duration of these payments depends on your accumulated credits. Subject to these credits, you may receive benefits for a maximum of 365 days within any four-year cycle.</p>
+<p>Finally, the duration of these payments depends on your accumulated credits. Subject to these credits, you may receive benefits for a maximum of 365 days within any four-year cycle; our <a href="{{ url_for('home.uif_credit_days_explained') }}">UIF credit days guide</a> explains the one-credit-day-for-four-days-worked rule in more detail.</p>
                     <hr class="my-4">
 
                 <h3 class="h4 fw-bold text-primary">How Do Maternity Benefits Work?</h3>
@@ -241,7 +243,7 @@
 
 <p>Payments are provided for a maximum of 121 days, which also applies in the unfortunate event of a miscarriage or stillbirth. Importantly, claiming maternity benefits does not affect your right to claim Unemployment benefits later should you become unemployed.</p>
 
-<p>Additionally, you may wish to use <a href="{{ url_for("uif.leave_benefit_calculator") }}">our UIF Maternity Benefit calculator</a> to estimate your potential benefit amount.</p>
+<p>Additionally, you may wish to use <a href="{{ url_for("uif.leave_benefit_calculator") }}">our UIF Maternity Benefit calculator</a> to estimate your potential benefit amount, and check the <a href="{{ url_for('home.maternity_uif_documents_needed') }}">maternity UIF documents checklist</a> before you submit your claim.</p>
                     <hr class="my-4">
 
                 <h3 class="h4 fw-bold text-primary">Adoption Benefits</h3>
@@ -255,7 +257,7 @@
                     <hr class="my-4">
 
                 <h3 class="h4 fw-bold text-primary">How Much Will I Get From UIF?</h3>
-                <p>The calculation of general benefit days is now based on receiving <strong>one day of benefit credit for every four days worked</strong>. If you have contributed for four years or more, you remain eligible for up to 365 days of benefits.</p><p>For Maternity or Adoption claims, the maximum payment duration is fixed at 121 days. The amount you receive is calculated on a sliding scale, based on a percentage of your previous salary.</p>
+                <p>The calculation of general benefit days is now based on receiving <strong>one day of benefit credit for every four days worked</strong>. If you have contributed for four years or more, you remain eligible for up to 365 days of benefits. If your credits look too low, missing employer declarations may be the reason; the <a href="{{ url_for('home.missing_uif_contributions') }}">missing UIF contributions guide</a> explains what to check.</p><p>For Maternity or Adoption claims, the maximum payment duration is fixed at 121 days. The amount you receive is calculated on a sliding scale, based on a percentage of your previous salary.</p>
 
 <p>The total benefit amount payable is subject to a maximum ceiling of approximately <strong>R65,000</strong>.</p>
                     
@@ -263,12 +265,13 @@
 
                 <h3 class="h4 fw-bold text-primary">How to Apply for UIF – Step by Step</h3>
                 <p>
-                    You can apply for UIF either by visiting your nearest Labour Centre or by submitting your application online through the uFiling website. Before you apply, it’s a good idea to estimate your UIF benefit using our UIF calculators on <a href="https://uifcalculators.co.za">uifcalculators.co.za</a> so you know what to expect. Whether applying in person or online, you will need key documents such as your bar-coded ID, your last six payslips, and the UI-19 form provided by your employer. If you choose to apply online, make sure you first register an account on the uFiling platform at <a href="https://uifonline.labour.gov.za/uifOnline/loginJsp">uifonline.labour.gov.za</a> before submitting your claim.
+                    You can apply for UIF either by visiting your nearest Labour Centre or by submitting your application online through the uFiling website. Before you apply, it’s a good idea to estimate your UIF benefit using our UIF calculators on <a href="https://uifcalculators.co.za">uifcalculators.co.za</a> so you know what to expect. If you prefer the online route, our <a href="{{ url_for('home.how_to_claim_uif_online') }}">how to claim UIF online guide</a> walks through the uFiling process. Whether applying in person or online, you will need key documents such as your bar-coded ID, your last six payslips, and the UI-19 form provided by your employer. If you choose to apply online, make sure you first register an account on the uFiling platform at <a href="https://uifonline.labour.gov.za/uifOnline/loginJsp">uifonline.labour.gov.za</a> before submitting your claim.
                     </p>
                     
                 <hr class="my-4">
 
                 <h3 class="h4 fw-bold text-primary">Documents Needed (Unemployment)</h3>
+                <p>For a fuller explanation of each form, see the <a href="{{ url_for('home.uif_documents_needed') }}">UIF documents needed for unemployment claims</a> checklist.</p>
                 <ul class="small">
                     <li>13-digit bar-coded ID or passport</li>
                     <li>UI-19 form (from employer)</li>
@@ -276,6 +279,7 @@
                     <li>Bank details & proof</li>
                     <li>Proof of registration as work seeker</li>
                 </ul>
+                <p>If your payment is blocked or reversed, the issue is often banking verification; our <a href="{{ url_for('home.uif_banking_details_ui_2_8') }}">UIF banking details and UI-2.8 guide</a> explains what that status can mean.</p>
             </div>
         </div>
 
