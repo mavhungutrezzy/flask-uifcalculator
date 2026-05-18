@@ -1,0 +1,329 @@
+{% extends 'base.html' %}
+
+{% block title %}UIF Credit Calculator 2026 South Africa | Estimate UIF Credits & Benefit Duration{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Calculate UIF credits with our free UIF Credit Calculator 2026 South Africa. Estimate your UIF credit days, benefit duration, and possible UIF payout amounts online.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('uif.credits_calculator', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('uif.credits_calculator', _external=True) }}{% endblock %}
+{% block og_title %}UIF Credit Calculator 2026 South Africa | Estimate UIF Credits & Benefit Duration{% endblock %}
+{% block og_description %}Calculate UIF credits with our free UIF Credit Calculator 2026 South Africa. Estimate your UIF credit days, benefit duration, and possible UIF payout amounts online.{% endblock %}
+{% block twitter_url %}{{ url_for('uif.credits_calculator', _external=True) }}{% endblock %}
+{% block twitter_title %}UIF Credit Calculator 2026 South Africa | Estimate UIF Credits & Benefit Duration{% endblock %}
+{% block twitter_description %}Calculate UIF credits with our free UIF Credit Calculator 2026 South Africa. Estimate your UIF credit days, benefit duration, and possible UIF payout amounts online.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "{{ url_for('uif.credits_calculator', _external=True) }}#webpage",
+      "url": "{{ url_for('uif.credits_calculator', _external=True) }}",
+      "name": "UIF Credit Calculator South Africa 2026",
+      "description": "Estimate your UIF credit days and benefit duration using our free UIF calculator.",
+      "inLanguage": "en-ZA",
+      "isPartOf": {
+        "@id": "{{ url_for('home.index', _external=True) }}#website"
+      },
+      "dateModified": "2026-05-18"
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "{{ url_for('uif.credits_calculator', _external=True) }}#calculator",
+      "name": "UIF Credit Calculator",
+      "url": "{{ url_for('uif.credits_calculator', _external=True) }}",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en-ZA",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "ZAR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ url_for('uif.credits_calculator', _external=True) }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "UIF Credit Calculator",
+          "item": "{{ url_for('uif.credits_calculator', _external=True) }}"
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-gradient-primary text-black">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <div class="mb-3">
+          <span class="badge bg-success-subtle text-success fw-semibold border border-success px-3 py-2 small rounded-pill">
+            <i class="bi bi-check-circle-fill me-2"></i>Updated May 2026
+          </span>
+        </div>
+        <h1 class="fw-bold mb-3">UIF Credit Calculator South Africa 2026</h1>
+        <p class="lead mb-4 text-muted">
+          Use our free UIF Credit Calculator South Africa to estimate your UIF credit days, benefit duration, and possible UIF payout amount.
+        </p>
+        <div class="d-flex flex-column flex-md-row gap-2">
+          <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-primary btn-lg px-4">
+            <i class="bi bi-calculator me-2"></i>Unemployment Calculator
+          </a>
+          <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="btn btn-outline-secondary btn-lg px-4">Leave Benefit Calculator</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 text-center">
+        <h2 class="fw-bold mb-4">What Is a UIF Credit Calculator?</h2>
+        <p class="lead text-muted">
+          The UIF Credit Calculator helps you estimate how many UIF credit days you have accumulated.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-8 mx-auto">
+        <p>Use our free <strong>UIF Credit Calculator South Africa</strong> to estimate your UIF credit days, benefit duration, and possible UIF payout amount. The calculator helps employees understand how many UIF credits they have accumulated based on the number of days worked and UIF contributions made.</p>
+        <p>Whether you are applying for unemployment, maternity, illness, or parental benefits, understanding your UIF credits is important before submitting your claim.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">What Is a UIF Credit Calculator?</h3>
+        <p>A <strong>UIF Credit Calculator</strong> helps you estimate how many UIF credit days you qualify for based on your work history. In South Africa, UIF credits determine how long you can receive UIF benefits after losing your job or going on approved leave.</p>
+        <p>Our UIF credits calculator is free and designed specifically for South African UIF rules and contribution calculations.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">How Are UIF Credits Calculated?</h3>
+        <p>UIF credits are calculated using the current UIF credit system where:</p>
+        <ul class="small">
+          <li><strong>1 credit day is earned for every 4 days worked</strong></li>
+          <li><strong>Maximum benefit duration is 365 days over a 4-year period</strong></li>
+        </ul>
+        <p>This means employees who contributed to UIF consistently over several years may qualify for the maximum UIF benefit period.</p>
+        <p>If you worked fewer days or had contribution gaps, your UIF credits and payout duration may be lower.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">How to Calculate UIF Credits</h3>
+        <p>To calculate UIF credits, UIF considers:</p>
+        <ul class="small">
+          <li>Number of days worked</li>
+          <li>UIF contributions made</li>
+          <li>Employment history</li>
+          <li>Previous UIF claims</li>
+        </ul>
+        <p>Our UIF credit calculator automatically estimates your available credits and possible benefit duration based on your salary and work period.</p>
+        <p>Many employees use the calculator before applying so they can understand how long UIF may pay benefits.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">UIF Benefit Calculator South Africa</h3>
+        <p>Our <strong>UIF Benefit Calculator South Africa</strong> helps estimate:</p>
+        <ul class="small">
+          <li>UIF unemployment benefits</li>
+          <li>UIF credit days</li>
+          <li>Monthly payout estimates</li>
+          <li>Maximum benefit duration</li>
+          <li>Expected UIF payout amounts</li>
+        </ul>
+        <p>The calculator combines UIF credit calculations with estimated payout calculations so you can better understand your potential claim value.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">How Much Is UIF First Payment?</h3>
+        <p>The first UIF payment amount depends on:</p>
+        <ul class="small">
+          <li>your previous salary,</li>
+          <li>available UIF credits,</li>
+          <li>contribution history,</li>
+          <li>and the UIF income replacement rate.</li>
+        </ul>
+        <p>Many first payments are lower than expected because:</p>
+        <ul class="small">
+          <li>banking verification is still pending,</li>
+          <li>employer declarations are incomplete,</li>
+          <li>or only partial benefit periods were processed initially.</li>
+        </ul>
+        <p>Use our <a href="{{ url_for('uif.unemployment_calculator') }}">UIF payout calculator</a> to estimate your expected first UIF payment before applying.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">How Much Does UIF Pay?</h3>
+        <p>UIF payments are calculated using a sliding scale based on your salary. Lower-income earners generally receive a higher percentage replacement rate than higher-income earners.</p>
+        <p><strong>Most employees receive between 38% and 60% of their salary</strong>, subject to UIF limits and available credits.</p>
+        <p>Your actual UIF payout depends on:</p>
+        <ul class="small">
+          <li>salary history,</li>
+          <li>UIF contributions,</li>
+          <li>and benefit type.</li>
+        </ul>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">How Much Does UIF Pay Out?</h3>
+        <p>The total UIF payout amount depends on:</p>
+        <ul class="small">
+          <li>accumulated UIF credits,</li>
+          <li>contribution duration,</li>
+          <li>monthly salary,</li>
+          <li>and the type of UIF claim submitted.</li>
+        </ul>
+        <p>Employees with four years or more of contributions may qualify for up to <strong>365 days of UIF benefits</strong>.</p>
+        <p>Use our <a href="{{ url_for('uif.unemployment_calculator') }}">UIF benefit calculator</a> to estimate your total payout amount online.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">How to Calculate UIF Payout</h3>
+        <p>To calculate UIF payout, UIF considers:</p>
+        <ol class="small">
+          <li>Your average salary</li>
+          <li>Your UIF contribution record</li>
+          <li>Available credit days</li>
+          <li>Applicable UIF income replacement rate</li>
+        </ol>
+        <p>The payout amount is then calculated according to UIF benefit formulas used in South Africa.</p>
+        <p>Our UIF payout calculator simplifies this process by estimating benefits automatically.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Calculate UIF Payout Online</h3>
+        <p>You can calculate UIF payout online using our free South African UIF calculators. The tool helps estimate:</p>
+        <ul class="small">
+          <li>monthly UIF payments,</li>
+          <li>first UIF payout amounts,</li>
+          <li>benefit duration,</li>
+          <li>and UIF credit days.</li>
+        </ul>
+        <p>Many South Africans use the calculator before applying for unemployment benefits so they understand what to expect financially.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">UIF Credits Calculator for Unemployment Claims</h3>
+        <p>The UIF credits calculator is especially useful for unemployment claims because your credits determine:</p>
+        <ul class="small">
+          <li>how long UIF will pay,</li>
+          <li>whether you qualify for benefits,</li>
+          <li>and your maximum payout period.</li>
+        </ul>
+        <p><strong>Missing contributions or incorrect employer declarations may reduce available credits</strong>, so it is important to verify your UIF records before applying.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Why Use Our UIF Credit Calculator?</h3>
+        <p>Our <strong>UIF Credit Calculator 2026 South Africa</strong> is designed to help employees:</p>
+        <ul class="small">
+          <li>calculate UIF credits,</li>
+          <li>estimate UIF benefits,</li>
+          <li>understand UIF payouts,</li>
+          <li>and plan financially before applying.</li>
+        </ul>
+        <p>The calculator is free, fast, and built specifically for South African UIF claims and contribution rules.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-white border-top">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 text-center">
+        <h2 class="fw-bold mb-4">Frequently Asked Questions About UIF Credits</h2>
+        <p class="lead text-muted">Common questions about UIF credit calculations and benefit duration in South Africa.</p>
+      </div>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-8 mx-auto">
+        <h3 class="h4 fw-bold text-primary mb-3">What is a UIF credit?</h3>
+        <p>A <strong>UIF credit</strong> is a benefit day earned through UIF contributions while employed. The more days you work and contribute to UIF, the more credit days you accumulate.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary mb-3">How are UIF credits calculated?</h3>
+        <p>You earn <strong>1 UIF credit day for every 4 days worked</strong>. This means if you worked 240 days in a year while contributing to UIF, you would earn 60 credit days.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary mb-3">How much is UIF first payment?</h3>
+        <p>The amount depends on your salary, credits, and contribution history. First payments typically take several weeks to process and may be lower than expected due to banking verification or incomplete employer documentation.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary mb-3">How much does UIF pay out?</h3>
+        <p>UIF payouts vary based on salary and available credits. Most employees receive between 38% and 60% of their salary, subject to UIF salary limits and the maximum payout ceiling of approximately R65,000.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary mb-3">Can I calculate UIF payout online?</h3>
+        <p>Yes, you can use our <a href="{{ url_for('uif.unemployment_calculator') }}">UIF payout calculator</a> to estimate benefits online. The tool helps you understand your expected payout before submitting your claim.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary mb-3">What is the maximum UIF benefit period?</h3>
+        <p>The <strong>maximum UIF benefit duration is usually 365 days over 4 years of contributions</strong>. This applies to unemployment benefits. Maternity and adoption benefits have a fixed maximum of 121 days.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary mb-3">How do I check my UIF credits?</h3>
+        <p>You can check your UIF credits by logging into your <a href="https://uifonline.labour.gov.za/uifOnline/loginJsp" target="_blank" rel="noopener noreferrer">uFiling account</a>, visiting your nearest Labour Centre, or using the UIF USSD code on your mobile phone.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary mb-3">What if my UIF credits are too low?</h3>
+        <p>Low UIF credits may indicate missing contributions or employer declarations. Visit your Labour Centre with your payslips to verify your contribution record. <a href="{{ url_for('home.missing_uif_contributions') }}">Missing UIF contributions</a> can often be recovered with proper documentation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-4 bg-primary text-white">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-8 mx-auto">
+        <h2>Calculate Your UIF Benefits Today</h2>
+        <p class="text-white">
+          Don't wait until you need it - understand your UIF entitlements now. Our free calculators give you instant, accurate results based on your specific situation.
+        </p>
+        <div class="d-flex flex-column flex-md-row gap-2 justify-content-center">
+          <a href="{{ url_for('uif.unemployment_calculator') }}"
+             class="btn btn-outline-light btn-sm">Calculate Unemployment Benefits</a>
+          <a href="{{ url_for('uif.leave_benefit_calculator') }}"
+             class="btn btn-outline-light btn-sm">Calculate Maternity Benefits</a>
+          <a href="{{ url_for('home.vat_calculator') }}"
+             class="btn btn-outline-light btn-sm">Calculate VAT</a>
+        </div>
+        <p class="text-white small mt-3">
+          Join thousands of South Africans who've used our UIF calculator to plan their finances
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

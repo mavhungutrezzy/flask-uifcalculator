@@ -1,126 +1,345 @@
 {% extends 'base.html' %}
 
+{% block title %}UIF Leave Benefit Top-Up Calculator | Maternity UIF Benefits 2026{% endblock %}
+
 {% block meta %}
-  <meta name="description" content="Estimate your UIF top-up during maternity, adoption, parental, or illness leave. Enter your salary and leave income to see your daily UIF payout. Learn about maternity UIF, forms, calculation, and application process.">
-  <meta name="keywords"
-  content="uif calculator, uif calculator 2026, uif payments status check,uif calculator 2026 south africa, uif maternity calculator, uif calculator online, uif ussd code, uif status check online, uif status chek, uif calculator online login, uif calculator online south africa, uif maternity benefit calculator, 2026 uif calculator, uif calculator on salary in south africa, uif payout calculator, uif calculator maternity, uif benefit helper app, uif calculator south africa 2026, maternity leave calculator south africa, uif benefits calculator, uif calculator south africa, uif calculator 2026 south africa online, uif benefit calculator, uif credits calculator, uif maternity calculator 2026 south africa, maternity uif calculator south africa, 2026 uif calculator south africa">
+<meta name="description"
+      content="Calculate UIF leave benefits with our free UIF Leave Benefit Top-Up Calculator. Estimate maternity UIF payouts, parental leave, adoption and illness benefits online in seconds.">
 {% endblock %}
 
-{% block title %}UIF Leave Benefit Top-Up Calculator | UIF Calculator{% endblock %}
+{% block canonical_href %}{{ url_for('uif.leave_benefit_calculator', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('uif.leave_benefit_calculator', _external=True) }}{% endblock %}
+{% block og_title %}UIF Leave Benefit Top-Up Calculator | Maternity UIF Benefits 2026{% endblock %}
+{% block og_description %}Calculate UIF leave benefits with our free UIF Leave Benefit Top-Up Calculator. Estimate maternity UIF payouts, parental leave, adoption and illness benefits online in seconds.{% endblock %}
+{% block twitter_url %}{{ url_for('uif.leave_benefit_calculator', _external=True) }}{% endblock %}
+{% block twitter_title %}UIF Leave Benefit Top-Up Calculator | Maternity UIF Benefits 2026{% endblock %}
+{% block twitter_description %}Calculate UIF leave benefits with our free UIF Leave Benefit Top-Up Calculator. Estimate maternity UIF payouts, parental leave, adoption and illness benefits online in seconds.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "{{ url_for('uif.leave_benefit_calculator', _external=True) }}#webpage",
+      "url": "{{ url_for('uif.leave_benefit_calculator', _external=True) }}",
+      "name": "UIF Leave Benefit Top-Up Calculator South Africa 2026",
+      "description": "Estimate UIF leave benefits using your normal salary and leave salary.",
+      "inLanguage": "en-ZA",
+      "isPartOf": {
+        "@id": "{{ url_for('home.index', _external=True) }}#website"
+      },
+      "dateModified": "2026-05-18"
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "{{ url_for('uif.leave_benefit_calculator', _external=True) }}#calculator",
+      "name": "UIF Leave Benefit Top-Up Calculator",
+      "url": "{{ url_for('uif.leave_benefit_calculator', _external=True) }}",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en-ZA",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "ZAR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ url_for('uif.leave_benefit_calculator', _external=True) }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "UIF Leave Benefit Calculator",
+          "item": "{{ url_for('uif.leave_benefit_calculator', _external=True) }}"
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
-  {% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
+{% if error %}
+  <div class="container pt-3">
+    <div class="alert alert-danger" role="alert">{{ error }}</div>
+  </div>
+{% endif %}
 
-  <!-- Calculator Form Section -->
-  <section class="py-5 bg-gradient-primary text-black">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="border rounded-4 p-4 bg-white shadow-sm">
-            <h1 class="h5 mb-3 text-center text-primary">UIF Leave Benefit Top-Up</h1>
-            <form method="post" action="">
+<section class="py-5 bg-gradient-primary text-black">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <div class="mb-3">
+          <span class="badge bg-success-subtle text-success fw-semibold border border-success px-3 py-2 small rounded-pill">
+            <i class="bi bi-check-circle-fill me-2"></i>Updated May 2026
+          </span>
+        </div>
+        <h1 class="fw-bold mb-3">UIF Leave Benefit Calculator South Africa</h1>
+        <p class="lead mb-4 text-muted">
+          Estimate your UIF leave benefit top-up for maternity, parental, adoption, or illness leave using your salary information and UIF contribution history.
+        </p>
+        <div class="d-flex flex-column flex-md-row gap-2">
+          <a href="#calculatorSection" class="btn btn-primary btn-lg px-4">
+            <i class="bi bi-calculator me-2"></i>Calculate Leave Benefits
+          </a>
+          <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-outline-secondary btn-lg px-4">Unemployment Calculator</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-4 bg-gradient-primary" id="calculatorSection">
+  <div class="container">
+    <div class="row mb-4 justify-content-center" id="calculator">
+      <div class="col-md-10 col-lg-8">
+        <div class="border rounded-4 p-3 p-md-4 bg-white shadow-sm">
+          <div class="card-body p-2 p-md-4 bg-white rounded-3 text-black">
+            <form id="leaveCalc" method="post" action="">
               <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-              <div class="mb-3">
-                <label for="monthlySalary" class="form-label small text-uppercase">Normal Monthly Salary (R)</label>
-                <input type="number" step="0.01" min="0" class="form-control" id="monthlySalary" name="monthly_salary" placeholder="e.g. 30000" required>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="monthlySalary" class="form-label mb-1 small text-uppercase">
+                    Normal Monthly Salary (R)
+                  </label>
+                  <input type="number"
+                         step="0.01"
+                         min="0"
+                         class="form-control form-control-md"
+                         id="monthlySalary"
+                         name="monthly_salary"
+                         placeholder="e.g., 30000.00"
+                         required>
+                </div>
+                <div class="col-md-6">
+                  <label for="leaveSalary" class="form-label mb-1 small text-uppercase">Monthly Salary While on Leave (R)</label>
+                  <input type="number"
+                         step="0.01"
+                         min="0"
+                         class="form-control form-control-md"
+                         id="leaveSalary"
+                         name="leave_salary"
+                         placeholder="e.g., 25000.00"
+                         required>
+                  <div class="form-text">
+                    If your employer pays part of your salary during leave, enter that amount here.
+                  </div>
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="leaveSalary" class="form-label small text-uppercase">Monthly Salary While on Leave (R)</label>
-                <input type="number" step="0.01" min="0" class="form-control" id="leaveSalary" name="leave_salary" placeholder="e.g. 25000" required>
-              </div>
-              <button type="submit" class="btn btn-primary w-100">Calculate Top-Up</button>
+              <button type="submit" class="btn btn-primary w-100 mt-3">Calculate Top-Up</button>
             </form>
+            <p class="text-muted small mt-3 mb-0 text-center">
+              Estimate only. Confirm final claims with the Department of Employment and Labour or uFiling.
+            </p>
           </div>
         </div>
+        <p class="small text-muted text-center mt-3 mb-0">
+          Uses UIF benefit calculation guidance from the
+          <a href="https://www.labour.gov.za/DocumentCenter/Publications/Unemployment%20Insurance%20Fund/Fact%20Sheet%20on%20the%20Calculation%20of%20normal%20UIF%20benefit.pdf"
+             target="_blank"
+             rel="noopener noreferrer">Department of Employment and Labour</a>.
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Call-to-Action Section -->
-  <section class="py-4 bg-primary text-white">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-8 mx-auto">
-          <h2>Calculate Your UIF Benefits Today</h2>
-          <p class="text-white">
-            Don't wait until you need it - understand your UIF entitlements now. Our free calculators give you instant, accurate results based on your specific situation.
-          </p>
-          <div class="d-flex flex-column flex-md-row gap-2 justify-content-center">
-            <a href="{{ url_for('uif.unemployment_calculator') }}"
-               class="btn btn-outline-light btn-sm">Calculate Unemployment Benefits</a>
-            <a href="{{ url_for('uif.leave_benefit_calculator') }}"
-               class="btn btn-outline-light btn-sm">Calculate Maternity Benefits</a>
-          </div>
-          <p class="text-white small mt-3">
-            Join thousands of South Africans who've used our UIF calculator to plan their finances
-          </p>
-        </div>
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 text-center">
+        <h2 class="fw-bold mb-4">How Does UIF Leave Benefit Top-Up Work?</h2>
+        <p class="lead text-muted">
+          The UIF Leave Benefit Top-Up helps employees estimate how much income they may receive while on leave.
+        </p>
       </div>
     </div>
-  </section>
 
-  <!-- New Maternity UIF Content Section -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-10">
+    <div class="row g-5">
+      <div class="col-lg-8 mx-auto">
+        <p>The <strong>UIF Leave Benefit Top-Up</strong> helps employees estimate how much income they may receive while on maternity, parental, adoption, or illness leave. If your employer pays only part of your salary during leave, UIF may pay a portion of the remaining amount based on your UIF contributions and salary history.</p>
+        <p>Our free <a href="{{ url_for('uif.leave_benefit_calculator') }}">UIF calculator</a> helps South Africans estimate maternity UIF payouts, leave benefits, and salary top-ups online in seconds.</p>
 
-          <h2>How Does Maternity UIF Work in South Africa?</h2>
-          <p>
-            Maternity UIF provides financial support to employees during maternity, adoption, or parental leave. It ensures you receive a portion of your normal salary while you are away from work due to childbirth or adoption.
-          </p>
+        <hr class="my-4">
 
-          <h2>How Is Maternity UIF Calculated?</h2>
-          <p>
-            The maternity UIF payout is calculated using your normal salary, your leave salary, your UIF contribution history, and credit days. Typically, the income replacement rate ranges from 38% to 60% of your normal salary. Use our <a href="{{ url_for('uif.leave_benefit_calculator') }}">Maternity UIF Calculator</a> for accurate results.
-          </p>
+        <h3 class="h4 fw-bold text-primary">UIF Leave Benefit Calculator South Africa</h3>
+        <p>Use our UIF Leave Benefit Calculator South Africa to estimate:</p>
+        <ul class="small">
+          <li><strong>Maternity UIF benefits</strong></li>
+          <li><strong>Parental leave UIF</strong></li>
+          <li><strong>Adoption leave benefits</strong></li>
+          <li><strong>Illness UIF benefits</strong></li>
+          <li><strong>Salary top-up amounts during leave</strong></li>
+        </ul>
+        <p>The calculator uses your normal monthly salary, salary received while on leave, UIF contribution history, and available credit days to estimate your potential UIF payout.</p>
 
-          <h2>How Much Is Maternity UIF and How Long Is It Paid?</h2>
-          <p>
-            Monthly payouts vary depending on your salary and contributions. The maximum benefit period is usually 17–18 weeks (about 4 months). Your payout may be capped based on UIF salary limits.
-          </p>
+        <hr class="my-4">
 
-          <h2>How Long Does Maternity UIF Take to Pay Out?</h2>
-          <p>
-            First payments can take several weeks depending on the UIF office or online submission. If this is your second maternity claim, processing may take longer. Always apply as early as possible to avoid delays.
-          </p>
+        <h3 class="h4 fw-bold text-primary">Maternity UIF Calculator 2026 South Africa</h3>
+        <p>Our <strong>Maternity UIF Calculator 2026 South Africa</strong> helps expecting parents estimate maternity leave benefits quickly and free. The calculator is designed for employees contributing to the Unemployment Insurance Fund (UIF) in South Africa.</p>
+        <p>You can use the calculator before applying so you understand:</p>
+        <ul class="small">
+          <li>how much maternity UIF you may receive,</li>
+          <li>how long payments may continue,</li>
+          <li>and how your leave salary affects payouts.</li>
+        </ul>
 
-          <h2>When Should I Apply for Maternity UIF?</h2>
-          <p>
-            You can apply for maternity UIF before or after the birth or adoption. Early submission ensures your claim is processed promptly and you receive your payouts on time.
-          </p>
+        <hr class="my-4">
 
-          <h2>Can I Claim Maternity UIF After 6 Months?</h2>
-          <p>
-            In most cases, maternity UIF claims must be submitted within a few months after birth or adoption. Late claims may be rejected or require additional documentation.
-          </p>
+        <h3 class="h4 fw-bold text-primary">How Is Maternity UIF Calculated in South Africa?</h3>
+        <p>Maternity UIF is calculated using a sliding income replacement rate. Most employees receive between 38% and 60% of their normal salary, depending on earnings and UIF contribution records.</p>
+        <p>Your estimated maternity UIF payout depends on:</p>
+        <ul class="small">
+          <li>your normal salary,</li>
+          <li>any salary paid by your employer during leave,</li>
+          <li>UIF contributions,</li>
+          <li>and available credit days.</li>
+        </ul>
+        <p>Use our <strong>maternity UIF calculator</strong> to calculate UIF benefits online instantly.</p>
 
-          <h2>Documents Needed for Maternity UIF Claims</h2>
-          <p>
-            Required documents include the <a href="{{ url_for('uif.ui19_form_explained') }}">UI-19 Form</a>, UI-2.8 form, medical certificate, ID document, and banking details.
-          </p>
+        <hr class="my-4">
 
-          <h2>Maternity UIF Forms Explained</h2>
-          <p>
-            The UI-19 form confirms your employment history, while the UI-2.8 confirms your leave and salary. Submitting these correctly ensures accurate calculation and faster payments.
-          </p>
+        <h3 class="h4 fw-bold text-primary">Calculate Maternity UIF Online</h3>
+        <p>You can calculate maternity UIF online using our free South African UIF calculator. Many employees use the tool before maternity leave to plan their finances and estimate monthly payouts.</p>
+        <p>The calculator helps answer common questions such as:</p>
+        <ul class="small">
+          <li>How much is maternity UIF?</li>
+          <li>How long does UIF pay maternity benefits?</li>
+          <li>What is the maximum maternity UIF payout?</li>
+          <li>How are UIF maternity benefits calculated?</li>
+        </ul>
 
-          <h2>How to Apply for Maternity UIF (Step-by-Step)</h2>
-          <p>
-            Apply online via uFiling or at your nearest UIF office. Complete all forms accurately, attach required documents, and submit before your leave period ends.
-          </p>
+        <hr class="my-4">
 
-          <h2>Frequently Asked Questions About Maternity UIF</h2>
-          <ul>
-            <li>How much is maternity UIF?</li>
-            <li>How long does maternity UIF take to pay out?</li>
-            <li>How is maternity UIF calculated?</li>
-            <li>Can I claim maternity UIF after 6 months?</li>
-            <li>How long does a second maternity UIF claim take?</li>
-          </ul>
+        <h3 class="h4 fw-bold text-primary">How Long Does Maternity UIF Pay?</h3>
+        <p><strong>Maternity UIF benefits are usually paid for up to 121 days (about 4 months)</strong>, depending on your available UIF credits and claim approval.</p>
+        <p>Payment periods may differ if:</p>
+        <ul class="small">
+          <li>your employer continues partial salary payments,</li>
+          <li>your claim is submitted late,</li>
+          <li>or supporting documents are missing.</li>
+        </ul>
 
-        </div>
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">How Long Does Maternity UIF Take to Pay Out?</h3>
+        <p>Processing times differ between claims. Some applicants receive payments within a few weeks, while others may wait longer depending on:</p>
+        <ul class="small">
+          <li>UIF office workload,</li>
+          <li>document verification,</li>
+          <li>banking verification,</li>
+          <li>and uFiling processing times.</li>
+        </ul>
+        <p>Applying early and submitting complete documents can help reduce delays.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Can I Claim Maternity UIF After 6 Months?</h3>
+        <p>Maternity UIF claims should be submitted as soon as possible after childbirth or adoption. <strong>Late applications may require additional supporting documents</strong> and could delay approval.</p>
+        <p>To avoid complications, many applicants submit claims before maternity leave begins.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Documents Needed for Maternity UIF Claims</h3>
+        <p>Common maternity UIF documents include:</p>
+        <ul class="small">
+          <li><strong>UI-19 form</strong></li>
+          <li><strong>UI-2.8 form</strong></li>
+          <li><strong>Medical certificate</strong></li>
+          <li><strong>ID document or passport</strong></li>
+          <li><strong>Proof of banking details</strong></li>
+          <li><strong>Birth certificate (if requested)</strong></li>
+        </ul>
+        <p><strong>Missing or incorrect documents can delay UIF payments.</strong></p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Maternity UIF Forms Explained</h3>
+        <p>The <a href="{{ url_for('uif.ui19_form_explained') }}">UI-19 form</a> confirms your employment details and UIF contributions. The <strong>UI-2.8 form</strong> confirms your leave period and salary information during leave.</p>
+        <p>These forms are important because UIF uses them to calculate maternity benefits and verify your claim.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">How to Apply for Maternity UIF Online</h3>
+        <p>You can apply for maternity UIF online through the uFiling system or visit your nearest Labour Centre.</p>
+        <p>Before applying:</p>
+        <ol class="small">
+          <li>Gather all required UIF documents</li>
+          <li>Complete UIF forms correctly</li>
+          <li>Confirm your banking details</li>
+          <li>Estimate your UIF payout using our calculator</li>
+        </ol>
+        <p>Using the UIF calculator before applying helps you understand your expected maternity benefit amount.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary">Why Use Our UIF Maternity Benefit Calculator?</h3>
+        <p>Thousands of South Africans use our UIF maternity benefit calculator to:</p>
+        <ul class="small">
+          <li>estimate maternity UIF payouts,</li>
+          <li>calculate leave benefit top-ups,</li>
+          <li>check potential monthly payments,</li>
+          <li>and plan maternity leave finances.</li>
+        </ul>
+        <p>Our calculator is free, fast, and designed specifically for South African UIF benefits.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 text-center">
+        <h2 class="fw-bold mb-4">Common Questions About UIF Leave Benefits</h2>
+        <p class="lead text-muted">Answers to frequently asked questions about maternity UIF and leave benefits in South Africa.</p>
+      </div>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-8 mx-auto">
+        <h3 class="h4 fw-bold text-primary mb-3">What Is UIF Leave Benefit?</h3>
+        <p>UIF Leave Benefit is financial support provided to employees during approved leave periods such as maternity, parental, adoption, or illness leave. The benefit helps replace lost income during these periods.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary mb-3">Who Qualifies for UIF Leave Benefits?</h3>
+        <p>Generally, any employee who has contributed to UIF and is taking approved leave may qualify. However, you must have sufficient UIF credits and meet all documentation requirements.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary mb-3">What Is a UIF Credit Day?</h3>
+        <p>A UIF credit day represents one day of UIF benefit eligibility based on your contributions. You earn credit days through regular UIF contributions, and they determine how long your benefits can be paid.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary mb-3">How Do I Check My UIF Status?</h3>
+        <p>You can check your <a href="https://www.labour.gov.za">UIF status</a> online through the official uFiling platform, by SMS using the UIF USSD code, or by visiting your nearest Labour Centre.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary mb-3">Can I Apply for UIF While Still Employed?</h3>
+        <p>For maternity and leave benefits, you typically apply while still employed. For unemployment benefits, you must be unemployed at the time of application.</p>
+
+        <hr class="my-4">
+
+        <h3 class="h4 fw-bold text-primary mb-3">What Documents Do I Need?</h3>
+        <p>Required documents typically include your ID, UI-19 form from your employer, UI-2.8 form, proof of banking details, and any supporting medical certificates or letters.</p>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

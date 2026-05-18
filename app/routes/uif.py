@@ -124,6 +124,11 @@ def leave_benefit_calculator():
     return render_template("uif/leave/form.html")
 
 
+@uif_bp.route("/credits-calculator/", methods=["GET"])
+def credits_calculator():
+    return render_template("uif/credits/form.html")
+
+
 @uif_bp.route("/how-to-calculate-uif/", methods=["GET"])
 def how_to_calculate_uif():
     return render_template("pages/how-to-calculate-uif.html")

@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
 
-{% block title %}UIF Calculator South Africa 2026 | Unemployment & Maternity Benefits{% endblock %}
+{% block title %}UIF Calculator 2026 South Africa | UIF, Maternity & Benefit Calculator{% endblock %}
 
 {% block meta %}
 <meta name="description"
-      content="Free UIF calculator for South Africa. Estimate unemployment, maternity, illness and adoption benefits, credit days and payout amounts with 2026 guidance.">
+      content="Use our UIF Calculator 2026 South Africa to calculate UIF benefits, maternity UIF payouts, credit days, and unemployment claims online quickly and free.">
 {% endblock %}
 
 {% block canonical_href %}{{ url_for('home.index', _external=True) }}{% endblock %}
 {% block og_url %}{{ url_for('home.index', _external=True) }}{% endblock %}
-{% block og_title %}UIF Calculator South Africa 2026 | Unemployment & Maternity Benefits{% endblock %}
-{% block og_description %}Estimate UIF unemployment, maternity, illness and adoption benefits in South Africa with free online calculators updated for 2026.{% endblock %}
+{% block og_title %}UIF Calculator South Africa 2026 | UIF, Maternity & Benefit Calculator{% endblock %}
+{% block og_description %}Use our UIF Calculator 2026 South Africa to calculate UIF benefits, maternity UIF payouts, credit days, and unemployment claims online quickly and free.{% endblock %}
 {% block twitter_url %}{{ url_for('home.index', _external=True) }}{% endblock %}
-{% block twitter_title %}UIF Calculator South Africa 2026 | Unemployment & Maternity Benefits{% endblock %}
-{% block twitter_description %}Free South African UIF calculators for unemployment, maternity, illness and adoption benefit estimates, updated for 2026.{% endblock %}
+{% block twitter_title %}UIF Calculator South Africa 2026 | UIF, Maternity & Benefit Calculator{% endblock %}
+{% block twitter_description %}Use our UIF Calculator 2026 South Africa to calculate UIF benefits, maternity UIF payouts, credit days, and unemployment claims online quickly and free.{% endblock %}
 
 {% block structured_data %}
 {{ super() }}
@@ -25,7 +25,7 @@
   "@id": "{{ url_for('home.index', _external=True) }}#webpage",
   "url": "{{ url_for('home.index', _external=True) }}",
   "name": "UIF Calculator South Africa 2026",
-  "description": "Free UIF calculators for South African unemployment, maternity, illness and adoption benefit estimates.",
+  "description": "Use our UIF Calculator 2026 South Africa to calculate UIF benefits, maternity UIF payouts, credit days, and unemployment claims online quickly and free.",
   "inLanguage": "en-ZA",
   "isPartOf": {
     "@id": "{{ url_for('home.index', _external=True) }}#website"
@@ -203,6 +203,7 @@
             <!-- Who Can Claim -->
             <div class="col-lg-8 mx-auto">
                 <h3 class="h4 fw-bold text-primary">Who Can Claim From the UIF Fund?</h3>
+                <p>Use our <strong>UIF calculator 2026 South Africa</strong> to quickly estimate your UIF benefits based on your salary and contribution history. This <a href="{{ url_for('uif.unemployment_calculator') }}">UIF calculator online</a> helps you understand how much you can claim before submitting your application.</p>
                 <p>You can claim from the Unemployment Insurance Fund (UIF) if you are an employee registered with the UIF and have been contributing monthly through your salary.</p>
                 <p>Use this guide to understand how to calculate your UIF benefits in 30 seconds. We explain how UIF payouts work, how much you can get, and how to estimate your benefits using our free UIF calculators.</p>
                 <p>If you are preparing a claim, start with the <a href="{{ url_for('home.uif_documents_needed') }}">UIF documents checklist</a>, then read how to <a href="{{ url_for('home.how_to_claim_uif_online') }}">claim UIF online through uFiling</a>. If your claim is already submitted, the <a href="{{ url_for('home.uif_status_check_online') }}">UIF status check guide</a> explains common status messages and payment progress.</p>
@@ -231,6 +232,9 @@
                 </ul>
                 <hr class="my-4">
 
+                <h3 class="h4 fw-bold text-primary">UIF Calculator 2026 South Africa</h3>
+                <p>Our <strong>UIF calculator 2026</strong> is designed for South African employees who want to estimate UIF payouts quickly. Whether you are retrenched, applying for maternity UIF, or checking credits, the calculator helps you calculate UIF benefits in seconds.</p>
+
                 <h3 class="h4 fw-bold text-primary">When Can I Claim Illness Benefits?</h3>
                 <p>To qualify for the benefits, you must be receiving less than your normal wages while you are on sick leave.</p>
                 <p>To qualify for illness benefits, you must submit your application within 6 months of the date you stopped working due to your condition. Payments are calculated starting from the day you ceased working and became fully or partially unpaid, but please note that benefits are only payable if your illness lasts longer than 7 days. To validate the specific period of your condition, you are required to submit a medical certificate.</p><p><a href="{{ url_for("uif.unemployment_calculator") }}">The benefit amount</a> is calculated as the difference between what your employer pays you and the standard rate prescribed by the <strong>Unemployment Insurance Act</strong>. It is important to know that the combined total of the benefit and any payment from your employer cannot exceed 100 percent of the normal salary you would have received if you were working. To facilitate this, your employer must formally declare whether you will receive full, partial, or no remuneration while on sick leave.</p>
@@ -244,7 +248,9 @@
 <p>Payments are provided for a maximum of 121 days, which also applies in the unfortunate event of a miscarriage or stillbirth. Importantly, claiming maternity benefits does not affect your right to claim Unemployment benefits later should you become unemployed.</p>
 
 <p>Additionally, you may wish to use <a href="{{ url_for("uif.leave_benefit_calculator") }}">our UIF Maternity Benefit calculator</a> to estimate your potential benefit amount, and check the <a href="{{ url_for('home.maternity_uif_documents_needed') }}">maternity UIF documents checklist</a> before you submit your claim.</p>
-                    <hr class="my-4">
+                    
+<p>You can also use our <strong>maternity UIF calculator</strong> or <strong>UIF maternity benefit calculator</strong> to estimate maternity leave payouts. This is useful for understanding how UIF maternity benefits are calculated in South Africa.</p>
+<hr class="my-4">
 
                 <h3 class="h4 fw-bold text-primary">Adoption Benefits</h3>
                 <p>Application for Adoption Benefits must be submitted within 6 months after the court issues the adoption order. To qualify, the adopted child must be younger than 2 years, and only one of the adopting parents is eligible to apply for the benefit, which covers the time spent caring for the child.</p><p>The benefit amount is calculated as the difference between any pay received from the employer and the prescribed benefit rate, ensuring your total income does not exceed 100 percent of your normal salary. The employer must declare any pay given during the adoption leave. Subject to credits, benefits can be claimed for a <strong>maximum of 365 days</strong> within a four-year period.</p>

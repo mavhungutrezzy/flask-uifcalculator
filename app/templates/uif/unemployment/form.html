@@ -4,16 +4,16 @@
 
 {% block meta %}
 <meta name="description"
-      content="Estimate your UIF unemployment payout in South Africa using your monthly salary and months employed. See credit days, estimated duration and total benefit.">
+      content="Calculate UIF benefits online with our free UIF Calculator 2026 South Africa, including maternity UIF, unemployment benefits, and credit day estimates.">
 {% endblock %}
 
 {% block canonical_href %}{{ url_for('uif.unemployment_calculator', _external=True) }}{% endblock %}
 {% block og_url %}{{ url_for('uif.unemployment_calculator', _external=True) }}{% endblock %}
 {% block og_title %}UIF Unemployment Calculator South Africa 2026 | Estimate Your Payout{% endblock %}
-{% block og_description %}Use your monthly salary and months employed to estimate UIF unemployment benefits, credit days, estimated duration and total payout.{% endblock %}
+{% block og_description %}Calculate UIF benefits online with our free UIF Calculator 2026 South Africa, including maternity UIF, unemployment benefits, and credit day estimates.{% endblock %}
 {% block twitter_url %}{{ url_for('uif.unemployment_calculator', _external=True) }}{% endblock %}
 {% block twitter_title %}UIF Unemployment Calculator South Africa 2026 | Estimate Your Payout{% endblock %}
-{% block twitter_description %}Estimate UIF unemployment benefits, credit days, duration and total payout using salary and months employed.{% endblock %}
+{% block twitter_description %}Calculate UIF benefits online with our free UIF Calculator 2026 South Africa, including maternity UIF, unemployment benefits, and credit day estimates.{% endblock %}
 
 {% block structured_data %}
 {{ super() }}
@@ -95,7 +95,7 @@
           <a href="#calculatorSection" class="btn btn-primary btn-lg px-4">
             <i class="bi bi-calculator me-2"></i>Calculate UIF Payout
           </a>
-          <a href="{{ url_for('home.methodology') }}" class="btn btn-outline-secondary btn-lg px-4">View Methodology</a>
+          <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="btn btn-outline-secondary btn-lg px-4">Leave Benefit Calculator</a>
         </div>
       </div>
       <!-- <div class="col-lg-5">
