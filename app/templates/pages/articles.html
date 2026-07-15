@@ -115,7 +115,13 @@
         "position": 14,
         "name": "UIF for Fixed-Term Contracts",
         "url": "{{ url_for('home.uif_fixed_term_contracts', _external=True) }}"
-      }
+      },
+      {
+        "@type": "ListItem",
+        "position": 15,
+        "name": "After You Calculate Your UIF: What It Means & What To Do Next",
+        "url": "{{ url_for('home.after_calculating_uif', _external=True) }}"
+      } 
     ]
   }
 }
@@ -142,6 +148,19 @@
 <section class="py-5">
   <div class="container">
     <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4">
+        <a class="text-decoration-none" href="{{ url_for('home.after_calculating_uif') }}">
+          <article class="card h-100 border-0 shadow-sm calculator-link-card">
+            <div class="card-body p-4">
+              <span class="badge bg-info-subtle text-info mb-3">After You Calculate</span>
+              <h2 class="h5 text-dark">After You Calculate Your UIF: What It Means & What To Do Next</h2>
+              <p class="text-muted mb-0">You've got a UIF estimate — now what? Here's what your credit days and monthly payout actually mean, how long UIF really takes to pay out, and exactly what to do next.</p>
+            </div>
+          </article>
+        </a>
+      </div>
+
       <div class="col-md-6 col-lg-4">
         <a class="text-decoration-none" href="{{ url_for('home.how_to_claim_uif_online') }}">
           <article class="card h-100 border-0 shadow-sm calculator-link-card">

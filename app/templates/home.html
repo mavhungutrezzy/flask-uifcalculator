@@ -5,16 +5,16 @@
 
 {% block meta %}
 <meta name="description"
-      content="Use our UIF Calculator 2026 South Africa to calculate UIF benefits, maternity UIF payouts, credit days, and unemployment claims online quickly and free.">
+      content="Free UIF Calculator 2026 South Africa. Estimate unemployment, maternity, illness and adoption UIF benefits instantly, and see exactly how UIF payout is calculated using the official income replacement formula.">
 {% endblock %}
 
 {% block canonical_href %}{{ url_for('home.index', _external=True) }}{% endblock %}
 {% block og_url %}{{ url_for('home.index', _external=True) }}{% endblock %}
 {% block og_title %}UIF Calculator South Africa 2026 | UIF, Maternity & Benefit Calculator{% endblock %}
-{% block og_description %}Use our UIF Calculator 2026 South Africa to calculate UIF benefits, maternity UIF payouts, credit days, and unemployment claims online quickly and free.{% endblock %}
+{% block og_description %}Free UIF Calculator 2026 South Africa. Estimate unemployment, maternity, illness and adoption UIF benefits instantly, and see exactly how UIF payout is calculated.{% endblock %}
 {% block twitter_url %}{{ url_for('home.index', _external=True) }}{% endblock %}
 {% block twitter_title %}UIF Calculator South Africa 2026 | UIF, Maternity & Benefit Calculator{% endblock %}
-{% block twitter_description %}Use our UIF Calculator 2026 South Africa to calculate UIF benefits, maternity UIF payouts, credit days, and unemployment claims online quickly and free.{% endblock %}
+{% block twitter_description %}Free UIF Calculator 2026 South Africa. Estimate unemployment, maternity, illness and adoption UIF benefits instantly, and see exactly how UIF payout is calculated.{% endblock %}
 
 {% block structured_data %}
 {{ super() }}
@@ -25,12 +25,12 @@
   "@id": "{{ url_for('home.index', _external=True) }}#webpage",
   "url": "{{ url_for('home.index', _external=True) }}",
   "name": "UIF Calculator South Africa 2026",
-  "description": "Use our UIF Calculator 2026 South Africa to calculate UIF benefits, maternity UIF payouts, credit days, and unemployment claims online quickly and free.",
+  "description": "Free UIF Calculator 2026 South Africa. Estimate unemployment, maternity, illness and adoption UIF benefits instantly, and see exactly how UIF payout is calculated.",
   "inLanguage": "en-ZA",
   "isPartOf": {
     "@id": "{{ url_for('home.index', _external=True) }}#website"
   },
-  "dateModified": "2026-05-11",
+  "dateModified": "2026-07-15",
   "mainEntity": {
     "@type": "ItemList",
     "name": "South African benefit calculators",
@@ -57,6 +57,46 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is UIF payout calculated in South Africa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UIF payout is calculated by converting your monthly salary (capped at R17,712) into a daily income figure, then applying a sliding income replacement rate of roughly 38% to 60% depending on how much you earned. Lower earners receive a higher percentage of their previous income. The number of days you can claim depends on credit days, earned at one day of benefit for every four days you worked and contributed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this UIF calculator for 2026 accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculator uses the official Department of Employment and Labour income replacement formula and 2026 salary cap to estimate your benefit. It's an estimate for planning purposes, not an official claim decision, since your final payout depends on your employer's UIF declarations and the Department's own adjudication."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is the maximum UIF payout?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Total unemployment benefits are capped at roughly R65,000, and monthly UIF contributions are calculated on a salary cap of R17,712, meaning R177.12 is the maximum monthly contribution from each of the employee and employer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the UIF maternity calculator different from the unemployment calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The maternity, illness and adoption calculator works out a top-up benefit at a flat rate of around 66% of the difference between your normal salary and what you're paid while on leave, capped at 121 days, while the unemployment calculator uses the sliding income replacement scale over up to 365 days."
+      }
+    }
+  ]
+}
+</script>
 {% endblock %}
 
 {% block content %}
@@ -73,12 +113,12 @@
                         <span class="badge bg-success-subtle p-2 rounded-pill border border-success text-success fw-semibold small">
                             <i class="bi bi-check-circle-fill me-1"></i>South Africa
                             <i class="bi bi-check-circle-fill ms-2 me-1"></i>Free estimate
-                            <i class="bi bi-check-circle-fill ms-2 me-1"></i>Updated May 2026
+                            <i class="bi bi-check-circle-fill ms-2 me-1"></i>Updated July 2026
                         </span>
                     </div>
                     <h1 class="fw-bold mb-2">UIF Calculator South Africa 2026</h1>
                     <p class="lead mb-3">
-                        Estimate unemployment, maternity, illness and adoption UIF benefits using your salary and months employed.
+                        Estimate unemployment, maternity, illness and adoption UIF benefits using your salary and months employed &mdash; using the same income replacement formula the Department uses.
                     </p>
                     <div class="d-grid gap-2 d-md-flex mb-3">
                         <a href="{{ url_for('uif.unemployment_calculator') }}"
@@ -105,7 +145,7 @@
                             <h3 class="h6 mb-3 text-center text-primary">Quick UIF Estimate</h3>
                             <form id="quickCalc"
                                   method="post"
-                                  action="{{ url_for('uif.unemployment_calculator') }}"
+                                  action="{{ url_for('uif.unemployment_calculator_result') }}"
                                   class="mx-auto"
                                   style="max-width: 340px">
                                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
@@ -150,6 +190,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Trust / Scale strip -->
+    <section class="py-3">
+        <div class="container">
+            <div class="row g-3 text-center">
+                <div class="col-6 col-md-3">
+                    <div class="fw-bold h4 mb-0 text-success">R18bn</div>
+                    <div class="small text-muted">paid to 3.1 million beneficiaries by UIF in 2024/25</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="fw-bold h4 mb-0 text-success">R17,712</div>
+                    <div class="small text-muted">monthly salary cap used in every UIF calculation</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="fw-bold h4 mb-0 text-success">~R65,000</div>
+                    <div class="small text-muted">maximum total unemployment benefit ceiling</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="fw-bold h4 mb-0 text-success">365 days</div>
+                    <div class="small text-muted">maximum benefit period after 4+ years contributing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="py-4">
         <div class="container">
             <div class="row g-3">
@@ -189,11 +254,68 @@
             </div>
         </div>
     </section>
+
+    <!-- ============ HOW TO CALCULATE UIF PAYOUT (direct formula answer) ============ -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-3">How to Calculate UIF Payout: The Actual Formula</h2>
+                    <p>
+                        If you want to calculate UIF payout by hand instead of using the tool above, here's exactly
+                        what the Department of Employment and Labour does, step by step.
+                    </p>
+                    <div class="card border rounded-3 mb-3">
+                        <div class="card-body">
+                            <h3 class="h6 fw-bold text-uppercase text-muted mb-2">Step 1 &mdash; Find your daily income</h3>
+                            <p class="mb-2 font-monospace small bg-white p-2 rounded border">
+                                Daily Income = (Monthly Salary &times; 12) &divide; 365
+                            </p>
+                            <p class="text-muted small mb-0">
+                                Your monthly salary is capped at R17,712 for this calculation, even if you earn more.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card border rounded-3 mb-3">
+                        <div class="card-body">
+                            <h3 class="h6 fw-bold text-uppercase text-muted mb-2">Step 2 &mdash; Apply the income replacement rate (IRR)</h3>
+                            <p class="mb-2 font-monospace small bg-white p-2 rounded border">
+                                IRR = 29.2 + (7,173.92 &divide; (232.92 + Daily Income))
+                            </p>
+                            <p class="text-muted small mb-0">
+                                This sliding scale pays lower earners up to 60% of their previous income and higher
+                                earners as little as 38%. It's the same formula behind the calculator at the top of
+                                this page.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card border rounded-3 mb-3">
+                        <div class="card-body">
+                            <h3 class="h6 fw-bold text-uppercase text-muted mb-2">Step 3 &mdash; Work out your credit days</h3>
+                            <p class="mb-2">
+                                You earn <strong>1 credit day for every 4 days worked</strong> while contributing to
+                                UIF, up to a maximum of 365 days once you've contributed for 4 years or more. Your
+                                daily benefit (Daily Income &times; IRR) is then paid for however many credit days
+                                you've banked.
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-muted small">
+                        Doing this by hand works, but it's easy to get the salary cap or credit-day count wrong.
+                        Our <a href="{{ url_for('uif.unemployment_calculator') }}">UIF calculator</a> runs this exact
+                        formula for you &mdash; or read the full worked example with numbers in our
+                        <a href="{{ url_for('uif.how_to_calculate_uif') }}">UIF calculation guide</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="py-5">
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="fw-bold mb-4">Complete Guide to UIF Benefits in South Africa (Updated May 2026)</h2>
+                    <h2 class="fw-bold mb-4">Complete Guide to UIF Benefits in South Africa (Updated July 2026)</h2>
                     <p class="lead text-muted">Everything you need to know about claiming UIF – who qualifies, how much you get, and how to apply.</p>
                 </div>
             </div>
@@ -242,14 +364,12 @@
 <p>Finally, the duration of these payments depends on your accumulated credits. Subject to these credits, you may receive benefits for a maximum of 365 days within any four-year cycle; our <a href="{{ url_for('home.uif_credit_days_explained') }}">UIF credit days guide</a> explains the one-credit-day-for-four-days-worked rule in more detail.</p>
                     <hr class="my-4">
 
-                <h3 class="h4 fw-bold text-primary">How Do Maternity Benefits Work?</h3>
+                <h3 class="h4 fw-bold text-primary">How Do Maternity Benefits Work? (Maternity UIF Calculator)</h3>
                 <p>You should submit your application either prior to the birth or within 12 months of the child being born. To qualify for these benefits, you must have been employed for at least 13 weeks before the date of your application, and you must be receiving <strong>less than your normal remuneration</strong> while on maternity leave.</p><p>Benefits are generally payable at a <strong>flat rate of 66 percent</strong> for the confinement period. The actual amount paid is calculated as the difference between what your employer pays and the prescribed rate, ensuring that the total combined income does not exceed 100 percent of your normal salary. To verify this, your employer must declare whether you will receive full, partial, or no pay while on leave.</p>
 
 <p>Payments are provided for a maximum of 121 days, which also applies in the unfortunate event of a miscarriage or stillbirth. Importantly, claiming maternity benefits does not affect your right to claim Unemployment benefits later should you become unemployed.</p>
 
-<p>Additionally, you may wish to use <a href="{{ url_for("uif.leave_benefit_calculator") }}">our UIF Maternity Benefit calculator</a> to estimate your potential benefit amount, and check the <a href="{{ url_for('home.maternity_uif_documents_needed') }}">maternity UIF documents checklist</a> before you submit your claim.</p>
-                    
-<p>You can also use our <strong>maternity UIF calculator</strong> or <strong>UIF maternity benefit calculator</strong> to estimate maternity leave payouts. This is useful for understanding how UIF maternity benefits are calculated in South Africa.</p>
+<p>Use our <strong>maternity UIF calculator</strong> &mdash; also called a <strong>UIF maternity benefit calculator</strong> &mdash; to estimate your potential benefit amount, and check the <a href="{{ url_for('home.maternity_uif_documents_needed') }}">maternity UIF documents checklist</a> before you submit your claim. It's the same tool whether you're calculating maternity, adoption, parental or illness leave top-ups: <a href="{{ url_for("uif.leave_benefit_calculator") }}">try the maternity UIF calculator here</a>.</p>
 <hr class="my-4">
 
                 <h3 class="h4 fw-bold text-primary">Adoption Benefits</h3>
@@ -263,7 +383,7 @@
                     <hr class="my-4">
 
                 <h3 class="h4 fw-bold text-primary">How Much Will I Get From UIF?</h3>
-                <p>The calculation of general benefit days is now based on receiving <strong>one day of benefit credit for every four days worked</strong>. If you have contributed for four years or more, you remain eligible for up to 365 days of benefits. If your credits look too low, missing employer declarations may be the reason; the <a href="{{ url_for('home.missing_uif_contributions') }}">missing UIF contributions guide</a> explains what to check.</p><p>For Maternity or Adoption claims, the maximum payment duration is fixed at 121 days. The amount you receive is calculated on a sliding scale, based on a percentage of your previous salary.</p>
+                <p>The calculation of general benefit days is now based on receiving <strong>one day of benefit credit for every four days worked</strong>. If you have contributed for four years or more, you remain eligible for up to 365 days of benefits. If your credits look too low, missing employer declarations may be the reason; the <a href="{{ url_for('home.missing_uif_contributions') }}">missing UIF contributions guide</a> explains what to check.</p><p>For Maternity or Adoption claims, the maximum payment duration is fixed at 121 days. The amount you receive is calculated on a sliding scale, based on a percentage of your previous salary &mdash; the same formula we walked through above.</p>
 
 <p>The total benefit amount payable is subject to a maximum ceiling of approximately <strong>R65,000</strong>.</p>
                     
@@ -286,6 +406,26 @@
                     <li>Proof of registration as work seeker</li>
                 </ul>
                 <p>If your payment is blocked or reversed, the issue is often banking verification; our <a href="{{ url_for('home.uif_banking_details_ui_2_8') }}">UIF banking details and UI-2.8 guide</a> explains what that status can mean.</p>
+
+                <hr class="my-4">
+
+                <!-- ============ SOCIAL PROOF: real, sourced, not fabricated ============ -->
+                <h3 class="h4 fw-bold text-primary">What UIF Actually Pays Out</h3>
+                <p>
+                    It's a real fund with real numbers behind it, not just an abstract payroll deduction. According
+                    to the UIF's own 2024/25 Annual Report, the Fund paid <strong>R18 billion in benefits to 3.1
+                    million beneficiaries</strong> that year despite a slow economy, and closed the year with a
+                    R23 billion surplus &mdash; meaning it's in a financially sound position to keep paying claims.
+                </p>
+                <p>
+                    That said, the process isn't always smooth. Reporting from
+                    <a href="https://www.dailymaverick.co.za/article/2025-08-06-uif-how-to-make-process-as-stress-free-as-possible/" target="_blank" rel="noopener noreferrer">Daily Maverick</a>
+                    found that claimants commonly face delays beyond the standard processing window, long queues at
+                    Labour Centres, and recurring issues with the online filing platform &mdash; usually traced back
+                    to incomplete employer declarations or banking details that don't quite match. Knowing your
+                    estimated payout in advance, and having your documents ready before you apply, is the single
+                    biggest thing that keeps a claim moving.
+                </p>
             </div>
         </div>
 
@@ -298,7 +438,8 @@
         <div class="col-md-8 mx-auto">
           <h2>Calculate Your UIF Benefits Today</h2>
           <p class="text-white">
-            Don't wait until you need it - understand your UIF entitlements now. Our free calculators give you instant, accurate results based on your specific situation.
+            Don't wait until you need it &mdash; understand your UIF entitlements now. Our free calculators use the
+            same formula the Department applies, so you know roughly what to expect before you file.
           </p>
           <div class="d-flex flex-column flex-md-row gap-2 justify-content-center">
             <a href="{{ url_for("uif.unemployment_calculator")}}"
@@ -309,7 +450,7 @@
                class="btn btn-outline-light btn-sm">Calculate VAT</a>
           </div>
           <p class="text-white small mt-3">
-            Join thousands of South Africans who've used our UIF calculator to plan their finances
+            UIF paid R18 billion to 3.1 million South Africans in benefits last year &mdash; know your number before you apply.
           </p>
         </div>
       </div>

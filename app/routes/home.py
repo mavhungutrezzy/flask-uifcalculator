@@ -123,6 +123,14 @@ def cookie_policy():
 def methodology():
     return render_template("pages/methodology.html")
 
+@home_bp.route('/what-to-do-after-calculating-uif/')
+def after_calculating_uif():
+    return render_template('pages/after-calculating-uif.html')
+
+
+@home_bp.route("/maternity-leave-south-africa")
+def maternity_leave_south_africa():
+    return render_template("pages/maternity-leave-south-africa.html")
 
 @home_bp.route("/calculators/vat-calculator/", methods=["GET", "POST"])
 def vat_calculator():

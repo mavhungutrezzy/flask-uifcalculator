@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
-{% block title %}Your UIF Estimate: R{{ "%.2f"|format(total_benefit) }} — What It Means & What To Do Next{% endblock %}
+{% block title %}After You Calculate Your UIF: What It Means & What To Do Next{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Your estimated UIF benefit is R{{ "%.2f"|format(total_benefit) }} over {{ credit_days }} credit days. Here's what that actually means, how long UIF really takes to pay out, and exactly what to do next.">
+<meta name="description" content="You've got a UIF estimate — now what? Here's what your credit days and monthly payout actually mean, how long UIF really takes to pay out, and exactly what to do next.">
 {% endblock meta %}
 
 {% block content %}
@@ -11,76 +11,41 @@
     <div class="row justify-content-center">
       <div class="col-lg-8 col-xl-7">
 
-        <!-- ============ RESULT SUMMARY (compact, not the whole page) ============ -->
-        <div class="card shadow-sm border rounded-3 mb-5">
-          <div class="card-body text-center pt-4 pb-4">
-            <span class="badge bg-success-subtle p-2 rounded-pill border border-success text-success fw-semibold small mb-2">
-              Calculation Complete
-            </span>
-            <h1 class="display-5 fw-bold text-dark mb-1">R{{ "%.2f"|format(total_benefit) }}</h1>
-            <p class="text-secondary small mb-3">Estimated total UIF benefit</p>
-            <div class="row text-start border-top pt-3 mt-2">
-              <div class="col-4">
-                <div class="small text-muted">Credit days</div>
-                <div class="fw-semibold">{{ credit_days }} days</div>
-              </div>
-              <div class="col-4">
-                <div class="small text-muted">Avg. monthly</div>
-                <div class="fw-semibold">
-                  {% if credit_days > 0 %}R{{ "%.2f"|format(average_monthly_benefit) }}{% else %}R0.00{% endif %}
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="small text-muted">Duration</div>
-                <div class="fw-semibold">
-                  {% if credit_days > 0 %}{{ months_for_benefits|round|int }} months{% else %}0 months{% endif %}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h1 class="fw-bold mb-2">After You Calculate Your UIF: What It Means & What To Do Next</h1>
+        <p class="text-secondary mb-5">
+          A UIF number on a screen is only useful once you know what's behind it and what happens between now and
+          your first payment. Here's the part most calculators skip.
+        </p>
 
-        <!-- ============ THE ARTICLE ============ -->
         <article class="uif-result-article">
 
-          {% if credit_days > 0 %}
           <p class="lead">
-            R{{ "%.2f"|format(total_benefit) }} is what our estimate says you could receive in total, paid out over
-            roughly {{ months_for_benefits|round|int }} months at around R{{ "%.2f"|format(average_monthly_benefit) }}
-            a month. That number is only useful if you understand what's behind it and what happens between now and
-            your first payment &mdash; so let's go through that.
+            If you've just run a UIF estimate, you've got a total benefit amount, a number of credit days, and a
+            rough monthly payout. That's a starting point, not a claim decision &mdash; here's what actually
+            determines whether that number turns into money in your account, and how long it realistically takes.
           </p>
-          {% else %}
-          <p class="lead">
-            Based on what you entered, our estimate came back at R0.00. That usually means the salary or contribution
-            period you entered doesn't meet the minimum UIF requirements yet &mdash; not necessarily that you have no
-            claim at all. It's worth reading the eligibility section below before assuming you don't qualify.
-          </p>
-          {% endif %}
 
-          <h2>What this number actually means</h2>
+          <h2>What your estimate actually means</h2>
           <p>
-            Your {{ credit_days }} credit days come from a simple rule the UIF uses: for every 4 days you worked and
-            contributed, you bank 1 day of benefit, up to a hard ceiling of 365 days if you've contributed for 4
-            years or more. That's why two people earning the same salary can get very different totals &mdash; the
-            number of days you've paid in matters as much as how much you earned.
+            Credit days come from a simple rule the UIF uses: for every 4 days you worked and contributed, you bank
+            1 day of benefit, up to a hard ceiling of 365 days if you've contributed for 4 years or more. That's why
+            two people earning the same salary can end up with very different totals &mdash; the number of days
+            you've paid in matters as much as how much you earned.
           </p>
           <p>
             The monthly figure isn't a flat percentage of your old salary either. UIF uses a sliding income
             replacement scale that pays lower earners a higher percentage of their previous income (up to around
             60%) and higher earners a lower percentage, down to about 38%, tapering to a flat 20% once you're past
-            238 credit days. It's designed to cushion lower-income households more than higher earners &mdash; so if
-            your monthly estimate looks lower than "a percentage of my salary" math would suggest, that sliding scale
-            is usually why. If you want the full formula with worked examples, we've broken it down in our
+            238 credit days. It's designed to cushion lower-income households more than higher earners. If you want
+            the full formula with worked examples, we've broken it down in our
             <a href="https://uifcalculators.co.za/uif/how-to-calculate-uif/">UIF calculation guide</a>.
           </p>
           <p>
-            One thing worth being upfront about: this is an estimate, not a claim decision. Your actual payout can
-            differ if your employer's UIF declarations aren't up to date, if your salary history doesn't match what
-            you entered, or if you've already used up credit days from a previous claim.
+            One thing worth being upfront about: any calculator estimate is just that &mdash; an estimate. Your
+            actual payout can differ if your employer's UIF declarations aren't up to date, if your salary history
+            doesn't match what you entered, or if you've already used up credit days from a previous claim.
           </p>
 
-          <!-- ============ AD SLOT 1 ============ -->
           <div class="my-4 text-center">
             <!-- AdSense in-article unit -->
             <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="fluid" data-ad-layout="in-article"></ins>
@@ -142,7 +107,6 @@
             status actually means and when it's worth calling in versus just waiting.
           </p>
 
-          <!-- ============ AD SLOT 2 ============ -->
           <div class="my-4 text-center">
             <!-- AdSense in-article unit -->
             <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="fluid" data-ad-layout="in-article"></ins>
@@ -151,7 +115,8 @@
 
           <h2>If your situation isn't a straightforward retrenchment</h2>
           <p>
-            This calculator assumes standard unemployment eligibility, but a few common situations change things:
+            The standard UIF calculator assumes ordinary unemployment eligibility, but a few common situations change
+            things:
           </p>
           <p>
             <strong>If you resigned</strong> &mdash; even if it felt forced &mdash; UIF generally won't pay
@@ -198,7 +163,6 @@
             Friday, 8am&ndash;5pm.
           </p>
 
-          <!-- ============ REAL PEOPLE / SOCIAL PROOF ============ -->
           <div class="border rounded-3 p-4 my-4 bg-light">
             <h2 class="h5 fw-bold mb-3">What other claimants say</h2>
             <p class="text-secondary small mb-2">
@@ -218,7 +182,6 @@
             </p>
           </div>
 
-          <!-- ============ AD SLOT 3 ============ -->
           <div class="my-4 text-center">
             <!-- AdSense display unit -->
             <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -231,12 +194,12 @@
             <div class="accordion-item">
               <h3 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                  Is this the amount UIF will actually pay me?
+                  Is a UIF calculator estimate the amount UIF will actually pay me?
                 </button>
               </h3>
               <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#uifFaqAccordion">
                 <div class="accordion-body text-secondary small">
-                  No &mdash; it's an estimate based on the salary and contribution period you entered. Your official
+                  No &mdash; it's an estimate based on the salary and contribution period you enter. Your official
                   amount is set by the Department of Employment and Labour once your claim is assessed, and can
                   differ if your employer's records, salary history, or documents don't match exactly.
                 </div>
@@ -261,7 +224,7 @@
             <div class="accordion-item">
               <h3 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                  Can I still work while claiming?
+                  Can I still work while claiming UIF?
                 </button>
               </h3>
               <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#uifFaqAccordion">
@@ -295,7 +258,7 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Is this the amount UIF will actually pay me?",
+                "name": "Is a UIF calculator estimate the amount UIF will actually pay me?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "No, it's an estimate based on the salary and contribution period entered. The official amount is set by the Department of Employment and Labour once the claim is assessed, and can differ if employer records, salary history, or documents don't match exactly."
@@ -331,7 +294,6 @@
 
         </article>
 
-        <!-- ============ RELATED READS (real links only) ============ -->
         <div class="border-top pt-4 mt-4 mb-4">
           <h2 class="h5 fw-bold mb-3">Related reads</h2>
           <ul class="list-unstyled">
@@ -344,7 +306,7 @@
 
         <div class="text-center mb-4">
           <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-dark px-4 py-2">
-            Run Another Calculation
+            Run Your UIF Calculation
           </a>
         </div>
 
