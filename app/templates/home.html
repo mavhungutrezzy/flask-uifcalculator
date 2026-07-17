@@ -100,7 +100,27 @@
 {% endblock %}
 
 {% block content %}
+<style>
+      .pulse-btn {
+    animation: pulse 2s infinite;
+}
 
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 15px rgba(13, 110, 253, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+    }
+}
+
+</style>
 
 <!-- Main Content -->
 <div class="py-3">
@@ -121,11 +141,11 @@
                         Estimate unemployment, maternity, illness and adoption UIF benefits using your salary and months employed &mdash; using the same income replacement formula the Department uses.
                     </p>
                     <div class="d-grid gap-2 d-md-flex mb-3">
-                          <a class="btn btn-outline-primary btn-lg"
+                          <a class="btn btn-success btn-pulse btn-lg"
                            href="{{ url_for("home.uif_status_check_online")}}"
                            role="link">Check UIF Status</a>
                         <a href="{{ url_for('uif.unemployment_calculator') }}"
-                           class="btn btn-success btn-lg px-4 pulse-btn shadow">
+                           class="btn btn-outline-primary btn-lg px-4 pulse-btn shadow">
                             <i class="bi bi-calculator me-2"></i>Calculate UIF
                         </a>
                         
