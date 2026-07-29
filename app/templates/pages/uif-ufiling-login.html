@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %}uFiling Login South Africa 2026 | Sign In, Check UIF Status & Fix Login Problems{% endblock %}
+{% block title %}uFiling Login Guide | South Africa UIF{% endblock %}
 
 {% block meta %}
 <meta name="description"
-      content="Log into uFiling South Africa to check your UIF claim status, payments and balance. Step-by-step login guide, password reset help, and how to fix common uFiling login problems.">
-<meta name="keywords" content="ufiling login, uif login, ufiling.co.za login, uif online login, how to login to ufiling, ufiling password reset, ufiling login problems, check uif status after login, ufiling south africa login">
+      content="Log into uFiling to check UIF claim status, payments and balance. Get password reset help and fixes for common login problems.">
+<meta name="keywords" content="ufiling login, uif login, ufiling password reset, ufiling login problems, check uif status after login">
 {% endblock %}
 
 {% block canonical_href %}{{ url_for('home.uif_ufiling_login', _external=True) }}{% endblock %}
 {% block og_url %}{{ url_for('home.uif_ufiling_login', _external=True) }}{% endblock %}
-{% block og_title %}uFiling Login South Africa 2026 | Sign In, Check UIF Status & Fix Login Problems{% endblock %}
-{% block og_description %}Log into uFiling to check your UIF status, payments and balance. Simple login steps, password help, and solutions to common uFiling sign-in problems.{% endblock %}
+{% block og_title %}uFiling Login Guide | South Africa UIF{% endblock %}
+{% block og_description %}Log into uFiling, check UIF claim status, reset your password, and fix common sign-in problems.{% endblock %}
 {% block twitter_url %}{{ url_for('home.uif_ufiling_login', _external=True) }}{% endblock %}
-{% block twitter_title %}uFiling Login South Africa 2026 | Sign In, Check UIF Status & Fix Login Problems{% endblock %}
-{% block twitter_description %}Log into uFiling to check your UIF claim status and payments. Step-by-step login guide and help for forgotten passwords.{% endblock %}
+{% block twitter_title %}uFiling Login Guide | South Africa UIF{% endblock %}
+{% block twitter_description %}Log into uFiling, check UIF status, reset your password, and fix sign-in problems.{% endblock %}
 
 {% block structured_data %}
 {{ super() }}
@@ -24,8 +24,8 @@
   "@type": "WebPage",
   "@id": "{{ url_for('home.uif_ufiling_login', _external=True) }}#webpage",
   "url": "{{ url_for('home.uif_ufiling_login', _external=True) }}",
-  "name": "uFiling Login South Africa 2026",
-  "description": "Log into uFiling South Africa to check your UIF claim status, payments and balance. Step-by-step login guide and help for common sign-in problems.",
+  "name": "uFiling Login Guide",
+  "description": "Log into uFiling, check UIF claim status, reset your password, and fix common sign-in problems.",
   "inLanguage": "en-ZA",
   "isPartOf": {
     "@id": "{{ url_for('home.index', _external=True) }}#website"
