@@ -1,98 +1,322 @@
 {% extends "base.html" %}
 
-{% block title %}UIF Banking Details and UI-2.8 Form Guide 2026{% endblock %}
+{% block title %}UIF Banking Details and UI 2.8 Form Guide{% endblock %}
 
 {% block meta %}
-<meta name="description"
-      content="Learn how UIF banking details work, when the UI-2.8 form is needed, why payments get blocked and how to avoid banking verification delays.">
+<meta name="description" content="What the UI 2.8 form is for, why UIF banking details fail verification, and how to fix a blocked or reversed UIF payment.">
 {% endblock %}
 
 {% block canonical_href %}{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}{% endblock %}
+
 {% block og_url %}{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}{% endblock %}
-{% block og_title %}UIF Banking Details and UI-2.8 Form Guide 2026{% endblock %}
-{% block og_description %}Practical guide to UIF banking details, the UI-2.8 form, blocked payments and bank verification delays in South Africa.{% endblock %}
+{% block og_title %}UIF Banking Details and UI 2.8 Form Guide{% endblock %}
+{% block og_description %}Why UIF banking details fail, what Payment Blocked and Payment Reversed mean, and how to fix them with the UI 2.8 form.{% endblock %}
+
 {% block twitter_url %}{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}{% endblock %}
-{% block twitter_title %}UIF Banking Details and UI-2.8 Form Guide 2026{% endblock %}
-{% block twitter_description %}Practical guide to UIF banking details, the UI-2.8 form, blocked payments and bank verification delays in South Africa.{% endblock %}
+{% block twitter_title %}UIF Banking Details and UI 2.8 Form Guide{% endblock %}
+{% block twitter_description %}Why UIF banking details fail, what Payment Blocked and Payment Reversed mean, and how to fix them with the UI 2.8 form.{% endblock %}
 
 {% block structured_data %}
 {{ super() }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": "{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}#article",
-  "headline": "UIF Banking Details and UI-2.8 Form Guide",
-  "description": "Guide to UIF banking details, UI-2.8 forms and payment verification issues.",
-  "dateModified": "2026-05-11",
-  "inLanguage": "en-ZA",
-  "mainEntityOfPage": "{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}",
-  "publisher": {
-    "@id": "{{ url_for('home.index', _external=True) }}#organization"
-  }
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "{{ url_for('home.articles', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "UIF Banking Details and UI 2.8 Form Guide",
+          "item": "{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "UIF Banking Details and UI 2.8 Form Guide",
+      "description": "What the UI 2.8 form is for, why UIF banking details fail verification, and how to fix a blocked or reversed UIF payment.",
+      "inLanguage": "en-ZA",
+      "datePublished": "2026-07-29",
+      "dateModified": "2026-07-29",
+      "author": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      },
+      "mainEntityOfPage": "{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}"
+    }
+  ]
 }
 </script>
 {% endblock %}
 
 {% block content %}
-<section class="py-5 bg-gradient-primary">
+<style>
+  html { scroll-behavior: smooth; }
+  a.fw-semibold {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #adb5bd;
+    text-underline-offset: 2px;
+  }
+  a.fw-semibold:hover { text-decoration-color: currentColor; }
+  .list-check { list-style: none; padding-left: 0; }
+  .list-check li { position: relative; padding-left: 1.6rem; margin-bottom: 0.75rem; }
+  .list-check li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: #6c757d;
+    font-weight: 600;
+  }
+</style>
+
+<article class="py-5">
   <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-10">
-        <span class="badge bg-warning-subtle text-warning fw-semibold border border-warning px-3 py-2 small rounded-pill mb-3">Banking</span>
-        <h1 class="fw-bold mb-3">UIF Banking Details and UI-2.8 Form Guide</h1>
-        <p class="lead text-muted mb-0">Your UIF payment depends on banking details that can be verified. Incorrect or outdated details can cause a blocked or delayed payment.</p>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class=" text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.articles') }}" class=" text-decoration-none">Articles</a></li>
+            <li class="breadcrumb-item active" aria-current="page">UIF Banking Details and UI 2.8 Form</li>
+          </ol>
+        </nav>
+
+        <header class="pb-4 mb-4 border-bottom">
+          <div class="text-uppercase text-muted small fw-semibold" style="letter-spacing:.08em;">Payments</div>
+          <h1 class="font-serif mt-2" style="font-size:clamp(2rem, 4vw, 3rem); line-height:1.15;">
+            UIF Banking Details and UI 2.8 Form Guide
+          </h1>
+          <p class="fs-5 text-secondary mt-3">
+            Your UIF payment depends on banking details that can be verified. Wrong or old details can block or delay your payment.
+          </p>
+          <div class="text-muted small mt-3">
+            UIF Calculators Team &middot; Updated <time datetime="2026-07">July 2026</time> &middot; 6 min read
+          </div>
+        </header>
+
+        <p>
+          The UI 2.8 form is the official form UIF uses to record your banking
+          details. If your account name, ID number or surname on file do not
+          match your bank records, your payment can be blocked, reversed or
+          delayed until you fix it.
+        </p>
+        <p>
+          This guide explains what the UI 2.8 form is for, the most common
+          reasons banking details fail, and what to do if your payment status
+          shows a banking problem.
+        </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">What Is the UI 2.8 Form?</h2>
+        <p>
+          The UI 2.8 form is used to give UIF your banking details. Department of
+          Employment and Labour guidance for unemployment and maternity claims
+          lists the UI 2.8 among the documents needed to process a benefit claim.
+        </p>
+        <p>
+          UIF pays benefits straight into your bank account, so this form is not
+          optional paperwork. It is the record UIF checks every payment against.
+          If the details on the UI 2.8 do not match your bank, the payment run
+          will usually fail the verification step and your money will not go
+          out.
+        </p>
+        <p>
+          Many claimants only submit the UI 2.8 once, at the start of a claim,
+          and never think about it again. But if anything about your bank
+          account or personal details changes during your claim, that record can
+          go out of date without you knowing, until a payment fails.
+        </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">When Banking Details Cause UIF Delays</h2>
+        <p>
+          Banking problems are one of the most common reasons a UIF payment
+          stalls after a claim has already been approved. The usual causes are:
+        </p>
+        <ul class="list-check">
+          <li>The bank account is closed or no longer active</li>
+          <li>The account holder details do not match your UIF profile</li>
+          <li>Your surname changed and your banking record was never updated</li>
+          <li>uFiling shows incorrect banking details and asks you to update them</li>
+          <li>Your claim status shows Payment Blocked or Payment Reversed</li>
+        </ul>
+        <p>
+          The uFiling training guidance notes that when banking details are
+          wrong on the system, claimants may need to download and complete the
+          UI 2.8 form to correct them. In practice, this means the fix is almost
+          always the same. You update the form, submit it again, and wait for
+          the new details to be verified before the payment can be released.
+        </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">What Payment Blocked and Payment Reversed Mean</h2>
+        <dl class="row border-top border-bottom py-3">
+          <dt class="col-sm-3 text-muted small text-uppercase fw-semibold" style="letter-spacing:.05em;">Payment Blocked</dt>
+          <dd class="col-sm-9">
+            The payment could not be released because your banking details
+            failed verification before the money was sent. It usually stays in
+            this state until you correct and resubmit your details.
+          </dd>
+          <dt class="col-sm-3 text-muted small text-uppercase fw-semibold" style="letter-spacing:.05em;">Payment Reversed</dt>
+          <dd class="col-sm-9">
+            The payment was sent to your bank but was rejected and returned to
+            UIF. This often happens when an account is closed, dormant or does
+            not match the account holder name on record.
+          </dd>
+        </dl>
+        <p>
+          Both statuses mean the same thing at heart. UIF has money set aside
+          for you, but it cannot land in an account it cannot confirm belongs to
+          you.
+        </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">How to Reduce Banking Verification Problems</h2>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Use Your Own Account</h3>
+        <p>
+          Always use a bank account in your own name. Make sure the name, ID
+          number and surname on your bank records match what UIF has on file
+          exactly. Even small differences, such as a shortened first name or a
+          missing initial, can cause a mismatch.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Keep Your Details Current</h3>
+        <p>
+          If you get married, change your surname, or move to a new bank account
+          while your claim is still active, update your UI 2.8 details as soon
+          as possible. Do not wait for a payment to fail first, since that just
+          adds another delay on top of the one you are already dealing with.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Check Your Status Often</h3>
+        <p>
+          If a payment is blocked or reversed, act quickly on any UIF request
+          for banking documents. The sooner you resubmit a corrected UI 2.8, the
+          sooner your payment can be reprocessed. Checking your status regularly
+          also means you catch a banking problem early, rather than weeks later.
+        </p>
+        <p>
+          For what the other claim status messages mean, see the
+          <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check guide</a>.
+          You can also check your status by
+          <a href="{{ url_for('home.uif_status_check_id_number') }}" class="fw-semibold">ID number</a>
+          or on
+          <a href="{{ url_for('home.uif_status_check_whatsapp') }}" class="fw-semibold">WhatsApp</a>
+          if you would rather not log into uFiling.
+        </p>
+
+        <hr class="my-5">
+
+        <aside class="border-start border-3 ps-3 my-4">
+          <p class="mb-0">
+            Banking problems are one of several reasons a payment can stall.
+            If your banking details are correct and the payment is still
+            delayed, the cause is more likely to be documents, employer
+            declarations or credit days. See
+            <a href="{{ url_for('home.uif_payment_dates_and_delays') }}" class="fw-semibold">UIF payment dates and delays</a>
+            for the full list of common causes.
+          </p>
+        </aside>
+
+        <h2 class="h3 fw-bold font-serif">Where the UI 2.8 Fits in Your Wider Claim</h2>
+        <p>
+          The UI 2.8 is one of several forms UIF asks for, and it is easy to
+          overlook next to the main application form. For the full list of what
+          you need before you apply, see
+          <a href="{{ url_for('home.uif_documents_needed') }}" class="fw-semibold">UIF documents needed</a>.
+        </p>
+        <p>
+          If your problem is not banking but rather gaps in your contribution
+          history, that is a separate issue with its own fix. See
+          <a href="{{ url_for('home.missing_uif_contributions') }}" class="fw-semibold">missing UIF contributions</a>
+          for how to check and correct that.
+        </p>
+        <p>
+          And if you are not sure how many payments you have left on your claim,
+          the <a href="{{ url_for('home.uif_credit_days_explained') }}" class="fw-semibold">UIF credit days explained</a>
+          page covers how credit days build up and run out over time.
+        </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">Frequently Asked Questions</h2>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Where do I get the UI 2.8 form?</h3>
+        <p>
+          You can get the UI 2.8 form from your nearest labour centre or through
+          uFiling if your account prompts you to update your banking details.
+          Some employers also keep a copy on hand for staff applying for UIF.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Why was my UIF payment reversed if my claim was approved?</h3>
+        <p>
+          Approval and payment are two separate steps. A claim can be fully
+          approved and still fail at the payment stage if the bank rejects the
+          transfer, usually because the account is closed or the account holder
+          details do not match.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Can I use a family member's bank account for UIF?</h3>
+        <p>
+          You should use an account in your own name. UIF checks the account
+          holder against your ID and claim details, so an account that is not
+          yours is a common reason for a mismatch and a blocked payment.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">How long does it take to fix a banking problem once I resubmit the UI 2.8?</h3>
+        <p>
+          There is no fixed turnaround time, since it depends on how quickly the
+          updated details are verified and the next payment run is processed.
+          Checking your status after a week or two is a reasonable way to see if
+          it has been resolved.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">What if my surname on my ID does not match my bank account?</h3>
+        <p>
+          This is one of the most common causes of a banking mismatch, often
+          after marriage. You will usually need to update your bank account
+          details with your bank first, then resubmit the UI 2.8 so UIF has the
+          matching record.
+        </p>
+
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-muted small mb-1">
+            This guide is informational and based on Department of Employment
+            and Labour and uFiling guidance.
+          </p>
+          <p class="text-muted small mb-0">
+            Confirm banking form requirements with UIF or the Department of
+            Employment and Labour, since exact steps can change.
+          </p>
+        </footer>
+
       </div>
     </div>
   </div>
-</section>
-
-<section class="py-5">
-  <div class="container">
-    <div class="row g-5">
-      <article class="col-lg-8 mx-auto">
-        <h2 class="h4 fw-bold text-primary">What Is the UI-2.8 Form?</h2>
-        <p>The UI-2.8 form is used for UIF banking details. Department of Employment and Labour unemployment and maternity claim guidance lists UI-2.8 among the documents needed for benefit claims.</p>
-
-        <hr class="my-4">
-
-        <h2 class="h4 fw-bold text-primary">When Banking Details Cause UIF Delays</h2>
-        <ul class="list-check">
-          <li>The bank account is closed or inactive</li>
-          <li>The account holder details do not match your UIF profile</li>
-          <li>Your surname changed and banking records were not updated</li>
-          <li>uFiling shows incorrect banking details and asks for an update</li>
-          <li>The claim status shows <strong>Payment Blocked</strong> or <strong>Payment Reversed</strong></li>
-        </ul>
-
-        <div class="bg-warning-subtle p-3 rounded my-4">
-          The uFiling training guidance notes that if banking details are incorrect on the system, claimants may need to download and complete the UI-2.8 form to update them.
-        </div>
-
-        <h2 class="h4 fw-bold text-primary">How to Reduce Banking Verification Problems</h2>
-        <div class="row g-3 mb-4">
-          <div class="col-md-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <h3 class="h5">Use Your Own Account</h3>
-                <p class="text-muted mb-0">Use an account in your name and make sure the name, ID and surname records match.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <h3 class="h5">Check Status Often</h3>
-                <p class="text-muted mb-0">If a payment is blocked, act quickly on any UIF request for banking documents.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p>For related claim status messages, use the <a href="{{ url_for('home.uif_status_check_online') }}">UIF status check guide</a>.</p>
-        <p class="small text-muted mb-0">This guide is informational. Confirm banking form requirements with UIF or the Department of Employment and Labour.</p>
-      </article>
-    </div>
-  </div>
-</section>
+</article>
 {% endblock %}

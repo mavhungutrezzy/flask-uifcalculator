@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}Checking Your UIF Status on WhatsApp | UIF Calculators{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Can you check your UIF status on WhatsApp? What we could confirm, what to watch out for, and the verified ways to check your claim safely.">
+<meta name="keywords" content="uif whatsapp number, check uif status whatsapp, uif whatsapp status check, uif whatsapp balance">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.uif_status_check_whatsapp', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.uif_status_check_whatsapp', _external=True) }}{% endblock %}
+{% block og_title %}Checking Your UIF Status on WhatsApp | UIF Calculators{% endblock %}
+{% block og_description %}Can you check your UIF status on WhatsApp? What we could confirm, what to watch out for, and the verified ways to check your claim safely.{% endblock %}
+{% block twitter_url %}{{ url_for('home.uif_status_check_whatsapp', _external=True) }}{% endblock %}
+{% block twitter_title %}Checking Your UIF Status on WhatsApp | UIF Calculators{% endblock %}
+{% block twitter_description %}Can you check your UIF status on WhatsApp? What to watch out for, and the verified ways to check your claim safely.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "{{ url_for('home.articles', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "UIF Status Check on WhatsApp",
+          "item": "{{ url_for('home.uif_status_check_whatsapp', _external=True) }}"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "{{ url_for('home.uif_status_check_whatsapp', _external=True) }}#article",
+      "mainEntityOfPage": "{{ url_for('home.uif_status_check_whatsapp', _external=True) }}",
+      "headline": "Checking Your UIF Status on WhatsApp",
+      "description": "Can you check your UIF status on WhatsApp? What we could confirm, what to watch out for, and the verified ways to check your claim safely.",
+      "inLanguage": "en-ZA",
+      "datePublished": "2026-07-29",
+      "dateModified": "2026-07-29",
+      "author": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<article class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class="text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.articles') }}" class="text-decoration-none">Articles</a></li>
+            <li class="breadcrumb-item active text-muted" aria-current="page">Status Check on WhatsApp</li>
+          </ol>
+        </nav>
+
+        <!-- Header -->
+        <header class="pb-4 mb-4 border-bottom">
+          <h1 class="fw-bold mb-3 font-serif" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;">
+            Checking Your UIF Status on WhatsApp
+          </h1>
+          <p class="fs-5 text-secondary mb-3" style="max-width: 42rem;">
+            A lot of people ask whether UIF has a WhatsApp line. Here's what we could actually confirm, what to be careful of, and the channels that are guaranteed to be safe.
+          </p>
+          <div class="d-flex flex-wrap align-items-center text-muted small">
+            <span>UIF Calculators Team</span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>Updated <time datetime="2026-07">July 2026</time></span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>5 min read</span>
+          </div>
+        </header>
+
+        <!-- Quick answer -->
+        <aside class="border-start border-3 ps-3 my-4">
+          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> UIF's own official contact page does not list a dedicated WhatsApp number, only a call centre number and social media accounts. Some other sites claim there's a WhatsApp channel, but they don't agree on the number, so we would rather send you to the checking methods we can fully verify.</p>
+        </aside>
+
+        <p class="fs-5 text-secondary">We looked into this properly rather than just repeating what other guides say, because giving out the wrong contact number for a service tied to your ID number and banking details is not something to get wrong. Here's where things stand.</p>
+
+        <!-- What we could confirm -->
+        <section id="what-we-found" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">What We Could Actually Confirm</h2>
+          <p class="text-secondary">The Department of Employment and Labour's official contact listing gives a switchboard number, a call centre number (0800 030 007), an email address and links to Facebook, Twitter, Instagram and YouTube. No WhatsApp number appears there.</p>
+          <p class="text-secondary mb-0">A few independent guides mention a UIF WhatsApp service, but they don't match each other on the actual number, which is a red flag on its own. Until there's one number confirmed directly on an official UIF or Department of Employment and Labour page, we're not going to publish it here as fact. If UIF opens or confirms an official WhatsApp line, we'll update this page and link to it directly.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Safety -->
+        <section id="safety" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Why This Matters More Than It Seems</h2>
+          <p class="text-secondary">UIF related scams on WhatsApp are common in South Africa, usually messages claiming your grant or claim needs "verification" and asking for your ID number, banking PIN or a once off payment to release funds. UIF will never ask for your password or PIN over WhatsApp, and it will never ask you to pay a fee to receive a payment that's owed to you.</p>
+          <p class="text-secondary mb-0">If you get a message like this, don't reply or click any links. Rather check your claim directly through one of the verified methods below, and report the message if you can.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Verified methods -->
+        <section id="verified-methods" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Verified Ways to Check Your Status</h2>
+          <p class="text-secondary">These are the methods we could confirm directly, and they cover almost everyone.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">UIF Online (for benefit claims and status)</h3>
+          <p class="text-secondary">Employee benefit claims and status checks are handled through <strong class="text-dark">uifonline.labour.gov.za</strong>, not the uFiling site. uFiling is now used by employers to register staff and pay contributions, while UIF Online is where you check your own claim, balance and payment status. Log in with your ID number and password to see your case details.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">USSD</h3>
+          <p class="text-secondary">Dial <strong class="text-dark">*134*843#</strong> from any cellphone, no internet or app needed. Choose Claims or Payments, enter your ID number, and follow the prompts.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Call centre</h3>
+          <p class="text-secondary mb-0">Call 0800 030 007 with your ID number ready. This is the one number that's confirmed directly by the Department of Employment and Labour, so it's the safest option if you'd rather speak to a person or you're not sure about a message you've received.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- FAQ -->
+        <section id="faq" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Frequently Asked Questions</h2>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Does UIF have an official WhatsApp number?</h3>
+          <p class="text-secondary">We couldn't confirm one directly on the Department of Employment and Labour's own contact page. If you've seen a number claiming to be UIF's WhatsApp line, treat it carefully and rather verify through the call centre first.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Is it safe to send my ID number to a WhatsApp number claiming to be UIF?</h3>
+          <p class="text-secondary">Only if you've verified the number yourself through an official source. Scammers regularly impersonate government services on WhatsApp, so don't send personal details to a number you found in a random post or forwarded message.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">What should I do if I already messaged a suspicious UIF WhatsApp number?</h3>
+          <p class="text-secondary">Stop replying, don't send any further details or payments, and check your actual claim through UIF Online, USSD or the call centre. If you shared banking details, contact your bank as well.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Will UIF ever ask me to pay money to release my claim?</h3>
+          <p class="text-secondary">No. UIF payments are funded from your own and your employer's contributions. Any message asking for a fee to "release" or "process" your payment is not from UIF.</p>
+        </section>
+
+        <!-- Closing -->
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-secondary mb-3">For the full list of status meanings and what to do if your claim is stuck, see our main <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check online</a> guide, or check your status with just your ID number in our <a href="{{ url_for('home.uif_status_check_id_number') }}" class="fw-semibold">ID number status check guide</a>.</p>
+          <p class="text-muted small mb-0">Source: Department of Employment and Labour official contact listing. We could not verify a UIF WhatsApp number at the time of writing and will update this page if one is confirmed.</p>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  a.fw-semibold {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #adb5bd;
+    text-underline-offset: 2px;
+  }
+  a.fw-semibold:hover {
+    text-decoration-color: currentColor;
+  }
+</style>
+
+{% endblock %}

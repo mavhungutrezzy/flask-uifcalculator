@@ -1,0 +1,452 @@
+{% extends "base.html" %}
+
+{% block title %}UIF Call Centre and Labour Centre Contact List | UIF Calculators{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="UIF call centre number, Compensation Fund contacts, and a full list of Labour Centres by province with phone numbers for South Africa.">
+<meta name="keywords" content="uif call centre number, uif contact number, labour centre contact list, labour centre near me, uif phone number">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.uif_call_centre_contact_list', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.uif_call_centre_contact_list', _external=True) }}{% endblock %}
+{% block og_title %}UIF Call Centre and Labour Centre Contact List | UIF Calculators{% endblock %}
+{% block og_description %}UIF call centre number, Compensation Fund contacts, and a full list of Labour Centres by province with phone numbers for South Africa.{% endblock %}
+{% block twitter_url %}{{ url_for('home.uif_call_centre_contact_list', _external=True) }}{% endblock %}
+{% block twitter_title %}UIF Call Centre and Labour Centre Contact List | UIF Calculators{% endblock %}
+{% block twitter_description %}UIF call centre number, Compensation Fund contacts, and a full list of Labour Centres by province with phone numbers.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "{{ url_for('home.articles', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "UIF Call Centre and Labour Centre Contact List",
+          "item": "{{ url_for('home.uif_call_centre_contact_list', _external=True) }}"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "{{ url_for('home.uif_call_centre_contact_list', _external=True) }}#article",
+      "mainEntityOfPage": "{{ url_for('home.uif_call_centre_contact_list', _external=True) }}",
+      "headline": "UIF Call Centre and Labour Centre Contact List",
+      "description": "UIF call centre number, Compensation Fund contacts, and a full list of Labour Centres by province with phone numbers for South Africa.",
+      "inLanguage": "en-ZA",
+      "datePublished": "2026-07-29",
+      "dateModified": "2026-07-29",
+      "author": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<article class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class=" text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.articles') }}" class=" text-decoration-none">Articles</a></li>
+            <li class="breadcrumb-item active text-muted" aria-current="page">Call Centre &amp; Labour Centre Contacts</li>
+          </ol>
+        </nav>
+
+        <!-- Header -->
+        <header class="pb-4 mb-4 border-bottom">
+          <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.08em;">Contact Details</p>
+          <h1 class="fw-bold mb-3 font-serif" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;">
+            UIF Call Centre and Labour Centre Contact List
+          </h1>
+          <p class="fs-5 text-secondary mb-3" style="max-width: 42rem;">
+            The UIF call centre number, Compensation Fund contacts, and every Labour Centre in the country with its phone number, sourced directly from the Department of Employment and Labour.
+          </p>
+          <div class="d-flex flex-wrap align-items-center text-muted small">
+            <span>UIF Calculators Team</span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>Updated <time datetime="2026-07">July 2026</time></span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>6 min read</span>
+          </div>
+        </header>
+
+        <!-- Quick answer -->
+        <aside class="border-start border-3 ps-3 my-4">
+          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> for UIF claims, call 0800 030 007. For anything else, find your province below and call either the provincial office or your nearest Labour Centre directly, it's usually faster than the national line.</p>
+        </aside>
+
+        <p class="fs-5 text-secondary">Labour Centres handle the in person side of UIF, from submitting documents to sorting out a stuck claim. Calling your nearest one directly is often quicker than the national call centre, since they can see your file and don't need to redirect you. All numbers below come straight from the Department of Employment and Labour's own contact listing, offices are open Monday to Friday, 07:30 to 16:00.</p>
+
+        <!-- National numbers -->
+        <section id="national" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">National Contact Numbers</h2>
+          <div class="table-responsive">
+            <table class="table align-top">
+              <tbody class="text-secondary">
+                <tr>
+                  <td class="fw-semibold text-dark" style="width: 260px;">UIF call centre</td>
+                  <td>0800 030 007</td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold text-dark">UIF USSD (no internet needed)</td>
+                  <td>*134*843# on any cellphone</td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold text-dark">Compensation Fund (COIDA claims)</td>
+                  <td>0800 321 322 or 0860 105 350</td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold text-dark">Public Employment Services</td>
+                  <td>0860 101 018</td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold text-dark">Head office switchboard</td>
+                  <td>012 309 4000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-secondary mb-0">If you're specifically checking a claim, our <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check online</a> guide covers uifonline.labour.gov.za and USSD in full detail. This page is for when you need to actually speak to someone or visit an office.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Provinces -->
+        <section id="provinces" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Labour Centres by Province</h2>
+          <p class="text-secondary mb-4">Tap a province to see its office number and every Labour Centre listed under it.</p>
+
+          <details class="border-top border-bottom py-3 mb-0">
+            <summary class="fw-semibold text-dark" style="cursor:pointer;">Eastern Cape &mdash; provincial office (043) 701 3000</summary>
+            <div class="table-responsive mt-3">
+              <table class="table align-top small">
+                <tbody class="text-secondary">
+                  <tr><td class="fw-semibold text-dark">Maletswai</td><td>(051) 633 2637</td></tr>
+                  <tr><td class="fw-semibold text-dark">Butterworth</td><td>(047) 491 0656 / 0490</td></tr>
+                  <tr><td class="fw-semibold text-dark">Cradock</td><td>(048) 881 3010</td></tr>
+                  <tr><td class="fw-semibold text-dark">East London</td><td>(043) 702 7500</td></tr>
+                  <tr><td class="fw-semibold text-dark">Fort Beaufort</td><td>(046) 645 7700</td></tr>
+                  <tr><td class="fw-semibold text-dark">Graaff-Reinet</td><td>(049) 892 2142</td></tr>
+                  <tr><td class="fw-semibold text-dark">Makhanda</td><td>(046) 622 2104 / 2190 / 2192</td></tr>
+                  <tr><td class="fw-semibold text-dark">Qonce</td><td>(043) 643 4756 / 642 3401</td></tr>
+                  <tr><td class="fw-semibold text-dark">Lusikisiki</td><td>(039) 253 1996 / 7</td></tr>
+                  <tr><td class="fw-semibold text-dark">Nqanqarhu</td><td>(045) 932 1424 / 26</td></tr>
+                  <tr><td class="fw-semibold text-dark">Mdantsane</td><td>(043) 761 3151</td></tr>
+                  <tr><td class="fw-semibold text-dark">emaXesibeni</td><td>(039) 254 0282 / 89 / 91</td></tr>
+                  <tr><td class="fw-semibold text-dark">Mthatha</td><td>(047) 501 5600</td></tr>
+                  <tr><td class="fw-semibold text-dark">Gqeberha</td><td>(041) 506 5000</td></tr>
+                  <tr><td class="fw-semibold text-dark">Komani</td><td>(045) 807 5400</td></tr>
+                  <tr><td class="fw-semibold text-dark">Uitenhage</td><td>(041) 992 4627</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <details class="border-bottom py-3 mb-0">
+            <summary class="fw-semibold text-dark" style="cursor:pointer;">Free State &mdash; provincial office (051) 505 6200</summary>
+            <div class="table-responsive mt-3">
+              <table class="table align-top small">
+                <tbody class="text-secondary">
+                  <tr><td class="fw-semibold text-dark">Bethlehem</td><td>(058) 303 5293</td></tr>
+                  <tr><td class="fw-semibold text-dark">Bloemfontein</td><td>(051) 411 6400</td></tr>
+                  <tr><td class="fw-semibold text-dark">Botshabelo</td><td>(051) 534 3789</td></tr>
+                  <tr><td class="fw-semibold text-dark">Ficksburg</td><td>(051) 933 2299</td></tr>
+                  <tr><td class="fw-semibold text-dark">Harrismith</td><td>(058) 623 2977</td></tr>
+                  <tr><td class="fw-semibold text-dark">Kroonstad</td><td>(056) 215 1812</td></tr>
+                  <tr><td class="fw-semibold text-dark">Petrusburg</td><td>(053) 574 0932</td></tr>
+                  <tr><td class="fw-semibold text-dark">Phuthaditjhaba</td><td>(058) 713 0373</td></tr>
+                  <tr><td class="fw-semibold text-dark">Sasolburg</td><td>(016) 970 3200</td></tr>
+                  <tr><td class="fw-semibold text-dark">Welkom</td><td>(057) 391 0200</td></tr>
+                  <tr><td class="fw-semibold text-dark">Zastron</td><td>(051) 673 1471</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <details class="border-bottom py-3 mb-0">
+            <summary class="fw-semibold text-dark" style="cursor:pointer;">Gauteng &mdash; provincial office (011) 853 0300</summary>
+            <div class="table-responsive mt-3">
+              <table class="table align-top small">
+                <tbody class="text-secondary">
+                  <tr><td class="fw-semibold text-dark">Alberton</td><td>(011) 861 6130 / 31</td></tr>
+                  <tr><td class="fw-semibold text-dark">Atteridgeville</td><td>(012) 373 4434 / 5 / 8</td></tr>
+                  <tr><td class="fw-semibold text-dark">Benoni</td><td>(011) 747 9600 / 06</td></tr>
+                  <tr><td class="fw-semibold text-dark">Boksburg</td><td>(011) 898 3340 / 2 / 9</td></tr>
+                  <tr><td class="fw-semibold text-dark">Bronkhorstspruit</td><td>(013) 932 0197 / 8</td></tr>
+                  <tr><td class="fw-semibold text-dark">Carletonville</td><td>(018) 788 3281</td></tr>
+                  <tr><td class="fw-semibold text-dark">Garankuwa</td><td>(012) 700 0290 / 0255</td></tr>
+                  <tr><td class="fw-semibold text-dark">Germiston</td><td>(011) 345 6300</td></tr>
+                  <tr><td class="fw-semibold text-dark">Kempton Park</td><td>(011) 975 9301 / 7</td></tr>
+                  <tr><td class="fw-semibold text-dark">Krugersdorp</td><td>(011) 955 4420 / 3</td></tr>
+                  <tr><td class="fw-semibold text-dark">Mamelodi</td><td>(012) 812 9502</td></tr>
+                  <tr><td class="fw-semibold text-dark">Nigel</td><td>(011) 814 7095 / 7</td></tr>
+                  <tr><td class="fw-semibold text-dark">Pretoria</td><td>(012) 309 5000</td></tr>
+                  <tr><td class="fw-semibold text-dark">Randburg</td><td>(011) 781 8144</td></tr>
+                  <tr><td class="fw-semibold text-dark">Randfontein</td><td>(011) 693 3618 / 9</td></tr>
+                  <tr><td class="fw-semibold text-dark">Roodepoort</td><td>(011) 766 2000</td></tr>
+                  <tr><td class="fw-semibold text-dark">Sandton</td><td>(011) 444 7631</td></tr>
+                  <tr><td class="fw-semibold text-dark">Soshanguve</td><td>(012) 730 0500</td></tr>
+                  <tr><td class="fw-semibold text-dark">Soweto</td><td>(011) 983 8700</td></tr>
+                  <tr><td class="fw-semibold text-dark">Springs</td><td>(011) 365 3700 / 03</td></tr>
+                  <tr><td class="fw-semibold text-dark">Temba</td><td>(012) 727 1364 / 1367</td></tr>
+                  <tr><td class="fw-semibold text-dark">Vanderbijlpark</td><td>(016) 981 0280</td></tr>
+                  <tr><td class="fw-semibold text-dark">Vereeniging</td><td>(016) 430 0000</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <details class="border-bottom py-3 mb-0">
+            <summary class="fw-semibold text-dark" style="cursor:pointer;">KwaZulu-Natal &mdash; provincial office (031) 366 2000</summary>
+            <div class="table-responsive mt-3">
+              <table class="table align-top small">
+                <tbody class="text-secondary">
+                  <tr><td class="fw-semibold text-dark">Dundee</td><td>(034) 299 7029 / 700</td></tr>
+                  <tr><td class="fw-semibold text-dark">Durban</td><td>(031) 401 9424</td></tr>
+                  <tr><td class="fw-semibold text-dark">Estcourt</td><td>(036) 342 9369 / 0</td></tr>
+                  <tr><td class="fw-semibold text-dark">Kokstad</td><td>(039) 727 2140 / 5643</td></tr>
+                  <tr><td class="fw-semibold text-dark">Ladysmith</td><td>(036) 638 1900 / 1 / 2</td></tr>
+                  <tr><td class="fw-semibold text-dark">Newcastle</td><td>(034) 328 2340</td></tr>
+                  <tr><td class="fw-semibold text-dark">Pietermaritzburg</td><td>(033) 341 5300 / 303</td></tr>
+                  <tr><td class="fw-semibold text-dark">Pinetown</td><td>(031) 701 7740</td></tr>
+                  <tr><td class="fw-semibold text-dark">Port Shepstone</td><td>(039) 682 2406 / 7</td></tr>
+                  <tr><td class="fw-semibold text-dark">Prospecton</td><td>(031) 913 9700</td></tr>
+                  <tr><td class="fw-semibold text-dark">Richards Bay</td><td>(035) 780 8781 / 8782</td></tr>
+                  <tr><td class="fw-semibold text-dark">Richmond</td><td>(033) 212 2768</td></tr>
+                  <tr><td class="fw-semibold text-dark">Stanger</td><td>(032) 551 7300</td></tr>
+                  <tr><td class="fw-semibold text-dark">Ulundi</td><td>(035) 879 8800 / 02</td></tr>
+                  <tr><td class="fw-semibold text-dark">Verulam</td><td>(032) 541 5600 / 03</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <details class="border-bottom py-3 mb-0">
+            <summary class="fw-semibold text-dark" style="cursor:pointer;">Limpopo &mdash; provincial office (015) 290 1744</summary>
+            <div class="table-responsive mt-3">
+              <table class="table align-top small">
+                <tbody class="text-secondary">
+                  <tr><td class="fw-semibold text-dark">Burgersfort</td><td>(013) 231 8913 / 4 / 5</td></tr>
+                  <tr><td class="fw-semibold text-dark">Giyani</td><td>(015) 811 9635</td></tr>
+                  <tr><td class="fw-semibold text-dark">Groblersdal</td><td>(013) 262 3150 / 2983</td></tr>
+                  <tr><td class="fw-semibold text-dark">Lebowakgomo</td><td>(015) 633 9360</td></tr>
+                  <tr><td class="fw-semibold text-dark">Lephalale</td><td>(014) 673 2034</td></tr>
+                  <tr><td class="fw-semibold text-dark">Makhado</td><td>(015) 516 0207 / 1025</td></tr>
+                  <tr><td class="fw-semibold text-dark">Modimolle</td><td>(014) 717 1046 / 8</td></tr>
+                  <tr><td class="fw-semibold text-dark">Mokopane</td><td>(015) 491 5973</td></tr>
+                  <tr><td class="fw-semibold text-dark">Phalaborwa</td><td>(015) 781 9947</td></tr>
+                  <tr><td class="fw-semibold text-dark">Polokwane</td><td>(015) 299 5000 / 5010</td></tr>
+                  <tr><td class="fw-semibold text-dark">Seshego</td><td>(015) 223 7020 / 7220</td></tr>
+                  <tr><td class="fw-semibold text-dark">Thohoyandou</td><td>(015) 815 7301</td></tr>
+                  <tr><td class="fw-semibold text-dark">Tzaneen</td><td>(015) 306 2600</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <details class="border-bottom py-3 mb-0">
+            <summary class="fw-semibold text-dark" style="cursor:pointer;">Mpumalanga &mdash; provincial office (013) 655 8700</summary>
+            <div class="table-responsive mt-3">
+              <table class="table align-top small">
+                <tbody class="text-secondary">
+                  <tr><td class="fw-semibold text-dark">Barberton</td><td>(013) 712 3066 / 3353</td></tr>
+                  <tr><td class="fw-semibold text-dark">Bethal</td><td>(017) 647 2383 / 5212</td></tr>
+                  <tr><td class="fw-semibold text-dark">Carolina</td><td>(017) 843 1077 / 2111</td></tr>
+                  <tr><td class="fw-semibold text-dark">Emalahleni</td><td>(013) 653 3800</td></tr>
+                  <tr><td class="fw-semibold text-dark">Elukwatini (Eestehoek)</td><td>(017) 883 2414</td></tr>
+                  <tr><td class="fw-semibold text-dark">Ermelo</td><td>(017) 819 7632 / 3010</td></tr>
+                  <tr><td class="fw-semibold text-dark">KwaMhlanga</td><td>(013) 947 3173 / 2484</td></tr>
+                  <tr><td class="fw-semibold text-dark">Malelane</td><td>(013) 790 1528 / 1682</td></tr>
+                  <tr><td class="fw-semibold text-dark">Mashishing</td><td>(013) 235 2368 / 9</td></tr>
+                  <tr><td class="fw-semibold text-dark">Mbombela</td><td>(013) 753 2844 / 5 / 6</td></tr>
+                  <tr><td class="fw-semibold text-dark">Middelburg</td><td>(013) 283 3600</td></tr>
+                  <tr><td class="fw-semibold text-dark">Piet Retief</td><td>(017) 826 1883 / 4</td></tr>
+                  <tr><td class="fw-semibold text-dark">Sabie</td><td>(013) 764 2105 / 6</td></tr>
+                  <tr><td class="fw-semibold text-dark">Secunda</td><td>(017) 631 2585 / 2652</td></tr>
+                  <tr><td class="fw-semibold text-dark">Standerton</td><td>(017) 712 1351 / 4809</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <details class="border-bottom py-3 mb-0">
+            <summary class="fw-semibold text-dark" style="cursor:pointer;">North West &mdash; provincial office (018) 387 8100</summary>
+            <div class="table-responsive mt-3">
+              <table class="table align-top small">
+                <tbody class="text-secondary">
+                  <tr><td class="fw-semibold text-dark">Brits</td><td>(012) 252 3068</td></tr>
+                  <tr><td class="fw-semibold text-dark">Christiana</td><td>(053) 441 2120</td></tr>
+                  <tr><td class="fw-semibold text-dark">Klerksdorp</td><td>(018) 464 8700</td></tr>
+                  <tr><td class="fw-semibold text-dark">Lichtenburg</td><td>(018) 632 4323</td></tr>
+                  <tr><td class="fw-semibold text-dark">Mahikeng</td><td>(018) 381 1010 / 11</td></tr>
+                  <tr><td class="fw-semibold text-dark">Mogwase</td><td>(014) 555 5693</td></tr>
+                  <tr><td class="fw-semibold text-dark">Potchefstroom</td><td>(018) 297 5100</td></tr>
+                  <tr><td class="fw-semibold text-dark">Rustenburg</td><td>(014) 592 8214</td></tr>
+                  <tr><td class="fw-semibold text-dark">Taung</td><td>(053) 994 1679</td></tr>
+                  <tr><td class="fw-semibold text-dark">Vryburg</td><td>(053) 927 5221</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <details class="border-bottom py-3 mb-0">
+            <summary class="fw-semibold text-dark" style="cursor:pointer;">Northern Cape &mdash; provincial office (053) 838 1500</summary>
+            <div class="table-responsive mt-3">
+              <table class="table align-top small">
+                <tbody class="text-secondary">
+                  <tr><td class="fw-semibold text-dark">Calvinia</td><td>(027) 341 1280</td></tr>
+                  <tr><td class="fw-semibold text-dark">De Aar</td><td>(053) 631 0455</td></tr>
+                  <tr><td class="fw-semibold text-dark">Kimberley</td><td>(053) 838 1500</td></tr>
+                  <tr><td class="fw-semibold text-dark">Kuruman</td><td>(053) 712 3870</td></tr>
+                  <tr><td class="fw-semibold text-dark">Postmasburg</td><td>(053) 313 0641</td></tr>
+                  <tr><td class="fw-semibold text-dark">Springbok</td><td>(027) 718 1058 / 9</td></tr>
+                  <tr><td class="fw-semibold text-dark">Upington</td><td>(054) 331 1098</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <details class="border-bottom py-3 mb-0">
+            <summary class="fw-semibold text-dark" style="cursor:pointer;">Western Cape &mdash; provincial office (021) 441 8000</summary>
+            <div class="table-responsive mt-3">
+              <table class="table align-top small">
+                <tbody class="text-secondary">
+                  <tr><td class="fw-semibold text-dark">Beaufort West</td><td>(023) 414 3427</td></tr>
+                  <tr><td class="fw-semibold text-dark">Bellville</td><td>(021) 468 5500</td></tr>
+                  <tr><td class="fw-semibold text-dark">Cape Town</td><td>(021) 468 5500</td></tr>
+                  <tr><td class="fw-semibold text-dark">George</td><td>(044) 801 1200</td></tr>
+                  <tr><td class="fw-semibold text-dark">Knysna</td><td>(044) 302 6800</td></tr>
+                  <tr><td class="fw-semibold text-dark">Mitchell's Plain</td><td>(021) 391 0591</td></tr>
+                  <tr><td class="fw-semibold text-dark">Mossel Bay</td><td>(044) 691 1140 / 1</td></tr>
+                  <tr><td class="fw-semibold text-dark">Oudtshoorn</td><td>(044) 203 6100</td></tr>
+                  <tr><td class="fw-semibold text-dark">Paarl</td><td>(021) 872 2020 / 74</td></tr>
+                  <tr><td class="fw-semibold text-dark">Somerset West</td><td>(021) 852 6535</td></tr>
+                  <tr><td class="fw-semibold text-dark">Vredenburg</td><td>(022) 703 8100</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Tips -->
+        <section id="tips" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Before You Call</h2>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">Have your ID number ready.</strong> Every enquiry starts with it, whether it's UIF, the Compensation Fund, or a Labour Centre.</li>
+            <li><strong class="text-dark">Call in the morning if you can.</strong> Lines tend to get busier as the day goes on, especially around month end.</li>
+            <li><strong class="text-dark">Try your Labour Centre before the national line.</strong> They can see your specific file, which usually gets you a straighter answer.</li>
+            <li><strong class="text-dark">Keep a note of who you spoke to and when.</strong> It helps if you need to follow up on the same query later.</li>
+          </ul>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- FAQ -->
+        <section id="faq" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Frequently Asked Questions</h2>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">What is the UIF call centre number?</h3>
+          <p class="text-secondary">0800 030 007. It's toll free and covers UIF claims, payments and general enquiries.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Should I call the UIF call centre or my nearest Labour Centre?</h3>
+          <p class="text-secondary">If your query is about a specific claim that's stuck or needs documents, your nearest Labour Centre can usually help faster, since staff there can pull up your file directly. The national call centre is better for general questions.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Do I need an appointment to visit a Labour Centre?</h3>
+          <p class="text-secondary">Most Labour Centres accept walk ins, but calling ahead to confirm is worth it, especially for busier offices in city centres. Bring your ID and any paperwork related to your query.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">What if my nearest Labour Centre isn't listed here?</h3>
+          <p class="text-secondary">This list reflects the main Labour Centres per province as published by the Department of Employment and Labour. Some smaller visiting points aren't included, your provincial office can direct you to the closest one if your town isn't listed.</p>
+        </section>
+
+        <!-- Closing -->
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-secondary mb-3">Checking a claim rather than needing to speak to someone? Our <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check online</a> guide covers uifonline.labour.gov.za and USSD step by step.</p>
+          <p class="text-muted small mb-0">Source: Department of Employment and Labour official contact directory. Numbers can change, if one doesn't connect, try the provincial office for that region.</p>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  a.fw-semibold {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #adb5bd;
+    text-underline-offset: 2px;
+  }
+  a.fw-semibold:hover {
+    text-decoration-color: currentColor;
+  }
+  .list-check {
+    list-style: none;
+    padding-left: 0;
+  }
+  .list-check li {
+    position: relative;
+    padding-left: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
+  .list-check li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: #6c757d;
+    font-weight: 600;
+  }
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  details > summary::after {
+    content: "+";
+    float: right;
+    color: #6c757d;
+  }
+  details[open] > summary::after {
+    content: "\2212";
+  }
+</style>
+
+{% endblock %}

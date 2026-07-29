@@ -1,103 +1,241 @@
 {% extends "base.html" %}
 
-{% block title %}Can I Claim UIF If I Resigned? South Africa 2026{% endblock %}
+{% block title %}Can I Claim UIF If I Resigned? | UIF Calculators{% endblock %}
 
 {% block meta %}
 <meta name="description"
-      content="No, you generally cannot claim unemployment UIF after voluntary resignation. Learn the constructive dismissal exception and UIF alternatives for illness or maternity.">
+      content="Can you claim UIF after resigning? Generally no, unless constructive dismissal applies. What qualifies, what doesn't, and what else you can still claim.">
+<meta name="keywords" content="can i claim uif if i resign, uif after resignation, uif resign, constructive dismissal uif, does uif pay after resignation">
 {% endblock %}
 
 {% block canonical_href %}{{ url_for('home.can_i_claim_uif_if_i_resigned', _external=True) }}{% endblock %}
 {% block og_url %}{{ url_for('home.can_i_claim_uif_if_i_resigned', _external=True) }}{% endblock %}
-{% block og_title %}Can I Claim UIF If I Resigned? South Africa 2026{% endblock %}
-{% block og_description %}Clear guide to resignation and UIF claims in South Africa, including voluntary resignation, constructive dismissal, retrenchment, contract expiry and alternative UIF benefits.{% endblock %}
+{% block og_title %}Can I Claim UIF If I Resigned? | UIF Calculators{% endblock %}
+{% block og_description %}Can you claim UIF after resigning? Generally no, unless constructive dismissal applies. What qualifies, what doesn't, and what else you can still claim.{% endblock %}
 {% block twitter_url %}{{ url_for('home.can_i_claim_uif_if_i_resigned', _external=True) }}{% endblock %}
-{% block twitter_title %}Can I Claim UIF If I Resigned? South Africa 2026{% endblock %}
-{% block twitter_description %}Clear guide to resignation and UIF claims in South Africa, including voluntary resignation, constructive dismissal, retrenchment, contract expiry and alternative UIF benefits.{% endblock %}
+{% block twitter_title %}Can I Claim UIF If I Resigned? | UIF Calculators{% endblock %}
+{% block twitter_description %}Can you claim UIF after resigning? What qualifies, what doesn't, and what else you can still claim.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "{{ url_for('home.articles', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Can I Claim UIF If I Resigned?",
+          "item": "{{ url_for('home.can_i_claim_uif_if_i_resigned', _external=True) }}"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "{{ url_for('home.can_i_claim_uif_if_i_resigned', _external=True) }}#article",
+      "mainEntityOfPage": "{{ url_for('home.can_i_claim_uif_if_i_resigned', _external=True) }}",
+      "headline": "Can I Claim UIF If I Resigned?",
+      "description": "Can you claim UIF after resigning? Generally no, unless constructive dismissal applies. What qualifies, what doesn't, and what else you can still claim.",
+      "inLanguage": "en-ZA",
+      "datePublished": "2025-01-01",
+      "dateModified": "2026-07-29",
+      "author": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
-<section class="py-5 bg-gradient-primary">
+
+<article class="py-5">
   <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-10">
-        <span class="badge bg-danger-subtle text-danger fw-semibold border border-danger px-3 py-2 small rounded-pill mb-3">Eligibility</span>
-        <h1 class="fw-bold mb-3">Can I Claim UIF If I Resigned?</h1>
-        <p class="lead text-muted mb-0">No, you generally cannot claim unemployment UIF if you voluntarily resigned. UIF unemployment benefits are intended for people who lose work through no fault of their own.</p>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class=" text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.articles') }}" class=" text-decoration-none">Articles</a></li>
+            <li class="breadcrumb-item active text-muted" aria-current="page">Can I Claim UIF If I Resigned?</li>
+          </ol>
+        </nav>
+
+        <!-- Header -->
+        <header class="pb-4 mb-4 border-bottom">
+          <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.08em;">Eligibility</p>
+          <h1 class="fw-bold mb-3 font-serif" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;">
+            Can I Claim UIF If I Resigned?
+          </h1>
+          <p class="fs-5 text-secondary mb-3" style="max-width: 42rem;">
+            No, generally not. UIF unemployment benefits are meant for people who lose work through no fault of their own, and resigning is treated as a choice. There's one real exception, and a few other benefit types worth knowing about.
+          </p>
+          <div class="d-flex flex-wrap align-items-center text-muted small">
+            <span>UIF Calculators Team</span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>Updated <time datetime="2026-07">July 2026</time></span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>7 min read</span>
+          </div>
+        </header>
+
+        <!-- Quick answer -->
+        <aside class="border-start border-3 ps-3 my-4">
+          <p class="mb-0 text-secondary"><strong class="text-dark">Short answer:</strong> if you resign voluntarily, you're treated as voluntarily unemployed and don't meet the requirements for unemployment benefits. The main exception is constructive dismissal, where the CCMA or a similar formal process confirms you were effectively forced to resign because of intolerable working conditions created by your employer.</p>
+        </aside>
+
+        <p class="fs-5 text-secondary">UIF exists to support people who lose their income unexpectedly, not people who choose to leave. That's the reasoning behind the resignation rule, and it's applied fairly strictly. But "I resigned" covers a lot of different real situations, some of which do still open the door to a claim, so it's worth working through where you actually stand before assuming there's nothing you can do.</p>
+
+        <!-- When UIF applies -->
+        <section id="when-applies" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">When UIF Unemployment Benefits Usually Apply</h2>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">You were retrenched or laid off,</strong> due to your employer's operational requirements.</li>
+            <li><strong class="text-dark">You were dismissed,</strong> subject to UIF's qualifying rules and provided you weren't disqualified for serious misconduct.</li>
+            <li><strong class="text-dark">Your fixed-term contract expired,</strong> and wasn't renewed.</li>
+            <li><strong class="text-dark">Your employer terminated your services</strong> for reasons other than your own resignation.</li>
+          </ul>
+          <p class="text-secondary mb-0">Notice the common thread: in every one of these, the decision to end your employment sat with your employer, not with you. That's the line UIF draws.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Constructive dismissal -->
+        <section id="constructive-dismissal" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">What About Constructive Dismissal?</h2>
+          <p class="text-secondary">Constructive dismissal is a specific labour law situation where you resign because your employer made continued employment genuinely intolerable, for example through sustained harassment, unpaid salary, or a unilateral and unreasonable change to your role. On paper, it looks like a resignation. In substance, labour law treats it as a dismissal.</p>
+          <p class="text-secondary">UIF guidance treats this as a possible exception, but only once constructive dismissal has actually been established, usually through the CCMA. You can't simply tell UIF that your resignation was "basically a dismissal" and expect it to be accepted, the CCMA process is what turns that claim into something UIF can act on.</p>
+          <p class="text-secondary mb-0">If you think this applies to you, get advice from the CCMA, the Department of Employment and Labour, or a qualified labour practitioner before you resign if at all possible, since how and why you resign can matter for the case itself.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Other situations -->
+        <section id="other-situations" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Other Situations That Aren't Quite a Simple Resignation</h2>
+          <p class="text-secondary">A few common scenarios sit in a grey area worth knowing about, even though none of them guarantee a claim.</p>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">Mutual separation agreements.</strong> If you and your employer agreed to part ways and it's documented as such, UIF will usually look at how the agreement is framed, not just the word "resignation" on a form.</li>
+            <li><strong class="text-dark">Resigning after being told to leave.</strong> If your employer pressured you to resign rather than formally dismissing you, this can shade into constructive dismissal territory, but again, it needs to go through the CCMA to count.</li>
+            <li><strong class="text-dark">Retirement.</strong> Retiring is treated differently from resigning for other reasons, and doesn't automatically qualify for unemployment benefits either, though other retirement related provisions may apply depending on your fund.</li>
+          </ul>
+          <p class="text-secondary mb-0">If your situation doesn't cleanly fit "I chose to leave" or "I was let go," it's worth getting a straight answer from the CCMA or a labour practitioner before you assume either way.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Other benefits -->
+        <section id="other-benefits" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Can You Claim Other UIF Benefits After Resigning?</h2>
+          <p class="text-secondary">Resignation mainly affects unemployment benefits specifically. If your situation isn't about being unemployed, a different UIF benefit type may still be relevant, and resigning from your job doesn't automatically rule these out.</p>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">Illness benefits:</strong> if you can't work because of illness and meet UIF's requirements, including having contributed enough credit days.</li>
+            <li><strong class="text-dark">Maternity benefits:</strong> if you qualify for maternity UIF and receive less than your normal salary while on maternity leave.</li>
+            <li><strong class="text-dark">Adoption or parental benefits:</strong> if the applicable UIF rules and documents apply to your situation.</li>
+          </ul>
+          <p class="text-secondary mb-0">Use the <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="fw-semibold">maternity and leave UIF calculator</a> if you need to estimate maternity, illness, adoption or parental leave benefits.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- What to check -->
+        <section id="what-to-check" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">What to Check Before Applying</h2>
+          <ul class="list-check text-secondary">
+            <li>The termination reason recorded on your <a href="{{ url_for('uif.ui19_form_explained') }}" class="fw-semibold">UI-19 form</a>, since this is what UIF actually assesses your claim against.</li>
+            <li>Whether your employer has submitted your UIF declarations, see our <a href="{{ url_for('home.uif_documents_needed') }}" class="fw-semibold">UIF documents needed</a> checklist for the full list.</li>
+            <li>Whether you've registered as a work seeker with the Department of Employment and Labour, a requirement for unemployment claims.</li>
+            <li>Your estimated credit days and possible payout duration, if your situation does qualify.</li>
+          </ul>
+          <p class="text-secondary mb-0">Use the <a href="{{ url_for('uif.unemployment_calculator') }}" class="fw-semibold">UIF unemployment calculator</a> to estimate your benefit, but only if you believe your employment ending actually qualifies for UIF under one of the categories above.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- FAQ -->
+        <section id="faq" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Frequently Asked Questions</h2>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Does UIF ever pay out after resignation without going through the CCMA?</h3>
+          <p class="text-secondary">Not for standard unemployment benefits. Constructive dismissal is the recognised exception, and it needs to be established through the CCMA or a similar formal process before UIF will treat it as anything other than a voluntary resignation.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Can I claim UIF if I resigned because of my health?</h3>
+          <p class="text-secondary">Not under unemployment benefits, but illness benefits are a separate category with their own requirements. If you're unable to work due to illness, that's worth exploring on its own terms rather than through an unemployment claim.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">I resigned from one job and then lost a second job through retrenchment. Can I claim?</h3>
+          <p class="text-secondary">Yes, in that case UIF looks at how your most recent employment ended, not your full work history. A retrenchment from your latest job generally qualifies, regardless of how a previous job ended.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">What if my UI-19 form says "resigned" but I believe I was dismissed?</h3>
+          <p class="text-secondary">This is worth raising directly, since the termination reason on your UI-19 is what UIF assesses your claim against. Speak to your employer first to correct it if it's simply wrong, and if there's a genuine dispute about why your employment ended, that's a matter for the CCMA.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Can I still apply for UIF even if I'm not sure I qualify?</h3>
+          <p class="text-secondary">You can submit a claim and let UIF assess it, rather than assuming in advance. If you do apply and it's rejected, our guide on <a href="{{ url_for('home.why_uif_claim_rejected_cancelled') }}" class="fw-semibold">why UIF claims get rejected or cancelled</a> explains what to check next.</p>
+        </section>
+
+        <!-- Closing -->
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-secondary mb-3">If your claim does qualify, check your progress through our <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check online</a> guide, or find your nearest office in our <a href="{{ url_for('home.uif_call_centre_contact_list') }}" class="fw-semibold">UIF call centre and Labour Centre contact list</a>.</p>
+          <p class="text-muted small mb-0">Source: UIF unemployment benefits guidance. This page is general information and not legal advice.</p>
+        </footer>
+
       </div>
     </div>
   </div>
-</section>
+</article>
 
-<section class="py-5">
-  <div class="container">
-    <div class="row g-5">
-      <article class="col-lg-8 mx-auto">
-        <div class="bg-warning-subtle p-3 rounded mb-4">
-          <strong>Short answer:</strong> If you resign voluntarily, you are usually treated as voluntarily unemployed and do not meet the requirements for unemployment benefits. The main exception is constructive dismissal, where the CCMA or relevant process confirms that you were effectively forced to resign because of intolerable working conditions created by the employer.
-        </div>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  a.fw-semibold {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #adb5bd;
+    text-underline-offset: 2px;
+  }
+  a.fw-semibold:hover {
+    text-decoration-color: currentColor;
+  }
+  .list-check {
+    list-style: none;
+    padding-left: 0;
+  }
+  .list-check li {
+    position: relative;
+    padding-left: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
+  .list-check li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: #6c757d;
+    font-weight: 600;
+  }
+</style>
 
-        <h2 class="h4 fw-bold text-primary">Key Takeaways</h2>
-        <div class="row g-3 mb-4">
-          <div class="col-md-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <span class="badge bg-danger-subtle text-danger mb-3">Resignation</span>
-                <h3 class="h5">Voluntary Resignation Usually Disqualifies You</h3>
-                <p class="text-muted mb-0">If you chose to resign, UIF unemployment benefits are generally not paid.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <span class="badge bg-warning-subtle text-warning mb-3">Exception</span>
-                <h3 class="h5">Constructive Dismissal May Qualify</h3>
-                <p class="text-muted mb-0">You may qualify if constructive dismissal is proven, usually through the CCMA or formal labour process.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h2 class="h4 fw-bold text-primary">When UIF Usually Applies</h2>
-        <ul class="list-check">
-          <li>You were retrenched or laid off</li>
-          <li>You were dismissed, subject to UIF qualifying rules and not disqualified for misconduct</li>
-          <li>Your fixed-term contract expired</li>
-          <li>Your employer terminated your services</li>
-        </ul>
-
-        <hr class="my-4">
-
-        <h2 class="h4 fw-bold text-primary">What About Constructive Dismissal?</h2>
-        <p>Constructive dismissal is a specific labour-law situation where an employee resigns because the employer made continued employment intolerable. UIF guidance refers to this as a possible exception only where constructive dismissal can be proven through the CCMA.</p>
-        <p>If this applies to you, get advice from the CCMA, the Department of Employment and Labour or a qualified labour practitioner.</p>
-
-        <hr class="my-4">
-
-        <h2 class="h4 fw-bold text-primary">Can You Claim Other UIF Benefits After Resigning?</h2>
-        <p>Resignation mainly affects <strong>unemployment benefits</strong>. If your situation is not unemployment, another UIF benefit type may be relevant.</p>
-        <ul class="list-check">
-          <li><strong>Illness benefits:</strong> if you cannot work because of illness and meet the UIF requirements.</li>
-          <li><strong>Maternity benefits:</strong> if you qualify for maternity UIF and receive less than your normal salary while on maternity leave.</li>
-          <li><strong>Adoption or parental benefits:</strong> if the applicable UIF rules and documents apply to your situation.</li>
-        </ul>
-        <p>Use the <a href="{{ url_for('uif.leave_benefit_calculator') }}">maternity and leave UIF calculator</a> if you need to estimate maternity, illness, adoption or parental leave benefits.</p>
-
-        <hr class="my-4">
-
-        <h2 class="h4 fw-bold text-primary">What to Check Before Applying</h2>
-        <ul class="list-check">
-          <li>The termination reason on your UI-19 form</li>
-          <li>Whether your employer has submitted UIF declarations</li>
-          <li>Whether you registered as a work seeker with the Department of Employment and Labour</li>
-          <li>Your estimated credit days and possible payout duration</li>
-        </ul>
-
-        <p>Use the <a href="{{ url_for('uif.unemployment_calculator') }}">UIF unemployment calculator</a> to estimate your benefit only if you believe your employment ending qualifies for UIF.</p>
-
-        <p class="small text-muted mb-0">Source: UIF unemployment benefits guidance. This page is general information and not legal advice.</p>
-      </article>
-    </div>
-  </div>
-</section>
 {% endblock %}

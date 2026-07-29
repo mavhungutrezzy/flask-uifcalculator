@@ -1,63 +1,182 @@
 {% extends "base.html" %}
 
-{% block title %}UIF Payment Dates, Processing Times and Delays 2026{% endblock %}
+{% block title %}UIF Payment Dates, Processing Times and Delays{% endblock %}
 
 {% block meta %}
-<meta name="description"
-      content="Understand UIF payment dates, claim processing stages and common payment delays such as missing documents, banking verification and employer declarations.">
+<meta name="description" content="Why UIF doesn't have one fixed payday, what 'payment reserved' and 'sent to paymaster' mean, and what causes UIF payment delays.">
 {% endblock %}
 
 {% block canonical_href %}{{ url_for('home.uif_payment_dates_and_delays', _external=True) }}{% endblock %}
+
 {% block og_url %}{{ url_for('home.uif_payment_dates_and_delays', _external=True) }}{% endblock %}
-{% block og_title %}UIF Payment Dates, Processing Times and Delays 2026{% endblock %}
-{% block og_description %}Guide to UIF payment timing, status messages and common reasons claims or payments are delayed in South Africa.{% endblock %}
+{% block og_title %}UIF Payment Dates, Processing Times and Delays{% endblock %}
+{% block og_description %}What determines UIF payment timing, common status meanings, and the most likely reasons a UIF payout is delayed.{% endblock %}
+
 {% block twitter_url %}{{ url_for('home.uif_payment_dates_and_delays', _external=True) }}{% endblock %}
-{% block twitter_title %}UIF Payment Dates, Processing Times and Delays 2026{% endblock %}
-{% block twitter_description %}Guide to UIF payment timing, status messages and common reasons claims or payments are delayed in South Africa.{% endblock %}
+{% block twitter_title %}UIF Payment Dates, Processing Times and Delays{% endblock %}
+{% block twitter_description %}What determines UIF payment timing, common status meanings, and the most likely reasons a UIF payout is delayed.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "{{ url_for('home.articles', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "UIF Payment Dates, Processing Times and Delays",
+          "item": "{{ url_for('home.uif_payment_dates_and_delays', _external=True) }}"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "UIF Payment Dates, Processing Times and Delays",
+      "description": "Why UIF doesn't have one fixed payday, what 'payment reserved' and 'sent to paymaster' mean, and what causes UIF payment delays.",
+      "inLanguage": "en-ZA",
+      "datePublished": "2026-07-29",
+      "dateModified": "2026-07-29",
+      "author": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      },
+      "mainEntityOfPage": "{{ url_for('home.uif_payment_dates_and_delays', _external=True) }}"
+    }
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
-<section class="py-5 bg-gradient-primary">
+<style>
+  html { scroll-behavior: smooth; }
+  .font-serif { font-family: Georgia, "Times New Roman", Times, serif; }
+  a.fw-semibold {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #adb5bd;
+    text-underline-offset: 2px;
+  }
+  a.fw-semibold:hover { text-decoration-color: currentColor; }
+  .list-check { list-style: none; padding-left: 0; }
+  .list-check li { position: relative; padding-left: 1.6rem; margin-bottom: 0.75rem; }
+  .list-check li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: #6c757d;
+    font-weight: 600;
+  }
+</style>
+
+<article class="py-5">
   <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-10">
-        <span class="badge bg-success-subtle text-success fw-semibold border border-success px-3 py-2 small rounded-pill mb-3">Payments</span>
-        <h1 class="fw-bold mb-3">UIF Payment Dates, Processing Times and Delays</h1>
-        <p class="lead text-muted mb-0">UIF payment timing depends on claim approval, documents, banking verification, employer declarations and available credit days.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
 
-<section class="py-5">
-  <div class="container">
-    <div class="row g-5">
-      <article class="col-lg-8 mx-auto">
-        <h2 class="h4 fw-bold text-primary">Is There a Fixed UIF Payment Date?</h2>
-        <p>UIF is not like a salary with one fixed monthly payday for everyone. Your payment timing depends on where your claim is in the process and whether the payment has been approved and sent for processing.</p>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class="link-secondary text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.articles') }}" class="link-secondary text-decoration-none">Articles</a></li>
+            <li class="breadcrumb-item active" aria-current="page">UIF Payment Dates and Delays</li>
+          </ol>
+        </nav>
 
-        <hr class="my-4">
-
-        <h2 class="h4 fw-bold text-primary">Common UIF Payment Statuses</h2>
-        <div class="row g-3 mb-4">
-          <div class="col-md-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <h3 class="h5">Payment Reserved</h3>
-                <p class="text-muted mb-0">A payment may be allocated, but it still needs to move through the final payment process.</p>
-              </div>
-            </div>
+        <header class="pb-4 mb-4 border-bottom">
+          <div class="text-uppercase text-muted small fw-semibold" style="letter-spacing:.08em;">Payments</div>
+          <h1 class="font-serif mt-2" style="font-size:clamp(2rem, 4vw, 3rem); line-height:1.15;">
+            UIF Payment Dates, Processing Times and Delays
+          </h1>
+          <p class="fs-5 text-secondary mt-3">
+            UIF payment timing depends on claim approval, documents, banking verification, employer declarations and available credit days.
+          </p>
+          <div class="text-muted small mt-3">
+            UIF Calculators Team &middot; Updated <time datetime="2026-07">July 2026</time> &middot; 6 min read
           </div>
-          <div class="col-md-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <h3 class="h5">Sent to Paymaster</h3>
-                <p class="text-muted mb-0">The payment request has been sent for payment processing.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        </header>
 
-        <h2 class="h4 fw-bold text-primary">Why UIF Payments Get Delayed</h2>
+        <p>
+          UIF does not pay out on one fixed date each month the way a salary does.
+          Instead, each claim moves through its own approval and processing steps,
+          so two people who applied in the same week can still be paid on
+          different days.
+        </p>
+        <p>
+          This page explains what determines your payment timing, what the common
+          status messages mean, and the most frequent reasons a payment is
+          delayed.
+        </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">Is There a Fixed UIF Payment Date?</h2>
+        <p>
+          No. UIF is not like a salary with one fixed monthly payday for everyone.
+          Your payment timing depends on where your claim is in the process, and
+          whether the payment has already been approved and sent for processing.
+        </p>
+        <p>
+          A first payment usually takes longer than follow-up payments, because
+          the initial claim has to be assessed, your employer's declarations have
+          to be confirmed, and your banking details have to pass verification
+          before anything moves to payment.
+        </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">Common UIF Payment Statuses</h2>
+        <p>
+          If you've checked your claim on uFiling or by USSD, you've likely seen
+          one of these two statuses. Neither means the money is in your account
+          yet.
+        </p>
+        <dl class="row border-top border-bottom py-3">
+          <dt class="col-sm-3 text-muted small text-uppercase fw-semibold" style="letter-spacing:.05em;">Payment Reserved</dt>
+          <dd class="col-sm-9">
+            A payment may be allocated to your claim, but it still needs to move
+            through the final payment process before it's actually released.
+          </dd>
+          <dt class="col-sm-3 text-muted small text-uppercase fw-semibold" style="letter-spacing:.05em;">Sent to Paymaster</dt>
+          <dd class="col-sm-9">
+            The payment request has been sent for payment processing. This is
+            further along than "reserved," but it can still take time before the
+            funds reflect in your account.
+          </dd>
+        </dl>
+        <p>
+          If your status doesn't match either of these, or hasn't changed in
+          several weeks, the
+          <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check guide</a>
+          breaks down what the full range of statuses generally means.
+        </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">Why UIF Payments Get Delayed</h2>
+        <p>
+          Most delays come down to one of a handful of causes. Working through
+          this list can help you narrow down where your own claim might be stuck.
+        </p>
         <ul class="list-check">
           <li>Banking details do not pass verification</li>
           <li>UI-19 or other supporting documents are missing or incorrect</li>
@@ -65,16 +184,116 @@
           <li>Your claim is still with an assessor or adjudicator</li>
           <li>You have no credit days left for the claim</li>
         </ul>
+        <p>
+          Banking issues are one of the most common and easiest to fix — the
+          <a href="{{ url_for('home.uif_banking_details_ui_2_8') }}" class="fw-semibold">UIF banking details and UI-2.8 guide</a>
+          explains what UIF checks for and how to correct a mismatch.
+        </p>
+        <p>
+          If the gap is on the employer side, see
+          <a href="{{ url_for('home.missing_uif_contributions') }}" class="fw-semibold">missing UIF contributions</a>
+          for how to confirm whether your declarations were submitted correctly.
+        </p>
+        <p>
+          And if you're not sure how many credit days you have left, the
+          <a href="{{ url_for('home.uif_credit_days_explained') }}" class="fw-semibold">UIF credit days explained</a>
+          page covers how credit days accumulate and run out.
+        </p>
 
-        <hr class="my-4">
+        <aside class="border-start border-3 ps-3 my-4">
+          <p class="mb-0">
+            A claim sitting with an assessor or adjudicator isn't necessarily a
+            bad sign — it often just means extra checks are being done before
+            approval. It's worth following up if there's been no movement for a
+            few weeks, but it doesn't automatically mean something is wrong.
+          </p>
+        </aside>
 
-        <h2 class="h4 fw-bold text-primary">What You Can Do</h2>
-        <p>Check your latest claim status on uFiling or by USSD, then respond to any document or banking requests as soon as possible. If the status is unclear, use the <a href="{{ url_for('home.uif_status_check_online') }}">UIF status check guide</a> to understand what it may mean.</p>
-        <p>You can also estimate your possible benefit duration with the <a href="{{ url_for('uif.unemployment_calculator') }}">UIF calculator</a>.</p>
+        <hr class="my-5">
 
-        <p class="small text-muted mb-0">This page explains common payment delays. Confirm official payment information with UIF or the Department of Employment and Labour.</p>
-      </article>
+        <h2 class="h3 fw-bold font-serif">What You Can Do</h2>
+        <p>
+          Check your latest claim status on uFiling or by USSD, then respond to
+          any document or banking requests as soon as possible — most delays get
+          worse the longer outstanding requests sit unanswered.
+        </p>
+        <p>
+          There are a few ways to check your status depending on what's easiest
+          for you: the
+          <a href="{{ url_for('home.uif_status_check_id_number') }}" class="fw-semibold">status check by ID number</a>,
+          the
+          <a href="{{ url_for('home.uif_status_check_whatsapp') }}" class="fw-semibold">WhatsApp status check</a>,
+          or, if you'd rather speak to someone directly, the
+          <a href="{{ url_for('home.uif_call_centre_contact_list') }}" class="fw-semibold">UIF call centre contact list</a>.
+        </p>
+        <p>
+          It's also worth confirming your available balance before you assume a
+          delay is a processing issue — see
+          <a href="{{ url_for('home.how_to_check_uif_balance') }}" class="fw-semibold">how to check your UIF balance</a>.
+          If your claim was rejected rather than simply delayed, the reasons are
+          usually different — see
+          <a href="{{ url_for('home.why_uif_claim_rejected_cancelled') }}" class="fw-semibold">why UIF claims get rejected or cancelled</a>.
+        </p>
+        <p>
+          If you haven't yet worked out how much you're likely to receive or for
+          how long, the
+          <a href="{{ url_for('uif.unemployment_calculator') }}" class="fw-semibold">UIF unemployment calculator</a>
+          can give you an estimate based on your salary and contribution history.
+        </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">Frequently Asked Questions</h2>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">How long does the first UIF payment usually take?</h3>
+        <p>
+          There's no guaranteed timeline, since it depends on how quickly your
+          employer's declarations and your documents clear. First payments
+          typically take longer than repeat payments because more verification
+          happens upfront.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Does "payment reserved" mean I'll be paid soon?</h3>
+        <p>
+          It means a payment has been allocated to your claim, but it still needs
+          to complete the final payment process, so it isn't a guarantee of an
+          immediate payout.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Why has my status not changed in weeks?</h3>
+        <p>
+          This is often because the claim is still with an assessor or
+          adjudicator, or because a document or banking issue hasn't been
+          resolved. Checking your status through uFiling, USSD, or the call
+          centre can help confirm which one applies to you.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Can incorrect banking details cause a long delay?</h3>
+        <p>
+          Yes. If your banking details don't pass verification, the payment can't
+          be released until you correct them, and this is one of the most common
+          reasons a claim stalls after approval.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">What if I've run out of credit days?</h3>
+        <p>
+          Once your available credit days for a claim are used up, payments for
+          that claim stop, regardless of how the rest of your documents and
+          banking details look.
+        </p>
+
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-muted small mb-1">
+            This page explains common payment delays and status terminology.
+          </p>
+          <p class="text-muted small mb-0">
+            Confirm official payment information with UIF or the Department of
+            Employment and Labour, as processing times can vary by claim.
+          </p>
+        </footer>
+
+      </div>
     </div>
   </div>
-</section>
+</article>
 {% endblock %}

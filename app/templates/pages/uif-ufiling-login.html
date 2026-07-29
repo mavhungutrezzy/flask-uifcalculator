@@ -1,0 +1,704 @@
+{% extends "base.html" %}
+
+{% block title %}uFiling Login South Africa 2026 | Sign In, Check UIF Status & Fix Login Problems{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="Log into uFiling South Africa to check your UIF claim status, payments and balance. Step-by-step login guide, password reset help, and how to fix common uFiling login problems.">
+<meta name="keywords" content="ufiling login, uif login, ufiling.co.za login, uif online login, how to login to ufiling, ufiling password reset, ufiling login problems, check uif status after login, ufiling south africa login">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.uif_ufiling_login', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.uif_ufiling_login', _external=True) }}{% endblock %}
+{% block og_title %}uFiling Login South Africa 2026 | Sign In, Check UIF Status & Fix Login Problems{% endblock %}
+{% block og_description %}Log into uFiling to check your UIF status, payments and balance. Simple login steps, password help, and solutions to common uFiling sign-in problems.{% endblock %}
+{% block twitter_url %}{{ url_for('home.uif_ufiling_login', _external=True) }}{% endblock %}
+{% block twitter_title %}uFiling Login South Africa 2026 | Sign In, Check UIF Status & Fix Login Problems{% endblock %}
+{% block twitter_description %}Log into uFiling to check your UIF claim status and payments. Step-by-step login guide and help for forgotten passwords.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ url_for('home.uif_ufiling_login', _external=True) }}#webpage",
+  "url": "{{ url_for('home.uif_ufiling_login', _external=True) }}",
+  "name": "uFiling Login South Africa 2026",
+  "description": "Log into uFiling South Africa to check your UIF claim status, payments and balance. Step-by-step login guide and help for common sign-in problems.",
+  "inLanguage": "en-ZA",
+  "isPartOf": {
+    "@id": "{{ url_for('home.index', _external=True) }}#website"
+  },
+  "dateModified": "2026-07-27",
+  "mainEntity": {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I log into uFiling?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Go to the official uFiling website, click Login, enter your South African ID number and password, then click Login again to access your dashboard."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I log into uFiling with my ID number only?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can log in using your South African ID number together with your password. You do not need a separate username."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What must I do if I forgot my uFiling password?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Click Forgot Password on the login page, enter your registered details, follow the verification steps, and create a new password."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is my uFiling account locked?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your account gets locked after too many wrong password attempts. Wait a while, reset your password, or contact the Department of Employment and Labour for help."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use my phone to log into uFiling?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The uFiling website works on smartphones and tablets. You can check your status, view payments and upload documents from your phone."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I check my UIF status after I log in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "After logging in, go to Benefit Payments, then click View My Claims. Select your active claim to see the latest status and payment updates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does it mean if I do not receive my OTP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If your OTP does not arrive, check your cellphone signal, make sure your registered number is still active, wait a few minutes, and request a new OTP."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is uFiling safe to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, uFiling is the official Department of Employment and Labour system. Always use the correct website, never share your password, and log out when you are done."
+        }
+      }
+    ]
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="bg-primary text-white py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h1 class="display-5 fw-bold mb-3">uFiling Login South Africa</h1>
+        <p class="lead mb-0">Sign in to uFiling, check your UIF claim status, and fix common login problems. A simple guide for South African workers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<div class="bg-light border-bottom">
+  <div class="container py-2">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class="text-decoration-none">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">uFiling Login</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="container py-5">
+  <div class="row g-5">
+
+    <!-- Main Content -->
+    <div class="col-lg-8">
+
+      <!-- Intro -->
+      <article>
+        <p class="lead">If you need to claim UIF benefits for unemployment, maternity, illness or adoption, the <strong>uFiling portal</strong> is the easiest way to manage everything online. Once you sign in, you can submit your claim, upload documents, update your banking details, and track your payments — all without going to a Labour Centre.</p>
+
+        <p>Many South Africans search for <strong>uif login</strong>, <strong>ufiling login</strong> or <strong>www.ufiling.co.za login</strong> when they want to check how far their claim is. This guide shows you exactly how to log in, what to do if you get stuck, and how to check your status once you are inside your account.</p>
+
+        <div class="alert alert-info d-flex align-items-start gap-3 my-4">
+          <i class="bi bi-info-circle-fill fs-5 flex-shrink-0 mt-1"></i>
+          <div>
+            <strong>Already logged in and want to check your status?</strong><br>
+            Read our full <a href="{{ url_for('home.uif_status_check_online') }}" class="alert-link">UIF Status Check Online Guide</a> for a step-by-step breakdown of every status message.
+          </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="card border-0 shadow-sm mb-5">
+          <div class="card-body">
+            <h2 class="h5 card-title mb-3">What You Will Learn in This Guide</h2>
+            <div class="row g-2">
+              <div class="col-md-6">
+                <a href="#what-is-ufiling" class="d-block text-decoration-none py-2 px-3 rounded hover-bg-light">
+                  <i class="bi bi-chevron-right text-primary me-2"></i>What is uFiling?
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#how-to-login" class="d-block text-decoration-none py-2 px-3 rounded hover-bg-light">
+                  <i class="bi bi-chevron-right text-primary me-2"></i>How to Log In to uFiling
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#check-status" class="d-block text-decoration-none py-2 px-3 rounded hover-bg-light">
+                  <i class="bi bi-chevron-right text-primary me-2"></i>Check Your UIF Status After Login
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#forgot-password" class="d-block text-decoration-none py-2 px-3 rounded hover-bg-light">
+                  <i class="bi bi-chevron-right text-primary me-2"></i>Forgot Your Password?
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#forgot-username" class="d-block text-decoration-none py-2 px-3 rounded hover-bg-light">
+                  <i class="bi bi-chevron-right text-primary me-2"></i>Forgot Your Username?
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#otp-problems" class="d-block text-decoration-none py-2 px-3 rounded hover-bg-light">
+                  <i class="bi bi-chevron-right text-primary me-2"></i>OTP Not Received
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#account-locked" class="d-block text-decoration-none py-2 px-3 rounded hover-bg-light">
+                  <i class="bi bi-chevron-right text-primary me-2"></i>Account Locked
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#common-problems" class="d-block text-decoration-none py-2 px-3 rounded hover-bg-light">
+                  <i class="bi bi-chevron-right text-primary me-2"></i>Common Login Problems
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#phone-login" class="d-block text-decoration-none py-2 px-3 rounded hover-bg-light">
+                  <i class="bi bi-chevron-right text-primary me-2"></i>Can I Use My Phone?
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#is-it-safe" class="d-block text-decoration-none py-2 px-3 rounded hover-bg-light">
+                  <i class="bi bi-chevron-right text-primary me-2"></i>Is uFiling Safe?
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#after-login" class="d-block text-decoration-none py-2 px-3 rounded hover-bg-light">
+                  <i class="bi bi-chevron-right text-primary me-2"></i>What You Can Do After Login
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#faq" class="d-block text-decoration-none py-2 px-3 rounded hover-bg-light">
+                  <i class="bi bi-chevron-right text-primary me-2"></i>Frequently Asked Questions
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- What is uFiling -->
+        <h2 id="what-is-ufiling" class="h3 fw-bold mt-5 mb-3">What is uFiling?</h2>
+        <p>uFiling is the official online system from the <strong>Department of Employment and Labour</strong>. It lets workers and employers manage UIF services on the internet. You do not need to stand in long queues at a Labour Centre. You can do most things from your computer or cellphone.</p>
+
+        <p>With uFiling you can:</p>
+        <ul class="list-group list-group-flush mb-4">
+          <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Register for a UIF account</li>
+          <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Log in safely with your South African ID number</li>
+          <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Submit claims for unemployment, maternity, illness, adoption and dependent benefits</li>
+          <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Upload supporting documents</li>
+          <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Check your UIF claim status</li>
+          <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Track your payment progress</li>
+          <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>View your contribution history</li>
+          <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Update your banking details</li>
+          <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>See how many UIF credits you have left</li>
+        </ul>
+
+        <p>If you only want to track your claim after signing in, see our <a href="{{ url_for('home.uif_status_check_online') }}">UIF Status Check Online Guide</a>.</p>
+
+        <!-- How to Log In -->
+        <h2 id="how-to-login" class="h3 fw-bold mt-5 mb-3">How to Log In to uFiling</h2>
+        <p>Follow these steps to access your uFiling account:</p>
+
+        <div class="card border-primary border-opacity-25 mb-4">
+          <div class="card-body">
+            <ol class="list-group list-group-numbered list-group-flush">
+              <li class="list-group-item">Go to the official uFiling website.</li>
+              <li class="list-group-item">Click the <strong>Login</strong> button.</li>
+              <li class="list-group-item">Type in your South African ID number or username.</li>
+              <li class="list-group-item">Type in your password.</li>
+              <li class="list-group-item">Complete any security check if the system asks for it.</li>
+              <li class="list-group-item">Click <strong>Login</strong> again.</li>
+            </ol>
+          </div>
+        </div>
+
+        <p>Once you are logged in, you will see your dashboard. From there you can check your claims, payments and personal details. If you have trouble signing in, keep reading below for solutions.</p>
+
+        <!-- Check Status -->
+        <h2 id="check-status" class="h3 fw-bold mt-5 mb-3">How to Check Your UIF Status After Logging In</h2>
+        <p>After you log into uFiling, checking your claim status is simple. Here is what to do:</p>
+
+        <div class="card border-success border-opacity-25 mb-4">
+          <div class="card-body">
+            <ol class="list-group list-group-numbered list-group-flush">
+              <li class="list-group-item">Open your uFiling dashboard.</li>
+              <li class="list-group-item">Click on <strong>Benefit Payments</strong>.</li>
+              <li class="list-group-item">Choose <strong>View My Claims</strong>.</li>
+              <li class="list-group-item">Select the claim you want to check.</li>
+              <li class="list-group-item">Read the latest status and payment information.</li>
+            </ol>
+          </div>
+        </div>
+
+        <p>Your account may show one of these statuses:</p>
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered table-hover">
+            <thead class="table-light">
+              <tr>
+                <th>Status</th>
+                <th>What It Means</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Application Received</td><td>Your claim has been submitted and is in the system.</td></tr>
+              <tr><td>Pending Adjudication</td><td>Your claim is waiting to be reviewed.</td></tr>
+              <tr><td>Sent to Assessor</td><td>An assessor is now looking at your claim.</td></tr>
+              <tr><td>Completed by Assessor</td><td>The assessor has finished their review.</td></tr>
+              <tr><td>Payment Processing</td><td>Your payment is being prepared.</td></tr>
+              <tr><td>Payment Processed</td><td>The money has been sent to your bank account.</td></tr>
+              <tr><td>Payment Reversed</td><td>The payment was sent back. You may need to update your banking details.</td></tr>
+              <tr><td>Payment Blocked</td><td>There is a problem with your banking details or verification.</td></tr>
+              <tr><td>Finalised</td><td>Your claim is complete. No more payments will be made.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Each status means something different. Our <a href="{{ url_for('home.uif_status_check_online') }}">UIF Status Check Online Guide</a> explains every status in detail and tells you what to do next.</p>
+
+        <!-- Forgot Password -->
+        <h2 id="forgot-password" class="h3 fw-bold mt-5 mb-3">Forgot Your Password?</h2>
+        <p>Forgetting your password is one of the most common login problems. If you cannot remember your password, do not worry. You can reset it easily.</p>
+
+        <div class="card border-warning border-opacity-25 mb-4">
+          <div class="card-body">
+            <h3 class="h6 card-title">How to Reset Your uFiling Password</h3>
+            <ol class="mb-0">
+              <li>Go to the uFiling login page.</li>
+              <li>Click <strong>Forgot Password</strong>.</li>
+              <li>Enter your registered details.</li>
+              <li>Follow the steps to verify it is really you.</li>
+              <li>Create a new strong password.</li>
+            </ol>
+          </div>
+        </div>
+
+        <p>After you reset your password, log in again with your new password. You can then continue managing your UIF claim. If your claim is already approved but you have not received payment yet, read our <a href="">UIF Payment Status Guide</a>.</p>
+
+        <!-- Forgot Username -->
+        <h2 id="forgot-username" class="h3 fw-bold mt-5 mb-3">Forgot Your Username?</h2>
+        <p>Some users forget the username they chose when they registered. If this happens to you, use the account recovery option on the login page. Enter your personal details and the system will help you find your username.</p>
+        <p>If you still cannot get into your account, you may need to contact the Department of Employment and Labour for help.</p>
+
+        <!-- OTP -->
+        <h2 id="otp-problems" class="h3 fw-bold mt-5 mb-3">OTP Not Received</h2>
+        <p>Sometimes uFiling sends you a One-Time PIN (OTP) to keep your account safe. This is a good thing, but it can be frustrating if the OTP does not arrive on your cellphone.</p>
+
+        <div class="card border-info border-opacity-25 mb-4">
+          <div class="card-body">
+            <h3 class="h6 card-title">What to Do If Your OTP Does Not Come</h3>
+            <ul class="mb-0">
+              <li>Wait a few minutes. Network delays happen.</li>
+              <li>Make sure your cellphone has signal.</li>
+              <li>Check that the cellphone number on your uFiling profile is still the one you use.</li>
+              <li>Click to request a new OTP.</li>
+              <li>Make sure your contact details are correct in your profile.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>If the OTP still does not come after trying these steps, your contact information may need updating. You might need to visit a Labour Centre or call the Department to update your cellphone number.</p>
+
+        <!-- Account Locked -->
+        <h2 id="account-locked" class="h3 fw-bold mt-5 mb-3">Account Locked</h2>
+        <p>If you enter the wrong password too many times, uFiling will lock your account for a short time. This is to protect your personal information.</p>
+
+        <div class="card border-danger border-opacity-25 mb-4">
+          <div class="card-body">
+            <h3 class="h6 card-title">How to Unlock Your Account</h3>
+            <ol class="mb-0">
+              <li>Wait a while before you try again.</li>
+              <li>Reset your password if you are not sure what it is.</li>
+              <li>If the problem continues, contact the Department of Employment and Labour.</li>
+            </ol>
+          </div>
+        </div>
+
+        <p>Once you get back into your account, you can check your:</p>
+        <ul>
+          <li>UIF claim status</li>
+          <li>Payment history</li>
+          <li>Contribution history</li>
+          <li>Available credits</li>
+          <li>Banking information</li>
+        </ul>
+
+        <!-- Common Problems -->
+        <h2 id="common-problems" class="h3 fw-bold mt-5 mb-3">Common Login Problems</h2>
+        <p>Many people have login issues for simple reasons. Here are the most common causes:</p>
+
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h6 card-title text-danger"><i class="bi bi-x-circle-fill me-2"></i>Wrong Password</h3>
+                <p class="card-text small mb-0">Double-check that Caps Lock is off and you are typing your password correctly.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h6 card-title text-danger"><i class="bi bi-x-circle-fill me-2"></i>Forgotten Username</h3>
+                <p class="card-text small mb-0">Use the account recovery option or try logging in with your ID number instead.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h6 card-title text-danger"><i class="bi bi-x-circle-fill me-2"></i>Expired Password</h3>
+                <p class="card-text small mb-0">Some systems make you change your password after a while. Try resetting it.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h6 card-title text-danger"><i class="bi bi-x-circle-fill me-2"></i>Browser Cache Issues</h3>
+                <p class="card-text small mb-0">Clear your browser cache or try a different browser like Chrome or Firefox.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h6 card-title text-danger"><i class="bi bi-x-circle-fill me-2"></i>Slow Internet</h3>
+                <p class="card-text small mb-0">A weak connection can stop the login page from loading properly. Check your data or Wi-Fi.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h6 card-title text-danger"><i class="bi bi-x-circle-fill me-2"></i>Wrong ID Number</h3>
+                <p class="card-text small mb-0">Make sure you enter your 13-digit South African ID number correctly.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h6 card-title text-danger"><i class="bi bi-x-circle-fill me-2"></i>System Maintenance</h3>
+                <p class="card-text small mb-0">uFiling sometimes goes offline for updates. Try again later if the site is under maintenance.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h6 card-title text-danger"><i class="bi bi-x-circle-fill me-2"></i>Verification Problems</h3>
+                <p class="card-text small mb-0">If your account needs extra verification, make sure your profile details are up to date.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>Trying a different web browser or clearing your cache often fixes the problem quickly.</p>
+
+        <!-- Phone Login -->
+        <h2 id="phone-login" class="h3 fw-bold mt-5 mb-3">Can I Use My Phone to Log In?</h2>
+        <p>Yes. The uFiling website works on most smartphones and tablets. You do not need a computer to manage your UIF claim.</p>
+        <p>After logging in on your phone, you can:</p>
+        <ul>
+          <li>Check your UIF status</li>
+          <li>View your payments</li>
+          <li>Upload documents</li>
+          <li>Track your claim progress</li>
+          <li>Update your banking details</li>
+        </ul>
+        <p>If you only want to check your status without logging in, you can also use USSD. Dial <strong>*134*843#</strong> from any cellphone and follow the menu. Read our <a href="">UIF USSD Guide</a> for more details.</p>
+
+        <!-- Is it Safe -->
+        <h2 id="is-it-safe" class="h3 fw-bold mt-5 mb-3">Is uFiling Safe?</h2>
+        <p>Yes, uFiling is safe as long as you use the official website. It is run by the Department of Employment and Labour, so your information is protected by government security standards.</p>
+        <p>To keep your account safe:</p>
+        <ul class="list-group list-group-flush mb-4">
+          <li class="list-group-item"><i class="bi bi-shield-check text-primary me-2"></i>Never share your password with anyone.</li>
+          <li class="list-group-item"><i class="bi bi-shield-check text-primary me-2"></i>Do not save your password on public computers.</li>
+          <li class="list-group-item"><i class="bi bi-shield-check text-primary me-2"></i>Always log out when you finish.</li>
+          <li class="list-group-item"><i class="bi bi-shield-check text-primary me-2"></i>Use a strong password with letters, numbers and symbols.</li>
+          <li class="list-group-item"><i class="bi bi-shield-check text-primary me-2"></i>Keep your cellphone number and email address up to date.</li>
+        </ul>
+
+        <!-- After Login -->
+        <h2 id="after-login" class="h3 fw-bold mt-5 mb-3">What Can You Do After Logging In?</h2>
+        <p>Most people log into uFiling because they want to do one of these things:</p>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <a href="{{ url_for('home.uif_status_check_online') }}" class="card text-decoration-none h-100 border-0 shadow-sm hover-shadow">
+              <div class="card-body">
+                <h3 class="h6 card-title text-primary">Check UIF Claim Status</h3>
+                <p class="card-text small text-muted mb-0">See where your claim is in the process and what the latest update means.</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a href="" class="card text-decoration-none h-100 border-0 shadow-sm hover-shadow">
+              <div class="card-body">
+                <h3 class="h6 card-title text-primary">Check Payment Progress</h3>
+                <p class="card-text small text-muted mb-0">Find out if your payment is pending, processed or blocked.</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a href="" class="card text-decoration-none h-100 border-0 shadow-sm hover-shadow">
+              <div class="card-body">
+                <h3 class="h6 card-title text-primary">View Contribution History</h3>
+                <p class="card-text small text-muted mb-0">See how much you and your employer have contributed over time.</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a href="" class="card text-decoration-none h-100 border-0 shadow-sm hover-shadow">
+              <div class="card-body">
+                <h3 class="h6 card-title text-primary">Check Available Credits</h3>
+                <p class="card-text small text-muted mb-0">See how many credit days you still have for future claims.</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h6 card-title text-primary">Upload Documents</h3>
+                <p class="card-text small text-muted mb-0">Submit forms, medical certificates and other required paperwork.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h6 card-title text-primary">Update Banking Details</h3>
+                <p class="card-text small text-muted mb-0">Change your bank account so your payments go to the right place.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <h2 id="faq" class="h3 fw-bold mt-5 mb-3">Frequently Asked Questions</h2>
+
+        <div class="accordion mb-5" id="faqAccordion">
+          <div class="accordion-item border-0 shadow-sm mb-2">
+            <h3 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
+                Can I log in using only my ID number?
+              </button>
+            </h3>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes. Most users log in with their South African ID number and password. You do not need a separate username, but you can use one if you created it during registration.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item border-0 shadow-sm mb-2">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                Can I check my UIF status after logging in?
+              </button>
+            </h3>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes. Once you are logged in, go to <strong>Benefit Payments</strong> and click <strong>View My Claims</strong>. For a full explanation of every status, visit our <a href="{{ url_for('home.uif_status_check_online') }}">UIF Status Check Online Guide</a>.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item border-0 shadow-sm mb-2">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                Why can't I log into uFiling?
+              </button>
+            </h3>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Common reasons include a wrong password, forgotten username, locked account, browser problems, slow internet, temporary system maintenance, or verification issues. Try the solutions in this guide or reset your password.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item border-0 shadow-sm mb-2">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                Can I use uFiling on my phone?
+              </button>
+            </h3>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes. uFiling works on most modern smartphones and tablets. You can do everything on your phone that you can do on a computer.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item border-0 shadow-sm mb-2">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                Can employers also use uFiling?
+              </button>
+            </h3>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes. Employers use uFiling to register workers, submit monthly declarations and manage UIF contributions for their staff.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="col-lg-4">
+
+      <!-- Quick Links Card -->
+      <div class="card border-0 shadow-sm mb-4 sticky-top" style="top: 20px; z-index: 1020;">
+        <div class="card-header bg-primary text-white">
+          <h2 class="h6 mb-0">Related UIF Guides</h2>
+        </div>
+        <div class="list-group list-group-flush">
+          <a href="{{ url_for('home.uif_status_check_online') }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Check UIF Status Online
+            <i class="bi bi-arrow-right text-muted small"></i>
+          </a>
+          <a href="" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            UIF Payment Status
+            <i class="bi bi-arrow-right text-muted small"></i>
+          </a>
+          <a href="" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            UIF Balance Check
+            <i class="bi bi-arrow-right text-muted small"></i>
+          </a>
+          <a href="" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            UIF Credits Check
+            <i class="bi bi-arrow-right text-muted small"></i>
+          </a>
+          <a href="" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            UIF Calculator
+            <i class="bi bi-arrow-right text-muted small"></i>
+          </a>
+          <a href="" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            UI-19 Form Explained
+            <i class="bi bi-arrow-right text-muted small"></i>
+          </a>
+          <a href="" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            UIF USSD Code
+            <i class="bi bi-arrow-right text-muted small"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Tools Card -->
+      <div class="card border-0 shadow-sm mb-4">
+        <div class="card-header bg-success text-white">
+          <h2 class="h6 mb-0">Useful UIF Tools</h2>
+        </div>
+        <div class="card-body">
+          <p class="small text-muted mb-3">Calculate your UIF benefits or check your status with our free tools.</p>
+          <a href="" class="btn btn-outline-primary w-100 mb-2">
+            <i class="bi bi-calculator me-2"></i>UIF Calculator
+          </a>
+          <a href="{{ url_for('home.uif_status_check_online') }}" class="btn btn-outline-primary w-100">
+            <i class="bi bi-search me-2"></i>Status Check Guide
+          </a>
+        </div>
+      </div>
+
+      <!-- Tip Card -->
+      <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body">
+          <h3 class="h6 card-title text-warning"><i class="bi bi-lightbulb-fill me-2"></i>Quick Tip</h3>
+          <p class="card-text small mb-0">Save the official uFiling website in your phone's bookmarks. This helps you avoid fake websites that try to steal your login details.</p>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+</div>
+
+<!-- Related Guides Section -->
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="h4 fw-bold text-center mb-4">More UIF Resources</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <a href="{{ url_for('home.uif_status_check_online') }}" class="card text-decoration-none h-100 border-0 shadow-sm hover-shadow">
+          <div class="card-body text-center">
+            <i class="bi bi-clipboard-check fs-2 text-primary mb-2"></i>
+            <h3 class="h6 card-title">Check UIF Status Online</h3>
+            <p class="card-text small text-muted">Understand every status message and what to do next.</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="" class="card text-decoration-none h-100 border-0 shadow-sm hover-shadow">
+          <div class="card-body text-center">
+            <i class="bi bi-cash-stack fs-2 text-success mb-2"></i>
+            <h3 class="h6 card-title">UIF Payment Status</h3>
+            <p class="card-text small text-muted">Track your payments and fix blocked or reversed payments.</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="" class="card text-decoration-none h-100 border-0 shadow-sm hover-shadow">
+          <div class="card-body text-center">
+            <i class="bi bi-wallet2 fs-2 text-info mb-2"></i>
+            <h3 class="h6 card-title">UIF Balance Check</h3>
+            <p class="card-text small text-muted">See your available balance and contribution history.</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="" class="card text-decoration-none h-100 border-0 shadow-sm hover-shadow">
+          <div class="card-body text-center">
+            <i class="bi bi-stars fs-2 text-warning mb-2"></i>
+            <h3 class="h6 card-title">UIF Credits Check</h3>
+            <p class="card-text small text-muted">Find out how many credit days you have left.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

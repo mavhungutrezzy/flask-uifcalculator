@@ -18,6 +18,26 @@ home_bp = Blueprint("home", __name__)
 def index():
     return render_template("home.html")
 
+@home_bp.route("/uif-ufiling-login")
+def uif_ufiling_login():
+    return render_template("pages/uif-ufiling-login.html")
+
+@home_bp.route("/uif-status-check-id-number")
+def uif_status_check_id_number():
+    return render_template("pages/uif-status-check-id-number.html")
+
+@home_bp.route("/uif-status-check-whatsapp")
+def uif_status_check_whatsapp():
+    return render_template("pages/uif-status-check-whatsapp.html")
+
+@home_bp.route("/uif-call-centre-contact-list")
+def uif_call_centre_contact_list():
+    return render_template("pages/uif-call-centre-contact-list.html")
+
+@home_bp.route("/how-to-check-uif-balance")
+def how_to_check_uif_balance():
+    return render_template("pages/how-to-check-uif-balance.html")
+
 
 @home_bp.route("/uif-status-check-online")
 def uif_status_check_online():

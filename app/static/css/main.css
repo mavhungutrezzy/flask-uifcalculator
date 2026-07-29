@@ -70,3 +70,15 @@ body {
     font-family: "bootstrap-icons";
     color: #198754;
 }
+
+
+.breadcrumb {
+    --bs-breadcrumb-divider: "›";
+    font-size: .9rem;
+}
+.breadcrumb a {
+    text-decoration: none;
+}
+.breadcrumb a:hover {
+    text-decoration: underline;
+}

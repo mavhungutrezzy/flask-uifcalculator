@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+
+{% block title %}UIF Payment Status Check Using Your ID Number | UIF Calculators{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="How to check your UIF payment status using just your ID number, through uFiling, USSD or the call centre, and what to do if your ID number doesn't work.">
+<meta name="keywords" content="uif payments status check using id number, uif status check id number, check uif status with id number, uif id number lookup">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.uif_status_check_id_number', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.uif_status_check_id_number', _external=True) }}{% endblock %}
+{% block og_title %}UIF Payment Status Check Using Your ID Number | UIF Calculators{% endblock %}
+{% block og_description %}How to check your UIF payment status using just your ID number, through uFiling, USSD or the call centre, and what to do if your ID number doesn't work.{% endblock %}
+{% block twitter_url %}{{ url_for('home.uif_status_check_id_number', _external=True) }}{% endblock %}
+{% block twitter_title %}UIF Payment Status Check Using Your ID Number | UIF Calculators{% endblock %}
+{% block twitter_description %}How to check your UIF payment status using just your ID number, through uFiling, USSD or the call centre.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "{{ url_for('home.articles', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "UIF Status Check Using Your ID Number",
+          "item": "{{ url_for('home.uif_status_check_id_number', _external=True) }}"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "{{ url_for('home.uif_status_check_id_number', _external=True) }}#article",
+      "mainEntityOfPage": "{{ url_for('home.uif_status_check_id_number', _external=True) }}",
+      "headline": "UIF Payment Status Check Using Your ID Number",
+      "description": "How to check your UIF payment status using just your ID number, through uFiling, USSD or the call centre.",
+      "inLanguage": "en-ZA",
+      "datePublished": "2025-01-01",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<article class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class="text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.articles') }}" class="text-decoration-none">Articles</a></li>
+            <li class="breadcrumb-item active text-muted" aria-current="page">Status Check Using ID Number</li>
+          </ol>
+        </nav>
+
+        <!-- Header -->
+        <header class="pb-4 mb-4 border-bottom">
+          <h1 class="fw-bold mb-3 font-serif" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;">
+            UIF Payment Status Check Using Your ID Number
+          </h1>
+          <p class="fs-5 text-secondary mb-3" style="max-width: 42rem;">
+            Your ID number is really the only thing every UIF check has in common, whether that's uFiling, USSD or a call to the call centre. Here's how to use it properly, and what to do when it doesn't seem to work.
+          </p>
+          <div class="d-flex flex-wrap align-items-center text-muted small">
+            <span>UIF Calculators Team</span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>Updated <time datetime="2026-07">July 2026</time></span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>6 min read</span>
+          </div>
+        </header>
+
+        <!-- Quick answer -->
+        <aside class="border-start border-3 ps-3 my-4">
+          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> your ID number alone won't show your UIF status without going through uFiling, USSD or the call centre, since UIF ties your claim to your ID but doesn't offer a public lookup by ID number on its own. It's your login on uFiling, your entry point on USSD, and what a call centre agent will ask for first.</p>
+        </aside>
+
+        <p class="fs-5 text-secondary">Every method of checking your UIF payment status, whether online, by USSD or over the phone, starts with your South African ID number. It's how UIF matches you to your claim, your employer's declarations and your banking details. If your ID number doesn't pull up the right information, that's usually a sign something in your records doesn't line up, not a fault with the system itself.</p>
+
+        <!-- Using ID on uFiling -->
+        <section id="ufiling" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Checking Your Status on uFiling With Your ID Number</h2>
+          <p class="text-secondary">Your ID number doubles as your username on uFiling. Here's the process.</p>
+          <ol class="text-secondary ps-3">
+            <li class="mb-2">Go to the official uFiling login page.</li>
+            <li class="mb-2">Enter your 13 digit ID number and your password.</li>
+            <li class="mb-2">If you haven't registered yet, you'll need to do that first using the same ID number, then activate your account through the email or SMS link sent to you.</li>
+            <li class="mb-0">Once logged in, go to Benefit Payments, then View My Claims, to see your status.</li>
+          </ol>
+          <p class="text-secondary mb-0">For the full breakdown of what each status label actually means, see our main <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check online</a> guide.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Using ID on USSD -->
+        <section id="ussd" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Checking Your Status by USSD With Your ID Number</h2>
+          <p class="text-secondary">If you don't have data or a uFiling account handy, your ID number still gets you a status check over USSD.</p>
+          <ol class="text-secondary ps-3">
+            <li class="mb-2">Dial <strong class="text-dark">*134*843#</strong> on your cellphone.</li>
+            <li class="mb-2">Choose Claims or Payments from the menu.</li>
+            <li class="mb-2">Enter your ID number when prompted.</li>
+            <li class="mb-0">Follow the on screen instructions to view your status.</li>
+          </ol>
+          <p class="text-secondary mb-0">This works on any South African mobile network and doesn't need a smartphone or internet access.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Call centre -->
+        <section id="call-centre" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Checking Your Status by Phone</h2>
+          <p class="text-secondary">You can also call the UIF call centre on 0800 030 007 with your ID number ready. An agent will use it to pull up your claim and talk you through where it stands. This is a useful option if you've tried uFiling or USSD and something looks wrong, since a person can often explain a status in more detail than the portal does.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- When it doesn't work -->
+        <section id="not-working" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">When Your ID Number Doesn't Work</h2>
+          <p class="text-secondary">If your ID number doesn't pull up a claim, or the details on screen don't look right, it's usually one of these.</p>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">No claim has actually been registered yet.</strong> If you haven't submitted a claim through uFiling or a Labour Centre, there's nothing to check yet.</li>
+            <li><strong class="text-dark">Your ID number on the UI-19 doesn't match your UIF profile.</strong> A typo on your employer's side can stop your records from lining up. See our <a href="{{ url_for('uif.ui19_form_explained') }}" class="fw-semibold">UI-19 form guide</a> for what to check.</li>
+            <li><strong class="text-dark">You've changed your surname or ID details.</strong> Recent changes, like after marriage, don't always sync automatically between Home Affairs and UIF.</li>
+            <li><strong class="text-dark">Your employer hasn't declared your contributions.</strong> Without a declaration, UIF may not have enough of a record to show a status. Read more on <a href="{{ url_for('home.missing_uif_contributions') }}" class="fw-semibold">missing UIF contributions</a>.</li>
+          </ul>
+          <p class="text-secondary mb-0">If none of that explains it, your best next step is a call to the UIF call centre or a visit to your nearest Labour Centre with your ID and any UIF paperwork you have.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- FAQ -->
+        <section id="faq" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Frequently Asked Questions</h2>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Can I check my UIF status with just my ID number, without a reference number?</h3>
+          <p class="text-secondary">Yes. Your ID number is what UIF uses to find your claim on uFiling, USSD and through the call centre. A case number helps if you have one, but it isn't required to check your status.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Is there a public UIF website where I can just type in my ID number?</h3>
+          <p class="text-secondary">No. UIF doesn't offer an open lookup by ID number outside of uFiling, USSD or the call centre. You'll need to log in or go through one of those channels rather than a simple public search.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Why does uFiling say my ID number isn't recognised?</h3>
+          <p class="text-secondary">This usually means you haven't registered an account yet, or there's a mismatch between your ID number and the details your employer submitted. Double check your registration first, then follow up with UIF if the problem continues.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Can someone else check my UIF status using my ID number?</h3>
+          <p class="text-secondary">They shouldn't be able to log into uFiling without your password, but a family member helping you can use your ID number over USSD or when calling the call centre on your behalf, as long as they have your consent and other verifying details.</p>
+        </section>
+
+        <!-- Closing -->
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-secondary mb-3">For the full list of status meanings, balance checks and what to do when a claim stalls, see our main <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check online</a> guide. If you're not sure what you're entitled to yet, the <a href="{{ url_for('uif.unemployment_calculator') }}" class="fw-semibold">UIF calculator</a> is a good next step.</p>
+          <p class="text-muted small mb-0">Source: Department of Employment and Labour UIF and uFiling guidance.</p>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  a.fw-semibold {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #adb5bd;
+    text-underline-offset: 2px;
+  }
+  a.fw-semibold:hover {
+    text-decoration-color: currentColor;
+  }
+  .list-check {
+    list-style: none;
+    padding-left: 0;
+  }
+  .list-check li {
+    position: relative;
+    padding-left: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
+  .list-check li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: #6c757d;
+    font-weight: 600;
+  }
+</style>
+
+{% endblock %}

@@ -4,355 +4,343 @@
 
 {% block meta %}
 <meta name="description"
-      content="Read UIF articles and guides for South Africa, including UIF calculations, UI-19 forms, claim status checks, unemployment benefits and maternity UIF estimates.">
+      content="A complete guide to UIF in South Africa: how to calculate your payout, claim online, check your status, understand credit days, and prepare the right documents.">
 {% endblock %}
 
 {% block canonical_href %}{{ url_for('home.articles', _external=True) }}{% endblock %}
 {% block og_url %}{{ url_for('home.articles', _external=True) }}{% endblock %}
 {% block og_title %}UIF Articles and Guides South Africa | UIF Calculators{% endblock %}
-{% block og_description %}Browse UIF articles and guides about calculations, forms, claim status, unemployment benefits and maternity UIF estimates.{% endblock %}
+{% block og_description %}A complete guide to UIF in South Africa: how to calculate your payout, claim online, check your status, understand credit days, and prepare the right documents.{% endblock %}
 {% block twitter_url %}{{ url_for('home.articles', _external=True) }}{% endblock %}
 {% block twitter_title %}UIF Articles and Guides South Africa | UIF Calculators{% endblock %}
-{% block twitter_description %}Browse UIF articles and guides about calculations, forms, claim status, unemployment benefits and maternity UIF estimates.{% endblock %}
+{% block twitter_description %}A complete guide to UIF in South Africa: how to calculate your payout, claim online, check your status, understand credit days, and prepare the right documents.{% endblock %}
 
 {% block structured_data %}
 {{ super() }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "@id": "{{ url_for('home.articles', _external=True) }}#webpage",
-  "url": "{{ url_for('home.articles', _external=True) }}",
-  "name": "UIF Articles and Guides",
-  "description": "A collection of UIF calculators, articles and guides for South Africa.",
-  "inLanguage": "en-ZA",
-  "isPartOf": {
-    "@id": "{{ url_for('home.index', _external=True) }}#website"
-  },
-  "mainEntity": {
-    "@type": "ItemList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "UIF Unemployment Calculator",
-        "url": "{{ url_for('uif.unemployment_calculator', _external=True) }}"
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "{{ url_for('home.articles', _external=True) }}"
+        }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "{{ url_for('home.articles', _external=True) }}#webpage",
+      "url": "{{ url_for('home.articles', _external=True) }}",
+      "name": "UIF Articles and Guides",
+      "description": "A collection of UIF calculators, articles and guides for South Africa.",
+      "inLanguage": "en-ZA",
+      "datePublished": "2025-01-01",
+      "dateModified": "2026-07-01",
+      "isPartOf": {
+        "@id": "{{ url_for('home.index', _external=True) }}#website"
       },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "How to Calculate UIF Payout",
-        "url": "{{ url_for('uif.how_to_calculate_uif', _external=True) }}"
+      "author": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
       },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "UI-19 Form Explained",
-        "url": "{{ url_for('uif.ui19_form_explained', _external=True) }}"
+      "publisher": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
       },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "UIF Status Check Online",
-        "url": "{{ url_for('home.uif_status_check_online', _external=True) }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 5,
-        "name": "How to Claim UIF Online",
-        "url": "{{ url_for('home.how_to_claim_uif_online', _external=True) }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 6,
-        "name": "UIF Documents Needed",
-        "url": "{{ url_for('home.uif_documents_needed', _external=True) }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 7,
-        "name": "Can I Claim UIF If I Resigned?",
-        "url": "{{ url_for('home.can_i_claim_uif_if_i_resigned', _external=True) }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 8,
-        "name": "UIF Payment Dates and Delays",
-        "url": "{{ url_for('home.uif_payment_dates_and_delays', _external=True) }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 9,
-        "name": "UIF Credit Days Explained",
-        "url": "{{ url_for('home.uif_credit_days_explained', _external=True) }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 10,
-        "name": "UIF Banking Details and UI-2.8 Form Guide",
-        "url": "{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 11,
-        "name": "Why Was My UIF Claim Rejected or Cancelled?",
-        "url": "{{ url_for('home.why_uif_claim_rejected_cancelled', _external=True) }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 12,
-        "name": "Missing UIF Contributions or Declarations",
-        "url": "{{ url_for('home.missing_uif_contributions', _external=True) }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 13,
-        "name": "Maternity UIF Documents Needed",
-        "url": "{{ url_for('home.maternity_uif_documents_needed', _external=True) }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 14,
-        "name": "UIF for Fixed-Term Contracts",
-        "url": "{{ url_for('home.uif_fixed_term_contracts', _external=True) }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 15,
-        "name": "After You Calculate Your UIF: What It Means & What To Do Next",
-        "url": "{{ url_for('home.after_calculating_uif', _external=True) }}"
-      } 
-    ]
-  }
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UIF Unemployment Calculator",
+            "url": "{{ url_for('uif.unemployment_calculator', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "How to Calculate UIF Payout",
+            "url": "{{ url_for('uif.how_to_calculate_uif', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UI-19 Form Explained",
+            "url": "{{ url_for('uif.ui19_form_explained', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "UIF Status Check Online",
+            "url": "{{ url_for('home.uif_status_check_online', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "How to Claim UIF Online",
+            "url": "{{ url_for('home.how_to_claim_uif_online', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "UIF Documents Needed",
+            "url": "{{ url_for('home.uif_documents_needed', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "name": "Can I Claim UIF If I Resigned?",
+            "url": "{{ url_for('home.can_i_claim_uif_if_i_resigned', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "name": "UIF Payment Dates and Delays",
+            "url": "{{ url_for('home.uif_payment_dates_and_delays', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "name": "UIF Credit Days Explained",
+            "url": "{{ url_for('home.uif_credit_days_explained', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "name": "UIF Banking Details and UI-2.8 Form Guide",
+            "url": "{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "name": "Why Was My UIF Claim Rejected or Cancelled?",
+            "url": "{{ url_for('home.why_uif_claim_rejected_cancelled', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "name": "Missing UIF Contributions or Declarations",
+            "url": "{{ url_for('home.missing_uif_contributions', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "name": "Maternity UIF Documents Needed",
+            "url": "{{ url_for('home.maternity_uif_documents_needed', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "name": "UIF for Fixed-Term Contracts",
+            "url": "{{ url_for('home.uif_fixed_term_contracts', _external=True) }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "name": "After You Calculate Your UIF: What It Means & What To Do Next",
+            "url": "{{ url_for('home.after_calculating_uif', _external=True) }}"
+          }
+        ]
+      }
+    }
+  ]
 }
 </script>
 {% endblock %}
 
 {% block content %}
-<section class="py-5 bg-gradient-primary text-black">
+
+<article class="py-5">
   <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-10">
-        <span class="badge bg-success-subtle text-success fw-semibold border border-success px-3 py-2 small rounded-pill mb-3">
-          UIF guides
-        </span>
-        <h1 class="fw-bold mb-3">UIF Articles and Guides</h1>
-        <p class="lead text-muted mb-0">
-          Learn how UIF calculations, claims, forms and online status checks work in South Africa.
-        </p>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <!-- Header -->
+        <header class="pb-4 mb-4 border-bottom">
+            <h1 class="fw-bold mb-3 font-serif" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;">
+            The Complete Guide to UIF in South Africa
+          </h1>
+          <p class="fs-5 text-secondary mb-3" style="max-width: 42rem;">
+            Everything you need to know about claiming UIF, calculating your payout, checking your status, and getting your money without the headaches.
+          </p>
+          <div class="d-flex flex-wrap align-items-center text-muted small">
+            <span>UIF Calculators Team</span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>Updated <time datetime="2026-07">July 2026</time></span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>8 min read</span>
+          </div>
+        </header>
+
+        <!-- Table of Contents -->
+        <nav aria-label="Table of contents" class="border-bottom pb-4 mb-5">
+          <h2 class="text-uppercase text-muted small fw-semibold mb-3" style="letter-spacing:.08em;">In this guide</h2>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <ol class="list-unstyled small mb-md-0">
+                <li class="mb-2"><a href="#calculating" class="link-dark text-decoration-none">Calculating Your UIF Payout</a></li>
+                <li class="mb-2"><a href="#claiming" class="link-dark text-decoration-none">How to Claim UIF Online</a></li>
+                <li class="mb-2"><a href="#documents" class="link-dark text-decoration-none">Documents You Need</a></li>
+                <li class="mb-0"><a href="#status" class="link-dark text-decoration-none">Checking Your Claim Status</a></li>
+              </ol>
+            </div>
+            <div class="col-12 col-md-6">
+              <ol class="list-unstyled small mb-0" start="5">
+                <li class="mb-2"><a href="#payments" class="link-dark text-decoration-none">Payments, Delays &amp; Credit Days</a></li>
+                <li class="mb-2"><a href="#problems" class="link-dark text-decoration-none">Common Problems &amp; Rejections</a></li>
+                <li class="mb-2"><a href="#special" class="link-dark text-decoration-none">Special Cases: Maternity, Contracts &amp; Resignation</a></li>
+                <li class="mb-0"><a href="#tools" class="link-dark text-decoration-none">Free UIF Calculators &amp; Tools</a></li>
+              </ol>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Section 1: Calculating -->
+        <section id="calculating" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">1. Calculating Your UIF Payout</h2>
+          <p class="text-secondary">Before you claim, it helps to know what you are entitled to. UIF payouts depend on your salary history, how long you have contributed, and the income replacement rate set by law.</p>
+
+          <aside class="border-start border-3 ps-3 my-4">
+            <p class="mb-0 text-secondary"><strong class="text-dark">Quick tip:</strong> use our <a href="{{ url_for('uif.unemployment_calculator') }}" class="fw-semibold">UIF Unemployment Calculator</a> to estimate your monthly payout, credit days, and total benefit in under a minute.</p>
+          </aside>
+
+          <p class="text-secondary">The UIF formula uses a salary ceiling and your average monthly earnings over the last four(4) years. Credit days build up as you work &mdash; roughly one day of benefits for every four days worked. Want the full breakdown? Read our guide on <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="fw-semibold">how to calculate UIF payout</a> or see what your numbers mean after you run them through the calculator in <a href="{{ url_for('home.after_calculating_uif') }}" class="fw-semibold">what to do next</a>.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Section 2: Claiming -->
+        <section id="claiming" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">2. How to Claim UIF Online</h2>
+          <p class="text-secondary">The uFiling portal is where most UIF claims start. You will need to register, select your benefit type, upload documents, and provide banking details. It sounds simple, but small mistakes can delay your claim by weeks.</p>
+          <p class="text-secondary">Our step-by-step guide covers <a href="{{ url_for('home.how_to_claim_uif_online') }}" class="fw-semibold">how to claim UIF online</a> &mdash; from registration through to submitting your first payment request. We also explain what to do if the system rejects your application or asks for extra documents.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Section 3: Documents -->
+        <section id="documents" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">3. Documents You Need</h2>
+          <p class="text-secondary">Paperwork is where most claims get stuck. The Department of Employment and Labour needs specific forms and proof before they process anything. The essentials include:</p>
+
+          <ul class="text-secondary">
+            <li>Your South African ID</li>
+            <li>The <a href="{{ url_for('uif.ui19_form_explained') }}" class="fw-semibold">UI-19 form</a> from your employer</li>
+            <li>Banking details on a <a href="{{ url_for('home.uif_banking_details_ui_2_8') }}" class="fw-semibold">UI-2.8 form</a></li>
+            <li>Proof that you are actively seeking work</li>
+          </ul>
+
+          <p class="text-secondary">See the full checklist in our <a href="{{ url_for('home.uif_documents_needed') }}" class="fw-semibold">UIF documents needed</a> guide. If you are claiming maternity UIF, the requirements are slightly different &mdash; we cover those in our <a href="{{ url_for('home.maternity_uif_documents_needed') }}" class="fw-semibold">maternity UIF documents guide</a>.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Section 4: Status -->
+        <section id="status" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">4. Checking Your Claim Status</h2>
+          <p class="text-secondary">Once you have submitted your claim, you can check its progress online. Status messages like &ldquo;pending,&rdquo; &ldquo;approved,&rdquo; or &ldquo;payment blocked&rdquo; each mean something different &mdash; and each needs a different response.</p>
+          <p class="text-secondary">Our guide on <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check online</a> explains what each status means and what action to take. If your status says &ldquo;payment blocked,&rdquo; the issue is usually banking-related &mdash; which brings us to the next section.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Section 5: Payments -->
+        <section id="payments" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">5. Payments, Delays &amp; Credit Days</h2>
+          <p class="text-secondary">UIF payments do not always arrive on time. Delays can happen because of missing employer declarations, incorrect banking details, or backlogs at the Department of Labour.</p>
+          <p class="text-secondary"><a href="{{ url_for('home.uif_payment_dates_and_delays') }}" class="fw-semibold">UIF payment dates and delays</a> covers the most common reasons payments are held up and how long you should realistically expect to wait.</p>
+          <p class="text-secondary">Credit days are another source of confusion. These determine how long you can receive UIF &mdash; typically up to 365 days depending on your contribution history. Learn how they work in our <a href="{{ url_for('home.uif_credit_days_explained') }}" class="fw-semibold">UIF credit days explained</a> guide. If your employer has not been declaring your contributions, that is also a problem &mdash; read about <a href="{{ url_for('home.missing_uif_contributions') }}" class="fw-semibold">missing UIF contributions</a> to understand your options.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Section 6: Problems -->
+        <section id="problems" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">6. Common Problems &amp; Rejections</h2>
+          <p class="text-secondary">Rejected claims are frustrating, but they are rarely permanent. Most rejections happen because of missing documents, incorrect banking details, or eligibility issues.</p>
+          <p class="text-secondary">Our guide on <a href="{{ url_for('home.why_uif_claim_rejected_cancelled') }}" class="fw-semibold">why UIF claims get rejected</a> walks through the most common rejection reasons and how to fix them. If your claim was cancelled rather than rejected, the process is different &mdash; we explain both scenarios.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Section 7: Special Cases -->
+        <section id="special" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">7. Special Cases: Maternity, Contracts &amp; Resignation</h2>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Maternity UIF</h3>
+          <p class="text-secondary">Maternity UIF is a separate benefit with its own forms and requirements. You will need medical certificates, employer confirmation, and the correct banking forms. Our <a href="{{ url_for('home.maternity_uif_documents_needed') }}" class="fw-semibold">maternity UIF documents guide</a> has the full list.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Fixed-term contracts</h3>
+          <p class="text-secondary">If your fixed-term contract ends, you may still qualify for UIF &mdash; but only if your employer declared your contributions correctly. Check what to look for on your UI-19 in our guide on <a href="{{ url_for('home.uif_fixed_term_contracts') }}" class="fw-semibold">UIF for fixed-term contracts</a>.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Resignation</h3>
+          <p class="text-secondary">Resignation usually disqualifies you from unemployment UIF, but there are exceptions. If you resigned under specific circumstances &mdash; such as constructive dismissal &mdash; you may still have a case. Read <a href="{{ url_for('home.can_i_claim_uif_if_i_resigned') }}" class="fw-semibold">can I claim UIF if I resigned</a> to see where you stand.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Section 8: Tools -->
+        <section id="tools" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">8. Free UIF Calculators &amp; Tools</h2>
+          <p class="text-secondary mb-3">We have built free tools to help you estimate your UIF benefits before you start the claim process.</p>
+
+          <div class="list-group list-group-flush border-top border-bottom">
+            <a href="{{ url_for('uif.unemployment_calculator') }}" class="list-group-item list-group-item-action px-0 py-3 d-flex justify-content-between align-items-center">
+              <span>
+                <span class="d-block fw-semibold text-dark">UIF Unemployment Calculator</span>
+                <span class="d-block text-muted small">Estimate payout, credit days, and total benefit.</span>
+              </span>
+              <span class="text-muted" aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="list-group-item list-group-item-action px-0 py-3 d-flex justify-content-between align-items-center">
+              <span>
+                <span class="d-block fw-semibold text-dark">Maternity &amp; Leave Calculator</span>
+                <span class="d-block text-muted small">Estimate top-up benefits for maternity, adoption, or illness leave.</span>
+              </span>
+              <span class="text-muted" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+
+          <p class="text-secondary mt-3 mb-0">Curious about how we calculate these numbers? Our <a href="{{ url_for('home.methodology') }}" class="fw-semibold">calculator methodology</a> page breaks down the formulas, assumptions, and official sources we use.</p>
+        </section>
+
+        <!-- Closing -->
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-muted small mb-0">This guide is updated regularly to reflect the latest UIF rules and uFiling processes. For official information, always refer to the <a href="https://ufiling.labour.gov.za" target="_blank" rel="noopener noreferrer">Department of Employment and Labour</a>.</p>
+        </footer>
+
       </div>
     </div>
   </div>
-</section>
+</article>
 
-<section class="py-5">
-  <div class="container">
-    <div class="row g-4">
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  /* .font-serif {
+    font-family: Georgia, "Times New Roman", Times, serif;
+  } */
+  a.fw-semibold {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #adb5bd;
+    text-underline-offset: 2px;
+  }
+  a.fw-semibold:hover {
+    text-decoration-color: currentColor;
+  }
+</style>
 
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('home.after_calculating_uif') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-info-subtle text-info mb-3">After You Calculate</span>
-              <h2 class="h5 text-dark">After You Calculate Your UIF: What It Means & What To Do Next</h2>
-              <p class="text-muted mb-0">You've got a UIF estimate — now what? Here's what your credit days and monthly payout actually mean, how long UIF really takes to pay out, and exactly what to do next.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('home.how_to_claim_uif_online') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-success-subtle text-success mb-3">Claims</span>
-              <h2 class="h5 text-dark">How to Claim UIF Online</h2>
-              <p class="text-muted mb-0">Follow the uFiling claim process, from registration and benefit selection to banking details and status checks.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('home.uif_documents_needed') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-warning-subtle text-warning mb-3">Documents</span>
-              <h2 class="h5 text-dark">UIF Documents Needed</h2>
-              <p class="text-muted mb-0">Prepare ID, UI-19, UI-2.8, work seeker proof and other documents before submitting a claim.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('home.can_i_claim_uif_if_i_resigned') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-danger-subtle text-danger mb-3">Eligibility</span>
-              <h2 class="h5 text-dark">Can I Claim UIF If I Resigned?</h2>
-              <p class="text-muted mb-0">Understand when resignation usually excludes unemployment UIF and what exceptions may apply.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('home.uif_payment_dates_and_delays') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-success-subtle text-success mb-3">Payments</span>
-              <h2 class="h5 text-dark">UIF Payment Dates and Delays</h2>
-              <p class="text-muted mb-0">Learn what affects payment timing and why claims may be delayed by documents, banking or declarations.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('home.uif_credit_days_explained') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-info-subtle text-info mb-3">Guide</span>
-              <h2 class="h5 text-dark">UIF Credit Days Explained</h2>
-              <p class="text-muted mb-0">See how credit days affect payout duration, finalised claims and missing declaration issues.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('home.uif_banking_details_ui_2_8') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-warning-subtle text-warning mb-3">Banking</span>
-              <h2 class="h5 text-dark">UIF Banking Details and UI-2.8</h2>
-              <p class="text-muted mb-0">Understand banking verification, UI-2.8 forms, payment blocked statuses and reversed payments.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('home.why_uif_claim_rejected_cancelled') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-danger-subtle text-danger mb-3">Claim issues</span>
-              <h2 class="h5 text-dark">Why UIF Claims Get Rejected</h2>
-              <p class="text-muted mb-0">Check common rejection, cancellation and blocked-payment reasons before contacting UIF.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('home.missing_uif_contributions') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-info-subtle text-info mb-3">Contributions</span>
-              <h2 class="h5 text-dark">Missing UIF Contributions</h2>
-              <p class="text-muted mb-0">Learn why missing employer declarations delay claims and affect credit days.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('home.maternity_uif_documents_needed') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-primary-subtle text-primary mb-3">Maternity</span>
-              <h2 class="h5 text-dark">Maternity UIF Documents Needed</h2>
-              <p class="text-muted mb-0">Prepare maternity UIF forms, medical documents, banking details and employer information.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('home.uif_fixed_term_contracts') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-success-subtle text-success mb-3">Contracts</span>
-              <h2 class="h5 text-dark">UIF for Fixed-Term Contracts</h2>
-              <p class="text-muted mb-0">See when UIF may apply after a fixed-term contract expires and what to check on your UI-19.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('uif.unemployment_calculator') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-primary-subtle text-primary mb-3">Calculator</span>
-              <h2 class="h5 text-dark">UIF Unemployment Calculator</h2>
-              <p class="text-muted mb-0">Estimate unemployment UIF payout, credit days, duration and total benefit using salary and months employed.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('uif.how_to_calculate_uif') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-info-subtle text-info mb-3">Guide</span>
-              <h2 class="h5 text-dark">How to Calculate UIF Payout</h2>
-              <p class="text-muted mb-0">Understand the UIF formula, salary ceiling, credit days and income replacement rate.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('uif.ui19_form_explained') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-warning-subtle text-warning mb-3">Forms</span>
-              <h2 class="h5 text-dark">UI-19 Form Explained</h2>
-              <p class="text-muted mb-0">Learn what the UI-19 form is, why it matters, and how it affects your UIF claim.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('home.uif_status_check_online') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-success-subtle text-success mb-3">Status</span>
-              <h2 class="h5 text-dark">UIF Status Check Online</h2>
-              <p class="text-muted mb-0">See how to check your UIF claim status online and what common status messages mean.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('uif.leave_benefit_calculator') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-primary-subtle text-primary mb-3">Calculator</span>
-              <h2 class="h5 text-dark">Maternity and Leave UIF Calculator</h2>
-              <p class="text-muted mb-0">Estimate UIF top-up benefits for maternity, adoption, parental or illness leave.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <a class="text-decoration-none" href="{{ url_for('home.methodology') }}">
-          <article class="card h-100 border-0 shadow-sm calculator-link-card">
-            <div class="card-body p-4">
-              <span class="badge bg-secondary-subtle text-secondary mb-3">Methodology</span>
-              <h2 class="h5 text-dark">Calculator Methodology</h2>
-              <p class="text-muted mb-0">Review the formulas, assumptions and official source links used by UIF Calculators.</p>
-            </div>
-          </article>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
 {% endblock %}

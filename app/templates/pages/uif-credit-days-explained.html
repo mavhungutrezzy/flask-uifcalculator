@@ -1,120 +1,304 @@
 {% extends "base.html" %}
 
-{% block title %}UIF Credit Days Explained South Africa 2026 | UIF Calculators{% endblock %}
+{% block title %}UIF Credit Days Explained | UIF Calculators{% endblock %}
 
 {% block meta %}
 <meta name="description"
-      content="Understand UIF credit days in South Africa: one credit day for every four days worked, the 365-day cap, examples, eligibility notes and payout duration.">
+      content="How UIF credit days work, the formula, worked examples by years worked, how they fit into your payout amount, and what to do if you have none left.">
+<meta name="keywords" content="uif credit days, uif credit days explained, how many uif credit days, uif days worked calculation, uif credit days maximum">
 {% endblock %}
 
 {% block canonical_href %}{{ url_for('home.uif_credit_days_explained', _external=True) }}{% endblock %}
 {% block og_url %}{{ url_for('home.uif_credit_days_explained', _external=True) }}{% endblock %}
-{% block og_title %}UIF Credit Days Explained South Africa 2026 | UIF Calculators{% endblock %}
-{% block og_description %}Learn the UIF credit day formula, 365-day cap, four-year contribution rule, examples and how credit days affect payout duration.{% endblock %}
+{% block og_title %}UIF Credit Days Explained | UIF Calculators{% endblock %}
+{% block og_description %}How UIF credit days work, the formula, worked examples by years worked, how they fit into your payout amount, and what to do if you have none left.{% endblock %}
 {% block twitter_url %}{{ url_for('home.uif_credit_days_explained', _external=True) }}{% endblock %}
-{% block twitter_title %}UIF Credit Days Explained South Africa 2026 | UIF Calculators{% endblock %}
-{% block twitter_description %}Learn the UIF credit day formula, 365-day cap, four-year contribution rule, examples and how credit days affect payout duration.{% endblock %}
+{% block twitter_title %}UIF Credit Days Explained | UIF Calculators{% endblock %}
+{% block twitter_description %}How UIF credit days work, worked examples by years worked, and how they fit into your payout amount.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "{{ url_for('home.articles', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "UIF Credit Days Explained",
+          "item": "{{ url_for('home.uif_credit_days_explained', _external=True) }}"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "{{ url_for('home.uif_credit_days_explained', _external=True) }}#article",
+      "mainEntityOfPage": "{{ url_for('home.uif_credit_days_explained', _external=True) }}",
+      "headline": "UIF Credit Days Explained",
+      "description": "How UIF credit days work, the formula, worked examples by years worked, how they fit into your payout amount, and what to do if you have none left.",
+      "inLanguage": "en-ZA",
+      "datePublished": "2025-01-01",
+      "dateModified": "2026-07-29",
+      "author": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
-<section class="py-5 bg-gradient-primary">
+
+<article class="py-5">
   <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-10">
-        <span class="badge bg-info-subtle text-info fw-semibold border border-info px-3 py-2 small rounded-pill mb-3">Credit days</span>
-        <h1 class="fw-bold mb-3">UIF Credit Days Explained</h1>
-        <p class="lead text-muted mb-0">For every four days you work and contribute to UIF, you earn one credit day. Credit days determine how many days you may be paid while unemployed.</p>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class="text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.articles') }}" class="text-decoration-none">Articles</a></li>
+            <li class="breadcrumb-item active text-muted" aria-current="page">UIF Credit Days Explained</li>
+          </ol>
+        </nav>
+
+        <!-- Header -->
+        <header class="pb-4 mb-4 border-bottom">
+          <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.08em;">Calculations</p>
+          <h1 class="fw-bold mb-3 font-serif" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;">
+            UIF Credit Days Explained
+          </h1>
+          <p class="fs-5 text-secondary mb-3" style="max-width: 42rem;">
+            Credit days decide how long you get paid, not how much. Here's the formula, worked examples for different work histories, and how duration fits together with the amount you actually receive.
+          </p>
+          <div class="d-flex flex-wrap align-items-center text-muted small">
+            <span>UIF Calculators Team</span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>Updated <time datetime="2026-07">July 2026</time></span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>9 min read</span>
+          </div>
+        </header>
+
+        <!-- Quick answer -->
+        <aside class="border-start border-3 ps-3 my-4">
+          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> for every four days you work and contribute to UIF, you earn one credit day. Credit days are capped at 365, so reaching the maximum takes roughly four years of continuous, contributing work. Credit days set how many days you may be paid, the rand amount is a separate calculation based on your salary.</p>
+        </aside>
+
+        <p class="fs-5 text-secondary">UIF credit days are the single most misunderstood part of the whole system, mostly because people expect them to represent money, when really they only represent time. Understanding them properly means understanding two things at once: how they accumulate, and how they combine with your salary to produce an actual payout.</p>
+
+        <!-- What are credit days -->
+        <section id="what-are-they" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">What Are UIF Credit Days?</h2>
+          <p class="text-secondary">UIF credit days accumulate from periods where you worked and contributed to UIF. They are not the amount of money you receive, they're the number of days you may be entitled to be paid while unemployed, subject to UIF's approval and qualifying rules.</p>
+          <p class="text-secondary mb-0">The basic rule is simple: for every four days worked as a UIF contributor, you earn one credit day. Credit days are capped at 365, so a long-term contributor can receive up to about one year of benefit days. To build up the full 365, you generally need around four years of UIF-contributing work, which is why UIF benefits are commonly explained as being based on your contribution history over a rolling four-year window.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Formula -->
+        <section id="formula" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">The Credit Day Formula</h2>
+          <dl class="row border-top border-bottom py-3 mb-0">
+            <dt class="col-sm-3 text-uppercase text-muted small fw-semibold" style="letter-spacing:.05em;">Formula</dt>
+            <dd class="col-sm-9 text-secondary">4 work days = 1 credit day. Credit days are earned from days worked and contributed, not from your salary amount.</dd>
+            <dt class="col-sm-3 text-uppercase text-muted small fw-semibold mt-3 mt-sm-0" style="letter-spacing:.05em;">Maximum</dt>
+            <dd class="col-sm-9 text-secondary mt-3 mt-sm-0">365 credit days, even if you worked and contributed for longer than four years. Working beyond that doesn't push the cap any higher.</dd>
+          </dl>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Worked examples -->
+        <section id="examples" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Worked Examples by Time Employed</h2>
+          <p class="text-secondary">The formula is easiest to picture with a table. These assume steady, continuous contributions, real work histories with gaps will differ.</p>
+          <div class="table-responsive">
+            <table class="table align-top">
+              <thead>
+                <tr class="text-uppercase text-muted small" style="letter-spacing:.05em;">
+                  <th scope="col">Time worked</th>
+                  <th scope="col">Approx. contribution days</th>
+                  <th scope="col">Approx. credit days</th>
+                  <th scope="col">Roughly equal to</th>
+                </tr>
+              </thead>
+              <tbody class="text-secondary">
+                <tr>
+                  <td class="fw-semibold text-dark">6 months</td>
+                  <td>About 130 days</td>
+                  <td>32 to 33 days</td>
+                  <td>Around 5 weeks of benefit</td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold text-dark">1 year</td>
+                  <td>About 260 days</td>
+                  <td>64 to 65 days</td>
+                  <td>Around 9 weeks of benefit</td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold text-dark">2 years</td>
+                  <td>About 520 days</td>
+                  <td>130 days</td>
+                  <td>Around 4 months of benefit</td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold text-dark">4 years or more</td>
+                  <td>About 1,040+ days</td>
+                  <td>365 days (capped)</td>
+                  <td>Up to 12 months of benefit</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-secondary mb-0">If you worked and contributed for about six months, that's roughly 130 contribution days. Divide by four and you get around 32 to 33 credit days, about five weeks of possible benefit. Work continuously for four years or more, and you reach the 365 day maximum, working beyond four years doesn't increase it further.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- How this fits into payout -->
+        <section id="payout-fit" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">How Credit Days Fit Into Your Full Payout</h2>
+          <p class="text-secondary">Credit days answer "for how long," but not "how much." The rand amount comes from a separate calculation, and it's worth understanding both together so your expectations match how UIF actually pays out.</p>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">Salary ceiling.</strong> Your monthly salary is capped for calculation purposes, so if you earn above the ceiling, your benefit is still worked out as if you earned the capped amount.</li>
+            <li><strong class="text-dark">Income replacement rate.</strong> For unemployment and illness claims, your daily income is multiplied by a sliding scale that favours lower earners, roughly 60% for lower salaries down to 38% near and above the ceiling.</li>
+            <li><strong class="text-dark">Maternity is different.</strong> Maternity benefits are paid at a flat rate rather than the sliding scale, for a fixed maximum duration rather than up to 365 days.</li>
+            <li><strong class="text-dark">Credit days set the ceiling on duration.</strong> Even a generous daily rate stops once your credit days run out, which is why two people on identical salaries can receive very different total payouts if one has four years of contributions and the other has one.</li>
+          </ul>
+          <p class="text-secondary mb-0">Want to see this worked out for your own numbers? Our <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="fw-semibold">how UIF payout is calculated</a> guide walks through the full formula, and the <a href="{{ url_for('uif.unemployment_calculator') }}" class="fw-semibold">UIF calculator</a> does the maths for you.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Four year window -->
+        <section id="four-year-window" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">The Four-Year Window, and Why It's Not Always Simple</h2>
+          <p class="text-secondary">UIF generally looks at your contribution history over the four years before your claim to work out your available credit days. This is why the system is often summarised as "four years of work equals one year of benefit," but the reality has a bit more nuance to it.</p>
+          <p class="text-secondary">Because the window rolls forward, contributions from further back can fall outside what counts toward a new claim, and a previous claim that used up credits reduces what's available for a later one, even within that same four year stretch. Two people with the same total years worked can end up with different available credit days depending on when those years fall and what they've already claimed.</p>
+          <p class="text-secondary mb-0">You may also come across slightly different published figures for the exact accrual ratio or the treatment of very long payout periods, official guidance and independent calculators don't always phrase it identically. For your own claim, the credit day figure shown on <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF Online</a> is the one that actually applies, treat any calculator, including ours, as an estimate to plan around rather than a guarantee.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Why they matter -->
+        <section id="why-they-matter" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Why Credit Days Matter</h2>
+          <ul class="list-check text-secondary">
+            <li>They affect your estimated payout duration, not just whether you qualify at all.</li>
+            <li>They can limit payments even after your claim has been approved, once they run out, payments stop regardless of how the rest of the claim looks.</li>
+            <li>Missing employer declarations can reduce or delay the credits UIF can see, even if you genuinely worked and contributed. See <a href="{{ url_for('home.missing_uif_contributions') }}" class="fw-semibold">missing UIF contributions</a> if this looks like your situation.</li>
+            <li>A finalised claim usually means no further credit days remain for that specific claim, not that something went wrong.</li>
+          </ul>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Eligibility notes -->
+        <section id="eligibility" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Important Eligibility Notes</h2>
+          <ul class="list-check text-secondary">
+            <li>You must be registered with UIF and have actually contributed, credit days only build up from real, declared contributions.</li>
+            <li>If you resigned voluntarily, absconded from work, or were suspended, you generally cannot claim unemployment benefits regardless of how many credit days you've built up. See <a href="{{ url_for('home.can_i_claim_uif_if_i_resigned') }}" class="fw-semibold">can I claim UIF if I resigned?</a> for the exceptions.</li>
+            <li>If your working hours were reduced rather than stopped entirely, UIF may still apply in some cases, and your available credit days remain relevant to how long you could be paid.</li>
+            <li>Your employer's declarations need to be correct and up to date, since missing declarations can make your credit days appear lower than they actually should be.</li>
+          </ul>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- No credit days -->
+        <section id="no-credit-days" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">What If UIF Shows No Credit Days?</h2>
+          <p class="text-secondary">If your status says no credit days remain, it usually means one of two things: the claim has been finalised, or your available credits have already been used, often by a previous claim you may have forgotten about.</p>
+          <p class="text-secondary mb-0">If you believe declarations are missing rather than credits genuinely being used up, contact UIF or your former employer and ask directly whether all your employment periods were declared correctly. Our <a href="{{ url_for('home.missing_uif_contributions') }}" class="fw-semibold">missing UIF contributions</a> guide covers exactly what to check and who to follow up with.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- FAQ -->
+        <section id="faq" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Frequently Asked Questions</h2>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Do UIF credit days expire?</h3>
+          <p class="text-secondary">Not in a fixed sense, but because UIF generally looks at a rolling four year contribution window, older contributions can fall outside what counts toward a new claim over time. It's less "expiring" and more "aging out" of the assessment period.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Does part-time or reduced hour work still earn credit days?</h3>
+          <p class="text-secondary">Yes, as long as you're a registered, contributing employee, days worked and contributed still count toward credit days, even at reduced hours. What you can claim for reduced hours specifically is a separate eligibility question worth checking directly with UIF.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Can I use leftover credit days from an old claim on a new one?</h3>
+          <p class="text-secondary">Any credit days not used on a previous claim generally remain part of your balance for future claims, subject to the four year window. It's your total accumulated and un-used credits that matter, not a fresh count starting from zero each time.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Why do two people with the same salary get different total payouts?</h3>
+          <p class="text-secondary">Because the rand amount depends on your salary and the income replacement rate, but the total payout also depends on how many credit days you have. Someone with four years of contributions can be paid for far longer than someone with one year, even at an identical daily rate.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Where can I see my actual credit day balance, not just an estimate?</h3>
+          <p class="text-secondary">Log into <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF Online</a> and open your claim. That figure reflects your real declared contribution history, our calculator gives you a planning estimate based on the inputs you provide.</p>
+        </section>
+
+        <!-- Closing -->
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-secondary mb-3">Enter your salary and months employed in the <a href="{{ url_for('uif.unemployment_calculator') }}" class="fw-semibold">UIF calculator</a> to estimate your credit days, benefit amount and possible payout duration. For status wording, use the <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check guide</a>.</p>
+          <p class="text-muted small mb-0">Source: UIF unemployment benefits guidance. Calculator results are estimates and not a guarantee of what you'll be paid, your actual credit days and payout are determined by UIF directly.</p>
+        </footer>
+
       </div>
     </div>
   </div>
-</section>
+</article>
 
-<section class="py-5">
-  <div class="container">
-    <div class="row g-5">
-      <article class="col-lg-8 mx-auto">
-        <h2 class="h4 fw-bold text-primary">What Are UIF Credit Days?</h2>
-        <p>UIF credit days are accumulated from periods where you worked and contributed to UIF. They are not the amount of money you receive. They are the number of days you may be entitled to be paid while unemployed, subject to UIF approval and qualifying rules.</p>
-        <p>The basic rule is simple: for every <strong>four days worked as a UIF contributor</strong>, you earn <strong>one credit day</strong>. Credit days are capped at <strong>365 days</strong>, so a long-term contributor can receive up to about one year of benefit days.</p>
-        <p>To build up the maximum 365 credit days, you generally need about four years of UIF-contributing work. This is why UIF benefits are commonly explained as being based on your contribution history over a four-year cycle.</p>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  a.fw-semibold {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #adb5bd;
+    text-underline-offset: 2px;
+  }
+  a.fw-semibold:hover {
+    text-decoration-color: currentColor;
+  }
+  .list-check {
+    list-style: none;
+    padding-left: 0;
+  }
+  .list-check li {
+    position: relative;
+    padding-left: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
+  .list-check li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: #6c757d;
+    font-weight: 600;
+  }
+</style>
 
-        <div class="row g-3 my-4">
-          <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <span class="badge bg-info-subtle text-info mb-3">Formula</span>
-                <h2 class="h5">4 Work Days = 1 Credit Day</h2>
-                <p class="text-muted mb-0">Credit days are earned from days worked and contributed, not from salary amount.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <span class="badge bg-success-subtle text-success mb-3">Maximum</span>
-                <h2 class="h5">365 Credit Days</h2>
-                <p class="text-muted mb-0">UIF credit days are capped at 365, even if you worked longer than four years.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body">
-                <span class="badge bg-warning-subtle text-warning mb-3">Example</span>
-                <h2 class="h5">6 Months Worked</h2>
-                <p class="text-muted mb-0">About 130 working/contributing days can create roughly 32 to 33 credit days.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <hr class="my-4">
-
-        <h2 class="h4 fw-bold text-primary">UIF Credit Day Examples</h2>
-        <p>If you worked and contributed for about six months, that may be roughly 130 contribution days. Divide 130 by four and you get about 32 to 33 credit days, which is around five weeks of possible benefit days.</p>
-        <p>If you worked and contributed for four years or more, you may reach the maximum of 365 credit days. Working longer than that does not increase the cap above 365 days.</p>
-
-        <div class="bg-warning-subtle p-3 rounded mb-4">
-          <strong>Important:</strong> Credit days control duration, not the rand amount. The money you receive is still calculated from your salary, the UIF salary ceiling, the income replacement rate and your available credit days.
-        </div>
-
-        <hr class="my-4">
-
-        <h2 class="h4 fw-bold text-primary">Why Credit Days Matter</h2>
-        <ul class="list-check">
-          <li>They affect your estimated payout duration</li>
-          <li>They can limit payments even when your claim is approved</li>
-          <li>Missing employer declarations can reduce or delay available credits</li>
-          <li>A finalised claim may mean no further credit days remain for that claim</li>
-        </ul>
-
-        <hr class="my-4">
-
-        <h2 class="h4 fw-bold text-primary">Important Eligibility Notes</h2>
-        <ul class="list-check">
-          <li>You must be registered with UIF and have contributed to UIF.</li>
-          <li>If you resigned voluntarily, absconded from work or were suspended, you generally cannot claim unemployment UIF benefits.</li>
-          <li>If your working hours were reduced, UIF may still apply in some cases and available credit days are still relevant.</li>
-          <li>Your employer declarations must be correct, because missing declarations can make credit days appear lower than expected.</li>
-        </ul>
-
-        <div class="card border-0 shadow-sm my-4">
-          <div class="card-body p-4">
-            <h2 class="h4 fw-bold text-primary">Quick Estimate</h2>
-            <p class="text-muted">Enter your salary and months employed in the UIF calculator to estimate credit days, benefit amount and possible payout duration.</p>
-            <a class="btn btn-primary" href="{{ url_for('uif.unemployment_calculator') }}">
-              <i class="bi bi-calculator me-2"></i>Estimate Credit Days
-            </a>
-          </div>
-        </div>
-
-        <h2 class="h4 fw-bold text-primary">What If UIF Shows No Credit Days?</h2>
-        <p>If your status says no credit days remain, the claim may be finalised or your available credits may have been used. If you believe declarations are missing, contact UIF or your former employer and ask whether all employment periods were declared correctly.</p>
-
-        <p>For status wording, use the <a href="{{ url_for('home.uif_status_check_online') }}">UIF status check guide</a>.</p>
-
-        <p class="small text-muted mb-0">Source: UIF unemployment benefits guidance. Calculator results are estimates and not official UIF decisions.</p>
-      </article>
-    </div>
-  </div>
-</section>
 {% endblock %}

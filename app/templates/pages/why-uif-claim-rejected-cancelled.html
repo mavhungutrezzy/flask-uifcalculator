@@ -1,64 +1,234 @@
 {% extends "base.html" %}
 
-{% block title %}Why Was My UIF Claim Rejected or Cancelled? 2026 Guide{% endblock %}
+{% block title %}Why Was My UIF Claim Rejected or Cancelled? | UIF Calculators{% endblock %}
 
 {% block meta %}
 <meta name="description"
-      content="Understand common reasons UIF claims are rejected, cancelled, blocked or delayed, including documents, eligibility, banking details and employer declarations.">
+      content="Why UIF claims get rejected, cancelled or blocked in South Africa, the most common causes, how to check what went wrong, and what to do next.">
+<meta name="keywords" content="why is my uif rejected, uif rejected claim, uif rejected, uif rejected status, why would uif rejected my claim">
 {% endblock %}
 
 {% block canonical_href %}{{ url_for('home.why_uif_claim_rejected_cancelled', _external=True) }}{% endblock %}
 {% block og_url %}{{ url_for('home.why_uif_claim_rejected_cancelled', _external=True) }}{% endblock %}
-{% block og_title %}Why Was My UIF Claim Rejected or Cancelled? 2026 Guide{% endblock %}
-{% block og_description %}Common UIF claim rejection, cancellation and delay reasons, plus practical checks before contacting UIF.{% endblock %}
+{% block og_title %}Why Was My UIF Claim Rejected or Cancelled? | UIF Calculators{% endblock %}
+{% block og_description %}Why UIF claims get rejected, cancelled or blocked in South Africa, the most common causes, how to check what went wrong, and what to do next.{% endblock %}
 {% block twitter_url %}{{ url_for('home.why_uif_claim_rejected_cancelled', _external=True) }}{% endblock %}
-{% block twitter_title %}Why Was My UIF Claim Rejected or Cancelled? 2026 Guide{% endblock %}
-{% block twitter_description %}Common UIF claim rejection, cancellation and delay reasons, plus practical checks before contacting UIF.{% endblock %}
+{% block twitter_title %}Why Was My UIF Claim Rejected or Cancelled? | UIF Calculators{% endblock %}
+{% block twitter_description %}Why UIF claims get rejected, cancelled or blocked, the most common causes, and what to do next.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "{{ url_for('home.articles', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why Was My UIF Claim Rejected or Cancelled?",
+          "item": "{{ url_for('home.why_uif_claim_rejected_cancelled', _external=True) }}"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "{{ url_for('home.why_uif_claim_rejected_cancelled', _external=True) }}#article",
+      "mainEntityOfPage": "{{ url_for('home.why_uif_claim_rejected_cancelled', _external=True) }}",
+      "headline": "Why Was My UIF Claim Rejected or Cancelled?",
+      "description": "Why UIF claims get rejected, cancelled or blocked in South Africa, the most common causes, how to check what went wrong, and what to do next.",
+      "inLanguage": "en-ZA",
+      "datePublished": "2025-01-01",
+      "dateModified": "2026-07-29",
+      "author": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
-<section class="py-5 bg-gradient-primary">
+
+<article class="py-5">
   <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-10">
-        <span class="badge bg-danger-subtle text-danger fw-semibold border border-danger px-3 py-2 small rounded-pill mb-3">Claim issues</span>
-        <h1 class="fw-bold mb-3">Why Was My UIF Claim Rejected or Cancelled?</h1>
-        <p class="lead text-muted mb-0">A rejected, cancelled or blocked UIF claim usually points to an eligibility issue, missing information, document mismatch or payment verification problem.</p>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class=" text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.articles') }}" class="text-decoration-none">Articles</a></li>
+            <li class="breadcrumb-item active text-muted" aria-current="page">Claim Rejected or Cancelled</li>
+          </ol>
+        </nav>
+
+        <!-- Header -->
+        <header class="pb-4 mb-4 border-bottom">
+          <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.08em;">Troubleshooting</p>
+          <h1 class="fw-bold mb-3 font-serif" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;">
+            Why Was My UIF Claim Rejected or Cancelled?
+          </h1>
+          <p class="fs-5 text-secondary mb-3" style="max-width: 42rem;">
+            A rejected, cancelled or blocked claim almost always comes down to one of five things: eligibility, missing documents, a document mismatch, banking verification, or a payment problem. Here's how to work out which one is yours.
+          </p>
+          <div class="d-flex flex-wrap align-items-center text-muted small">
+            <span>UIF Calculators Team</span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>Updated <time datetime="2026-07">July 2026</time></span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>8 min read</span>
+          </div>
+        </header>
+
+        <!-- Quick answer -->
+        <aside class="border-start border-3 ps-3 my-4">
+          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> most rejections come down to resignation without a valid exception, a missing UI-19 or work seeker document, banking details that don't match your ID, outdated employer declarations, or credit days that have run out. Check your status first, then work through the list below to narrow it down.</p>
+        </aside>
+
+        <p class="fs-5 text-secondary">A rejected, cancelled or blocked UIF claim is usually a sign of one specific, fixable problem rather than a dead end. UIF doesn't reject claims arbitrarily, something in your eligibility, your documents, your banking details or your employer's declarations didn't line up with what the system needed to see. The trick is figuring out which one applies to you.</p>
+
+        <!-- Common reasons -->
+        <section id="reasons" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Common Reasons UIF Claims Fail</h2>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Resignation</h3>
+          <p class="text-secondary">Unemployment benefits are usually not paid after a voluntary resignation. The exception is constructive dismissal, where you resigned because your working conditions became genuinely unworkable, but this needs to be established through the CCMA before UIF will treat it as a valid claim. See <a href="{{ url_for('home.can_i_claim_uif_if_i_resigned') }}" class="fw-semibold">can I claim UIF if I resigned?</a> for the full picture.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Missing documents</h3>
+          <p class="text-secondary">Your UI-19, UI-2.8 banking form, or proof of work seeker registration may be missing, incomplete or incorrectly filled in. This is one of the most common and most fixable reasons a claim stalls. Our <a href="{{ url_for('uif.ui19_form_explained') }}" class="fw-semibold">UI-19 form guide</a> and <a href="{{ url_for('home.uif_documents_needed') }}" class="fw-semibold">UIF documents needed</a> checklist cover exactly what's required.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Banking verification</h3>
+          <p class="text-secondary">UIF checks that your bank account matches your ID and surname before it will release a payment. A typo on your UI-2.8 form, a recent name change, or a joint account not held solely in your name can all cause a mismatch and block payment.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Employer declarations</h3>
+          <p class="text-secondary">If your employer hasn't submitted your monthly UIF declarations, or submitted them late or incorrectly, UIF may not have enough of a contribution record to calculate your benefit. See <a href="{{ url_for('home.missing_uif_contributions') }}" class="fw-semibold">missing UIF contributions</a> for what to do if this applies to you.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">No credit days left</h3>
+          <p class="text-secondary mb-0">Your claim may be finalised, not rejected, simply because you've used up your available credit days. Credits build up roughly one day for every four days worked, and a previous claim can use up credits you were counting on. Read <a href="{{ url_for('home.uif_credit_days_explained') }}" class="fw-semibold">UIF credit days explained</a> for the full formula.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Rejected vs cancelled vs blocked -->
+        <section id="terms" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Rejected, Cancelled, Parked or Blocked: What's the Difference?</h2>
+          <p class="text-secondary">These words get used loosely, but on your actual claim they mean different things, and knowing which one you're dealing with changes what you do next.</p>
+          <div class="table-responsive">
+            <table class="table align-top">
+              <tbody class="text-secondary">
+                <tr>
+                  <td class="fw-semibold text-dark" style="width: 160px;">Rejected</td>
+                  <td>An eligibility or documentation problem has been assessed and your claim, as submitted, doesn't qualify. This can usually be corrected and resubmitted.</td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold text-dark">Cancelled</td>
+                  <td>The application or a specific payment request was stopped, either by you, your employer, or UIF, before it was fully assessed.</td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold text-dark">Parked</td>
+                  <td>Your claim is on hold pending a missing document or correction. It hasn't been refused, it's paused.</td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold text-dark">Payment Blocked</td>
+                  <td>Your claim has been approved in principle, but banking verification or a related issue is stopping the money from going out.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-secondary mb-0">For the complete list of status labels, see our main <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check online</a> guide.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- What to check first -->
+        <section id="what-to-check" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">What to Check First</h2>
+          <ol class="text-secondary ps-3">
+            <li class="mb-2">Check your latest claim status on <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF Online or by USSD</a>, and note the exact status wording, it tells you which category you're in.</li>
+            <li class="mb-2">Compare the termination reason on your UI-19 form with what actually happened. A mismatch here is a common, quiet cause of rejection.</li>
+            <li class="mb-2">Confirm that your banking details match your ID and UIF profile exactly, including your full names and surname.</li>
+            <li class="mb-0">Ask your former employer whether all your UIF declarations are up to date. This is worth doing even if everything else looks correct on your side.</li>
+          </ol>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- If you disagree -->
+        <section id="disagree" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">If You Think the Rejection Was Wrong</h2>
+          <p class="text-secondary">If you've checked the common causes above and still believe your claim was rejected in error, you have a few options. Start with your nearest Labour Centre, since staff there can see your actual file and explain the specific reason on record, which is often more detailed than the status label shown online.</p>
+          <p class="text-secondary mb-0">If the dispute is about the reason your employment ended, particularly around an unfair dismissal or constructive dismissal, that needs to go through the CCMA first. A UIF claim can sit and wait for that outcome, it doesn't need to be resolved before you approach the CCMA. For anything more complex, a labour practitioner or attorney who works in this area can advise on your specific case.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- FAQ -->
+        <section id="faq" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Frequently Asked Questions</h2>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Why is my UIF rejected?</h3>
+          <p class="text-secondary">Most often it's one of five things: resignation without a valid exception, a missing or incorrect document, a banking details mismatch, outdated employer declarations, or credit days that have already been used up. Checking your exact status label is the fastest way to narrow it down.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Can a rejected UIF claim be fixed and resubmitted?</h3>
+          <p class="text-secondary">Yes, in most cases. If the issue is a missing document, incorrect banking details, or an employer declaration gap, correcting the underlying problem and following up with UIF or your Labour Centre usually gets the claim moving again.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Why would UIF reject my claim if I was retrenched?</h3>
+          <p class="text-secondary">Retrenchment is a valid reason to claim, so a rejection here usually points to a documentation issue rather than eligibility, most often an incorrect termination reason on the UI-19, missing payslips, or an employer declaration that doesn't match.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">What does "UIF rejected status" actually mean on uFiling or UIF Online?</h3>
+          <p class="text-secondary">It means an assessor has reviewed your claim as submitted and found it doesn't currently meet the requirements. It's not necessarily final, correcting the specific issue and resubmitting is usually possible.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Who do I contact if I can't work out why my claim was rejected?</h3>
+          <p class="text-secondary">Your nearest Labour Centre is the best first stop, since they can see the specific reason on your file. See our <a href="{{ url_for('home.uif_call_centre_contact_list') }}" class="fw-semibold">UIF call centre and Labour Centre contact list</a> to find the right number for your area.</p>
+        </section>
+
+        <!-- Closing -->
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-secondary mb-3">Useful next reads: <a href="{{ url_for('home.can_i_claim_uif_if_i_resigned') }}" class="fw-semibold">can I claim UIF if I resigned?</a> and <a href="{{ url_for('home.missing_uif_contributions') }}" class="fw-semibold">missing UIF contributions</a>. If your claim is blocked on banking, check our <a href="{{ url_for('home.uif_banking_details_ui_2_8') }}" class="fw-semibold">UI-2.8 banking details guide</a>.</p>
+          <p class="text-muted small mb-0">This page explains common issues and is not an official decision on your claim. For a ruling on your specific case, contact UIF directly or visit your nearest Labour Centre.</p>
+        </footer>
+
       </div>
     </div>
   </div>
-</section>
+</article>
 
-<section class="py-5">
-  <div class="container">
-    <div class="row g-5">
-      <article class="col-lg-8 mx-auto">
-        <h2 class="h4 fw-bold text-primary">Common Reasons UIF Claims Fail</h2>
-        <ul class="list-check">
-          <li><strong>Resignation:</strong> unemployment benefits are usually not paid after voluntary resignation, unless a constructive dismissal case is proven through the CCMA.</li>
-          <li><strong>Missing documents:</strong> UI-19, UI-2.8 or work seeker registration proof may be missing or incorrect.</li>
-          <li><strong>Banking verification:</strong> incorrect or mismatched banking details can block payments.</li>
-          <li><strong>Employer declarations:</strong> missing or outdated declarations can delay benefit calculation.</li>
-          <li><strong>No credit days:</strong> the claim may be finalised if available credits are used up.</li>
-        </ul>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  a.fw-semibold {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #adb5bd;
+    text-underline-offset: 2px;
+  }
+  a.fw-semibold:hover {
+    text-decoration-color: currentColor;
+  }
+</style>
 
-        <hr class="my-4">
-
-        <h2 class="h4 fw-bold text-primary">What to Check First</h2>
-        <ol class="list-group list-group-numbered shadow-sm mb-4">
-          <li class="list-group-item p-3">Check your latest claim status on uFiling or by USSD.</li>
-          <li class="list-group-item p-3">Compare the termination reason on your UI-19 form with what happened.</li>
-          <li class="list-group-item p-3">Confirm that your banking details match your ID and UIF profile.</li>
-          <li class="list-group-item p-3">Ask your former employer whether all UIF declarations are up to date.</li>
-        </ol>
-
-        <div class="bg-warning-subtle p-3 rounded mb-4">
-          If the issue is legal or about the reason employment ended, get help from the CCMA, Department of Employment and Labour or a qualified labour practitioner.
-        </div>
-
-        <p>Useful next reads: <a href="{{ url_for('home.can_i_claim_uif_if_i_resigned') }}">Can I claim UIF if I resigned?</a> and <a href="{{ url_for('home.missing_uif_contributions') }}">missing UIF contributions</a>.</p>
-        <p class="small text-muted mb-0">This page explains common issues and is not an official decision on your claim.</p>
-      </article>
-    </div>
-  </div>
-</section>
 {% endblock %}

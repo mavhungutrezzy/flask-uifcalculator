@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% block title %}How to Check Your UIF Balance Online | UIF Calculators{% endblock %}
+
+{% block meta %}
+<meta name="description"
+      content="How to check your UIF balance online, what it actually shows, and why your credits might look lower than expected. Step by step guide for South Africa.">
+<meta name="keywords" content="how to check uif balance, uif balance check, check uif balance online, uif balance online, uif account balance">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.how_to_check_uif_balance', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.how_to_check_uif_balance', _external=True) }}{% endblock %}
+{% block og_title %}How to Check Your UIF Balance Online | UIF Calculators{% endblock %}
+{% block og_description %}How to check your UIF balance online, what it actually shows, and why your credits might look lower than expected.{% endblock %}
+{% block twitter_url %}{{ url_for('home.how_to_check_uif_balance', _external=True) }}{% endblock %}
+{% block twitter_title %}How to Check Your UIF Balance Online | UIF Calculators{% endblock %}
+{% block twitter_description %}How to check your UIF balance online, what it actually shows, and why your credits might look lower than expected.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "{{ url_for('home.articles', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to Check Your UIF Balance",
+          "item": "{{ url_for('home.how_to_check_uif_balance', _external=True) }}"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "{{ url_for('home.how_to_check_uif_balance', _external=True) }}#article",
+      "mainEntityOfPage": "{{ url_for('home.how_to_check_uif_balance', _external=True) }}",
+      "headline": "How to Check Your UIF Balance Online",
+      "description": "How to check your UIF balance online, what it actually shows, and why your credits might look lower than expected.",
+      "inLanguage": "en-ZA",
+      "datePublished": "2025-01-01",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<article class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class=" text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.articles') }}" class=" text-decoration-none">Articles</a></li>
+            <li class="breadcrumb-item active text-muted" aria-current="page">How to Check UIF Balance</li>
+          </ol>
+        </nav>
+
+        <!-- Header -->
+        <header class="pb-4 mb-4 border-bottom">
+          <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.08em;">Balance &amp; Credits</p>
+          <h1 class="fw-bold mb-3 font-serif" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;">
+            How to Check Your UIF Balance Online
+          </h1>
+          <p class="fs-5 text-secondary mb-3" style="max-width: 42rem;">
+            There's no single balance figure like a bank account, but your credit days and payment history tell you exactly where you stand. Here's where to find them and what they actually mean.
+          </p>
+          <div class="d-flex flex-wrap align-items-center text-muted small">
+            <span>UIF Calculators Team</span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>Updated <time datetime="2026-07">July 2026</time></span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>6 min read</span>
+          </div>
+        </header>
+
+        <!-- Quick answer -->
+        <aside class="border-start border-3 ps-3 my-4">
+          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> log into uFiling and open Benefit Payments, then View My Claims, to see your available credit days and payment history together. That's your UIF balance, there isn't a separate number to look up anywhere else.</p>
+        </aside>
+
+        <p class="fs-5 text-secondary">When people ask how to check their UIF balance, they usually mean one of two things: how many credit days they have left, or how much of their current claim has already been paid out. UIF shows both together on uFiling, under your claim summary. It's not a stored amount of money sitting in an account, it's a running total based on your contribution history and what's already been paid.</p>
+
+        <!-- What balance means -->
+        <section id="what-it-means" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">What "UIF Balance" Actually Means</h2>
+          <p class="text-secondary">Your UIF balance is really made up of two separate things.</p>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">Credit days.</strong> These build up while you're working and contributing, and get used up while you're claiming. Roughly one day of benefit accrues for every four days worked.</li>
+            <li><strong class="text-dark">Payment history.</strong> This shows what's already been paid out on your current or past claims, so you can see how much of your entitlement is left.</li>
+          </ul>
+          <p class="text-secondary mb-0">For the full formula behind credit days, see our guide on <a href="{{ url_for('home.uif_credit_days_explained') }}" class="fw-semibold">UIF credit days explained</a>.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- How to check -->
+        <section id="how-to-check" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">How to Check Your Balance on uFiling</h2>
+          <ol class="text-secondary ps-3">
+            <li class="mb-2">Log into uFiling with your ID number and password.</li>
+            <li class="mb-2">Go to Benefit Payments on your dashboard.</li>
+            <li class="mb-2">Select View My Claims.</li>
+            <li class="mb-0">Open your claim to see your remaining credit days and payment history in one view.</li>
+          </ol>
+          <p class="text-secondary mb-0">No uFiling account yet? You can also get a general sense of your status by USSD, dial <strong class="text-dark">*134*843#</strong> and follow the prompts, though the full credit breakdown is easier to read on uFiling itself. Our <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check online</a> guide covers both methods in detail.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Lower than expected -->
+        <section id="lower-than-expected" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Why Your Balance Might Look Lower Than Expected</h2>
+          <p class="text-secondary">If your credit days seem too low for how long you've worked, it's rarely a system error. A few common causes.</p>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">Missing employer declarations.</strong> If your employer hasn't submitted your monthly UIF contributions, those months won't count towards your credits. See <a href="{{ url_for('home.missing_uif_contributions') }}" class="fw-semibold">missing UIF contributions</a> for what to do.</li>
+            <li><strong class="text-dark">A previous claim used up some of your credits.</strong> Credits accumulate over a rolling period, so an earlier claim can reduce what's available now.</li>
+            <li><strong class="text-dark">Gaps in employment.</strong> Periods where you weren't contributing don't add to your balance, even if you were registered with UIF.</li>
+            <li><strong class="text-dark">Incorrect salary or dates on your UI-19.</strong> These feed directly into how your credits and payout are calculated. Check our <a href="{{ url_for('uif.ui19_form_explained') }}" class="fw-semibold">UI-19 form guide</a> if something looks off.</li>
+          </ul>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- FAQ -->
+        <section id="faq" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Frequently Asked Questions</h2>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">How do I check my UIF balance online?</h3>
+          <p class="text-secondary">Log into uFiling, go to Benefit Payments, then View My Claims. Your available credit days and payment history are shown together there.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Can I check my UIF balance without a uFiling account?</h3>
+          <p class="text-secondary">You can get a general status update by USSD, but the detailed credit day breakdown is only available once you're logged into uFiling. It's worth registering even if you're not claiming yet.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Does my UIF balance go down every month, even if I'm not claiming?</h3>
+          <p class="text-secondary">No. Credit days only reduce while you're actively receiving benefits. While you're working and contributing, your credit days build up rather than decrease.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Why does my balance show zero credit days?</h3>
+          <p class="text-secondary">This usually means your available credits have already been used on a previous claim, or your employer's contribution records are incomplete. Check your contribution history on uFiling, or contact the UIF call centre to confirm.</p>
+        </section>
+
+        <!-- Closing -->
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-secondary mb-3">Once you know your credit days, the <a href="{{ url_for('uif.unemployment_calculator') }}" class="fw-semibold">UIF calculator</a> can turn that into an estimated payout. And if your claim itself needs checking, our <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check online</a> guide covers every status label in plain language.</p>
+          <p class="text-muted small mb-0">Source: Department of Employment and Labour UIF and uFiling guidance.</p>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  a.fw-semibold {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #adb5bd;
+    text-underline-offset: 2px;
+  }
+  a.fw-semibold:hover {
+    text-decoration-color: currentColor;
+  }
+  .list-check {
+    list-style: none;
+    padding-left: 0;
+  }
+  .list-check li {
+    position: relative;
+    padding-left: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
+  .list-check li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: #6c757d;
+    font-weight: 600;
+  }
+</style>
+
+{% endblock %}

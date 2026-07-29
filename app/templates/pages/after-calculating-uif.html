@@ -1,322 +1,407 @@
-{% extends 'base.html' %}
-{% block title %}After You Calculate Your UIF: What It Means & What To Do Next{% endblock %}
+{% extends "base.html" %}
+
+{% block title %}After You Calculate Your UIF: What It Means and What To Do Next{% endblock %}
 
 {% block meta %}
-<meta name="description" content="You've got a UIF estimate — now what? Here's what your credit days and monthly payout actually mean, how long UIF really takes to pay out, and exactly what to do next.">
-{% endblock meta %}
+<meta name="description" content="What your UIF estimate actually means, realistic processing timelines, and the exact steps to turn a calculator number into an approved claim.">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.after_calculating_uif', _external=True) }}{% endblock %}
+
+{% block og_url %}{{ url_for('home.after_calculating_uif', _external=True) }}{% endblock %}
+{% block og_title %}After You Calculate Your UIF: What It Means and What To Do Next{% endblock %}
+{% block og_description %}A UIF estimate is a starting point, not a claim. Here's what determines whether it turns into an actual payment, and how long that really takes.{% endblock %}
+
+{% block twitter_url %}{{ url_for('home.after_calculating_uif', _external=True) }}{% endblock %}
+{% block twitter_title %}After You Calculate Your UIF: What It Means and What To Do Next{% endblock %}
+{% block twitter_description %}A UIF estimate is a starting point, not a claim. Here's what determines whether it turns into an actual payment, and how long that really takes.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "{{ url_for('home.articles', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "After You Calculate Your UIF",
+          "item": "{{ url_for('home.after_calculating_uif', _external=True) }}"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "After You Calculate Your UIF: What It Means and What To Do Next",
+      "description": "What your UIF estimate actually means, realistic processing timelines, and the exact steps to turn a calculator number into an approved claim.",
+      "inLanguage": "en-ZA",
+      "datePublished": "2026-07-29",
+      "dateModified": "2026-07-29",
+      "author": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "UIF Calculators"
+      },
+      "mainEntityOfPage": "{{ url_for('home.after_calculating_uif', _external=True) }}"
+    }
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
-<section class="py-5">
+<style>
+  html { scroll-behavior: smooth; }
+  a.fw-semibold {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #adb5bd;
+    text-underline-offset: 2px;
+  }
+  a.fw-semibold:hover { text-decoration-color: currentColor; }
+  .list-check { list-style: none; padding-left: 0; }
+  .list-check li { position: relative; padding-left: 1.6rem; margin-bottom: 0.75rem; }
+  .list-check li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: #6c757d;
+    font-weight: 600;
+  }
+</style>
+
+<article class="py-5">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-8 col-xl-7">
+      <div class="col-lg-8">
 
-        <h1 class="fw-bold mb-2">After You Calculate Your UIF: What It Means & What To Do Next</h1>
-        <p class="text-secondary mb-5">
-          A UIF number on a screen is only useful once you know what's behind it and what happens between now and
-          your first payment. Here's the part most calculators skip.
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class="text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.articles') }}" class="text-decoration-none">Articles</a></li>
+            <li class="breadcrumb-item active" aria-current="page">After You Calculate Your UIF</li>
+          </ol>
+        </nav>
+
+        <header class="pb-4 mb-4 border-bottom">
+          <div class="text-uppercase text-muted small fw-semibold" style="letter-spacing:.08em;">Claiming</div>
+          <h1 class="font-serif mt-2" style="font-size:clamp(2rem, 4vw, 3rem); line-height:1.15;">
+            After You Calculate Your UIF: What It Means and What To Do Next
+          </h1>
+          <p class="fs-5 text-secondary mt-3">
+            A UIF number on a screen is only useful once you know what's behind it, and what happens between now and your first payment.
+          </p>
+          <div class="text-muted small mt-3">
+            UIF Calculators Team &middot; Updated <time datetime="2026-07">July 2026</time> &middot; 8 min read
+          </div>
+        </header>
+
+        <p>
+          If you've just run a UIF estimate, you've got a total benefit amount,
+          a number of credit days, and a rough monthly payout. That's a
+          starting point, not a claim decision. Here's what actually
+          determines whether that number turns into money in your account,
+          and how long it realistically takes.
         </p>
 
-        <article class="uif-result-article">
+        <hr class="my-5">
 
-          <p class="lead">
-            If you've just run a UIF estimate, you've got a total benefit amount, a number of credit days, and a
-            rough monthly payout. That's a starting point, not a claim decision &mdash; here's what actually
-            determines whether that number turns into money in your account, and how long it realistically takes.
-          </p>
+        <h2 class="h3 fw-bold font-serif">What Your Estimate Actually Means</h2>
+        <p>
+          Credit days come from a simple rule UIF uses: for every 4 days you
+          worked and contributed, you bank 1 day of benefit, up to a hard
+          ceiling of 365 days if you've contributed for 4 years or more.
+          That's why two people earning the same salary can end up with very
+          different totals. The number of days you've paid in matters as much
+          as how much you earned.
+        </p>
+        <p>
+          The monthly figure isn't a flat percentage of your old salary
+          either. UIF uses a sliding income replacement scale that pays lower
+          earners a higher percentage of their previous income, up to around
+          60%, and higher earners a lower percentage, down to about 38%,
+          tapering to a flat 20% once you're past 238 credit days. It's
+          designed to cushion lower income households more than higher
+          earners. For the full formula with worked examples, see our
+          <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="fw-semibold">guide to how UIF payouts are calculated</a>.
+        </p>
+        <p>
+          One thing worth being upfront about: any calculator estimate is
+          just that, an estimate. Your actual payout can differ if your
+          employer's UIF declarations aren't up to date, if your salary
+          history doesn't match what you entered, or if you've already used
+          up credit days from a previous claim.
+        </p>
 
-          <h2>What your estimate actually means</h2>
-          <p>
-            Credit days come from a simple rule the UIF uses: for every 4 days you worked and contributed, you bank
-            1 day of benefit, up to a hard ceiling of 365 days if you've contributed for 4 years or more. That's why
-            two people earning the same salary can end up with very different totals &mdash; the number of days
-            you've paid in matters as much as how much you earned.
-          </p>
-          <p>
-            The monthly figure isn't a flat percentage of your old salary either. UIF uses a sliding income
-            replacement scale that pays lower earners a higher percentage of their previous income (up to around
-            60%) and higher earners a lower percentage, down to about 38%, tapering to a flat 20% once you're past
-            238 credit days. It's designed to cushion lower-income households more than higher earners. If you want
-            the full formula with worked examples, we've broken it down in our
-            <a href="https://uifcalculators.co.za/uif/how-to-calculate-uif/">UIF calculation guide</a>.
-          </p>
-          <p>
-            One thing worth being upfront about: any calculator estimate is just that &mdash; an estimate. Your
-            actual payout can differ if your employer's UIF declarations aren't up to date, if your salary history
-            doesn't match what you entered, or if you've already used up credit days from a previous claim.
-          </p>
+        <hr class="my-5">
 
-          <div class="my-4 text-center">
-            <!-- AdSense in-article unit -->
-            <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="fluid" data-ad-layout="in-article"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
-          </div>
+        <h2 class="h3 fw-bold font-serif">How Long This Actually Takes</h2>
+        <p>
+          This is the part most people underestimate. UIF doesn't pay out the
+          day you apply, and it doesn't run on a fixed monthly calendar the
+          way a salary does. Your payment date depends entirely on when your
+          specific claim clears each stage.
+        </p>
+        <dl class="row border-top border-bottom py-3">
+          <dt class="col-sm-4 text-muted small text-uppercase fw-semibold" style="letter-spacing:.05em;">Assessment target</dt>
+          <dd class="col-sm-8">
+            About 15 to 20 working days for a complete, correctly documented
+            unemployment claim, per the Department of Employment and Labour's
+            own service standards.
+          </dd>
+          <dt class="col-sm-4 text-muted small text-uppercase fw-semibold" style="letter-spacing:.05em;">Payment after approval</dt>
+          <dd class="col-sm-8">
+            About 7 to 10 working days once your claim is approved.
+          </dd>
+          <dt class="col-sm-4 text-muted small text-uppercase fw-semibold" style="letter-spacing:.05em;">Ongoing payments</dt>
+          <dd class="col-sm-8">
+            You'll need to sign a continuation of benefits roughly every 4
+            weeks to confirm you're still unemployed. Miss that step and your
+            payments pause, even if you're still eligible.
+          </dd>
+        </dl>
+        <p>
+          Those are the targets, not guarantees. In practice, the two things
+          that blow past those timelines almost every time are incomplete
+          employer declarations and banking details that don't quite match
+          your ID.
+        </p>
 
-          <h2>How long this actually takes</h2>
-          <p>
-            This is the part most people underestimate. UIF doesn't pay out the day you apply, and it doesn't run on
-            a fixed monthly calendar the way SASSA grants do &mdash; your payment date depends entirely on when your
-            specific claim clears each stage.
+        <aside class="border-start border-3 ps-3 my-4">
+          <p class="mb-0">
+            Daily Maverick reported on a retrenchment claimant who was paid on
+            time for months, until UIF moved to an online signing system and
+            his local office turned him away and told him to sign online
+            instead. The online system never registered his claim, and he
+            described the back and forth that followed as tedious, with
+            officials giving him information that didn't match what the
+            system showed. It isn't the norm, but it's common enough that
+            checking your status regularly, rather than assuming no news is
+            good news, is worth the habit.
           </p>
-          <p>
-            Going by the Department of Employment and Labour's own service standards: a complete, correctly
-            documented unemployment claim is meant to be assessed within about 15&ndash;20 working days, and once
-            it's approved, the actual payment is meant to follow within 7&ndash;10 working days. For ongoing monthly
-            payments after your first one, you'll need to "sign" a continuation of benefits roughly every 4 weeks to
-            confirm you're still unemployed &mdash; miss that step and your payments pause even if you're still
-            eligible.
-          </p>
-          <p>
-            Those are the targets, not guarantees. In practice, the two things that blow past those timelines almost
-            every time are incomplete employer declarations and banking details that don't quite match your ID. One
-            claimant's experience, reported by
-            <a href="https://www.dailymaverick.co.za/article/2025-08-06-uif-how-to-make-process-as-stress-free-as-possible/">Daily Maverick</a>,
-            is a useful reality check: Christopher Senyolo filed his retrenchment claim in January and was paid on
-            time for months, until UIF moved to an online signing system and he was turned away from his local office
-            and told to sign online instead &mdash; except the online system never registered his claim. He described
-            the process that followed as "tedious due to constant back-and-forth," with mismatched information
-            between what staff told him in person and what the system showed. It's not the norm, but it's common
-            enough that checking your status regularly, rather than assuming "no news is good news," is worth the
-            habit.
-          </p>
+        </aside>
 
-          <h2>What to actually do right now</h2>
-          <p>
-            An estimate doesn't submit itself. Here's the realistic order of operations:
-          </p>
-          <p>
-            <strong>Get your documents together first.</strong> You'll need your 13-digit bar-coded ID or passport,
-            a completed UI-19 form from your employer, your last six payslips, and proof that you've registered as a
-            work-seeker. The UI-19 is usually the one that causes delays, because your former employer has to
-            complete it accurately &mdash; if they drag their feet, ask in writing so there's a paper trail. Our
-            <a href="https://uifcalculators.co.za/articles/uif-documents-needed/">full documents checklist</a> covers
-            exactly what each form is for and where to get it.
-          </p>
-          <p>
-            <strong>Then apply through uFiling or your nearest Labour Centre.</strong> Online is faster for most
-            people if your documents are in order; in-person is usually better if your situation is complicated
-            (disputed dismissal, missing employer records, etc.) because you can talk to a claims officer directly.
-            We've written a step-by-step walkthrough of the
-            <a href="https://uifcalculators.co.za/articles/how-to-claim-uif-online/">uFiling claim process</a>,
-            including what the status messages like "Sent to Assessor" or "Sent to Paymaster" actually mean.
-          </p>
-          <p>
-            <strong>Keep your reference number and check status yourself.</strong> Don't wait for UIF to contact you
-            &mdash; log into uFiling or dial <strong>*134*843#</strong> periodically. If something looks stuck, our
-            <a href="https://uifcalculators.co.za/uif-status-check-online">status check guide</a> explains what each
-            status actually means and when it's worth calling in versus just waiting.
-          </p>
+        <hr class="my-5">
 
-          <div class="my-4 text-center">
-            <!-- AdSense in-article unit -->
-            <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="fluid" data-ad-layout="in-article"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
-          </div>
+        <h2 class="h3 fw-bold font-serif">What To Actually Do Right Now</h2>
+        <p>An estimate doesn't submit itself. Here's the realistic order of operations.</p>
 
-          <h2>If your situation isn't a straightforward retrenchment</h2>
-          <p>
-            The standard UIF calculator assumes ordinary unemployment eligibility, but a few common situations change
-            things:
-          </p>
-          <p>
-            <strong>If you resigned</strong> &mdash; even if it felt forced &mdash; UIF generally won't pay
-            unemployment benefits, because the fund is meant for people who lost work through no fault of their own.
-            The one real exception is constructive dismissal proven through the CCMA. We go through what does and
-            doesn't count in
-            <a href="https://uifcalculators.co.za/articles/can-i-claim-uif-if-i-resigned/">can I claim UIF if I resigned?</a>
-          </p>
-          <p>
-            <strong>If your fixed-term contract simply ended</strong>, you're usually fine to claim &mdash; that
-            counts as your employment ending through no fault of your own, not a resignation. Just make sure your
-            UI-19 reflects "contract expired" accurately, since an incorrect termination reason on that form is a
-            common cause of delays.
-          </p>
-          <p>
-            <strong>If this is for maternity, illness, or adoption leave</strong> rather than unemployment, the
-            calculation works differently &mdash; it's a top-up on your salary rather than a replacement of it, and
-            it's capped at 121 days. Our
-            <a href="https://uifcalculators.co.za/uif/leave-benefit-calculator/">maternity and leave benefit calculator</a>
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Get your documents together first</h3>
+        <p>
+          You'll need your 13-digit bar-coded ID or passport, a completed
+          UI-19 form from your employer, your last six payslips, and proof
+          that you've registered as a work seeker. The UI-19 is usually the
+          one that causes delays, because your former employer has to
+          complete it accurately. If they're dragging their feet, ask in
+          writing so there's a paper trail. Our
+          <a href="{{ url_for('home.uif_documents_needed') }}" class="fw-semibold">full documents checklist</a>
+          covers exactly what each form is for and where to get it.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Then apply through uFiling or your nearest labour centre</h3>
+        <p>
+          Online is faster for most people if your documents are in order. In
+          person is usually better if your situation is complicated, such as
+          a disputed dismissal or missing employer records, because you can
+          talk to a claims officer directly. See our
+          <a href="{{ url_for('home.how_to_claim_uif_online') }}" class="fw-semibold">step by step uFiling claim guide</a>
+          for what to expect at each stage.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Keep your reference number and check status yourself</h3>
+        <p>
+          Don't wait for UIF to contact you. Log into uFiling or dial the UIF
+          USSD code periodically. If something looks stuck, our
+          <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">status check guide</a>
+          explains what each status actually means and when it's worth
+          calling in versus just waiting.
+        </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">If Your Situation Isn't a Straightforward Retrenchment</h2>
+        <p>
+          The standard UIF calculator assumes ordinary unemployment
+          eligibility, but a few common situations change things.
+        </p>
+        <ul class="list-check">
+          <li>
+            If you resigned, even if it felt forced, UIF generally won't pay
+            unemployment benefits, since the fund is meant for people who
+            lost work through no fault of their own. The one real exception
+            is constructive dismissal proven through the CCMA. See
+            <a href="{{ url_for('home.can_i_claim_uif_if_i_resigned') }}" class="fw-semibold">can I claim UIF if I resigned</a>
+            for what does and doesn't count.
+          </li>
+          <li>
+            If your fixed-term contract simply ended, you're usually fine to
+            claim. That counts as your employment ending through no fault of
+            your own, not a resignation. Just make sure your UI-19 reflects
+            "contract expired" accurately, since an incorrect termination
+            reason on that form is a common cause of delays. See
+            <a href="{{ url_for('home.uif_fixed_term_contracts') }}" class="fw-semibold">UIF for fixed-term contracts</a>.
+          </li>
+          <li>
+            If this is for maternity, illness, or adoption leave rather than
+            unemployment, the calculation works differently. It's a top up on
+            your salary rather than a replacement of it, and it's capped at
+            121 days. Our
+            <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="fw-semibold">maternity and leave benefit calculator</a>
             estimates that separately.
-          </p>
+          </li>
+        </ul>
 
-          <h2>If something goes wrong</h2>
-          <p>
-            Claims get rejected, cancelled, or blocked more often than people expect, and it's rarely personal
-            &mdash; it's almost always one of a handful of fixable issues: a resignation flagged as voluntary, a
-            missing UI-19 or UI-2.8, banking details that don't match your ID, or an employer who hasn't submitted
-            declarations. If your payment status changes unexpectedly or your claim stalls, our
-            <a href="https://uifcalculators.co.za/articles/why-uif-claim-rejected-cancelled/">guide to rejected and cancelled claims</a>
-            and our
-            <a href="https://uifcalculators.co.za/articles/uif-payment-dates-and-delays/">payment delays guide</a>
-            both walk through what to check before you call the helpline, which will save you a fair amount of hold
-            time.
-          </p>
+        <hr class="my-5">
 
-          <h2>Where to actually go</h2>
-          <p>
-            For most people, the fastest route is applying online through
-            <a href="https://ufiling.labour.gov.za">uFiling</a> directly on the Department's own site &mdash; that's
-            where your claim status, banking form (UI-2.8), and continuation of benefits all live once you're
-            registered. If you'd rather deal with a person, you can find your nearest Labour Centre through the
-            <a href="https://www.labour.gov.za/contacts/pages/contacts-uif.aspx">Department of Employment and Labour's contact page</a>.
-            For phone queries, the toll-free UIF Call Centre number is <strong>0800 030 007</strong>, Monday to
-            Friday, 8am&ndash;5pm.
-          </p>
-
-          <div class="border rounded-3 p-4 my-4 bg-light">
-            <h2 class="h5 fw-bold mb-3">What other claimants say</h2>
-            <p class="text-secondary small mb-2">
-              Beyond the official targets, it's worth knowing what actually trips people up in practice. A Momentum
-              Investments economist quoted in the same Daily Maverick piece noted that claimants commonly face delays
-              well past the standard processing window, long queues at Labour Centres, and recurring issues with the
-              online platform itself &mdash; not because the rules changed, but because the system is under
-              volume pressure. A labour relations specialist cited in the same article put the safe filing window at
-              six to twelve months after losing your job, which is worth keeping in mind if you're tempted to wait
-              until you're certain you won't find new work first.
-            </p>
-            <p class="text-secondary small mb-0">
-              The practical takeaway from claimant reports across several sources is consistent: the single biggest
-              predictor of a smooth claim is document accuracy up front, not persistence after the fact. Get the
-              UI-19 termination reason right, get your banking details matched to your ID exactly, and most of the
-              "why is my UIF stuck" problems never happen in the first place.
-            </p>
-          </div>
-
-          <div class="my-4 text-center">
-            <!-- AdSense display unit -->
-            <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
-          </div>
-
-          <h2>Quick answers</h2>
-          <div class="accordion accordion-flush" id="uifFaqAccordion">
-
-            <div class="accordion-item">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                  Is a UIF calculator estimate the amount UIF will actually pay me?
-                </button>
-              </h3>
-              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#uifFaqAccordion">
-                <div class="accordion-body text-secondary small">
-                  No &mdash; it's an estimate based on the salary and contribution period you enter. Your official
-                  amount is set by the Department of Employment and Labour once your claim is assessed, and can
-                  differ if your employer's records, salary history, or documents don't match exactly.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                  How soon after applying will I get paid?
-                </button>
-              </h3>
-              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#uifFaqAccordion">
-                <div class="accordion-body text-secondary small">
-                  If your documents are complete and accurate, official targets are roughly 15&ndash;20 working days
-                  for assessment plus 7&ndash;10 working days for payment after approval. In practice, incomplete
-                  employer declarations or banking mismatches are the most common causes of it taking longer.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                  Can I still work while claiming UIF?
-                </button>
-              </h3>
-              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#uifFaqAccordion">
-                <div class="accordion-body text-secondary small">
-                  Standard unemployment benefits require you to be fully unemployed and registered as a work-seeker.
-                  Once a new employer submits a UI-19 registering you, your unemployment payments stop.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                  What if I disagree with my claim outcome?
-                </button>
-              </h3>
-              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#uifFaqAccordion">
-                <div class="accordion-body text-secondary small">
-                  You can appeal a Claims Officer's decision by submitting a UI-12 form to your nearest Labour Centre.
-                  Keep your reference number and any correspondence handy when you do.
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <script type="application/ld+json">
-          {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Is a UIF calculator estimate the amount UIF will actually pay me?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No, it's an estimate based on the salary and contribution period entered. The official amount is set by the Department of Employment and Labour once the claim is assessed, and can differ if employer records, salary history, or documents don't match exactly."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How soon after applying will I get paid?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "If documents are complete and accurate, official targets are roughly 15-20 working days for assessment plus 7-10 working days for payment after approval. Incomplete employer declarations or banking mismatches are the most common causes of delay."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can I still work while claiming UIF?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Standard unemployment benefits require being fully unemployed and registered as a work-seeker. Once a new employer submits a UI-19 registering the claimant, unemployment payments stop."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What if I disagree with my UIF claim outcome?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Claimants can appeal a Claims Officer's decision by submitting a UI-12 form to their nearest Labour Centre."
-                }
-              }
-            ]
-          }
-          </script>
-
-        </article>
-
-        <div class="border-top pt-4 mt-4 mb-4">
-          <h2 class="h5 fw-bold mb-3">Related reads</h2>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="https://uifcalculators.co.za/uif/ui19-form-explained/">What the UI-19 form is and why it affects your payout</a></li>
-            <li class="mb-2"><a href="https://uifcalculators.co.za/articles/uif-documents-needed/">Every document you need before applying</a></li>
-            <li class="mb-2"><a href="https://uifcalculators.co.za/articles/how-to-claim-uif-online/">Step-by-step: claiming UIF through uFiling</a></li>
-            <li class="mb-2"><a href="https://uifcalculators.co.za/articles/">All UIF guides and articles</a></li>
-          </ul>
-        </div>
-
-        <div class="text-center mb-4">
-          <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-dark px-4 py-2">
-            Run Your UIF Calculation
-          </a>
-        </div>
-
-        <p class="text-center text-muted small">
-          This is an independent estimation tool, not affiliated with the Department of Employment and Labour or
-          UIF. See our <a href="https://uifcalculators.co.za/disclaimer/">disclaimer</a> for details.
+        <h2 class="h3 fw-bold font-serif">If Something Goes Wrong</h2>
+        <p>
+          Claims get rejected, cancelled, or blocked more often than people
+          expect, and it's rarely personal. It's almost always one of a
+          handful of fixable issues: a resignation flagged as voluntary, a
+          missing UI-19 or UI-2.8, banking details that don't match your ID,
+          or an employer who hasn't submitted declarations. If your payment
+          status changes unexpectedly or your claim stalls, our guides to
+          <a href="{{ url_for('home.why_uif_claim_rejected_cancelled') }}" class="fw-semibold">rejected and cancelled claims</a>
+          and
+          <a href="{{ url_for('home.uif_payment_dates_and_delays') }}" class="fw-semibold">payment dates and delays</a>
+          both walk through what to check before you call the helpline,
+          which will save you a fair amount of hold time. If the hold up
+          turns out to be banking related, the
+          <a href="{{ url_for('home.uif_banking_details_ui_2_8') }}" class="fw-semibold">UIF banking details and UI-2.8 guide</a>
+          covers the usual fix.
         </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">Where To Actually Go</h2>
+        <p>
+          For most people, the fastest route is applying online through
+          uFiling directly on the Department's own site. That's where your
+          claim status, banking form, and continuation of benefits all live
+          once you're registered. If you'd rather deal with a person, you can
+          find your nearest labour centre through the Department of
+          Employment and Labour's contact page, or reach the
+          <a href="{{ url_for('home.uif_call_centre_contact_list') }}" class="fw-semibold">UIF call centre</a>
+          for phone queries.
+        </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">What Other Claimants Say</h2>
+        <p>
+          Beyond the official targets, it's worth knowing what actually trips
+          people up in practice. Reporting in the same Daily Maverick piece
+          quoted a Momentum Investments economist noting that claimants
+          commonly face delays well past the standard processing window,
+          long queues at labour centres, and recurring issues with the
+          online platform itself, not because the rules changed, but because
+          the system is under volume pressure. A labour relations specialist
+          cited in the same article put the safe filing window at six to
+          twelve months after losing your job, which is worth keeping in mind
+          if you're tempted to wait until you're certain you won't find new
+          work first.
+        </p>
+        <p>
+          The practical takeaway from claimant reports across several sources
+          is consistent. The single biggest predictor of a smooth claim is
+          document accuracy up front, not persistence after the fact. Get the
+          UI-19 termination reason right, get your banking details matched to
+          your ID exactly, and most of the "why is my UIF stuck" problems
+          never happen in the first place.
+        </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">Quick Answers</h2>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Is a UIF calculator estimate the amount UIF will actually pay me?</h3>
+        <p>
+          It's a close estimate, not a guarantee. The formula behind it is
+          the same one UIF uses, but your final figure depends on your
+          verified salary history, your actual credit days, and whether your
+          employer's declarations match what you entered.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">How soon after applying will I get paid?</h3>
+        <p>
+          If your claim is complete and correctly documented, the Department's
+          own targets are roughly 15 to 20 working days to assess it, then
+          another 7 to 10 working days to pay once approved. Incomplete
+          documents or mismatched banking details are the most common reasons
+          this stretches out further in practice.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">Can I still work while claiming UIF?</h3>
+        <p>
+          Unemployment benefits are meant for periods when you are not
+          working. If you start new employment, you generally need to report
+          it, since continuing to claim while employed can put your benefit
+          at risk. Reduced hours or short time work has its own separate
+          benefit category rather than falling under the standard
+          unemployment claim.
+        </p>
+
+        <h3 class="h6 text-uppercase text-muted fw-semibold" style="letter-spacing:.05em;">What if I disagree with my claim outcome?</h3>
+        <p>
+          You can generally query the decision with your labour centre or the
+          call centre first, since many issues turn out to be a document or
+          declaration problem rather than a genuine rejection. If the
+          termination reason itself is in dispute, our
+          <a href="{{ url_for('home.why_uif_claim_rejected_cancelled') }}" class="fw-semibold">rejected and cancelled claims guide</a>
+          covers the appeal process in more detail.
+        </p>
+
+        <hr class="my-5">
+
+        <h2 class="h3 fw-bold font-serif">Related Reads</h2>
+        <ul class="list-check">
+          <li>
+            <a href="{{ url_for('uif.ui19_form_explained') }}" class="fw-semibold">What the UI-19 form is and why it affects your payout</a>
+          </li>
+          <li>
+            <a href="{{ url_for('home.uif_documents_needed') }}" class="fw-semibold">Every document you need before applying</a>
+          </li>
+          <li>
+            <a href="{{ url_for('home.how_to_claim_uif_online') }}" class="fw-semibold">Step by step: claiming UIF through uFiling</a>
+          </li>
+          <li>
+            <a href="{{ url_for('home.articles') }}" class="fw-semibold">All UIF guides and articles</a>
+          </li>
+        </ul>
+
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-muted small mb-1">
+            Sources: Department of Employment and Labour service standards,
+            and Daily Maverick reporting on UIF claim processing (August
+            2025).
+          </p>
+          <p class="text-muted small mb-0">
+            This page is for general information only. Confirm processing
+            timelines and eligibility with UIF or the Department of
+            Employment and Labour, since individual claims can vary.
+          </p>
+        </footer>
 
       </div>
     </div>
   </div>
-</section>
-{% endblock content %}
+</article>
+{% endblock %}
