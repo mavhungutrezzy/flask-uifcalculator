@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %}Check UIF Status Online South Africa 2026 | UIF Login, Balance & Payment Status{% endblock %}
+{% block title %}UIF Status Check Online | South Africa Guide{% endblock %}
 
 {% block meta %}
 <meta name="description"
-      content="Check your UIF status online through uFiling or USSD. See your UIF payment status, balance, credits and claim progress. Simple step by step guide for South Africa.">
-<meta name="keywords" content="check uif status online, uif status check, how to check uif status, uif payment status check, uif balance check, uif login status, uif credits check, ufiling status check, uif claim status, check uif balance online">
+      content="Check your UIF status online via uFiling or USSD. See claim progress, payment updates, balance and what each UIF status means.">
+<meta name="keywords" content="uif status check, check uif status online, uif payment status, ufiling status check, uif balance check">
 {% endblock %}
 
 {% block canonical_href %}{{ url_for('home.uif_status_check_online', _external=True) }}{% endblock %}
 {% block og_url %}{{ url_for('home.uif_status_check_online', _external=True) }}{% endblock %}
-{% block og_title %}Check UIF Status Online South Africa 2026 | UIF Login, Balance & Payment Status{% endblock %}
-{% block og_description %}Check your UIF status, payment progress, balance and credits online through uFiling or USSD. Simple step by step guide for South Africa.{% endblock %}
+{% block og_title %}UIF Status Check Online | South Africa Guide{% endblock %}
+{% block og_description %}Check your UIF status via uFiling or USSD, see payment updates, and understand what each claim status means.{% endblock %}
 {% block twitter_url %}{{ url_for('home.uif_status_check_online', _external=True) }}{% endblock %}
-{% block twitter_title %}Check UIF Status Online South Africa 2026 | UIF Login, Balance & Payment Status{% endblock %}
-{% block twitter_description %}Check UIF status online via uFiling or USSD. See your payment status, balance and credits, and understand what each UIF status means.{% endblock %}
+{% block twitter_title %}UIF Status Check Online | South Africa Guide{% endblock %}
+{% block twitter_description %}Check UIF status via uFiling or USSD, view payment updates, and understand each claim status.{% endblock %}
 
 {% block structured_data %}
 {{ super() }}
@@ -49,8 +49,8 @@
       "@type": "WebPage",
       "@id": "{{ url_for('home.uif_status_check_online', _external=True) }}#webpage",
       "url": "{{ url_for('home.uif_status_check_online', _external=True) }}",
-      "name": "Check UIF Status Online South Africa 2026",
-      "description": "Check your UIF status online through uFiling or USSD. See your payment progress, balance, credits and claim approval with this simple status check guide.",
+      "name": "UIF Status Check Online",
+      "description": "Check your UIF status via uFiling or USSD, see payment updates, and understand each claim status.",
       "inLanguage": "en-ZA",
       "isPartOf": {
         "@id": "{{ url_for('home.index', _external=True) }}#website"
