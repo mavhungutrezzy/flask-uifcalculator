@@ -152,6 +152,12 @@ def after_calculating_uif():
 def maternity_leave_south_africa():
     return render_template("pages/maternity-leave-south-africa.html")
 
+
+@home_bp.route("/sassa-status-check")
+def sassa_status_check():
+    return render_template("pages/sassa-status-check.html")
+
+
 @home_bp.route("/calculators/vat-calculator/", methods=["GET", "POST"])
 def vat_calculator():
     if request.method == "POST":
