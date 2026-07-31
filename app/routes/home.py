@@ -158,6 +158,11 @@ def sassa_status_check():
     return render_template("pages/sassa-status-check.html")
 
 
+@home_bp.route("/nsfas-status-check")
+def nsfas_status_check():
+    return render_template("pages/nsfas-status-check.html")
+
+
 @home_bp.route("/calculators/vat-calculator/", methods=["GET", "POST"])
 def vat_calculator():
     if request.method == "POST":
