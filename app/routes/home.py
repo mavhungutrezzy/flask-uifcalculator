@@ -153,9 +153,71 @@ def maternity_leave_south_africa():
     return render_template("pages/maternity-leave-south-africa.html")
 
 
+@home_bp.route("/sassa")
+def sassa():
+    return render_template("pages/sassa.html")
+
+
 @home_bp.route("/sassa-status-check")
 def sassa_status_check():
     return render_template("pages/sassa-status-check.html")
+
+
+@home_bp.route("/sassa-payment-dates")
+def sassa_payment_dates():
+    return render_template("pages/sassa-payment-dates.html")
+
+
+@home_bp.route("/sassa-how-to-apply")
+def sassa_how_to_apply():
+    return render_template("pages/sassa-how-to-apply.html")
+
+
+@home_bp.route("/sassa-appeal")
+def sassa_appeal():
+    return render_template("pages/sassa-appeal.html")
+
+
+@home_bp.route("/sassa-pending")
+def sassa_pending():
+    return render_template("pages/sassa-pending.html")
+
+
+@home_bp.route("/sassa-declined")
+def sassa_declined():
+    return render_template("pages/sassa-declined.html")
+
+
+@home_bp.route("/sassa-payment-not-received")
+def sassa_payment_not_received():
+    return render_template("pages/sassa-payment-not-received.html")
+
+
+@home_bp.route("/sassa-change-phone-number")
+def sassa_change_phone_number():
+    return render_template("pages/sassa-change-phone-number.html")
+
+
+@home_bp.route("/sassa-banking-details")
+def sassa_banking_details():
+    return render_template("pages/sassa-banking-details.html")
+
+
+@home_bp.route("/sassa-eligibility")
+def sassa_eligibility():
+    return render_template("pages/sassa-eligibility.html")
+
+
+@home_bp.route("/sassa-status-not-working")
+def sassa_status_not_working():
+    return render_template("pages/sassa-status-not-working.html")
+
+
+@home_bp.route("/sassa-srd-r370")
+def sassa_srd_r370():
+    return render_template("pages/sassa-srd-r370.html")
+
+
 
 
 @home_bp.route("/nsfas-status-check")

@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block title %}SASSA Banking Details 2026: How to Add or Update Your Bank Account{% endblock %}
+
+{% block meta %}
+<meta name="description"
+  content="Add, change or fix your SASSA banking details for the SRD R370 grant. Step-by-step guide to updating your bank account on the SRD portal to make sure payments arrive.">
+<meta name="keywords"
+  content="sassa banking details, sassa bank details, sassa update banking details, srd banking details, sassa change bank account, sassa add bank account, sassa banking details update">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.sassa_banking_details', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.sassa_banking_details', _external=True) }}{% endblock %}
+{% block og_title %}SASSA Banking Details 2026: How to Add or Update Your Bank Account{% endblock %}
+{% block og_description %}Add, change or fix your SASSA banking details for the SRD R370 grant.{% endblock %}
+{% block twitter_url %}{{ url_for('home.sassa_banking_details', _external=True) }}{% endblock %}
+{% block twitter_title %}SASSA Banking Details 2026: How to Update{% endblock %}
+{% block twitter_description %}How to add or change your banking details on the SASSA SRD portal.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ url_for('home.index', _external=True) }}" },
+        { "@type": "ListItem", "position": 2, "name": "SASSA Status Check", "item": "{{ url_for('home.sassa_status_check', _external=True) }}" },
+        { "@type": "ListItem", "position": 3, "name": "Banking Details", "item": "{{ url_for('home.sassa_banking_details', _external=True) }}" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "{{ url_for('home.sassa_banking_details', _external=True) }}#article",
+      "mainEntityOfPage": "{{ url_for('home.sassa_banking_details', _external=True) }}",
+      "headline": "SASSA Banking Details 2026: How to Add or Update Your Bank Account",
+      "inLanguage": "en-ZA",
+      "datePublished": "2026-08-22",
+      "dateModified": "2026-08-22",
+      "author": { "@type": "Organization", "name": "SA Benefits & Calculators" },
+      "publisher": { "@type": "Organization", "name": "SA Benefits & Calculators" }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<article class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class="text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.sassa') }}" class="text-decoration-none">SASSA</a></li>
+            <li class="breadcrumb-item active text-muted" aria-current="page">Banking Details</li>
+          </ol>
+        </nav>
+
+        <!-- SASSA Quick Navigation Bar -->
+        {% include "partials/_sassa_nav.html" %}
+
+        <header class="pb-4 mb-4 border-bottom">
+          <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.08em;">SASSA</p>
+          <h1 class="fw-bold mb-3 font-serif" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;">
+            SASSA Banking Details: How to Add or Update Your Bank Account
+          </h1>
+          <p class="fs-5 text-secondary mb-3" style="max-width: 42rem;">
+            Wrong banking details are one of the top reasons SASSA payments fail. This guide shows you exactly how to add, change, or fix your bank account on the SRD portal.
+          </p>
+          <div class="d-flex flex-wrap align-items-center text-muted small">
+            <span>SA Benefits & Calculators</span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>Updated <time datetime="2026-08">August 2026</time></span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>6 min read</span>
+          </div>
+        </header>
+
+        <aside class="border-start border-3 ps-3 my-4">
+          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> go to <a href="https://srd.sassa.gov.za" target="_blank" rel="noopener" class="fw-semibold">srd.sassa.gov.za</a>, click "Change Banking Details," enter your ID number, verify with OTP, and enter your new bank account details. The account must be in your own name.</p>
+        </aside>
+
+        <section id="why-it-matters" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Why Getting Banking Details Right Matters</h2>
+          <p class="text-secondary">If SASSA approves your SRD grant but your banking details are wrong, the payment fails. The money bounces back to SASSA, and you have to wait for the next payment cycle after fixing the problem. Common issues include:</p>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">Wrong account number</strong> – even one digit off will send the payment to the wrong place or cause it to bounce.</li>
+            <li><strong class="text-dark">Closed or inactive account</strong> – if your account has been dormant or closed, the bank rejects the payment.</li>
+            <li><strong class="text-dark">Name mismatch</strong> – the name on the bank account must match the name on your SASSA application and ID exactly.</li>
+            <li><strong class="text-dark">Wrong account type</strong> – selecting "cheque" when you have a "savings" account (or vice versa) can cause payment failures.</li>
+          </ul>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="how-to-update" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">How to Update Your Banking Details Online</h2>
+          <ol class="text-secondary ps-3">
+            <li class="mb-2">Go to <a href="https://srd.sassa.gov.za" target="_blank" rel="noopener" class="fw-semibold">srd.sassa.gov.za</a></li>
+            <li class="mb-2">Look for "Change Banking Details" or "Update Bank Account"</li>
+            <li class="mb-2">Enter your 13-digit ID number</li>
+            <li class="mb-2">Verify with the OTP sent to your registered cellphone number</li>
+            <li class="mb-2">Enter your new bank details:
+              <ul class="mt-2">
+                <li>Bank name (e.g., Capitec, FNB, Standard Bank, Absa, Nedbank)</li>
+                <li>Account type (savings or cheque/current)</li>
+                <li>Account number</li>
+              </ul>
+            </li>
+            <li class="mb-0">Confirm and submit</li>
+          </ol>
+          <p class="text-secondary mt-3 mb-0">The change takes effect for the next payment cycle. If you have already been approved for the current month and the payment has been processed, it will use the old details for that month.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="requirements" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Requirements for Your Bank Account</h2>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">Must be in your own name.</strong> SASSA will not pay into someone else's account. The account holder name must match your ID.</li>
+            <li><strong class="text-dark">Must be an active account.</strong> Make sure the account is open and in good standing with your bank.</li>
+            <li><strong class="text-dark">Must be a South African bank account.</strong> Accounts at major SA banks (Capitec, FNB, Standard Bank, Absa, Nedbank, TymeBank, African Bank, Postbank) are all accepted.</li>
+            <li><strong class="text-dark">One account per applicant.</strong> You can only link one bank account to your SRD application at a time.</li>
+          </ul>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="no-bank-account" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">What If You Don't Have a Bank Account?</h2>
+          <p class="text-secondary">You can still receive your SRD grant without a bank account. In this case, SASSA may pay you through:</p>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">Cash send / eWallet.</strong> You receive an SMS with a voucher code that you can withdraw at any ATM without needing a card.</li>
+            <li><strong class="text-dark">Post Office.</strong> Some payments can be collected at a Post Office branch with your ID document.</li>
+          </ul>
+          <p class="text-secondary">However, having a bank account is strongly recommended as it is the fastest and most reliable payment method. Most South African banks offer low-cost or free accounts. Opening one takes about 30 minutes at any branch with your ID document and proof of address.</p>
+          <p class="text-secondary mb-0">Once you have a bank account, add the details to your SRD profile using the steps above.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="faq" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Frequently Asked Questions</h2>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Can I use a family member's bank account?</h3>
+          <p class="text-secondary">No. SASSA requires the bank account to be in your own name, matching your ID details. Payments to third-party accounts are rejected.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">How long before the new banking details take effect?</h3>
+          <p class="text-secondary">Changes are processed for the next payment cycle. If you update your details mid-month, the current month's payment may still use the old details.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Will the bank account deposits count in the means test?</h3>
+          <p class="text-secondary">Yes. SASSA screens all deposits in your linked bank account as part of the monthly means test. Any deposits totalling R624 or more may trigger a decline for that month.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">I changed my banking details but my payment still failed. Why?</h3>
+          <p class="text-secondary">If you changed your details after the payment for that month was already processed, it would have used the old details. The new details apply from the next payment cycle.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Can I update banking details at a SASSA office?</h3>
+          <p class="text-secondary">Yes. If you cannot access the online portal, visit your nearest SASSA office with your ID document and new bank details (bank card or statement showing your account number).</p>
+        </section>
+
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-secondary mb-3">Banking details sorted? <a href="{{ url_for('home.sassa_status_check') }}" class="fw-semibold">Check your SASSA status</a> to see if your application has been approved, or see <a href="{{ url_for('home.sassa_payment_dates') }}" class="fw-semibold">SASSA payment dates</a> to know when to expect your money.</p>
+          <p class="text-muted small mb-0">Source: South African Social Security Agency. Banking requirements can change – always verify on srd.sassa.gov.za.</p>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  html { scroll-behavior: smooth; }
+  a.fw-semibold { color: inherit; text-decoration: underline; text-decoration-color: #adb5bd; text-underline-offset: 2px; }
+  a.fw-semibold:hover { text-decoration-color: currentColor; }
+  .list-check { list-style: none; padding-left: 0; }
+  .list-check li { position: relative; padding-left: 1.6rem; margin-bottom: 0.75rem; }
+  .list-check li::before { content: "\2713"; position: absolute; left: 0; color: #6c757d; font-weight: 600; }
+</style>
+
+{% endblock %}

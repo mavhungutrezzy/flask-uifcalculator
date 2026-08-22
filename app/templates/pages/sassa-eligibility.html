@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block title %}SASSA SRD R370 Eligibility 2026: Who Qualifies & Income Rules{% endblock %}
+
+{% block meta %}
+<meta name="description"
+  content="Check if you qualify for the SASSA SRD R370 grant in 2026. Detailed eligibility criteria, age limits, citizenship rules, and the R624 monthly income threshold explained.">
+<meta name="keywords"
+  content="sassa eligibility, who qualifies for sassa, srd grant requirements, sassa income threshold, r624 means test, sassa eligibility criteria, do i qualify for sassa">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.sassa_eligibility', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.sassa_eligibility', _external=True) }}{% endblock %}
+{% block og_title %}SASSA SRD R370 Eligibility 2026: Who Qualifies & Income Rules{% endblock %}
+{% block og_description %}Check if you qualify for the SASSA SRD R370 grant in 2026. Age, citizenship, and R624 income rules explained.{% endblock %}
+{% block twitter_url %}{{ url_for('home.sassa_eligibility', _external=True) }}{% endblock %}
+{% block twitter_title %}SASSA SRD R370 Eligibility 2026: Who Qualifies & Income Rules{% endblock %}
+{% block twitter_description %}Detailed rules on who qualifies for the SASSA SRD grant, including age, citizenship, and income thresholds.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ url_for('home.index', _external=True) }}" },
+        { "@type": "ListItem", "position": 2, "name": "SASSA Status Check", "item": "{{ url_for('home.sassa_status_check', _external=True) }}" },
+        { "@type": "ListItem", "position": 3, "name": "Eligibility", "item": "{{ url_for('home.sassa_eligibility', _external=True) }}" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "{{ url_for('home.sassa_eligibility', _external=True) }}#article",
+      "mainEntityOfPage": "{{ url_for('home.sassa_eligibility', _external=True) }}",
+      "headline": "SASSA SRD R370 Eligibility 2026: Who Qualifies & Income Rules",
+      "inLanguage": "en-ZA",
+      "datePublished": "2026-08-22",
+      "dateModified": "2026-08-22",
+      "author": { "@type": "Organization", "name": "SA Benefits & Calculators" },
+      "publisher": { "@type": "Organization", "name": "SA Benefits & Calculators" }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<article class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class="text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.sassa') }}" class="text-decoration-none">SASSA</a></li>
+            <li class="breadcrumb-item active text-muted" aria-current="page">Eligibility</li>
+          </ol>
+        </nav>
+
+        <!-- SASSA Quick Navigation Bar -->
+        {% include "partials/_sassa_nav.html" %}
+
+        <header class="pb-4 mb-4 border-bottom">
+          <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.08em;">SASSA</p>
+          <h1 class="fw-bold mb-3 font-serif" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;">
+            SASSA SRD R370 Grant Eligibility: Who Qualifies in 2026
+          </h1>
+          <p class="fs-5 text-secondary mb-3" style="max-width: 42rem;">
+            Find out if you meet all the official requirements for the Social Relief of Distress (SRD) grant, including age, residency, employment status, and income thresholds.
+          </p>
+          <div class="d-flex flex-wrap align-items-center text-muted small">
+            <span>SA Benefits & Calculators</span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>Updated <time datetime="2026-08">August 2026</time></span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>8 min read</span>
+          </div>
+        </header>
+
+        <aside class="border-start border-3 ps-3 my-4">
+          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> To qualify for the SRD R370 grant, you must be between 18 and 59 years old, reside in South Africa, be unemployed with a total monthly income under R624, and not be receiving any other social grant, UIF payment, or NSFAS stipend.</p>
+        </aside>
+
+        <section id="core-criteria" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Core Qualification Checklist</h2>
+          <p class="text-secondary">SASSA applies strict automated criteria to every applicant. You must meet all of the following requirements every single month to receive the grant.</p>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">Age Limit:</strong> You must be between 18 and 59 years old. Once you reach age 60, you transition to the Older Persons Grant.</li>
+            <li><strong class="text-dark">Residency Status:</strong> You must be a South African citizen, permanent resident, refugee, asylum seeker, or special permit holder with valid documentation registered with Home Affairs.</li>
+            <li><strong class="text-dark">Employment & Income:</strong> You must be unemployed or earning insufficient income. Your total monthly deposits must be less than R624.</li>
+            <li><strong class="text-dark">No Other SASSA Grants:</strong> You cannot receive any other social grant for yourself (e.g., Disability, Older Persons, or Care Dependency).</li>
+            <li><strong class="text-dark">No UIF Benefits:</strong> You must not be receiving active Unemployment Insurance Fund (UIF) payouts for the same month.</li>
+            <li><strong class="text-dark">No NSFAS Financial Aid:</strong> You cannot be an active recipient of National Student Financial Aid Scheme (NSFAS) bursaries or stipends.</li>
+            <li><strong class="text-dark">Not in a Government Institution:</strong> You must not be residing in a state-funded institution (such as a prison, government care home, or rehabilitation centre).</li>
+          </ul>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="means-test-deep-dive" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Understanding the R624 Means Test</h2>
+          <p class="text-secondary">The "Means Test" is the financial check SASSA performs to verify your income. SASSA automatically screens your bank accounts via automated integration with South African commercial banks and SARS.</p>
+          <p class="text-secondary">Here is how the R624 threshold works in practice:</p>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">All deposits count:</strong> SASSA looks at total money entering your bank account in a single calendar month. It does not distinguish between formal wages, casual earnings, gifts from family, or stokvel payouts.</li>
+            <li><strong class="text-dark">Cumulative calculation:</strong> If you receive three separate deposits of R250 in a month, your total deposit is R750. Because R750 exceeds R624, your application will be <a href="{{ url_for('home.sassa_declined') }}" class="fw-semibold">declined for that month</a>.</li>
+            <li><strong class="text-dark">Reassessed monthly:</strong> If your account has zero deposits next month, you will pass the means test for that new month.</li>
+          </ul>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="uif-and-nsfas" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">UIF & NSFAS Overlap Restrictions</h2>
+          <p class="text-secondary">Many applicants wonder why their SRD grant was declined due to UIF or NSFAS. SASSA shares database records with the Department of Employment and Labour and NSFAS.</p>
+          <p class="text-secondary">If you are currently claiming UIF benefits after losing your job, you are considered to have an active income support channel, making you ineligible for the SRD grant for those months. However, once your UIF benefit period ends, you become eligible to apply for SRD.</p>
+          <p class="text-secondary mb-0">If you want to check your UIF entitlement or claim status, visit our <a href="{{ url_for('uif.unemployment_calculator') }}" class="fw-semibold">UIF calculator</a> or read our <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check guide</a>.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="what-if-ineligible" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">What to Do If You Don't Qualify</h2>
+          <p class="text-secondary">If you don't meet the SRD eligibility criteria, consider these options:</p>
+          <ul class="list-check text-secondary">
+            <li><strong class="text-dark">Turned 60 years old:</strong> Apply for the SASSA Older Persons Grant at a SASSA branch, which pays a significantly higher monthly amount than SRD.</li>
+            <li><strong class="text-dark">Have a medical condition:</strong> Ask a public doctor for a disability assessment to apply for the Disability Grant.</li>
+            <li><strong class="text-dark">Recently lost your job:</strong> Submit a claim for UIF unemployment benefits through uFiling or your local labor centre.</li>
+            <li><strong class="text-dark">Declined by mistake:</strong> If SASSA flagged income or UIF that you did not actually receive, submit an <a href="{{ url_for('home.sassa_appeal') }}" class="fw-semibold">appeal within 90 days</a>.</li>
+          </ul>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="faq" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Frequently Asked Questions</h2>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Can university students qualify for SRD?</h3>
+          <p class="text-secondary">Only if they are not receiving NSFAS or any other state bursary/stipend and earn less than R624 per month.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Does cash in hand count towards the R624 limit?</h3>
+          <p class="text-secondary">SASSA screens bank accounts. However, depositing cash into your bank account makes it visible to bank screening and counts toward the R624 monthly limit.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Can asylum seekers and refugees get SRD?</h3>
+          <p class="text-secondary">Yes, provided they hold a valid section 22 or section 24 permit registered in the Department of Home Affairs database.</p>
+        </section>
+
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-secondary mb-3">Ready to apply or check your current status? Use our <a href="{{ url_for('home.sassa_how_to_apply') }}" class="fw-semibold">SASSA application guide</a> or <a href="{{ url_for('home.sassa_status_check') }}" class="fw-semibold">check your SASSA status online</a>.</p>
+          <p class="text-muted small mb-0">Source: Department of Social Development & South African Social Security Agency. Criteria subject to regulations changes.</p>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  html { scroll-behavior: smooth; }
+  a.fw-semibold { color: inherit; text-decoration: underline; text-decoration-color: #adb5bd; text-underline-offset: 2px; }
+  a.fw-semibold:hover { text-decoration-color: currentColor; }
+  .list-check { list-style: none; padding-left: 0; }
+  .list-check li { position: relative; padding-left: 1.6rem; margin-bottom: 0.75rem; }
+  .list-check li::before { content: "\2713"; position: absolute; left: 0; color: #6c757d; font-weight: 600; }
+</style>
+
+{% endblock %}

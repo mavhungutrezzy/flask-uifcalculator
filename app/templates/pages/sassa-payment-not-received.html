@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}SASSA Payment Not Received 2026: What to Do When Money Doesn't Arrive{% endblock %}
+
+{% block meta %}
+<meta name="description"
+  content="Approved but SASSA payment not received? Step-by-step guide to finding out why your SRD R370 money hasn't arrived and how to fix common payment problems.">
+<meta name="keywords"
+  content="sassa payment not received, sassa money not received, srd payment not received, sassa approved but no payment, sassa r350 not paid, sassa r370 not received, sassa grant not paid">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.sassa_payment_not_received', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.sassa_payment_not_received', _external=True) }}{% endblock %}
+{% block og_title %}SASSA Payment Not Received 2026: What to Do When Money Doesn't Arrive{% endblock %}
+{% block og_description %}Approved but SASSA payment not received? Find out why and how to fix it.{% endblock %}
+{% block twitter_url %}{{ url_for('home.sassa_payment_not_received', _external=True) }}{% endblock %}
+{% block twitter_title %}SASSA Payment Not Received 2026: What to Do{% endblock %}
+{% block twitter_description %}What to do when your approved SASSA SRD R370 payment has not arrived.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ url_for('home.index', _external=True) }}" },
+        { "@type": "ListItem", "position": 2, "name": "SASSA Status Check", "item": "{{ url_for('home.sassa_status_check', _external=True) }}" },
+        { "@type": "ListItem", "position": 3, "name": "Payment Not Received", "item": "{{ url_for('home.sassa_payment_not_received', _external=True) }}" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "{{ url_for('home.sassa_payment_not_received', _external=True) }}#article",
+      "mainEntityOfPage": "{{ url_for('home.sassa_payment_not_received', _external=True) }}",
+      "headline": "SASSA Payment Not Received 2026: What to Do When Money Doesn't Arrive",
+      "inLanguage": "en-ZA",
+      "datePublished": "2026-08-22",
+      "dateModified": "2026-08-22",
+      "author": { "@type": "Organization", "name": "SA Benefits & Calculators" },
+      "publisher": { "@type": "Organization", "name": "SA Benefits & Calculators" }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<article class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class="text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.sassa') }}" class="text-decoration-none">SASSA</a></li>
+            <li class="breadcrumb-item active text-muted" aria-current="page">Payment Not Received</li>
+          </ol>
+        </nav>
+
+        <!-- SASSA Quick Navigation Bar -->
+        {% include "partials/_sassa_nav.html" %}
+
+        <header class="pb-4 mb-4 border-bottom">
+          <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.08em;">SASSA</p>
+          <h1 class="fw-bold mb-3 font-serif" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;">
+            SASSA Payment Not Received: What to Do
+          </h1>
+          <p class="fs-5 text-secondary mb-3" style="max-width: 42rem;">
+            Your SASSA status shows approved, but the money has not arrived. Here is how to figure out what went wrong and how to get your payment sorted.
+          </p>
+          <div class="d-flex flex-wrap align-items-center text-muted small">
+            <span>SA Benefits & Calculators</span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>Updated <time datetime="2026-08">August 2026</time></span>
+            <span class="mx-2" aria-hidden="true">&middot;</span>
+            <span>7 min read</span>
+          </div>
+        </header>
+
+        <aside class="border-start border-3 ps-3 my-4">
+          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> first confirm your status truly shows "Approved" at <a href="https://srd.sassa.gov.za" target="_blank" rel="noopener" class="fw-semibold">srd.sassa.gov.za</a>. If approved, check your banking details are correct. SRD payments go out in batches from the 23rd to month-end – your batch may simply not have been processed yet. If the month ends with no payment, call SASSA on 0800 60 10 11.</p>
+        </aside>
+
+        <section id="first-check" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">First: Confirm You Are Actually Approved</h2>
+          <p class="text-secondary">Before assuming your payment is missing, double-check your current status on the SRD portal. Sometimes what feels like a missing payment is actually a pending or declined status for that month.</p>
+          <ol class="text-secondary ps-3">
+            <li class="mb-2">Go to <a href="https://srd.sassa.gov.za" target="_blank" rel="noopener" class="fw-semibold">srd.sassa.gov.za</a></li>
+            <li class="mb-2">Click "Check Status"</li>
+            <li class="mb-2">Enter your ID number and registered cellphone number</li>
+            <li class="mb-0">Look for the word "Approved" and a payment date</li>
+          </ol>
+          <p class="text-secondary mt-3 mb-0">If your status shows <a href="{{ url_for('home.sassa_pending') }}" class="fw-semibold">Pending</a> or <a href="{{ url_for('home.sassa_declined') }}" class="fw-semibold">Declined</a>, the issue is not a missing payment – it is that you have not been approved yet for this month.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="common-reasons" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Common Reasons Payment Has Not Arrived</h2>
+
+          <h3 class="h5 fw-bold mt-4 mb-2">Your batch has not been processed yet</h3>
+          <p class="text-secondary">SRD payments go out in batches between the 23rd and the last day of the month. If you check on the 24th and nothing has arrived, your ID number range may simply be in a later batch. Wait until the end of the month before taking action.</p>
+
+          <h3 class="h5 fw-bold mt-4 mb-2">Banking details are incorrect</h3>
+          <p class="text-secondary">If the bank account number on your SASSA profile is wrong, closed, or does not match your ID name, the payment bounces. The money goes back to SASSA, and they may try again or hold it until you fix your details. <a href="{{ url_for('home.sassa_banking_details') }}" class="fw-semibold">Update your banking details</a> to fix this.</p>
+
+          <h3 class="h5 fw-bold mt-4 mb-2">Bank account is inactive or closed</h3>
+          <p class="text-secondary">If your bank account has been dormant or closed, the payment will fail. Contact your bank to check the status of your account, reactivate it if needed, then update your details with SASSA.</p>
+
+          <h3 class="h5 fw-bold mt-4 mb-2">Name mismatch between SASSA and bank</h3>
+          <p class="text-secondary">Your name on the SASSA application must match the name on the bank account exactly. If there is any difference – even a middle name or initial – the bank may reject the payment.</p>
+
+          <h3 class="h5 fw-bold mt-4 mb-2">Cash send or eWallet not collected</h3>
+          <p class="text-secondary">If SASSA paid you via cash send or eWallet instead of a direct bank deposit, you would have received an SMS with a voucher code. Check your messages. These vouchers expire after a set number of days, so collect them promptly.</p>
+
+          <h3 class="h5 fw-bold mt-4 mb-2">System glitch or technical delay</h3>
+          <p class="text-secondary mb-0">Occasionally, SASSA's payment system experiences technical issues that delay a batch of payments. These usually resolve within a day or two. Check again the next day.</p>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="what-to-do" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Step-by-Step: What to Do Now</h2>
+          <ol class="text-secondary ps-3">
+            <li class="mb-3"><strong class="text-dark">Wait until the last day of the month.</strong> If your status shows approved with a payment date, give it until that date passes. SRD batches can be processed right up to month-end.</li>
+            <li class="mb-3"><strong class="text-dark">Check your bank account and messages.</strong> Look for a deposit, SMS notification, or eWallet/cash send voucher you may have missed.</li>
+            <li class="mb-3"><strong class="text-dark">Verify your banking details on the SRD portal.</strong> Log in and confirm the account number, bank name, and account type are correct. <a href="{{ url_for('home.sassa_banking_details') }}" class="fw-semibold">Update them if needed</a>.</li>
+            <li class="mb-3"><strong class="text-dark">Contact your bank.</strong> Ask if a SASSA payment was received and returned due to account issues.</li>
+            <li class="mb-0"><strong class="text-dark">Call SASSA.</strong> Dial 0800 60 10 11 with your ID number ready. Ask them to check the payment status for your specific month. They can see if the payment was sent, bounced, or is still queued.</li>
+          </ol>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="faq" class="mb-5">
+          <h2 class="h3 fw-bold mb-3 font-serif">Frequently Asked Questions</h2>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Can I get a payment that bounced back to SASSA?</h3>
+          <p class="text-secondary">Yes. If your payment bounced due to incorrect banking details, fix your details on the SRD portal. SASSA typically retries failed payments in the next payment cycle.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">How long do I have to collect a cash send payment?</h3>
+          <p class="text-secondary">Cash send and eWallet vouchers typically expire after 30 days. If you miss the window, the money returns to SASSA and you may need to contact them to have it reissued.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">My status says "Paid" but I did not receive anything. What now?</h3>
+          <p class="text-secondary">If SASSA's system shows "Paid" but you have not received the money, the issue is likely on the banking side. Contact your bank first, then call SASSA if the bank has no record of the transaction.</p>
+
+          <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Will I lose my payment for that month if I don't collect it?</h3>
+          <p class="text-secondary">Uncollected payments are typically returned to SASSA. You may need to contact them to have the payment reissued. Do not leave payments uncollected for extended periods.</p>
+        </section>
+
+        <footer class="border-top pt-4 mt-5">
+          <p class="text-secondary mb-3">Need to check your current status? Use our <a href="{{ url_for('home.sassa_status_check') }}" class="fw-semibold">SASSA status check guide</a>. Want to make sure your bank details are right? See our <a href="{{ url_for('home.sassa_banking_details') }}" class="fw-semibold">banking details guide</a>.</p>
+          <p class="text-muted small mb-0">Source: South African Social Security Agency. Payment processes can change – always verify on srd.sassa.gov.za or call 0800 60 10 11.</p>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  html { scroll-behavior: smooth; }
+  a.fw-semibold { color: inherit; text-decoration: underline; text-decoration-color: #adb5bd; text-underline-offset: 2px; }
+  a.fw-semibold:hover { text-decoration-color: currentColor; }
+  .list-check { list-style: none; padding-left: 0; }
+  .list-check li { position: relative; padding-left: 1.6rem; margin-bottom: 0.75rem; }
+  .list-check li::before { content: "\2713"; position: absolute; left: 0; color: #6c757d; font-weight: 600; }
+</style>
+
+{% endblock %}

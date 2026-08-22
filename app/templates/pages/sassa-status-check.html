@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}SASSA Status Check 2026: SRD R370 Payment Dates and Appeals{% endblock %}
+{% block title %}SASSA Status Check 2026 – Check SRD R370 Status Online{% endblock %}
 
 {% block meta %}
 <meta name="description"
@@ -11,11 +11,11 @@
 
 {% block canonical_href %}{{ url_for('home.sassa_status_check', _external=True) }}{% endblock %}
 {% block og_url %}{{ url_for('home.sassa_status_check', _external=True) }}{% endblock %}
-{% block og_title %}SASSA Status Check 2026: SRD R370 Payment Dates and Appeals{% endblock %}
+{% block og_title %}SASSA Status Check 2026 – Check SRD R370 Status Online{% endblock %}
 {% block og_description %}Check your SASSA SRD status the easy way. See what Approved, Pending and Declined mean,
 current payment dates, and how to appeal if you were declined.{% endblock %}
 {% block twitter_url %}{{ url_for('home.sassa_status_check', _external=True) }}{% endblock %}
-{% block twitter_title %}SASSA Status Check 2026: SRD R370 Payment Dates and Appeals{% endblock %}
+{% block twitter_title %}SASSA Status Check 2026 – Check SRD R370 Status Online{% endblock %}
 {% block twitter_description %}Check your SASSA SRD status the easy way, what each status means, payment dates, and how
 to appeal.{% endblock %}
 
@@ -59,11 +59,11 @@ to appeal.{% endblock %}
       "dateModified": "2026-07-30",
       "author": {
         "@type": "Organization",
-        "name": "UIF Calculators"
+        "name": "SA Benefits & Calculators"
       },
       "publisher": {
         "@type": "Organization",
-        "name": "UIF Calculators"
+        "name": "SA Benefits & Calculators"
       }
     }
   ]
@@ -81,26 +81,27 @@ to appeal.{% endblock %}
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb small">
-            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class=" text-decoration-none">Home</a>
-            </li>
-            <li class="breadcrumb-item"><a href="{{ url_for('home.articles') }}"
-                class=" text-decoration-none">Articles</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.index') }}" class="text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('home.sassa') }}" class="text-decoration-none">SASSA</a></li>
             <li class="breadcrumb-item active text-muted" aria-current="page">SASSA Status Check</li>
           </ol>
         </nav>
+
+        <!-- SASSA Quick Navigation Bar -->
+        {% include "partials/_sassa_nav.html" %}
 
         <!-- Header -->
         <header class="pb-4 mb-4 border-bottom">
           <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.08em;">SASSA</p>
           <h1 class="fw-bold mb-3 font-serif" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;">
-            SASSA Status Check: The Full SRD R370 Guide
+            SASSA Status Check 2026 – Check SRD R370 Status Online
           </h1>
           <p class="fs-5 text-secondary mb-3" style="max-width: 42rem;">
             Everything you need to check your SASSA SRD status, understand what it means, see the payment dates, and fix
             things when your grant gets declined.
           </p>
           <div class="d-flex flex-wrap align-items-center text-muted small">
-            <span>UIF Calculators Team</span>
+            <span>SA Benefits & Calculators</span>
             <span class="mx-2" aria-hidden="true">&middot;</span>
             <span>Updated <time datetime="2026-07">July 2026</time></span>
             <span class="mx-2" aria-hidden="true">&middot;</span>
@@ -414,19 +415,38 @@ to appeal.{% endblock %}
         <section id="common-problems" class="mb-5">
           <h2 class="h3 fw-bold mb-3 font-serif">Common Problems and How to Fix Them</h2>
           <ul class="list-check text-secondary">
-            <li><strong class="text-dark">Lost the phone number you applied with.</strong> Go to srd.sassa.gov.za and
-              look for Update Cellphone Number. This usually needs a one time PIN sent to your old number to confirm the
-              change. If you no longer have access to that number at all, you will need to visit a SASSA office in
-              person with your ID.</li>
-            <li><strong class="text-dark">Approved but no payment.</strong> Double check your banking details are
-              correct and active. A closed account or a mismatch between your name and the account holder's name can
-              hold up payment even after approval.</li>
-            <li><strong class="text-dark">Status changes without explanation.</strong> Since the means test runs fresh
-              every month, a change in your bank activity, even a one off deposit, can shift your result from one month
-              to the next without anything else changing.</li>
-            <li><strong class="text-dark">ID details do not match.</strong> Make sure your name, surname and ID number
-              on the application match your ID document and Home Affairs records exactly, including spelling.</li>
+            <li><strong class="text-dark">Lost the phone number you applied with.</strong> See our step-by-step guide to <a href="{{ url_for('home.sassa_change_phone_number') }}" class="fw-semibold">changing your SASSA phone number</a>.</li>
+            <li><strong class="text-dark">Approved but no payment.</strong> Check our guide on what to do when <a href="{{ url_for('home.sassa_payment_not_received') }}" class="fw-semibold">SASSA payment is not received</a> or update your <a href="{{ url_for('home.sassa_banking_details') }}" class="fw-semibold">SASSA banking details</a>.</li>
+            <li><strong class="text-dark">Status changes or shows pending.</strong> Read about what <a href="{{ url_for('home.sassa_pending') }}" class="fw-semibold">SASSA pending status</a> means and how long it takes to clear.</li>
+            <li><strong class="text-dark">Application declined.</strong> Understand why your application was <a href="{{ url_for('home.sassa_declined') }}" class="fw-semibold">declined</a> and follow our guide to <a href="{{ url_for('home.sassa_appeal') }}" class="fw-semibold">submit a SASSA appeal</a>.</li>
+            <li><strong class="text-dark">Website not opening.</strong> If srd.sassa.gov.za is down, check what to do when <a href="{{ url_for('home.sassa_status_not_working') }}" class="fw-semibold">SASSA status check is not working</a>.</li>
           </ul>
+        </section>
+
+        <!-- SASSA Guides Grid -->
+        <section id="sassa-guides" class="mb-5 p-4 bg-light rounded-3 border">
+          <h2 class="h4 fw-bold mb-3 font-serif">Detailed SASSA Guides & Resources</h2>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><i class="bi bi-info-circle me-2 text-primary"></i><a href="{{ url_for('home.sassa_srd_r370') }}" class="link-dark text-decoration-none fw-semibold">SASSA SRD R370 Grant Overview</a></li>
+                <li class="mb-2"><i class="bi bi-calendar-event me-2 text-primary"></i><a href="{{ url_for('home.sassa_payment_dates') }}" class="link-dark text-decoration-none fw-semibold">SASSA Payment Dates 2026</a></li>
+                <li class="mb-2"><i class="bi bi-file-earmark-text me-2 text-primary"></i><a href="{{ url_for('home.sassa_how_to_apply') }}" class="link-dark text-decoration-none fw-semibold">How to Apply for SASSA SRD</a></li>
+                <li class="mb-2"><i class="bi bi-shield-check me-2 text-primary"></i><a href="{{ url_for('home.sassa_eligibility') }}" class="link-dark text-decoration-none fw-semibold">SASSA Eligibility & Income Rules</a></li>
+                <li class="mb-2"><i class="bi bi-arrow-counterclockwise me-2 text-primary"></i><a href="{{ url_for('home.sassa_appeal') }}" class="link-dark text-decoration-none fw-semibold">How to Appeal a SASSA Decline</a></li>
+                <li class="mb-0"><i class="bi bi-hourglass-split me-2 text-primary"></i><a href="{{ url_for('home.sassa_pending') }}" class="link-dark text-decoration-none fw-semibold">SASSA Pending Status Explained</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><i class="bi bi-x-circle me-2 text-primary"></i><a href="{{ url_for('home.sassa_declined') }}" class="link-dark text-decoration-none fw-semibold">SASSA Declined Reasons & Fixes</a></li>
+                <li class="mb-2"><i class="bi bi-exclamation-triangle me-2 text-primary"></i><a href="{{ url_for('home.sassa_payment_not_received') }}" class="link-dark text-decoration-none fw-semibold">SASSA Payment Not Received</a></li>
+                <li class="mb-2"><i class="bi bi-telephone me-2 text-primary"></i><a href="{{ url_for('home.sassa_change_phone_number') }}" class="link-dark text-decoration-none fw-semibold">Change SASSA Phone Number</a></li>
+                <li class="mb-2"><i class="bi bi-bank me-2 text-primary"></i><a href="{{ url_for('home.sassa_banking_details') }}" class="link-dark text-decoration-none fw-semibold">Update SASSA Banking Details</a></li>
+                <li class="mb-0"><i class="bi bi-tools me-2 text-primary"></i><a href="{{ url_for('home.sassa_status_not_working') }}" class="link-dark text-decoration-none fw-semibold">SASSA Status Check Not Working</a></li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <hr class="my-5">
