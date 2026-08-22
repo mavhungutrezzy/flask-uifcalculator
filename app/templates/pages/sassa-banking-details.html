@@ -82,8 +82,17 @@
           </div>
         </header>
 
-        <aside class="border-start border-3 ps-3 my-4">
-          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> go to <a href="https://srd.sassa.gov.za" target="_blank" rel="noopener" class="fw-semibold">srd.sassa.gov.za</a>, click "Change Banking Details," enter your ID number, verify with OTP, and enter your new bank account details. The account must be in your own name.</p>
+        <aside class="p-3 p-md-4 my-4 bg-light border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3">
+            <div>
+              <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> Update your banking details on the SRD portal to ensure your bank account matches your ID. You can track your approval and payment status on our status check page.</p>
+            </div>
+            <div class="flex-shrink-0">
+              <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="btn btn-success fw-semibold text-nowrap">
+                <i class="bi bi-search me-1"></i> Check SASSA Status
+              </a>
+            </div>
+          </div>
         </aside>
 
         <section id="why-it-matters" class="mb-5">
@@ -165,7 +174,7 @@
         </section>
 
         <footer class="border-top pt-4 mt-5">
-          <p class="text-secondary mb-3">Banking details sorted? <a href="{{ url_for('home.sassa_status_check') }}" class="fw-semibold">Check your SASSA status</a> to see if your application has been approved, or see <a href="{{ url_for('home.sassa_payment_dates') }}" class="fw-semibold">SASSA payment dates</a> to know when to expect your money.</p>
+          <p class="text-secondary mb-3">Banking details sorted? <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="fw-semibold">Check your SASSA status</a> to see if your application has been approved, or see <a href="{{ url_for('home.sassa_payment_dates') }}" class="fw-semibold">SASSA payment dates</a> to know when to expect your money.</p>
           <p class="text-muted small mb-0">Source: South African Social Security Agency. Banking requirements can change – always verify on srd.sassa.gov.za.</p>
         </footer>
 

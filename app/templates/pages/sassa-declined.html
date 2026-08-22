@@ -82,8 +82,17 @@
           </div>
         </header>
 
-        <aside class="border-start border-3 ps-3 my-4">
-          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> the most common decline reason is "Means Test – Income Source Identified," meaning SASSA's bank screening found deposits of R624 or more in your account that month. Other reasons include identity verification failures, being registered on UIF or NSFAS, or being outside the age range. You can <a href="{{ url_for('home.sassa_appeal') }}" class="fw-semibold">appeal within 90 days</a> if you believe the decline was wrong.</p>
+        <aside class="p-3 p-md-4 my-4 bg-light border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3">
+            <div>
+              <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> Most declines are due to the R624 means test threshold, bank mismatches, or system cross-checks. Check your exact decline status online and appeal within 90 days if incorrect.</p>
+            </div>
+            <div class="flex-shrink-0">
+              <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="btn btn-success fw-semibold text-nowrap">
+                <i class="bi bi-search me-1"></i> Check SASSA Status
+              </a>
+            </div>
+          </div>
         </aside>
 
         <section id="decline-reasons" class="mb-5">
@@ -130,7 +139,7 @@
         <section id="next-steps" class="mb-5">
           <h2 class="h3 fw-bold mb-3 font-serif">What to Do Right Now</h2>
           <ol class="text-secondary ps-3">
-            <li class="mb-3"><strong class="text-dark">Check the exact reason.</strong> <a href="{{ url_for('home.sassa_status_check') }}" class="fw-semibold">Check your status online</a> – it shows the specific decline reason, not just "declined."</li>
+            <li class="mb-3"><strong class="text-dark">Check the exact reason.</strong> <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="fw-semibold">Check your status online</a> – it shows the specific decline reason, not just "declined."</li>
             <li class="mb-3"><strong class="text-dark">Decide if an appeal makes sense.</strong> If the automated system made an error, <a href="{{ url_for('home.sassa_appeal') }}" class="fw-semibold">submit an appeal</a> within 90 days.</li>
             <li class="mb-3"><strong class="text-dark">Gather proof.</strong> Bank statements, letters from Home Affairs, UIF closure letters – anything that supports your case.</li>
             <li class="mb-0"><strong class="text-dark">Wait for next month.</strong> If the decline was caused by a one-off event, next month's assessment may give a different result without you doing anything.</li>
@@ -156,7 +165,7 @@
         </section>
 
         <footer class="border-top pt-4 mt-5">
-          <p class="text-secondary mb-3">Need to check your current status? Use our <a href="{{ url_for('home.sassa_status_check') }}" class="fw-semibold">SASSA status check guide</a>, or go straight to <a href="{{ url_for('home.sassa_appeal') }}" class="fw-semibold">the appeal process</a> if you believe SASSA got it wrong.</p>
+          <p class="text-secondary mb-3">Need to check your current status? Use our <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="fw-semibold">SASSA status check guide</a>, or go straight to <a href="{{ url_for('home.sassa_appeal') }}" class="fw-semibold">the appeal process</a> if you believe SASSA got it wrong.</p>
           <p class="text-muted small mb-0">Source: South African Social Security Agency. Decline reasons and appeal processes can change – always verify on srd.sassa.gov.za.</p>
         </footer>
 

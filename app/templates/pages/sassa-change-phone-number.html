@@ -82,8 +82,17 @@
           </div>
         </header>
 
-        <aside class="border-start border-3 ps-3 my-4">
-          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> if you still have access to your old number, go to <a href="https://srd.sassa.gov.za" target="_blank" rel="noopener" class="fw-semibold">srd.sassa.gov.za</a> and use the "Update Cellphone Number" option. You will receive an OTP on your old number to confirm the change. If you no longer have access to the old number at all, you will need to visit a SASSA office in person with your ID document.</p>
+        <aside class="p-3 p-md-4 my-4 bg-light border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3">
+            <div>
+              <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> Update your cellphone number on the portal using OTP verification. Once updated, you can check your SRD status using your new mobile number on our status page.</p>
+            </div>
+            <div class="flex-shrink-0">
+              <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="btn btn-success fw-semibold text-nowrap">
+                <i class="bi bi-search me-1"></i> Check SASSA Status
+              </a>
+            </div>
+          </div>
         </aside>
 
         <section id="why-change" class="mb-5">
@@ -158,7 +167,7 @@
         </section>
 
         <footer class="border-top pt-4 mt-5">
-          <p class="text-secondary mb-3">Once your number is updated, you can <a href="{{ url_for('home.sassa_status_check') }}" class="fw-semibold">check your SASSA status</a> using your new number, or <a href="{{ url_for('home.sassa_banking_details') }}" class="fw-semibold">update your banking details</a> while you are at it.</p>
+          <p class="text-secondary mb-3">Once your number is updated, you can <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="fw-semibold">check your SASSA status</a> using your new number, or <a href="{{ url_for('home.sassa_banking_details') }}" class="fw-semibold">update your banking details</a> while you are at it.</p>
           <p class="text-muted small mb-0">Source: South African Social Security Agency. Processes can change – always verify on srd.sassa.gov.za.</p>
         </footer>
 

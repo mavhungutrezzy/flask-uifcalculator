@@ -85,8 +85,17 @@
         </header>
 
         <!-- Quick answer -->
-        <aside class="border-start border-3 ps-3 my-4">
-          <p class="mb-0 text-secondary"><strong class="text-dark">Quick overview:</strong> The SASSA SRD grant pays R370 per month to unemployed South African citizens and eligible residents aged 18 to 59 with monthly income under R624. You can check your R370 status online at <a href="https://srd.sassa.gov.za" target="_blank" rel="noopener" class="fw-semibold">srd.sassa.gov.za</a> or via WhatsApp (082 046 8553).</p>
+        <aside class="p-3 p-md-4 my-4 bg-light border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3">
+            <div>
+              <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> The SASSA SRD grant pays R370 per month to unemployed South Africans aged 18 to 59 with income under R624. You can check your SRD R370 status online using our status tool.</p>
+            </div>
+            <div class="flex-shrink-0">
+              <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="btn btn-success fw-semibold text-nowrap">
+                <i class="bi bi-search me-1"></i> Check SASSA Status
+              </a>
+            </div>
+          </div>
         </aside>
 
         <section id="what-is-r370" class="mb-5">
@@ -133,7 +142,7 @@
           <h2 class="h3 fw-bold mb-3 font-serif">How to Check Your SRD R370 Status</h2>
           <p class="text-secondary">You can track your monthly approval status through several easy channels:</p>
           <ul class="list-check text-secondary">
-            <li><strong class="text-dark">Online Portal:</strong> Visit our main <a href="{{ url_for('home.sassa_status_check') }}" class="fw-semibold">SASSA status check page</a> or go directly to srd.sassa.gov.za.</li>
+            <li><strong class="text-dark">Online Portal:</strong> Visit our main <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="fw-semibold">SASSA status check page</a> or go directly to srd.sassa.gov.za.</li>
             <li><strong class="text-dark">WhatsApp:</strong> Send "SASSA" to 082 046 8553 and enter your ID number.</li>
             <li><strong class="text-dark">USSD Code:</strong> Dial *134*7737# from any phone (no data required).</li>
             <li><strong class="text-dark">Toll-Free Phone:</strong> Call 0800 60 10 11 and speak to an agent.</li>
@@ -182,7 +191,7 @@
         </section>
 
         <footer class="border-top pt-4 mt-5">
-          <p class="text-secondary mb-3">Need to check your current status? Use our primary <a href="{{ url_for('home.sassa_status_check') }}" class="fw-semibold">SASSA status check guide</a> or review <a href="{{ url_for('home.sassa_payment_dates') }}" class="fw-semibold">SASSA payment dates</a>.</p>
+          <p class="text-secondary mb-3">Need to check your current status? Use our primary <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="fw-semibold">SASSA status check guide</a> or review <a href="{{ url_for('home.sassa_payment_dates') }}" class="fw-semibold">SASSA payment dates</a>.</p>
           <p class="text-muted small mb-0">Source: South African Social Security Agency (SASSA).</p>
         </footer>
 

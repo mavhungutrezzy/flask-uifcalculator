@@ -4,7 +4,7 @@
       <i class="bi bi-compass me-1 text-primary"></i> SASSA Quick Links:
     </span>
     <div class="d-flex flex-wrap gap-1 gap-md-2">
-      <a href="{{ url_for('home.sassa_status_check') }}" 
+      <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" 
          class="btn btn-sm {% if request.path == url_for('home.sassa_status_check') %}btn-primary fw-semibold{% else %}btn-outline-secondary bg-white text-dark{% endif %}">
         <i class="bi bi-search me-1"></i> Status Check
       </a>

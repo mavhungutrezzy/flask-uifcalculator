@@ -83,8 +83,17 @@
           </div>
         </header>
 
-        <aside class="border-start border-3 ps-3 my-4">
-          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> go to <a href="https://srd.sassa.gov.za" target="_blank" rel="noopener" class="fw-semibold">srd.sassa.gov.za</a>, click "Apply for SRD," enter your ID number, cellphone number, and banking details, confirm with a one-time PIN, and submit. The entire process takes about 5 minutes if you have everything ready.</p>
+        <aside class="p-3 p-md-4 my-4 bg-light border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3">
+            <div>
+              <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> Apply for the SRD grant online using your ID, cellphone number, and banking details. Once your application is submitted, you can track your status anytime on our status check page.</p>
+            </div>
+            <div class="flex-shrink-0">
+              <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="btn btn-success fw-semibold text-nowrap">
+                <i class="bi bi-search me-1"></i> Check SASSA Status
+              </a>
+            </div>
+          </div>
         </aside>
 
         <section id="before-you-apply" class="mb-5">
@@ -134,7 +143,7 @@
           <p class="text-secondary">Review everything on the summary screen. Once you are satisfied, click Submit. You should see a confirmation message. Keep a screenshot of this confirmation for your records.</p>
 
           <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-2" style="letter-spacing:.05em;">Step 6: Wait for processing</h3>
-          <p class="text-secondary mb-0">After submitting, your application goes through SASSA's automated checks – identity verification, means test, UIF and NSFAS cross-checks. This can take anywhere from a few days to a few weeks. You can <a href="{{ url_for('home.sassa_status_check') }}" class="fw-semibold">check your SASSA status</a> at any time to see where your application stands.</p>
+          <p class="text-secondary mb-0">After submitting, your application goes through SASSA's automated checks – identity verification, means test, UIF and NSFAS cross-checks. This can take anywhere from a few days to a few weeks. You can <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="fw-semibold">check your SASSA status</a> at any time to see where your application stands.</p>
         </section>
 
         <hr class="my-5">
@@ -144,7 +153,7 @@
           <p class="text-secondary">Your application is not a once-off event. SASSA reassesses your eligibility every single month. Here is what to expect.</p>
           <ul class="list-check text-secondary">
             <li><strong class="text-dark">Monthly reassessment.</strong> Even after approval, SASSA checks your bank activity, employment status, and other records every month before releasing payment.</li>
-            <li><strong class="text-dark">Status updates.</strong> Your status may change from month to month. Approved one month does not guarantee approval the next. <a href="{{ url_for('home.sassa_status_check') }}" class="fw-semibold">Check your status regularly</a>.</li>
+            <li><strong class="text-dark">Status updates.</strong> Your status may change from month to month. Approved one month does not guarantee approval the next. <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="fw-semibold">Check your status regularly</a>.</li>
             <li><strong class="text-dark">If declined.</strong> You have 90 days to <a href="{{ url_for('home.sassa_appeal') }}" class="fw-semibold">appeal a decline</a>. Being declined one month does not mean you cannot be approved the next.</li>
           </ul>
         </section>
@@ -181,7 +190,7 @@
         </section>
 
         <footer class="border-top pt-4 mt-5">
-          <p class="text-secondary mb-3">Already applied? <a href="{{ url_for('home.sassa_status_check') }}" class="fw-semibold">Check your SASSA status</a> to see if you have been approved, or learn about <a href="{{ url_for('home.sassa_payment_dates') }}" class="fw-semibold">SASSA payment dates</a> to know when to expect your money.</p>
+          <p class="text-secondary mb-3">Already applied? <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="fw-semibold">Check your SASSA status</a> to see if you have been approved, or learn about <a href="{{ url_for('home.sassa_payment_dates') }}" class="fw-semibold">SASSA payment dates</a> to know when to expect your money.</p>
           <p class="text-muted small mb-0">Source: South African Social Security Agency. Application processes and requirements can change – always verify on srd.sassa.gov.za.</p>
         </footer>
 

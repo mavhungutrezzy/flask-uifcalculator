@@ -82,8 +82,17 @@
           </div>
         </header>
 
-        <aside class="border-start border-3 ps-3 my-4">
-          <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> If <a href="https://srd.sassa.gov.za" target="_blank" rel="noopener" class="fw-semibold">srd.sassa.gov.za</a> is not opening, use the official WhatsApp service (save 082 046 8553 and send "SASSA"), dial USSD code *134*7737# on your phone, or call the toll-free call centre on 0800 60 10 11.</p>
+        <aside class="p-3 p-md-4 my-4 bg-light border-start border-4 border-success rounded-3 shadow-sm">
+          <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3">
+            <div>
+              <p class="mb-0 text-secondary"><strong class="text-dark">Quick answer:</strong> If the official site is experiencing high traffic or errors, try checking your status on our status page, or use backup methods like WhatsApp or USSD.</p>
+            </div>
+            <div class="flex-shrink-0">
+              <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="btn btn-success fw-semibold text-nowrap">
+                <i class="bi bi-search me-1"></i> Check SASSA Status
+              </a>
+            </div>
+          </div>
         </aside>
 
         <section id="why-down" class="mb-5">
@@ -147,7 +156,7 @@
         </section>
 
         <footer class="border-top pt-4 mt-5">
-          <p class="text-secondary mb-3">Once the site is responsive, return to our primary <a href="{{ url_for('home.sassa_status_check') }}" class="fw-semibold">SASSA status check guide</a> or review <a href="{{ url_for('home.sassa_payment_dates') }}" class="fw-semibold">SASSA payment dates</a>.</p>
+          <p class="text-secondary mb-3">Once the site is responsive, return to our primary <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" class="fw-semibold">SASSA status check guide</a> or review <a href="{{ url_for('home.sassa_payment_dates') }}" class="fw-semibold">SASSA payment dates</a>.</p>
           <p class="text-muted small mb-0">Source: South African Social Security Agency IT & Communications announcements.</p>
         </footer>
 
