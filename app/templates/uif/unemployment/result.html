@@ -1,57 +1,93 @@
 {% extends 'base.html' %}
-{% block title %}Your UIF Estimate: R{{ "%.2f"|format(total_benefit) }} — What It Means & What To Do Next{% endblock %}
+{% block title %}UIF Payout Estimate: R{{ "%.2f"|format(total_benefit) }} — Calculation Breakdown{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Your estimated UIF benefit is R{{ "%.2f"|format(total_benefit) }} over {{ credit_days }} credit days. Here's what that actually means, how long UIF really takes to pay out, and exactly what to do next.">
+<meta name="description" content="Your estimated UIF benefit is R{{ "%.2f"|format(total_benefit) }} based on {{ credit_days }} credit days. View your daily benefit, monthly payout, and next steps to claim.">
 {% endblock meta %}
 
 {% block content %}
-<section class="py-5">
+<section class="py-5 bg-light">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8 col-xl-7">
 
-        <!-- ============ RESULT SUMMARY (compact, not the whole page) ============ -->
-        <div class="card shadow-sm border rounded-3 mb-5">
-          <div class="card-body text-center pt-4 pb-4">
-            <span class="badge bg-success-subtle p-2 rounded-pill border border-success text-success fw-semibold small mb-2">
-              Calculation Complete
+        <!-- Calculation Result Card -->
+        <div class="card shadow border rounded-4 mb-4">
+          <div class="card-body text-center p-4">
+            <span class="badge bg-success-subtle text-success p-2 rounded-pill border border-success fw-semibold small mb-3">
+              <i class="bi bi-check-circle-fill me-1"></i>Calculation Complete
             </span>
-            <h1 class="display-5 fw-bold text-dark mb-1">R{{ "%.2f"|format(total_benefit) }}</h1>
-            <p class="text-secondary small mb-3">Estimated total UIF benefit</p>
-            <div class="row text-start border-top pt-3 mt-2">
-              <div class="col-4">
-                <div class="small text-muted">Credit days</div>
-                <div class="fw-semibold">{{ credit_days }} days</div>
+            <p class="text-muted small text-uppercase fw-bold mb-1">Estimated Total UIF Benefit</p>
+            <h1 class="display-4 fw-bold text-success mb-2">R{{ "%.2f"|format(total_benefit) }}</h1>
+            <p class="text-muted small mb-4">Based on official Department of Employment & Labour formula</p>
+
+            <div class="row text-start border-top pt-4 g-3">
+              <div class="col-6 col-sm-3">
+                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Credit Days</div>
+                <div class="h5 fw-bold mb-0 text-dark">{{ credit_days }} Days</div>
               </div>
-              <div class="col-4">
-                <div class="small text-muted">Avg. monthly</div>
-                <div class="fw-semibold">
+              <div class="col-6 col-sm-3">
+                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Daily Benefit</div>
+                <div class="h5 fw-bold mb-0 text-dark">R{{ "%.2f"|format(daily_benefit) }}</div>
+              </div>
+              <div class="col-6 col-sm-3">
+                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Avg. Monthly</div>
+                <div class="h5 fw-bold mb-0 text-dark">
                   {% if credit_days > 0 %}R{{ "%.2f"|format(average_monthly_benefit) }}{% else %}R0.00{% endif %}
                 </div>
               </div>
-              <div class="col-4">
-                <div class="small text-muted">Duration</div>
-                <div class="fw-semibold">
-                  {% if credit_days > 0 %}{{ months_for_benefits|round|int }} months{% else %}0 months{% endif %}
+              <div class="col-6 col-sm-3">
+                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Duration</div>
+                <div class="h5 fw-bold mb-0 text-dark">
+                  {% if credit_days > 0 %}{{ months_for_benefits|round|int }} Months{% else %}0 Months{% endif %}
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- ============ LOAN AFFILIATE CTA ============ -->
+
+        <!-- Calculation Detail Accordion -->
+        <div class="card border rounded-3 mb-4 shadow-sm">
+          <div class="card-body p-4">
+            <h2 class="h6 fw-bold text-uppercase text-primary mb-3">Calculation Details</h2>
+            <div class="row g-2 small">
+              <div class="col-6 text-muted">Average Monthly Salary:</div>
+              <div class="col-6 text-end fw-semibold">R{{ "%.2f"|format(average_salary) }}</div>
+              <div class="col-6 text-muted">Daily Income (Salary × 12 ÷ 365):</div>
+              <div class="col-6 text-end fw-semibold">R{{ "%.2f"|format(daily_income) }}</div>
+              <div class="col-6 text-muted">Income Replacement Rate (IRR):</div>
+              <div class="col-6 text-end fw-semibold">{{ "%.2f"|format(irr) }}%</div>
+              <div class="col-6 text-muted">Daily Benefit Amount:</div>
+              <div class="col-6 text-end fw-semibold">R{{ "%.2f"|format(daily_benefit) }}</div>
+              <div class="col-6 text-muted">Earned Credit Days:</div>
+              <div class="col-6 text-end fw-semibold">{{ credit_days }} Days</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="d-flex flex-column flex-sm-row gap-2 mb-5">
+          <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-primary btn-lg flex-fill fw-bold">
+            <i class="bi bi-calculator me-2"></i>Recalculate
+          </a>
+          <a href="{{ url_for('home.uif_documents_needed') }}" class="btn btn-outline-secondary btn-lg flex-fill">
+            <i class="bi bi-file-earmark-text me-2"></i>View Documents Needed
+          </a>
+        </div>
+
+        <!-- Loan Affiliate CTA -->
         <div class="card border-0 rounded-3 mb-5 overflow-hidden shadow" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
           <div class="card-body p-4 text-white">
             <div class="d-flex align-items-start gap-3">
               <div class="flex-shrink-0 d-none d-sm-block" style="font-size: 2.2rem; line-height: 1;">💰</div>
               <div class="flex-grow-1">
                 <p class="fw-bold mb-1 text-warning" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">
-                  While you wait for UIF
+                  While You Wait for UIF Payout
                 </p>
                 <h2 class="h5 fw-bold mb-2 text-white">Need cash to cover expenses right now?</h2>
                 <p class="mb-3 small" style="color: rgba(255,255,255,0.8);">
-                  UIF can take 4–6 weeks to pay out. If you need money sooner to cover rent, groceries, or bills,
-                  Boost Loans offers quick personal loans with flexible repayment — no paperwork headaches.
+                  UIF processing can take 4–6 weeks. If you need money sooner to cover rent, groceries, or bills,
+                  Boost Loans offers quick personal loans with flexible repayment.
                 </p>
                 <a href="https://boostloans.co.za?ref=2521"
                    target="_blank"
@@ -68,27 +104,35 @@
           </div>
         </div>
 
-
-        <!-- ============ RELATED READS (real links only) ============ -->
-        <div class="border-top pt-4 mt-4 mb-4">
-          <h2 class="h5 fw-bold mb-3">Related reads</h2>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="https://uifcalculators.co.za/uif/ui19-form-explained/">What the UI-19 form is and why it affects your payout</a></li>
-            <li class="mb-2"><a href="https://uifcalculators.co.za/articles/uif-documents-needed/">Every document you need before applying</a></li>
-            <li class="mb-2"><a href="https://uifcalculators.co.za/articles/how-to-claim-uif-online/">Step-by-step: claiming UIF through uFiling</a></li>
-            <li class="mb-2"><a href="https://uifcalculators.co.za/articles/">All UIF guides and articles</a></li>
+        <!-- Related Guides -->
+        <div class="card border rounded-3 p-4 mb-4">
+          <h3 class="h6 fw-bold mb-3 text-uppercase text-muted">Related Guides & Next Steps</h3>
+          <ul class="list-group list-group-flush small">
+            <li class="list-group-item px-0">
+              <a href="{{ url_for('uif.ui19_form_explained') }}" class="text-decoration-none fw-semibold">
+                <i class="bi bi-arrow-right-circle text-primary me-2"></i>What the UI-19 form is and why it affects your payout
+              </a>
+            </li>
+            <li class="list-group-item px-0">
+              <a href="{{ url_for('home.uif_documents_needed') }}" class="text-decoration-none fw-semibold">
+                <i class="bi bi-arrow-right-circle text-primary me-2"></i>Every document you need before applying for UIF
+              </a>
+            </li>
+            <li class="list-group-item px-0">
+              <a href="{{ url_for('home.how_to_claim_uif_online') }}" class="text-decoration-none fw-semibold">
+                <i class="bi bi-arrow-right-circle text-primary me-2"></i>Step-by-step: claiming UIF online through uFiling
+              </a>
+            </li>
+            <li class="list-group-item px-0">
+              <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="text-decoration-none fw-semibold">
+                <i class="bi bi-arrow-right-circle text-primary me-2"></i>How the UIF calculation formula works
+              </a>
+            </li>
           </ul>
         </div>
 
-        <div class="text-center mb-4">
-          <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-dark px-4 py-2">
-            Run Another Calculation
-          </a>
-        </div>
-
         <p class="text-center text-muted small">
-          This is an independent estimation tool, not affiliated with the Department of Employment and Labour or
-          UIF. See our <a href="https://uifcalculators.co.za/disclaimer/">disclaimer</a> for details.
+          This is an independent estimation tool, not affiliated with the Department of Employment and Labour or UIF.
         </p>
 
       </div>

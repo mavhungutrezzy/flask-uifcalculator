@@ -1,57 +1,136 @@
 {% extends 'base.html' %}
+
+{% block title %}Maternity & Leave Top-Up Estimate: R{{ "%.2f"|format(top_up_daily) }}/day — Calculation Results{%
+endblock %}
+
 {% block meta %}
-  <title>UIF Leave Benefit Top-Up Results | UIFCalculators</title>
-{% endblock %}
-{% block title %}Top-Up Estimate{% endblock %}
+<meta name="description" content="Your estimated UIF daily top-up benefit is R{{ " %.2f"|format(top_up_daily) }} per
+  day. View your salary difference, daily benefit amount, and next steps to claim.">
+{% endblock meta %}
+
 {% block content %}
-<section class="py-5">
+<section class="py-5 bg-light">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6">
-        <div class="card shadow-sm border rounded-3">
-          <!-- Top Hero Section -->
-          <div class="card-body text-center pt-5 pb-4">
-            <div class="mb-3">
-              <span class="badge bg-success-subtle p-2 rounded-pill border border-success text-success fw-semibold small">
-                Calculation Complete
-              </span>
-            </div>
-            <h1 class="display-4 fw-bold text-dark mb-1">R{{ "%.2f"|format(top_up_daily) }}</h1>
-            <p class="text-secondary small">Daily UIF Top-Up Amount</p>
-          </div>
+      <div class="col-lg-8 col-xl-7">
 
-          <!-- Clean List Group -->
-          <ul class="list-group list-group-flush border-top border-bottom">
-            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
-              <span class="text-muted">Normal Monthly Salary</span>
-              <span class="fw-semibold text-dark">R{{ monthly_salary }}</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
-              <span class="text-muted">Monthly Salary on Leave</span>
-              <span class="fw-semibold text-dark">R{{ leave_salary }}</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4">
-              <span class="text-muted">Daily Benefit Amount (DBA)</span>
-              <span class="fw-semibold text-dark">R{{ daily_benefit_amount }}</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-4 bg-light">
-              <span class="text-muted">Difference (Y1 − Y2)</span>
-              <span class="fw-bold text-success">R{{ difference }}</span>
-            </li>
-          </ul>
+        <!-- Result Summary Card -->
+        <div class="card shadow border rounded-4 mb-4">
+          <div class="card-body text-center p-4">
+            <span
+              class="badge bg-success-subtle text-success p-2 rounded-pill border border-success fw-semibold small mb-3">
+              <i class="bi bi-check-circle-fill me-1"></i>Calculation Complete
+            </span>
+            <p class="text-muted small text-uppercase fw-bold mb-1">Estimated Daily UIF Top-Up</p>
+            <h1 class="display-4 fw-bold text-success mb-2">R{{ "%.2f"|format(top_up_daily) }}</h1>
+            <p class="text-muted small mb-4">Per day during your approved leave period</p>
 
-          <div class="card-body p-4">
-            <div class="alert alert-light border text-center small text-muted mb-3">
-              Disclaimer: This is an estimation tool only. Actual UIF payouts depend on final adjudication.
+            <div class="row text-start border-top pt-4 g-3">
+              <div class="col-6 col-sm-4">
+                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Normal Salary</div>
+                <div class="h6 fw-bold mb-0 text-dark">R{{ "%.2f"|format(monthly_salary) }}</div>
+              </div>
+              <div class="col-6 col-sm-4">
+                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Salary on Leave</div>
+                <div class="h6 fw-bold mb-0 text-dark">R{{ "%.2f"|format(leave_salary) }}</div>
+              </div>
+              <div class="col-12 col-sm-4">
+                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Daily Benefit Amount
+                </div>
+                <div class="h6 fw-bold mb-0 text-dark">R{{ "%.2f"|format(daily_benefit_amount) }}</div>
+              </div>
             </div>
-            <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="btn btn-dark w-100 py-2">
-              Start New Calculation
-            </a>
           </div>
         </div>
+
+        <!-- Calculation Detail Card -->
+        <div class="card border rounded-3 mb-4 shadow-sm">
+          <div class="card-body p-4">
+            <h2 class="h6 fw-bold text-uppercase text-primary mb-3">Top-Up Breakdown</h2>
+            <div class="row g-2 small">
+              <div class="col-6 text-muted">Normal Daily Income (Y1):</div>
+              <div class="col-6 text-end fw-semibold">R{{ "%.2f"|format(daily_income) }}</div>
+              <div class="col-6 text-muted">Daily Income While on Leave (Y2):</div>
+              <div class="col-6 text-end fw-semibold">R{{ "%.2f"|format(daily_leave_income) }}</div>
+              <div class="col-6 text-muted">Income Difference (Y1 − Y2):</div>
+              <div class="col-6 text-end fw-semibold">R{{ "%.2f"|format(difference) }}</div>
+              <div class="col-6 text-muted">Calculated Daily Benefit (DBA):</div>
+              <div class="col-6 text-end fw-semibold">R{{ "%.2f"|format(daily_benefit_amount) }}</div>
+              <div class="col-6 text-muted fw-bold text-primary">Final Daily Top-Up Payable:</div>
+              <div class="col-6 text-end fw-bold text-success">R{{ "%.2f"|format(top_up_daily) }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="d-flex flex-column flex-sm-row gap-2 mb-5">
+          <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="btn btn-primary btn-lg flex-fill fw-bold">
+            <i class="bi bi-calculator me-2"></i>Recalculate
+          </a>
+          <a href="{{ url_for('home.uif_documents_needed') }}" class="btn btn-outline-secondary btn-lg flex-fill">
+            <i class="bi bi-file-earmark-text me-2"></i>Maternity Documents
+          </a>
+        </div>
+
+        <!-- Loan Affiliate CTA -->
+        <div class="card border-0 rounded-3 mb-5 overflow-hidden shadow"
+          style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+          <div class="card-body p-4 text-white">
+            <div class="d-flex align-items-start gap-3">
+              <div class="flex-shrink-0 d-none d-sm-block" style="font-size: 2.2rem; line-height: 1;">💰</div>
+              <div class="flex-grow-1">
+                <p class="fw-bold mb-1 text-warning"
+                  style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">
+                  While You Wait for UIF Payout
+                </p>
+                <h2 class="h5 fw-bold mb-2 text-white">Need extra funds for baby or medical expenses?</h2>
+                <p class="mb-3 small" style="color: rgba(255,255,255,0.8);">
+                  Maternity UIF claims can take several weeks to process. Boost Loans offers quick personal loans with
+                  flexible repayment terms.
+                </p>
+                <a href="https://boostloans.co.za?ref=2521" target="_blank" rel="noopener sponsored"
+                  class="btn fw-semibold px-4 py-2"
+                  style="background: linear-gradient(90deg, #e2b714, #f5d442); color: #1a1a2e; border: none; border-radius: 8px;">
+                  Check If You Qualify →
+                </a>
+                <p class="mt-2 mb-0" style="font-size: 0.7rem; color: rgba(255,255,255,0.5);">
+                  Sponsored · Subject to credit approval
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Guides -->
+        <div class="card border rounded-3 p-4 mb-4">
+          <h3 class="h6 fw-bold mb-3 text-uppercase text-muted">Related Maternity & Leave Guides</h3>
+          <ul class="list-group list-group-flush small">
+            <li class="list-group-item px-0">
+              <a href="{{ url_for('uif.ui19_form_explained') }}" class="text-decoration-none fw-semibold">
+                <i class="bi bi-arrow-right-circle text-primary me-2"></i>What the UI-19 form is and why it affects
+                maternity claims
+              </a>
+            </li>
+            <li class="list-group-item px-0">
+              <a href="{{ url_for('home.uif_documents_needed') }}" class="text-decoration-none fw-semibold">
+                <i class="bi bi-arrow-right-circle text-primary me-2"></i>Every document you need to claim maternity UIF
+              </a>
+            </li>
+            <li class="list-group-item px-0">
+              <a href="{{ url_for('home.how_to_claim_uif_online') }}" class="text-decoration-none fw-semibold">
+                <i class="bi bi-arrow-right-circle text-primary me-2"></i>Step-by-step: submitting maternity claims
+                online
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <p class="text-center text-muted small">
+          This is an independent estimation tool, not affiliated with the Department of Employment and Labour or UIF.
+        </p>
+
       </div>
     </div>
   </div>
 </section>
-
-{% endblock %}
+{% endblock content %}

@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 
-{% block title %}UIF Unemployment Calculator South Africa 2026 | Estimate Your Payout{% endblock %}
+{% block title %}UIF Unemployment Calculator South Africa 2026 | Estimate Payout{% endblock %}
 
 {% block meta %}
 <meta name="description"
-      content="Calculate UIF benefits online with our free UIF Calculator 2026 South Africa, including maternity UIF, unemployment benefits, and credit day estimates.">
+      content="Calculate your UIF unemployment benefit payout in South Africa. Enter your salary and months worked to estimate total payout, daily benefit, and credit days.">
 {% endblock %}
 
 {% block canonical_href %}{{ url_for('uif.unemployment_calculator', _external=True) }}{% endblock %}
 {% block og_url %}{{ url_for('uif.unemployment_calculator', _external=True) }}{% endblock %}
-{% block og_title %}UIF Unemployment Calculator South Africa 2026 | Estimate Your Payout{% endblock %}
-{% block og_description %}Calculate UIF benefits online with our free UIF Calculator 2026 South Africa, including maternity UIF, unemployment benefits, and credit day estimates.{% endblock %}
+{% block og_title %}UIF Unemployment Calculator South Africa 2026 | Estimate Payout{% endblock %}
+{% block og_description %}Calculate your UIF unemployment benefit payout in South Africa. Enter your salary and months worked to estimate total payout, daily benefit, and credit days.{% endblock %}
 {% block twitter_url %}{{ url_for('uif.unemployment_calculator', _external=True) }}{% endblock %}
-{% block twitter_title %}UIF Unemployment Calculator South Africa 2026 | Estimate Your Payout{% endblock %}
-{% block twitter_description %}Calculate UIF benefits online with our free UIF Calculator 2026 South Africa, including maternity UIF, unemployment benefits, and credit day estimates.{% endblock %}
+{% block twitter_title %}UIF Unemployment Calculator South Africa 2026 | Estimate Payout{% endblock %}
+{% block twitter_description %}Calculate your UIF unemployment benefit payout in South Africa. Enter your salary and months worked to estimate total payout, daily benefit, and credit days.{% endblock %}
 
 {% block structured_data %}
 {{ super() }}
@@ -26,12 +26,12 @@
       "@id": "{{ url_for('uif.unemployment_calculator', _external=True) }}#webpage",
       "url": "{{ url_for('uif.unemployment_calculator', _external=True) }}",
       "name": "UIF Unemployment Calculator South Africa 2026",
-      "description": "Estimate UIF unemployment benefits using monthly salary and months employed.",
+      "description": "Calculate estimated UIF unemployment benefits based on monthly salary and months employed in South Africa.",
       "inLanguage": "en-ZA",
       "isPartOf": {
         "@id": "{{ url_for('home.index', _external=True) }}#website"
       },
-      "dateModified": "2026-05-11"
+      "dateModified": "2026-08-26"
     },
     {
       "@type": "WebApplication",
@@ -72,293 +72,432 @@
 {% endblock %}
 
 {% block content %}
+
 {% if error %}
   <div class="container pt-3">
     <div class="alert alert-danger" role="alert">{{ error }}</div>
   </div>
 {% endif %}
 
+<!-- Hero Section with Calculator On Top -->
 <section class="py-5 bg-gradient-primary text-black">
   <div class="container">
     <div class="row align-items-center g-4">
-      <div class="col-lg-7">
+      <div class="col-lg-6">
         <div class="mb-3">
           <span class="badge bg-success-subtle text-success fw-semibold border border-success px-3 py-2 small rounded-pill">
-            <i class="bi bi-check-circle-fill me-2"></i>Updated May 2026
+            <i class="bi bi-shield-check me-2"></i>Official 2026 Formula
           </span>
         </div>
-        <h1 class="fw-bold mb-3">UIF Unemployment Calculator South Africa</h1>
+        <h1 class="fw-bold mb-3 display-6">UIF Unemployment Calculator</h1>
         <p class="lead mb-4 text-muted">
-          Estimate your UIF unemployment payout using your average monthly salary and the number of months you were employed and contributing.
+          Calculate your estimated UIF unemployment payout, credit days, and monthly benefit duration after retrenchment, dismissal, or contract expiry.
         </p>
-        <div class="d-flex flex-column flex-md-row gap-2">
-          <a href="#calculatorSection" class="btn btn-primary btn-lg px-4">
-            <i class="bi bi-calculator me-2"></i>Calculate UIF Payout
-          </a>
-          <a href="{{ url_for('home.uif_status_check_online') }}" class="btn btn-outline-secondary btn-lg px-4">UIF Status Check</a>
+
+        <div class="d-none d-lg-block">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+            <span>Instant payout & credit days calculation</span>
+          </div>
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+            <span>Calculates sliding Income Replacement Rate (38% – 60%)</span>
+          </div>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+            <span>Updated with R17,712 monthly salary ceiling</span>
+          </div>
         </div>
       </div>
-      <!-- <div class="col-lg-5">
-        <div class="border rounded-4 p-4 bg-white shadow-sm">
-          <p class="fw-semibold mb-2 text-primary text-uppercase small">What you get</p>
-          <ul class="list text-muted mb-0">
-            <li class="mb-2">Estimated total UIF benefit</li>
-            <li class="mb-2">Potential credit days</li>
-            <li class="mb-2">Estimated payout duration</li>
-            <li>Average monthly estimate</li>
-          </ul>
-        </div>
-      </div> -->
-    </div>
-  </div>
-</section>
 
-<section class="py-4 bg-gradient-primary" id="calculatorSection">
-  <div class="container">
-    <div class="row mb-4 justify-content-center" id="calculator">
-      <div class="col-md-10 col-lg-8">
-        <div class="border rounded-4 p-3 p-md-4 bg-white shadow-sm">
-          <div class="card-body p-2 p-md-4 bg-white rounded-3 text-black">
+      <!-- Calculator Card Front & Center -->
+      <div class="col-lg-6" id="calculatorSection">
+        <div class="border rounded-4 p-4 bg-white shadow">
+          <div class="card-body p-1 bg-white text-black">
+            <h2 class="h5 fw-bold mb-3 text-center text-primary">
+              <i class="bi bi-calculator me-2"></i>Calculate Your UIF Benefit
+            </h2>
             <form id="quickCalc" method="post" action="{{ url_for('uif.unemployment_calculator_result') }}">
               <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
               <input type="hidden" name="sameSalaryCheck" value="on">
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="singleSalary" class="form-label mb-1 small text-uppercase">
-                    Average Monthly Salary (R)
-                  </label>
+
+              <div class="mb-3">
+                <label for="singleSalary" class="form-label mb-1 small fw-bold text-uppercase text-muted">
+                  Average Gross Monthly Salary (R)
+                </label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light fw-bold">R</span>
                   <input type="number"
                          step="0.01"
-                         min="0"
-                         class="form-control form-control-md"
+                         min="1"
+                         class="form-control form-control-lg"
                          id="singleSalary"
                          name="single_salary"
-                         placeholder="e.g., 15000.00"
+                         placeholder="e.g. 15000"
                          required>
                 </div>
-                <div class="col-md-6">
-                  <label for="monthsEmployed" class="form-label mb-1 small text-uppercase">Months Employed</label>
+                <div class="form-text small">Your average monthly earnings before deductions (capped at R17,712).</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="monthsEmployed" class="form-label mb-1 small fw-bold text-uppercase text-muted">
+                  Months Employed & Contributing
+                </label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light"><i class="bi bi-calendar3"></i></span>
                   <input type="number"
                          step="1"
                          min="1"
-                         class="form-control form-control-md"
+                         max="240"
+                         class="form-control form-control-lg"
                          id="monthsEmployed"
                          name="months_employed"
-                         placeholder="e.g., 24"
+                         placeholder="e.g. 24"
                          required>
-                  <div class="form-text">
-                    Count only working months where you were employed and contributing to UIF.
-                  </div>
+                  <span class="input-group-text bg-light">Months</span>
                 </div>
+                <div class="form-text small">Count working months where 1% UIF was deducted (48+ months gives maximum credits).</div>
               </div>
-              <button type="submit" class="btn btn-primary w-100 mt-3">See Estimate</button>
+
+              <button type="submit" class="btn btn-primary btn-lg w-100 mt-3 fw-bold">
+                <i class="bi bi-calculator-fill me-2"></i>Calculate UIF Payout
+              </button>
             </form>
             <p class="text-muted small mt-3 mb-0 text-center">
-              Estimate only. Confirm final claims with the Department of Employment and Labour or uFiling.
+              Free & instant. No registration or ID required.
             </p>
           </div>
         </div>
-        <p class="small text-muted text-center mt-3 mb-0">
-          Uses UIF benefit calculation guidance from the
-          <a href="https://www.labour.gov.za/DocumentCenter/Publications/Unemployment%20Insurance%20Fund/Fact%20Sheet%20on%20the%20Calculation%20of%20normal%20UIF%20benefit.pdf"
-             target="_blank"
-             rel="noopener noreferrer">Department of Employment and Labour</a>.
-        </p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="py-5 bg-white">
+<!-- Trust & Feature Strip -->
+<section class="py-3 bg-white border-bottom">
   <div class="container">
-    <div class="row justify-content-center mb-5">
-      <div class="col-lg-10 text-center">
-        <h2 class="fw-bold mb-4">What Is a UIF Calculator?</h2>
+    <div class="row g-3 text-center">
+      <div class="col-6 col-md-3">
+        <div class="fw-bold h4 mb-0 text-primary">R17,712</div>
+        <div class="small text-muted">Monthly Remuneration Ceiling</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="fw-bold h4 mb-0 text-success">38% – 60%</div>
+        <div class="small text-muted">Income Replacement Rate (IRR)</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="fw-bold h4 mb-0 text-warning">365 Days</div>
+        <div class="small text-muted">Maximum Benefit Credit Days</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="fw-bold h4 mb-0 text-info">1 for 4</div>
+        <div class="small text-muted">Credit Ratio (1 day per 4 worked)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Guide Content -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-9 text-center">
+        <h2 class="fw-bold mb-3">How the UIF Unemployment Payout Is Calculated</h2>
         <p class="lead text-muted">
-          A UIF calculator online helps South African workers estimate UIF-related amounts from salary and employment information.
+          The Department of Employment and Labour uses a sliding scale formula based on your average salary and accumulated credit days.
         </p>
       </div>
     </div>
 
-    <div class="row g-5">
-      <div class="col-lg-8 mx-auto">
-        <p>A UIF calculator can help calculate UIF contributions based on an employee's monthly salary. Contribution calculators usually estimate how much both the employee and employer must contribute to the Unemployment Insurance Fund.</p>
-        <p>This page focuses on <strong>UIF unemployment benefits</strong>: it estimates your possible payout using your average monthly salary and the number of months you were employed and contributing to UIF.</p>
-        <p>The UIF system is regulated in South Africa and generally applies to most workers who work more than 24 hours per month.</p>
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-9">
 
-        <p class="fw-semibold mb-2">A UIF calculator helps users:</p>
-        <ul class="small">
-          <li>Estimate maternity UIF benefits</li>
-          <li>Estimate unemployment UIF benefits</li>
-          <li>Estimate leave UIF benefits</li>
+        <!-- Step Breakdown Cards -->
+        <div class="card border rounded-3 mb-3 shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-uppercase text-primary mb-2">Step 1 — Salary Remuneration Cap</h3>
+            <p class="mb-0 small">
+              UIF calculations cap gross monthly earnings at <strong>R17,712 per month</strong> (R212,544 annually). If you earn more than R17,712 per month, your benefit is calculated using R17,712 as the maximum baseline.
+            </p>
+          </div>
+        </div>
+
+        <div class="card border rounded-3 mb-3 shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-uppercase text-primary mb-2">Step 2 — Daily Income Calculation</h3>
+            <p class="mb-2 font-monospace small bg-light p-2 rounded border">
+              Daily Income = (Average Monthly Salary × 12) ÷ 365
+            </p>
+            <p class="small text-muted mb-0">Example for R15,000 monthly salary: R15,000 × 12 ÷ 365 = R493.15 per day.</p>
+          </div>
+        </div>
+
+        <div class="card border rounded-3 mb-3 shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-uppercase text-primary mb-2">Step 3 — Income Replacement Rate (IRR)</h3>
+            <p class="mb-2 font-monospace small bg-light p-2 rounded border">
+              IRR = 29.2 + (7,173.92 ÷ (232.92 + Daily Income))
+            </p>
+            <p class="small text-muted mb-0">
+              The IRR ranges between 38% for maximum earners and 60% for lower earners. This ensures lower-income workers receive a higher percentage of their salary.
+            </p>
+          </div>
+        </div>
+
+        <div class="card border rounded-3 mb-3 shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-uppercase text-primary mb-2">Step 4 — Daily Benefit & Total Payout</h3>
+            <p class="mb-2 font-monospace small bg-light p-2 rounded border">
+              Daily Benefit Amount = Daily Income × IRR<br>
+              Total Estimated Benefit = Daily Benefit Amount × Credit Days
+            </p>
+            <p class="small text-muted mb-0">Your daily benefit is multiplied by your total earned credit days to determine your maximum payout.</p>
+          </div>
+        </div>
+
+        <hr class="my-5">
+
+        <!-- Credit Days & Duration Table -->
+        <h3 class="h4 fw-bold text-primary mb-3">Credit Days & Benefit Duration Table</h3>
+        <p>You earn <strong>1 credit day for every 4 days worked</strong> as a contributing employee. The maximum credit cap is 365 days (achieved after 4 years of continuous employment).</p>
+
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered align-middle">
+            <thead class="table-primary">
+              <tr>
+                <th>Period Employed</th>
+                <th>Estimated Credit Days</th>
+                <th>Approximate Benefit Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>6 Months</td>
+                <td>~45 Credit Days</td>
+                <td>1.5 Months (6 Weeks)</td>
+              </tr>
+              <tr>
+                <td>12 Months (1 Year)</td>
+                <td>~91 Credit Days</td>
+                <td>3 Months (13 Weeks)</td>
+              </tr>
+              <tr>
+                <td>24 Months (2 Years)</td>
+                <td>~183 Credit Days</td>
+                <td>6 Months (26 Weeks)</td>
+              </tr>
+              <tr>
+                <td>36 Months (3 Years)</td>
+                <td>~274 Credit Days</td>
+                <td>9 Months (39 Weeks)</td>
+              </tr>
+              <tr>
+                <td>48+ Months (4+ Years)</td>
+                <td>365 Credit Days (Max)</td>
+                <td>12 Months (52 Weeks Max)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="my-5">
+
+        <!-- Salary Payout Examples -->
+        <h3 class="h4 fw-bold text-primary mb-3">UIF Payout Salary Examples</h3>
+        <p>Here are approximate total payout estimates for employees with 4+ years of contributions (365 max credit days):</p>
+
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h4 class="h6 fw-bold text-dark">R5,000 Monthly Salary</h4>
+                <div class="h5 fw-bold text-success mb-1">~R2,650 / month</div>
+                <p class="small text-muted mb-0">High replacement rate (~53%). Estimated total benefit: ~R31,800 over 12 months.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h4 class="h6 fw-bold text-dark">R10,000 Monthly Salary</h4>
+                <div class="h5 fw-bold text-success mb-1">~R4,450 / month</div>
+                <p class="small text-muted mb-0">Medium replacement rate (~44%). Estimated total benefit: ~R53,400 over 12 months.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h4 class="h6 fw-bold text-dark">R15,000 Monthly Salary</h4>
+                <div class="h5 fw-bold text-success mb-1">~R5,950 / month</div>
+                <p class="small text-muted mb-0">Standard replacement rate (~39.7%). Estimated total benefit: ~R71,400 over 12 months.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <h4 class="h6 fw-bold text-dark">R17,712+ (Max Ceiling)</h4>
+                <div class="h5 fw-bold text-success mb-1">~R6,730 / month</div>
+                <p class="small text-muted mb-0">Capped at 38% IRR ceiling. Maximum total benefit: ~R80,760 over 12 months.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5">
+
+        <!-- Who Qualifies -->
+        <h3 class="h4 fw-bold text-primary mb-3">Who Can Claim Unemployment UIF?</h3>
+        <p>You qualify to claim UIF unemployment benefits if you were a contributing employee and became unemployed due to:</p>
+        <ul class="list-group list-group-flush mb-3">
+          <li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Retrenchment</strong> or operational requirements</li>
+          <li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Expiration of a fixed-term contract</strong></li>
+          <li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Dismissal</strong> (unless due to gross misconduct)</li>
+          <li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Insolvency / Closure</strong> of employer company</li>
         </ul>
+        <div class="alert alert-danger mb-4">
+          <i class="bi bi-x-circle-fill me-2"></i>
+          <strong>Important:</strong> You <strong>cannot</strong> claim UIF unemployment benefits if you resigned voluntarily.
+        </div>
 
-        <hr class="my-4">
+        <hr class="my-5">
 
-        <h3 class="h4 fw-bold text-primary">Understanding UIF in South Africa</h3>
-        <p>UIF stands for the Unemployment Insurance Fund. It is a social security system created to provide temporary financial relief to qualifying workers.</p>
-        <p>Employees may claim UIF benefits when they become unemployed, take maternity leave, experience illness, go on adoption leave, or lose income due to reduced working hours.</p>
-        <p>
-          The official South African UIF system is managed by the Unemployment Insurance Fund and the
-          <a href="https://www.labour.gov.za/basic-guide-to-uif-contributions"
-             target="_blank"
-             rel="noopener noreferrer">Department of Employment and Labour</a>.
-        </p>
-
-        <hr class="my-4">
-
-        <h3 class="h4 fw-bold text-primary">Who Must Contribute to UIF?</h3>
-        <p>Most employees and employers in South Africa are legally required to contribute to UIF. If an employee works more than 24 hours per month, UIF contributions usually apply.</p>
-        <p>This includes:</p>
+        <!-- Documents Required -->
+        <h3 class="h4 fw-bold text-primary mb-3">Documents Needed to File Your Claim</h3>
+        <p>Before lodging your claim at a Labour Centre or via UIF Online, gather the following documents:</p>
         <ul class="small">
-          <li>Full-time employees</li>
-          <li>Part-time workers</li>
-          <li>Domestic workers</li>
-          <li>Temporary staff</li>
-          <li>Contract workers</li>
+          <li><strong>ID Document</strong> (Bar-coded ID book, Smart ID card, or passport)</li>
+          <li><strong>Form UI-19</strong> completed and signed by your former employer</li>
+          <li><strong>Form UI-2.8</strong> (Banking details confirmation stamped by your bank)</li>
+          <li><strong>Notice of Termination</strong> or retrenchment letter from employer</li>
+          <li><strong>Proof of Registration as a Work-Seeker</strong></li>
+          <li>Recent payslips (last 6 months)</li>
         </ul>
-
-        <hr class="my-4">
-
-        <h3 class="h4 fw-bold text-primary">Who Is Exempt From UIF Contributions?</h3>
-        <p>Some individuals may be exempt from UIF deductions, including:</p>
-        <ul class="small">
-          <li>Workers employed for less than 24 hours per month by an employer</li>
-          <li>Independent contractors in certain cases</li>
-          <li>Public servants in certain categories</li>
-          <li>Foreign workers on contracts where they will be repatriated at the end of employment</li>
-          <li>Workers who earn commission only</li>
-        </ul>
-        <p>Employers should confirm exemption status carefully to avoid compliance problems.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="py-5">
-  <div class="container">
-    <div class="row justify-content-center mb-5">
-      <div class="col-lg-10 text-center">
-        <h2 class="fw-bold mb-4">How This UIF Unemployment Calculator Works</h2>
-        <p class="lead text-muted">The calculator focuses on unemployment benefits, credit days and estimated payout amount.</p>
-      </div>
-    </div>
-
-    <div class="row g-5">
-      <div class="col-lg-8 mx-auto">
-        <h3 class="h4 fw-bold text-primary">What You Need Before Calculating</h3>
-        <p>Use your average monthly salary before unemployment and the number of months you worked while contributing to UIF. You do not need your ID number, UIF login, employer details, or banking details to use this estimate.</p>
-
-        <hr class="my-4">
-
-        <h3 class="h4 fw-bold text-primary">What the Calculator Estimates</h3>
-        <p>The calculator estimates your daily income, income replacement rate, daily benefit amount, potential credit days, total benefit and estimated duration.</p>
-        <p>Salary is capped for UIF calculation purposes, so higher salaries may not increase the estimate above the UIF salary ceiling used by the calculator.</p>
-
-        <hr class="my-4">
-
-        <h3 class="h4 fw-bold text-primary">Who Can Usually Claim Unemployment UIF?</h3>
-        <p>You may qualify for unemployment UIF if you contributed to UIF and became unemployed because you were retrenched, dismissed, your fixed-term contract ended, or your employer closed.</p>
-        <p><strong>You generally cannot claim unemployment UIF if you resigned voluntarily.</strong></p>
-
-        <hr class="my-4">
-
-        <h3 class="h4 fw-bold text-primary">Documents Usually Needed</h3>
-        <ul class="small">
-          <li>13-digit bar-coded ID, smart ID card, passport or valid identity document</li>
-          <li>UI-19 form from your employer</li>
-          <li>Last six payslips where available</li>
-          <li>Banking details and proof of account</li>
-          <li>Proof of registration as a work seeker where required</li>
-        </ul>
-
-        <hr class="my-4">
-
-        <h3 class="h4 fw-bold text-primary">Why Your Actual UIF Payout May Differ</h3>
-        <p>Your official payout may differ from this estimate if your employer records are incomplete, your salary history differs, you have already used credits, documents are missing, or the Department of Employment and Labour applies a different decision after adjudication.</p>
-
-        <hr class="my-4">
-
-        <h3 class="h4 fw-bold text-primary">Next Steps After Calculating</h3>
-        <p>After estimating your benefit, prepare your documents and apply through a Labour Centre or the official uFiling platform. You can also read our <a href="{{ url_for('uif.how_to_calculate_uif') }}">UIF calculation guide</a> or learn how the <a href="{{ url_for('uif.ui19_form_explained') }}">UI-19 form</a> affects a claim.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- FAQ Section -->
 <section class="py-5 bg-white border-top">
   <div class="container">
-    <div class="row justify-content-center mb-5">
-      <div class="col-lg-10 text-center">
-        <h2 class="fw-bold mb-4">UIF Unemployment Calculator FAQ</h2>
-        <p class="lead text-muted">Quick answers for people estimating unemployment UIF benefits in South Africa.</p>
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-9 text-center">
+        <h2 class="fw-bold mb-3">UIF Unemployment Calculator FAQ</h2>
+        <p class="lead text-muted">Frequently asked questions about calculating UIF unemployment payouts in South Africa.</p>
       </div>
     </div>
 
-    <div class="row g-5">
-      <div class="col-lg-8 mx-auto">
-        <div class="accordion" id="uifUnemploymentFaq">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="accordion" id="uifCalculatorFaq">
+
           <div class="accordion-item border-primary mb-3">
             <h3 class="accordion-header">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqPayout">
-                How much UIF will I get if I am unemployed?
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                How much UIF will I get if I am retrenched?
               </button>
             </h3>
-            <div id="faqPayout" class="accordion-collapse collapse show" data-bs-parent="#uifUnemploymentFaq">
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#uifCalculatorFaq">
               <div class="accordion-body text-muted">
-                Your estimate depends on your salary, UIF salary cap, income replacement rate and credit days. Use the calculator above to estimate your total benefit and average monthly amount.
+                Your total payout depends on your average monthly salary (capped at R17,712) and accumulated credit days. Lower earners receive up to 60% of their salary, while higher earners receive down to 38%. Enter your salary and months worked into our calculator above to get your exact estimate.
               </div>
             </div>
           </div>
 
           <div class="accordion-item border-primary mb-3">
             <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqMonths">
-                What does months employed mean?
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                How are UIF credit days calculated?
               </button>
             </h3>
-            <div id="faqMonths" class="accordion-collapse collapse" data-bs-parent="#uifUnemploymentFaq">
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#uifCalculatorFaq">
               <div class="accordion-body text-muted">
-                Enter the number of working months where you were employed and contributing to UIF. Do not include long gaps where you were not employed or not contributing.
+                You earn 1 credit day for every 4 days worked as a contributing employee. Working 4 continuous years (48 months) gives you the maximum cap of 365 credit days, which covers up to 12 months of benefit payments.
               </div>
             </div>
           </div>
 
           <div class="accordion-item border-primary mb-3">
             <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqResigned">
-                Can I claim UIF if I resigned?
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                What is the maximum salary limit for UIF calculations?
               </button>
             </h3>
-            <div id="faqResigned" class="accordion-collapse collapse" data-bs-parent="#uifUnemploymentFaq">
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#uifCalculatorFaq">
               <div class="accordion-body text-muted">
-                Generally, no. Unemployment UIF is usually for people who lost work because of retrenchment, dismissal, contract expiry or employer closure, not voluntary resignation.
+                The current maximum remuneration ceiling for UIF benefit calculations is <strong>R17,712 per month</strong>. If you earn R25,000 or R50,000, your benefit is calculated using R17,712 as the maximum threshold.
               </div>
             </div>
           </div>
 
           <div class="accordion-item border-primary mb-3">
             <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqDuration">
-                How long can UIF unemployment benefits last?
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                How long does UIF pay unemployment benefits?
               </button>
             </h3>
-            <div id="faqDuration" class="accordion-collapse collapse" data-bs-parent="#uifUnemploymentFaq">
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#uifCalculatorFaq">
               <div class="accordion-body text-muted">
-                UIF unemployment benefits depend on available credit days and are capped. Long-term contributors may qualify for a longer benefit period than workers with a short contribution history.
+                UIF unemployment benefits can be paid for a minimum of 1.5 months (45 credit days) up to a maximum of 12 months (365 credit days), depending on how many months you contributed before losing your job.
               </div>
             </div>
           </div>
 
           <div class="accordion-item border-primary mb-3">
             <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqOfficial">
-                Is this an official UIF result?
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                Can I claim UIF if I resigned from my job?
               </button>
             </h3>
-            <div id="faqOfficial" class="accordion-collapse collapse" data-bs-parent="#uifUnemploymentFaq">
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#uifCalculatorFaq">
               <div class="accordion-body text-muted">
-                No. This calculator provides an estimate only. Official claim approval and payment amounts are decided by the Department of Employment and Labour.
+                No. Voluntary resignation does not qualify for UIF unemployment benefits under the Unemployment Insurance Act. You can only claim if you were retrenched, dismissed, or your fixed-term contract ended.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Related Guides & Calculators -->
+<section class="py-4 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h3 class="h4 fw-bold mb-4 text-center">Related UIF Calculators and Guides</h3>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center">
+                <i class="bi bi-person-hearts text-primary fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold">UIF Maternity Calculator</h4>
+                <p class="small text-muted">Estimate maternity, adoption, parental or illness leave top-up benefits.</p>
+                <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="btn btn-sm btn-outline-primary">Maternity Calculator</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center">
+                <i class="bi bi-file-earmark-text text-success fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold">UI-19 Form Explained</h4>
+                <p class="small text-muted">Learn how the UI-19 employer declaration affects your credit days and payout.</p>
+                <a href="{{ url_for('uif.ui19_form_explained') }}" class="btn btn-sm btn-outline-success">UI-19 Guide</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center">
+                <i class="bi bi-folder-check text-info fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold">Required UIF Documents</h4>
+                <p class="small text-muted">Check the complete list of documents required to claim UIF online or at Labour Centres.</p>
+                <a href="{{ url_for('home.uif_documents_needed') }}" class="btn btn-sm btn-outline-info">View Documents</a>
               </div>
             </div>
           </div>
@@ -368,20 +507,27 @@
   </div>
 </section>
 
+<!-- Bottom CTA -->
 <section class="py-4 bg-primary text-white">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-8 mx-auto">
-        <h2>Estimate Your UIF Unemployment Payout</h2>
+        <h2 class="fw-bold">Ready to Estimate Your UIF Payout?</h2>
         <p class="text-white">
-          Use the calculator with your salary and months employed, then confirm your claim details through official UIF channels.
+          Use the calculator at the top of the page with your average salary and months worked to see your estimated total benefit.
         </p>
         <div class="d-flex flex-column flex-md-row gap-2 justify-content-center">
-          <a href="#calculatorSection" class="btn btn-outline-light btn-sm">Calculate UIF Payout</a>
-          <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="btn btn-outline-light btn-sm">Maternity and Leave UIF Calculator</a>
+          <a href="#calculatorSection" class="btn btn-light btn-sm fw-bold">
+            <i class="bi bi-arrow-up-circle me-1"></i>Calculate UIF Payout
+          </a>
+          <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="btn btn-outline-light btn-sm">Maternity UIF Calculator</a>
         </div>
+        <p class="text-white small mt-3 mb-0">
+          UIF paid R18 billion to 3.1 million South Africans last year — calculate your estimated entitlement today.
+        </p>
       </div>
     </div>
   </div>
 </section>
+
 {% endblock content %}
