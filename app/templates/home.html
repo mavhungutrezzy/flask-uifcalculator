@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
 
-{% block title %}UIF Status Check South Africa 2026 | Check Claim & Payment Status{% endblock %}
+{% block title %}UIF Status Check South Africa 2026 | Check Claim & Payment{% endblock %}
 
 {% block meta %}
 <meta name="description"
-      content="Check your UIF status online in South Africa. Find out if your UIF claim is approved, pending, paid or declined. Understand UIF payment status, processing times and what to do if your payment is delayed.">
+      content="Check your UIF status online in South Africa. See if your claim is approved or paid, learn processing times, and find what to do for delayed payments.">
 {% endblock %}
 
 {% block canonical_href %}{{ url_for('home.uif_status_check_online', _external=True) }}{% endblock %}
 {% block og_url %}{{ url_for('home.uif_status_check_online', _external=True) }}{% endblock %}
-{% block og_title %}UIF Status Check South Africa 2026 | Check Claim & Payment Status{% endblock %}
-{% block og_description %}Check your UIF status online in South Africa. Find out if your UIF claim is approved, pending, paid or declined, and what to do if your payment is delayed.{% endblock %}
+{% block og_title %}UIF Status Check South Africa 2026 | Check Claim & Payment{% endblock %}
+{% block og_description %}Check your UIF status online in South Africa. See if your claim is approved or paid, learn processing times, and find what to do for delayed payments.{% endblock %}
 {% block twitter_url %}{{ url_for('home.uif_status_check_online', _external=True) }}{% endblock %}
-{% block twitter_title %}UIF Status Check South Africa 2026 | Check Claim & Payment Status{% endblock %}
-{% block twitter_description %}Check your UIF status online in South Africa. Find out if your UIF claim is approved, pending, paid or declined, and what to do if your payment is delayed.{% endblock %}
+{% block twitter_title %}UIF Status Check South Africa 2026 | Check Claim & Payment{% endblock %}
+{% block twitter_description %}Check your UIF status online in South Africa. See if your claim is approved or paid, learn processing times, and find what to do for delayed payments.{% endblock %}
 
 {% block structured_data %}
 {{ super() }}
@@ -25,7 +25,7 @@
   "@id": "{{ url_for('home.uif_status_check_online', _external=True) }}#webpage",
   "url": "{{ url_for('home.uif_status_check_online', _external=True) }}",
   "name": "UIF Status Check South Africa 2026",
-  "description": "Check your UIF status online in South Africa. Find out if your UIF claim is approved, pending, paid or declined, and what to do if your payment is delayed.",
+  "description": "Check your UIF status online in South Africa. See if your claim is approved or paid, learn processing times, and find what to do for delayed payments.",
   "inLanguage": "en-ZA",
   "isPartOf": {
     "@id": "{{ url_for('home.index', _external=True) }}#website"
