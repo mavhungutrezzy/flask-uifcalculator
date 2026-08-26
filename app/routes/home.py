@@ -19,24 +19,15 @@ def index():
     return render_template("home.html")
 
 @home_bp.route("/uif-ufiling-login")
-def uif_ufiling_login():
-    return render_template("pages/uif-ufiling-login.html")
-
 @home_bp.route("/uif-status-check-id-number")
-def uif_status_check_id_number():
-    return render_template("pages/uif-status-check-id-number.html")
-
 @home_bp.route("/uif-status-check-whatsapp")
-def uif_status_check_whatsapp():
-    return render_template("pages/uif-status-check-whatsapp.html")
+@home_bp.route("/how-to-check-uif-balance")
+def redirect_uif_status_variations():
+    return redirect(url_for("home.uif_status_check_online"), code=301)
 
 @home_bp.route("/uif-call-centre-contact-list")
 def uif_call_centre_contact_list():
     return render_template("pages/uif-call-centre-contact-list.html")
-
-@home_bp.route("/how-to-check-uif-balance")
-def how_to_check_uif_balance():
-    return render_template("pages/how-to-check-uif-balance.html")
 
 
 @home_bp.route("/uif-status-check-online")
@@ -49,180 +40,23 @@ def legacy_uif_status_check_online():
     return redirect(url_for("home.uif_status_check_online"), code=301)
 
 
-@home_bp.route("/articles/")
-def articles():
-    return render_template("pages/articles.html")
-
-
-@home_bp.route("/articles/how-to-claim-uif-online/")
-def how_to_claim_uif_online():
-    return render_template("pages/how-to-claim-uif-online.html")
-
-
-@home_bp.route("/articles/uif-documents-needed/")
-def uif_documents_needed():
-    return render_template("pages/uif-documents-needed.html")
-
-
-@home_bp.route("/articles/can-i-claim-uif-if-i-resigned/")
-def can_i_claim_uif_if_i_resigned():
-    return render_template("pages/can-i-claim-uif-if-i-resigned.html")
-
-
-@home_bp.route("/articles/uif-payment-dates-and-delays/")
-def uif_payment_dates_and_delays():
-    return render_template("pages/uif-payment-dates-and-delays.html")
-
-
-@home_bp.route("/articles/uif-credit-days-explained/")
-def uif_credit_days_explained():
-    return render_template("pages/uif-credit-days-explained.html")
-
-
-@home_bp.route("/articles/uif-banking-details-ui-2-8/")
-def uif_banking_details_ui_2_8():
-    return render_template("pages/uif-banking-details-ui-2-8.html")
-
-
-@home_bp.route("/articles/why-uif-claim-rejected-cancelled/")
-def why_uif_claim_rejected_cancelled():
-    return render_template("pages/why-uif-claim-rejected-cancelled.html")
-
-
-@home_bp.route("/articles/missing-uif-contributions/")
-def missing_uif_contributions():
-    return render_template("pages/missing-uif-contributions.html")
-
-
-@home_bp.route("/articles/maternity-uif-documents-needed/")
-def maternity_uif_documents_needed():
-    return render_template("pages/maternity-uif-documents-needed.html")
-
-
-@home_bp.route("/articles/uif-fixed-term-contracts/")
-def uif_fixed_term_contracts():
-    return render_template("pages/uif-fixed-term-contracts.html")
-
-
-@home_bp.route("/privacy-policy/")
-def privacy_policy():
-    return render_template("pages/privacy-policy.html")
-
-
-@home_bp.route("/popia/")
-def popia():
-    return render_template("pages/popia.html")
-
-
-@home_bp.route("/disclaimer/")
-def disclaimer():
-    return render_template("pages/disclaimer.html")
-
-
-@home_bp.route("/terms-of-use/")
-def terms_of_use():
-    return render_template("pages/terms-of-use.html")
-
-
-@home_bp.route("/contact/")
-def contact():
-    return render_template("pages/contact.html")
-
-
-@home_bp.route("/about/")
-def about():
-    return render_template("pages/about.html")
-
-
-@home_bp.route("/cookie-policy/")
-def cookie_policy():
-    return render_template("pages/cookie-policy.html")
-
-
-@home_bp.route("/methodology/")
-def methodology():
-    return render_template("pages/methodology.html")
-
-@home_bp.route('/what-to-do-after-calculating-uif/')
-def after_calculating_uif():
-    return render_template('pages/after-calculating-uif.html')
-
-
-@home_bp.route("/maternity-leave-south-africa")
-def maternity_leave_south_africa():
-    return render_template("pages/maternity-leave-south-africa.html")
-
-
+# Legacy Off-Topic / Scaled Content Redirects (SASSA & NSFAS Pruned)
 @home_bp.route("/sassa")
-def sassa():
-    return render_template("pages/sassa.html")
-
-
 @home_bp.route("/sassa-status-check")
-def sassa_status_check():
-    return render_template("pages/sassa-status-check.html")
-
-
 @home_bp.route("/sassa-payment-dates")
-def sassa_payment_dates():
-    return render_template("pages/sassa-payment-dates.html")
-
-
 @home_bp.route("/sassa-how-to-apply")
-def sassa_how_to_apply():
-    return render_template("pages/sassa-how-to-apply.html")
-
-
 @home_bp.route("/sassa-appeal")
-def sassa_appeal():
-    return render_template("pages/sassa-appeal.html")
-
-
 @home_bp.route("/sassa-pending")
-def sassa_pending():
-    return render_template("pages/sassa-pending.html")
-
-
 @home_bp.route("/sassa-declined")
-def sassa_declined():
-    return render_template("pages/sassa-declined.html")
-
-
 @home_bp.route("/sassa-payment-not-received")
-def sassa_payment_not_received():
-    return render_template("pages/sassa-payment-not-received.html")
-
-
 @home_bp.route("/sassa-change-phone-number")
-def sassa_change_phone_number():
-    return render_template("pages/sassa-change-phone-number.html")
-
-
 @home_bp.route("/sassa-banking-details")
-def sassa_banking_details():
-    return render_template("pages/sassa-banking-details.html")
-
-
 @home_bp.route("/sassa-eligibility")
-def sassa_eligibility():
-    return render_template("pages/sassa-eligibility.html")
-
-
 @home_bp.route("/sassa-status-not-working")
-def sassa_status_not_working():
-    return render_template("pages/sassa-status-not-working.html")
-
-
 @home_bp.route("/sassa-srd-r370")
-def sassa_srd_r370():
-    return render_template("pages/sassa-srd-r370.html")
-
-
-
-
 @home_bp.route("/nsfas-status-check")
-def nsfas_status_check():
-    return render_template("pages/nsfas-status-check.html")
+def redirect_off_topic_scaled_content():
+    return redirect(url_for("home.index"), code=301)
 
 
 @home_bp.route("/calculators/vat-calculator/", methods=["GET", "POST"])

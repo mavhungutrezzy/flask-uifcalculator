@@ -88,102 +88,78 @@
           {
             "@type": "ListItem",
             "position": 5,
-            "name": "uFiling Login Guide",
-            "url": "{{ url_for('home.uif_ufiling_login', _external=True) }}"
-          },
-          {
-            "@type": "ListItem",
-            "position": 6,
             "name": "How to Claim UIF Online",
             "url": "{{ url_for('home.how_to_claim_uif_online', _external=True) }}"
           },
           {
             "@type": "ListItem",
-            "position": 7,
+            "position": 6,
             "name": "UIF Documents Needed",
             "url": "{{ url_for('home.uif_documents_needed', _external=True) }}"
           },
           {
             "@type": "ListItem",
-            "position": 8,
+            "position": 7,
             "name": "Can I Claim UIF If I Resigned?",
             "url": "{{ url_for('home.can_i_claim_uif_if_i_resigned', _external=True) }}"
           },
           {
             "@type": "ListItem",
-            "position": 9,
+            "position": 8,
             "name": "UIF Payment Dates and Delays",
             "url": "{{ url_for('home.uif_payment_dates_and_delays', _external=True) }}"
           },
           {
             "@type": "ListItem",
-            "position": 10,
+            "position": 9,
             "name": "UIF Credit Days Explained",
             "url": "{{ url_for('home.uif_credit_days_explained', _external=True) }}"
           },
           {
             "@type": "ListItem",
-            "position": 11,
-            "name": "How to Check UIF Balance",
-            "url": "{{ url_for('home.how_to_check_uif_balance', _external=True) }}"
-          },
-          {
-            "@type": "ListItem",
-            "position": 12,
+            "position": 10,
             "name": "UIF Banking Details and UI-2.8 Form Guide",
             "url": "{{ url_for('home.uif_banking_details_ui_2_8', _external=True) }}"
           },
           {
             "@type": "ListItem",
-            "position": 13,
-            "name": "UIF Status Check by ID Number",
-            "url": "{{ url_for('home.uif_status_check_id_number', _external=True) }}"
-          },
-          {
-            "@type": "ListItem",
-            "position": 14,
-            "name": "UIF Status Check on WhatsApp",
-            "url": "{{ url_for('home.uif_status_check_whatsapp', _external=True) }}"
-          },
-          {
-            "@type": "ListItem",
-            "position": 15,
+            "position": 11,
             "name": "UIF Call Centre Contact List",
             "url": "{{ url_for('home.uif_call_centre_contact_list', _external=True) }}"
           },
           {
             "@type": "ListItem",
-            "position": 16,
+            "position": 12,
             "name": "Why Was My UIF Claim Rejected or Cancelled?",
             "url": "{{ url_for('home.why_uif_claim_rejected_cancelled', _external=True) }}"
           },
           {
             "@type": "ListItem",
-            "position": 17,
+            "position": 13,
             "name": "Missing UIF Contributions or Declarations",
             "url": "{{ url_for('home.missing_uif_contributions', _external=True) }}"
           },
           {
             "@type": "ListItem",
-            "position": 18,
+            "position": 14,
             "name": "Maternity Leave in South Africa",
             "url": "{{ url_for('home.maternity_leave_south_africa', _external=True) }}"
           },
           {
             "@type": "ListItem",
-            "position": 19,
+            "position": 15,
             "name": "Maternity UIF Documents Needed",
             "url": "{{ url_for('home.maternity_uif_documents_needed', _external=True) }}"
           },
           {
             "@type": "ListItem",
-            "position": 20,
+            "position": 16,
             "name": "UIF for Fixed-Term Contracts",
             "url": "{{ url_for('home.uif_fixed_term_contracts', _external=True) }}"
           },
           {
             "@type": "ListItem",
-            "position": 21,
+            "position": 17,
             "name": "After You Calculate Your UIF: What It Means & What To Do Next",
             "url": "{{ url_for('home.after_calculating_uif', _external=True) }}"
           }
@@ -260,7 +236,7 @@
         <section id="claiming" class="mb-5">
           <h2 class="h3 fw-bold mb-3 font-serif">2. How to Claim UIF Online</h2>
           <p class="text-secondary">The uFiling portal is where most UIF claims start. You will need to register, select your benefit type, upload documents, and provide banking details. It sounds simple, but small mistakes can delay your claim by weeks.</p>
-          <p class="text-secondary">Our step-by-step guide covers <a href="{{ url_for('home.how_to_claim_uif_online') }}" class="fw-semibold">how to claim UIF online</a> &mdash; from registration through to submitting your first payment request. If you are stuck before you even reach the claim form, start with the <a href="{{ url_for('home.uif_ufiling_login') }}" class="fw-semibold">uFiling login guide</a> so you can get into the portal, reset access, and avoid common sign-in loops.</p>
+          <p class="text-secondary">Our step-by-step guide covers <a href="{{ url_for('home.how_to_claim_uif_online') }}" class="fw-semibold">how to claim UIF online</a> &mdash; from registration through to submitting your first payment request on the portal.</p>
           <p class="text-secondary">We also explain what to do if the system rejects your application, asks for extra documents, or sends you back to your employer for missing declarations.</p>
         </section>
 
@@ -287,8 +263,8 @@
         <section id="status" class="mb-5">
           <h2 class="h3 fw-bold mb-3 font-serif">4. Checking Your Claim Status</h2>
           <p class="text-secondary">Once you have submitted your claim, you can check its progress online. Status messages like &ldquo;pending,&rdquo; &ldquo;approved,&rdquo; or &ldquo;payment blocked&rdquo; each mean something different &mdash; and each needs a different response.</p>
-          <p class="text-secondary">Our guide on <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check online</a> explains what each status means and what action to take. If you prefer a specific lookup method, you can also read how to do a <a href="{{ url_for('home.uif_status_check_id_number') }}" class="fw-semibold">UIF status check by ID number</a> or check your UIF status using <a href="{{ url_for('home.uif_status_check_whatsapp') }}" class="fw-semibold">WhatsApp</a>.</p>
-          <p class="text-secondary">Status checks are only one part of the picture. If you need to understand available benefit days or whether a payment has been released, our <a href="{{ url_for('home.how_to_check_uif_balance') }}" class="fw-semibold">UIF balance guide</a> explains where to look. If online options do not help, use the <a href="{{ url_for('home.uif_call_centre_contact_list') }}" class="fw-semibold">UIF call centre contact list</a> to find the right support channel before visiting a labour centre.</p>
+          <p class="text-secondary">Our comprehensive guide on <a href="{{ url_for('home.uif_status_check_online') }}" class="fw-semibold">UIF status check online</a> explains what each status means and what action to take across uFiling, WhatsApp, and USSD channels.</p>
+          <p class="text-secondary">If online options do not resolve your query, use the <a href="{{ url_for('home.uif_call_centre_contact_list') }}" class="fw-semibold">UIF call centre contact list</a> to find official support contacts before visiting a labour centre.</p>
         </section>
 
         <hr class="my-5">

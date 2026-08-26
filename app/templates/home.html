@@ -270,7 +270,7 @@
                     <div class="card border rounded-3 mb-3">
                         <div class="card-body">
                             <h3 class="h6 fw-bold text-uppercase text-muted mb-2">Step 1 — Open the UIF online service</h3>
-                            <p class="mb-0">Go to the official UIF online service used for individual UIF services at Ufiling Portal. Need help accessing your account? Read our <a href="{{ url_for('home.uif_ufiling_login') }}">uFiling Login Guide</a>.</p>
+                            <p class="mb-0">Go to the official UIF online service used for individual UIF services at Ufiling Portal. Need help accessing your account? Read our <a href="{{ url_for('home.uif_status_check_online') }}">UIF Status Check Guide</a>.</p>
                         </div>
                     </div>
                     <div class="card border rounded-3 mb-3">
@@ -848,20 +848,20 @@
                         <div class="col-md-4">
                             <div class="card h-100 border-0 shadow-sm">
                                 <div class="card-body text-center">
-                                    <i class="bi bi-whatsapp text-success fs-2 mb-3"></i>
-                                    <h4 class="h6 fw-bold">Status Check via WhatsApp</h4>
-                                    <p class="small text-muted">Step-by-step guide to checking your UIF claim status using WhatsApp on your phone.</p>
-                                    <a href="{{ url_for('home.uif_status_check_whatsapp') }}" class="btn btn-sm btn-outline-success">WhatsApp Guide</a>
+                                    <i class="bi bi-shield-check text-success fs-2 mb-3"></i>
+                                    <h4 class="h6 fw-bold">UIF Status Check Guide</h4>
+                                    <p class="small text-muted">Step-by-step guide to checking your UIF claim status online or via WhatsApp and call centre.</p>
+                                    <a href="{{ url_for('home.uif_status_check_online') }}" class="btn btn-sm btn-outline-success">Read Guide</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="card h-100 border-0 shadow-sm">
                                 <div class="card-body text-center">
-                                    <i class="bi bi-card-heading text-info fs-2 mb-3"></i>
-                                    <h4 class="h6 fw-bold">Check Status with ID</h4>
-                                    <p class="small text-muted">How to check your UIF claim and payment status using your South African ID number.</p>
-                                    <a href="{{ url_for('home.uif_status_check_id_number') }}" class="btn btn-sm btn-outline-info">Check with ID</a>
+                                    <i class="bi bi-file-earmark-text text-info fs-2 mb-3"></i>
+                                    <h4 class="h6 fw-bold">UIF Documents Checklist</h4>
+                                    <p class="small text-muted">Complete list of required forms (UI-19, UI-2.8, ID) needed for filing your UIF application.</p>
+                                    <a href="{{ url_for('home.uif_documents_needed') }}" class="btn btn-sm btn-outline-info">View Checklist</a>
                                 </div>
                             </div>
                         </div>
@@ -869,9 +869,9 @@
                             <div class="card h-100 border-0 shadow-sm">
                                 <div class="card-body text-center">
                                     <i class="bi bi-box-arrow-in-right text-primary fs-2 mb-3"></i>
-                                    <h4 class="h6 fw-bold">uFiling Login Guide</h4>
-                                    <p class="small text-muted">How to register, log in, reset passwords, and navigate the uFiling online portal.</p>
-                                    <a href="{{ url_for('home.uif_ufiling_login') }}" class="btn btn-sm btn-outline-primary">uFiling Guide</a>
+                                    <h4 class="h6 fw-bold">How to Claim Online</h4>
+                                    <p class="small text-muted">How to register, log in, submit claims, and request payments on the uFiling online portal.</p>
+                                    <a href="{{ url_for('home.how_to_claim_uif_online') }}" class="btn btn-sm btn-outline-primary">uFiling Guide</a>
                                 </div>
                             </div>
                         </div>
@@ -879,9 +879,9 @@
                             <div class="card h-100 border-0 shadow-sm">
                                 <div class="card-body text-center">
                                     <i class="bi bi-wallet2 text-warning fs-2 mb-3"></i>
-                                    <h4 class="h6 fw-bold">How to Check UIF Balance</h4>
-                                    <p class="small text-muted">Learn how to check your credit days and estimated remaining benefit payout.</p>
-                                    <a href="{{ url_for('home.how_to_check_uif_balance') }}" class="btn btn-sm btn-outline-warning text-dark">Check Balance</a>
+                                    <h4 class="h6 fw-bold">Credit Days & Pay Rates</h4>
+                                    <p class="small text-muted">Learn how credit days accumulate (1 day per 4 worked) and calculate your IRR percentage.</p>
+                                    <a href="{{ url_for('home.uif_credit_days_explained') }}" class="btn btn-sm btn-outline-warning text-dark">Credit Days Guide</a>
                                 </div>
                             </div>
                         </div>
