@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
 
-{% block title %}UIF Calculator 2026 South Africa | UIF, Maternity & Benefit Calculator{% endblock %}
+{% block title %}UIF Status Check South Africa 2026 | Check Claim & Payment Status{% endblock %}
 
 {% block meta %}
 <meta name="description"
-      content="Free UIF Calculator 2026 South Africa. Estimate unemployment, maternity, illness and adoption UIF benefits instantly, and see exactly how UIF payout is calculated using the official income replacement formula.">
+      content="Check your UIF status online in South Africa. Find out if your UIF claim is approved, pending, paid or declined. Understand UIF payment status, processing times and what to do if your payment is delayed.">
 {% endblock %}
 
-{% block canonical_href %}{{ url_for('home.index', _external=True) }}{% endblock %}
-{% block og_url %}{{ url_for('home.index', _external=True) }}{% endblock %}
-{% block og_title %}UIF Calculator South Africa 2026 | UIF, Maternity & Benefit Calculator{% endblock %}
-{% block og_description %}Free UIF Calculator 2026 South Africa. Estimate unemployment, maternity, illness and adoption UIF benefits instantly, and see exactly how UIF payout is calculated.{% endblock %}
-{% block twitter_url %}{{ url_for('home.index', _external=True) }}{% endblock %}
-{% block twitter_title %}UIF Calculator South Africa 2026 | UIF, Maternity & Benefit Calculator{% endblock %}
-{% block twitter_description %}Free UIF Calculator 2026 South Africa. Estimate unemployment, maternity, illness and adoption UIF benefits instantly, and see exactly how UIF payout is calculated.{% endblock %}
+{% block canonical_href %}{{ url_for('home.uif_status_check_online', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.uif_status_check_online', _external=True) }}{% endblock %}
+{% block og_title %}UIF Status Check South Africa 2026 | Check Claim & Payment Status{% endblock %}
+{% block og_description %}Check your UIF status online in South Africa. Find out if your UIF claim is approved, pending, paid or declined, and what to do if your payment is delayed.{% endblock %}
+{% block twitter_url %}{{ url_for('home.uif_status_check_online', _external=True) }}{% endblock %}
+{% block twitter_title %}UIF Status Check South Africa 2026 | Check Claim & Payment Status{% endblock %}
+{% block twitter_description %}Check your UIF status online in South Africa. Find out if your UIF claim is approved, pending, paid or declined, and what to do if your payment is delayed.{% endblock %}
 
 {% block structured_data %}
 {{ super() }}
@@ -22,36 +22,36 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "{{ url_for('home.index', _external=True) }}#webpage",
-  "url": "{{ url_for('home.index', _external=True) }}",
-  "name": "UIF Calculator South Africa 2026",
-  "description": "Free UIF Calculator 2026 South Africa. Estimate unemployment, maternity, illness and adoption UIF benefits instantly, and see exactly how UIF payout is calculated.",
+  "@id": "{{ url_for('home.uif_status_check_online', _external=True) }}#webpage",
+  "url": "{{ url_for('home.uif_status_check_online', _external=True) }}",
+  "name": "UIF Status Check South Africa 2026",
+  "description": "Check your UIF status online in South Africa. Find out if your UIF claim is approved, pending, paid or declined, and what to do if your payment is delayed.",
   "inLanguage": "en-ZA",
   "isPartOf": {
     "@id": "{{ url_for('home.index', _external=True) }}#website"
   },
-  "dateModified": "2026-07-15",
+  "dateModified": "2026-08-26",
   "mainEntity": {
     "@type": "ItemList",
-    "name": "South African benefit calculators",
+    "name": "UIF status and benefit resources",
     "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
+        "name": "UIF Status Check Online",
+        "url": "{{ url_for('home.uif_status_check_online', _external=True) }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
         "name": "UIF Unemployment Calculator",
         "url": "{{ url_for('uif.unemployment_calculator', _external=True) }}"
       },
       {
         "@type": "ListItem",
-        "position": 2,
+        "position": 3,
         "name": "Maternity UIF Calculator",
         "url": "{{ url_for('uif.leave_benefit_calculator', _external=True) }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "VAT Calculator",
-        "url": "{{ url_for('home.vat_calculator', _external=True) }}"
       }
     ]
   }
@@ -64,34 +64,34 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How is UIF payout calculated in South Africa?",
+      "name": "How do I check my UIF status?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "UIF payout is calculated by converting your monthly salary (capped at R17,712) into a daily income figure, then applying a sliding income replacement rate of roughly 38% to 60% depending on how much you earned. Lower earners receive a higher percentage of their previous income. The number of days you can claim depends on credit days, earned at one day of benefit for every four days you worked and contributed."
+        "text": "You can check your UIF claim through the UIF's official online services. You will generally need your South African ID number and the details used for your UIF application. Sign in to uFiling or the relevant UIF online service, find your claim, and review the status and payment information."
       }
     },
     {
       "@type": "Question",
-      "name": "Is this UIF calculator for 2026 accurate?",
+      "name": "Why is my UIF claim still pending?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The calculator uses the official Department of Employment and Labour income replacement formula and 2026 salary cap to estimate your benefit. It's an estimate for planning purposes, not an official claim decision, since your final payout depends on your employer's UIF declarations and the Department's own adjudication."
+        "text": "Your claim may still be undergoing verification, or UIF may be waiting for employer information, documents, banking details confirmation, or contribution record checks before the claim can move forward."
       }
     },
     {
       "@type": "Question",
-      "name": "How much is the maximum UIF payout?",
+      "name": "Does approved UIF mean I will be paid immediately?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Total unemployment benefits are capped at roughly R65,000, and monthly UIF contributions are calculated on a salary cap of R17,712, meaning R177.12 is the maximum monthly contribution from each of the employee and employer."
+        "text": "No. An approved claim and a completed payment are different stages of the process. After approval, the claim still goes through payment processing before the money reaches your bank account."
       }
     },
     {
       "@type": "Question",
-      "name": "Is the UIF maternity calculator different from the unemployment calculator?",
+      "name": "Why has my UIF payment not arrived?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The maternity, illness and adoption calculator works out a top-up benefit at a flat rate of around 66% of the difference between your normal salary and what you're paid while on leave, capped at 121 days, while the unemployment calculator uses the sliding income replacement scale over up to 365 days."
+        "text": "Check whether the payment has actually been processed and whether your banking details are correct. If the UIF system indicates that payment was made but you have not received it, contact the Department of Employment and Labour for assistance. Do not submit multiple applications for the same benefit."
       }
     }
   ]
@@ -101,7 +101,7 @@
 
 {% block content %}
 <style>
-      .pulse-btn {
+.pulse-btn {
     animation: pulse 2s infinite;
 }
 
@@ -119,7 +119,6 @@
         box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
     }
 }
-
 </style>
 
 <!-- Main Content -->
@@ -132,79 +131,59 @@
                     <div class="mb-2">
                         <span class="badge bg-success-subtle p-2 rounded-pill border border-success text-success fw-semibold small">
                             <i class="bi bi-check-circle-fill me-1"></i>South Africa
-                            <i class="bi bi-check-circle-fill ms-2 me-1"></i>Free estimate
-                            <i class="bi bi-check-circle-fill ms-2 me-1"></i>Updated July 2026
+                            <i class="bi bi-check-circle-fill ms-2 me-1"></i>Updated August 2026
                         </span>
                     </div>
-                    <h1 class="fw-bold mb-2">UIF Calculator South Africa 2026</h1>
+                    <h1 class="fw-bold mb-2">UIF Status Check South Africa 2026</h1>
                     <p class="lead mb-3">
-                        Estimate unemployment, maternity, illness and adoption UIF benefits using your salary and months employed &mdash; using the same income replacement formula the Department uses.
+                        Check your UIF status online and find out if your claim has been approved, processed, paid, or still needs attention. Learn how to check your UIF claim, payment status, and what to do if your UIF payment is delayed.
                     </p>
                     <div class="d-grid gap-2 d-md-flex mb-3">
-                          <a class="btn btn-success pulse-btn btn-lg"
-                           href="{{ url_for("home.uif_status_check_online")}}"
-                           role="link">Check UIF Status</a>
                         <a href="{{ url_for('uif.unemployment_calculator') }}"
-                           class="btn btn-outline-primary btn-lg px-4  shadow">
-                            <i class="bi bi-calculator me-2"></i>Calculate UIF
+                           class="btn btn-outline-success btn-lg px-4 shadow">
+                            <i class="bi bi-calculator me-2"></i>Estimate My UIF
                         </a>
-                        
                     </div>
                     <div class="small text-muted">
-                        Uses the official UIF benefit calculation guidance from the
-                        <a href="https://www.labour.gov.za/DocumentCenter/Publications/Unemployment%20Insurance%20Fund/Fact%20Sheet%20on%20the%20Calculation%20of%20normal%20UIF%20benefit.pdf"
-                           target="_blank"
-                           rel="noopener noreferrer">
-                            Department of Employment and Labour
-                        </a>.
+                        UIF is administered by the South African Department of Employment and Labour. 
+                        This is an independent information website, not the official UIF website.
                     </div>
                 </div>
                 <div class="col-lg-6 mt-3 mt-lg-0">
-                    <!-- Quick Calculator Preview Widget -->
+                    <!-- Quick Status Guide Widget -->
                     <div class="card border rounded-3 shadow-sm">
                         <div class="card-body p-4 bg-white rounded-3">
-                            <h3 class="h6 mb-3 text-center text-primary">Quick UIF Estimate</h3>
-                            <form id="quickCalc"
-                                  method="post"
-                                  action="{{ url_for('uif.unemployment_calculator_result') }}"
-                                  class="mx-auto"
-                                  style="max-width: 340px">
-                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                                <input type="hidden" name="sameSalaryCheck" value="on">
-                                <div class="row g-3">
-                                    <div class="col-12">
-                                        <label for="singleSalary" class="form-label mb-1 small text-uppercase text-muted">
-                                            Average Monthly Salary (R)
-                                        </label>
-                                        <!-- NAME must be 'single_salary' to match the Python route -->
-                                        <input type="number"
-                                               step="0.01"
-                                               min="0"
-                                               class="form-control form-control-md"
-                                               id="singleSalary"
-                                               name="single_salary"
-                                               placeholder="e.g., 15000.00"
-                                               required>
+                            <h3 class="h6 mb-3 text-center text-primary">What You Need to Check Your Status</h3>
+                            <ul class="list-group list-group-flush small">
+                                <li class="list-group-item d-flex align-items-start">
+                                    <i class="bi bi-person-badge text-primary me-2 mt-1"></i>
+                                    <div>
+                                        <strong>South African ID number</strong> — the primary identifier for your claim
                                     </div>
-                                    
-                                    <div class="col-12">
-                                        <label for="monthsEmployed" class="form-label mb-1 small text-uppercase text-muted">Months Employed</label>
-                                        <input type="number"
-                                               step="1"
-                                               min="1"
-                                               class="form-control form-control-md"
-                                               id="monthsEmployed"
-                                               name="months_employed"
-                                               placeholder="e.g., 24"
-                                               required>
-                                        <div class="form-text">
-                                            Count only working months where you were employed and contributing to UIF.
-                                        </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-start">
+                                    <i class="bi bi-phone text-primary me-2 mt-1"></i>
+                                    <div>
+                                        <strong>Phone number & email</strong> — used when you registered
                                     </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100 mt-3">See Estimate</button>
-                            </form>
-                            <p class="text-muted small mt-3 mb-0 text-center">Estimate only. Confirm final claims with the Department of Employment and Labour.</p>
+                                </li>
+                                <li class="list-group-item d-flex align-items-start">
+                                    <i class="bi bi-building text-primary me-2 mt-1"></i>
+                                    <div>
+                                        <strong>Employer information</strong> — especially if status shows pending
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-start">
+                                    <i class="bi bi-bank text-primary me-2 mt-1"></i>
+                                    <div>
+                                        <strong>Banking details</strong> — incorrect details block payments
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="alert alert-warning small mt-3 mb-0">
+                                <i class="bi bi-shield-exclamation me-1"></i>
+                                <strong>Never share</strong> your banking password, PIN or OTP with anyone claiming to check your status for you.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -221,21 +200,22 @@
                     <div class="small text-muted">paid to 3.1 million beneficiaries by UIF in 2024/25</div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="fw-bold h4 mb-0 text-success">R17,712</div>
-                    <div class="small text-muted">monthly salary cap used in every UIF calculation</div>
+                    <div class="fw-bold h4 mb-0 text-primary">Online</div>
+                    <div class="small text-muted">check status via uFiling without visiting a labour centre</div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="fw-bold h4 mb-0 text-success">~R65,000</div>
-                    <div class="small text-muted">maximum total unemployment benefit ceiling</div>
+                    <div class="fw-bold h4 mb-0 text-warning">Pending?</div>
+                    <div class="small text-muted">most delays are due to missing employer info or documents</div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="fw-bold h4 mb-0 text-success">365 days</div>
+                    <div class="fw-bold h4 mb-0 text-info">365 days</div>
                     <div class="small text-muted">maximum benefit period after 4+ years contributing</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Resource Cards -->
     <section class="py-4">
         <div class="container">
             <div class="row g-3">
@@ -243,8 +223,8 @@
                     <a class="text-decoration-none" href="{{ url_for('uif.unemployment_calculator') }}">
                         <div class="card h-100 border-0 shadow-sm calculator-link-card">
                             <div class="card-body">
-                                <i class="bi bi-cash-coin text-success fs-3"></i>
-                                <h2 class="h5 mt-3 text-dark">Unemployment UIF Calculator</h2>
+                                <i class="bi bi-calculator text-success fs-3"></i>
+                                <h2 class="h5 mt-3 text-dark">UIF Unemployment Calculator</h2>
                                 <p class="text-muted mb-0">Estimate payout days and benefit amount after retrenchment, dismissal or contract expiry.</p>
                             </div>
                         </div>
@@ -262,12 +242,12 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a class="text-decoration-none" href="{{ url_for('uif.how_to_calculate_uif') }}">
+                    <a class="text-decoration-none" href="{{ url_for('home.how_to_claim_uif_online') }}">
                         <div class="card h-100 border-0 shadow-sm calculator-link-card">
                             <div class="card-body">
                                 <i class="bi bi-journal-text text-info fs-3"></i>
-                                <h2 class="h5 mt-3 text-dark">How UIF Is Calculated</h2>
-                                <p class="text-muted mb-0">Understand salary limits, income replacement rates, credit days and required documents.</p>
+                                <h2 class="h5 mt-3 text-dark">How to Claim UIF Online</h2>
+                                <p class="text-muted mb-0">Step-by-step guide to applying through uFiling, including documents and employer forms.</p>
                             </div>
                         </div>
                     </a>
@@ -276,206 +256,678 @@
         </div>
     </section>
 
-    <!-- ============ HOW TO CALCULATE UIF PAYOUT (direct formula answer) ============ -->
+    <!-- How to Check UIF Status Online -->
     <section class="py-5 bg-light">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h2 class="fw-bold mb-3">How to Calculate UIF Payout: The Actual Formula</h2>
+                    <h2 class="fw-bold mb-3">How to Check UIF Status Online</h2>
                     <p>
-                        If you want to calculate UIF payout by hand instead of using the tool above, here's exactly
-                        what the Department of Employment and Labour does, step by step.
+                        You can check your UIF claim online using the UIF's official online services. 
+                        Have your South African ID number and the information used when you registered for UIF available before starting.
                     </p>
+                    
                     <div class="card border rounded-3 mb-3">
                         <div class="card-body">
-                            <h3 class="h6 fw-bold text-uppercase text-muted mb-2">Step 1 &mdash; Find your daily income</h3>
-                            <p class="mb-2 font-monospace small bg-white p-2 rounded border">
-                                Daily Income = (Monthly Salary &times; 12) &divide; 365
-                            </p>
-                            <p class="text-muted small mb-0">
-                                Your monthly salary is capped at R17,712 for this calculation, even if you earn more.
-                            </p>
+                            <h3 class="h6 fw-bold text-uppercase text-muted mb-2">Step 1 — Open the UIF online service</h3>
+                            <p class="mb-0">Go to the official UIF online service used for individual UIF services at Ufiling Portal. Need help accessing your account? Read our <a href="{{ url_for('home.uif_ufiling_login') }}">uFiling Login Guide</a>.</p>
                         </div>
                     </div>
                     <div class="card border rounded-3 mb-3">
                         <div class="card-body">
-                            <h3 class="h6 fw-bold text-uppercase text-muted mb-2">Step 2 &mdash; Apply the income replacement rate (IRR)</h3>
-                            <p class="mb-2 font-monospace small bg-white p-2 rounded border">
-                                IRR = 29.2 + (7,173.92 &divide; (232.92 + Daily Income))
-                            </p>
-                            <p class="text-muted small mb-0">
-                                This sliding scale pays lower earners up to 60% of their previous income and higher
-                                earners as little as 38%. It's the same formula behind the calculator at the top of
-                                this page.
-                            </p>
+                            <h3 class="h6 fw-bold text-uppercase text-muted mb-2">Step 2 — Sign in or register</h3>
+                            <p class="mb-0">If you already have an account, sign in using your registered details. If you have not registered, you may need to create an account and provide your personal information.</p>
                         </div>
                     </div>
                     <div class="card border rounded-3 mb-3">
                         <div class="card-body">
-                            <h3 class="h6 fw-bold text-uppercase text-muted mb-2">Step 3 &mdash; Work out your credit days</h3>
-                            <p class="mb-2">
-                                You earn <strong>1 credit day for every 4 days worked</strong> while contributing to
-                                UIF, up to a maximum of 365 days once you've contributed for 4 years or more. Your
-                                daily benefit (Daily Income &times; IRR) is then paid for however many credit days
-                                you've banked.
-                            </p>
+                            <h3 class="h6 fw-bold text-uppercase text-muted mb-2">Step 3 — Find your UIF claim</h3>
+                            <p class="mb-0">After signing in, look for the section related to your UIF application, claim or benefit.</p>
                         </div>
                     </div>
-                    <p class="text-muted small">
-                        Doing this by hand works, but it's easy to get the salary cap or credit-day count wrong.
-                        Our <a href="{{ url_for('uif.unemployment_calculator') }}">UIF calculator</a> runs this exact
-                        formula for you &mdash; or read the full worked example with numbers in our
-                        <a href="{{ url_for('uif.how_to_calculate_uif') }}">UIF calculation guide</a>.
-                    </p>
+                    <div class="card border rounded-3 mb-3">
+                        <div class="card-body">
+                            <h3 class="h6 fw-bold text-uppercase text-muted mb-2">Step 4 — Check your claim status</h3>
+                            <p class="mb-0">Your claim may show a status explaining where it is in the process. The exact wording can differ depending on the UIF service and type of claim.</p>
+                        </div>
+                    </div>
+                    <div class="card border rounded-3 mb-3">
+                        <div class="card-body">
+                            <h3 class="h6 fw-bold text-uppercase text-muted mb-2">Step 5 — Check payment information</h3>
+                            <p class="mb-0">If your claim has been approved, check whether a payment has been processed or whether further action is required.</p>
+                        </div>
+                    </div>
+
+                    <div class="text-center my-4">
+                        <a class="btn btn-primary pulse-btn btn-lg px-4"
+                           href="https://uifonline.labour.gov.za/uifOnline/loginJsp"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           role="link">
+                           <i class="bi bi-box-arrow-up-right me-2"></i>Check UIF Status on uFiling
+                        </a>
+                    </div>
+
+                    <div class="alert alert-info small">
+                        <i class="bi bi-info-circle-fill me-2"></i>
+                        <strong>Important:</strong> UIF is administered by the South African Department of Employment and Labour. This website is an independent information and calculation website and is <strong>not</strong> the official UIF website.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- UIF Status Meanings -->
     <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-4">UIF Status Meanings Explained</h2>
+                    <p class="lead text-muted mb-4">One of the most confusing parts of checking UIF is understanding what the status means. A status does not always mean that you will receive money immediately. Your claim may still need to go through several steps.</p>
+
+                    <div class="accordion" id="statusAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#statusReceived">
+                                    <span class="badge bg-secondary me-2">Received</span> Application Received
+                                </button>
+                            </h2>
+                            <div id="statusReceived" class="accordion-collapse collapse show" data-bs-parent="#statusAccordion">
+                                <div class="accordion-body">
+                                    This generally means that your application has been received by the UIF system. It does <strong>not</strong> necessarily mean that your claim has been approved. Your application may still need to be checked.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statusProcessing">
+                                    <span class="badge bg-warning text-dark me-2">Processing</span> Claim Being Processed
+                                </button>
+                            </h2>
+                            <div id="statusProcessing" class="accordion-collapse collapse" data-bs-parent="#statusAccordion">
+                                <div class="accordion-body">
+                                    Your application is being reviewed. The UIF may need to check:
+                                    <ul>
+                                        <li>Your identity</li>
+                                        <li>Employment information & contributions</li>
+                                        <li>Reason for claiming</li>
+                                        <li>Employer information</li>
+                                        <li>Supporting documents</li>
+                                        <li>Banking details</li>
+                                    </ul>
+                                    Processing times can vary, especially when additional information is required.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statusApproved">
+                                    <span class="badge bg-success me-2">Approved</span> Approved
+                                </button>
+                            </h2>
+                            <div id="statusApproved" class="accordion-collapse collapse" data-bs-parent="#statusAccordion">
+                                <div class="accordion-body">
+                                    An approved claim means the UIF has accepted the claim for the relevant benefit. However, <strong>approval does not always mean that the money has already reached your bank account</strong>. You may still need to wait for the payment process.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statusPayment">
+                                    <span class="badge bg-info text-dark me-2">Payment</span> Payment Processed
+                                </button>
+                            </h2>
+                            <div id="statusPayment" class="accordion-collapse collapse" data-bs-parent="#statusAccordion">
+                                <div class="accordion-body">
+                                    <strong>Payment processed</strong> normally means that a payment has been processed for your claim. The time before the money appears in your bank account depends on the payment process and your bank.<br><br>
+                                    <strong>Payment made</strong> means a payment has been recorded as made. If the payment is not showing in your bank account after a reasonable period, check your banking information and UIF claim details.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statusDeclined">
+                                    <span class="badge bg-danger me-2">Declined</span> Declined
+                                </button>
+                            </h2>
+                            <div id="statusDeclined" class="accordion-collapse collapse" data-bs-parent="#statusAccordion">
+                                <div class="accordion-body">
+                                    A declined claim means the UIF has not approved the claim. If your claim has been declined, read our guide on <a href="{{ url_for('home.why_uif_claim_rejected_cancelled') }}">why a UIF claim gets rejected or cancelled</a> to understand the reasons and see how to correct missing information or request a review.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statusAction">
+                                    <span class="badge bg-primary me-2">Action</span> Action Required
+                                </button>
+                            </h2>
+                            <div id="statusAction" class="accordion-collapse collapse" data-bs-parent="#statusAccordion">
+                                <div class="accordion-body">
+                                    This means something may still be required before your claim can continue. For example:
+                                    <ul>
+                                        <li>Submit a document</li>
+                                        <li>Confirm information</li>
+                                        <li>Update your banking details</li>
+                                        <li>Complete a required declaration</li>
+                                        <li>Provide additional information</li>
+                                    </ul>
+                                    <strong>Do not ignore an action-required message</strong> because it can delay your claim.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Is My UIF Status Still Pending -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-4">Why Is My UIF Status Still Pending?</h2>
+                    <p class="mb-4">A UIF claim can remain pending while the Department of Employment and Labour checks your application. There can be several reasons for a delay:</p>
+
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="h6 fw-bold text-primary">1. Application still being checked</h4>
+                                    <p class="small text-muted mb-0">UIF needs to verify the information submitted with your claim.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="h6 fw-bold text-primary">2. Employer information not confirmed</h4>
+                                    <p class="small text-muted mb-0">Some UIF processes depend on information submitted by your employer. If your employer has not submitted or corrected required information, your claim may take longer.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="h6 fw-bold text-primary">3. Documents are missing</h4>
+                                    <p class="small text-muted mb-0">Your application may require supporting documents. A missing document can prevent the claim from moving forward.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="h6 fw-bold text-primary">4. Banking information needs attention</h4>
+                                    <p class="small text-muted mb-0">Incorrect or outdated banking information can cause payment problems. Make sure your banking details are correct and belong to you.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="h6 fw-bold text-primary">5. Contributions need checking</h4>
+                                    <p class="small text-muted mb-0">UIF benefits are linked to UIF contributions. If contribution records are incomplete or incorrect, your claim may need further verification.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="h6 fw-bold text-primary">6. Additional information needed</h4>
+                                    <p class="small text-muted mb-0">Sometimes the department needs more information before making a decision.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UIF Payment Status -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-3">UIF Payment Status</h2>
+                    <p>Checking your claim status and checking your payment status are <strong>not always the same thing</strong>. For example, you could have an approved claim but still be waiting for the payment to be processed.</p>
+                    
+                    <div class="card border-primary border-2 mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">The UIF Claim Journey</h5>
+                            <div class="d-flex flex-wrap gap-2 mt-3">
+                                <span class="badge bg-secondary">Application</span>
+                                <i class="bi bi-arrow-right text-muted"></i>
+                                <span class="badge bg-warning text-dark">Verification</span>
+                                <i class="bi bi-arrow-right text-muted"></i>
+                                <span class="badge bg-info text-dark">Decision</span>
+                                <i class="bi bi-arrow-right text-muted"></i>
+                                <span class="badge bg-primary">Payment Processing</span>
+                                <i class="bi bi-arrow-right text-muted"></i>
+                                <span class="badge bg-success">Payment</span>
+                            </div>
+                            <p class="small text-muted mt-3 mb-0">Not every claim follows exactly the same timeline, but this explains why an approved claim does not necessarily mean the money is already in your bank account.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="h4 fw-bold text-primary mt-5">Why Has My UIF Payment Not Arrived?</h3>
+                    <p>If your UIF claim has been approved but you have not received your money, first check your UIF status again. Also check:</p>
+                    <ul class="list-check">
+                        <li>Whether the payment has actually been processed</li>
+                        <li>Whether your banking details are correct</li>
+                        <li>Whether your bank account is active</li>
+                        <li>Whether UIF requested additional information</li>
+                        <li>Whether there is another outstanding step on your claim</li>
+                    </ul>
+                    <p>If the UIF system shows that payment has been made but you cannot find the money, you should contact the Department of Employment and Labour or UIF for assistance.</p>
+                    <div class="alert alert-danger">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        <strong>Do not submit multiple applications</strong> for the same benefit simply because your payment is delayed.
+                    </div>
+
+                    <h3 class="h4 fw-bold text-primary mt-5">How Long Does UIF Take to Pay?</h3>
+                    <p>There is no single guaranteed number of days that applies to every UIF claim. Processing depends on factors such as:</p>
+                    <ul>
+                        <li>Type of UIF benefit</li>
+                        <li>Whether the application is complete</li>
+                        <li>Employer information</li>
+                        <li>Contribution records</li>
+                        <li>Supporting documents</li>
+                        <li>Banking information</li>
+                        <li>Whether additional verification is required</li>
+                    </ul>
+                    <p>A straightforward application can move faster than one that needs corrections or additional information. If your claim has been waiting for a long time, checking the status and identifying any outstanding action is more useful than simply submitting another application.</p>
+
+                    <h3 class="h4 fw-bold text-primary mt-5">How to Check UIF Payment Dates</h3>
+                    <p>Your UIF payment date depends on your individual claim and the processing of your benefit. Instead of relying on general payment-date lists, check your own UIF claim and payment information. For a full breakdown of payment cycles and handling delays, see our guide on <a href="{{ url_for('home.uif_payment_dates_and_delays') }}">UIF payment dates and processing delays</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complete Guide -->
+    <section class="py-5 bg-light">
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10 text-center">
-                    <h2 class="fw-bold mb-4">Complete Guide to UIF Benefits in South Africa (Updated July 2026)</h2>
-                    <p class="lead text-muted">Everything you need to know about claiming UIF – who qualifies, how much you get, and how to apply.</p>
+                    <h2 class="fw-bold mb-4">Complete Guide to Checking Your UIF Status & Claim</h2>
+                    <p class="lead text-muted">Everything you need to know about UIF status checks, payment delays, and what to do when something goes wrong.</p>
                 </div>
             </div>
 
-        <div class="row g-5">
-
-            <!-- Who Can Claim -->
-            <div class="col-lg-8 mx-auto">
-                <h3 class="h4 fw-bold text-primary">Who Can Claim From the UIF Fund?</h3>
-                <p>Use our <strong>UIF calculator 2026 South Africa</strong> to quickly estimate your UIF benefits based on your salary and contribution history. This <a href="{{ url_for('uif.unemployment_calculator') }}">UIF calculator online</a> helps you understand how much you can claim before submitting your application.</p>
-                <p>You can claim from the Unemployment Insurance Fund (UIF) if you are an employee registered with the UIF and have been contributing monthly through your salary.</p>
-                <p>Use this guide to understand how to calculate your UIF benefits in 30 seconds. We explain how UIF payouts work, how much you can get, and how to estimate your benefits using our free UIF calculators.</p>
-                <p>If you are preparing a claim, start with the <a href="{{ url_for('home.uif_documents_needed') }}">UIF documents checklist</a>, then read how to <a href="{{ url_for('home.how_to_claim_uif_online') }}">claim UIF online through uFiling</a>. If your claim is already submitted, the <a href="{{ url_for('home.uif_status_check_online') }}">UIF status check guide</a> explains common status messages and payment progress.</p>
-
-                <hr class="my-4">
-
-                <h3 class="h4 fw-bold text-primary">Can I Claim UIF If I Resigned?</h3>
-                <p><strong>No.</strong> You cannot claim unemployment benefits if you resigned voluntarily. If you are unsure whether your situation counts as resignation or constructive dismissal, read our guide on <a href="{{ url_for('home.can_i_claim_uif_if_i_resigned') }}">claiming UIF after resignation</a>.</p>
-                <p class="bg-warning-subtle p-3 rounded">You can claim for UIF benefits only if:</p>
-                <ul class="list-check">
-                    <li>You were <strong>dismissed</strong> (except for misconduct)</li>
-                    <li>You were <strong>retrenched</strong> or laid off</li>
-                    <li>Your fixed-term contract <strong>expired</strong></li>
-                </ul>
-                <p>If your contract ended naturally, the <a href="{{ url_for('home.uif_fixed_term_contracts') }}">fixed-term contract UIF guide</a> explains what to check on your UI-19 form before applying.</p>
-                <hr class="my-4">
-
-                <h3 class="h4 fw-bold text-primary">Types of UIF Benefits (2026)</h3>
-                <p>The UIF provides five types of benefits:</p>
-                <ul class="list-check">
-                    <li><strong>Unemployment benefits</strong></li>
-                    <li><strong>Illness benefits</strong></li>
-                    <li><strong>Maternity benefits</strong></li>
-                    <li><strong>Adoption benefits</strong></li>
-                    <li><strong>Dependants’ Death benefits</strong></li>
-                </ul>
-                <hr class="my-4">
-
-                <h3 class="h4 fw-bold text-primary">UIF Calculator 2026 South Africa</h3>
-                <p>Our <strong>UIF calculator 2026</strong> is designed for South African employees who want to estimate UIF payouts quickly. Whether you are retrenched, applying for maternity UIF, or checking credits, the calculator helps you calculate UIF benefits in seconds.</p>
-
-                <h3 class="h4 fw-bold text-primary">When Can I Claim Illness Benefits?</h3>
-                <p>To qualify for the benefits, you must be receiving less than your normal wages while you are on sick leave.</p>
-                <p>To qualify for illness benefits, you must submit your application within 6 months of the date you stopped working due to your condition. Payments are calculated starting from the day you ceased working and became fully or partially unpaid, but please note that benefits are only payable if your illness lasts longer than 7 days. To validate the specific period of your condition, you are required to submit a medical certificate.</p><p><a href="{{ url_for("uif.unemployment_calculator") }}">The benefit amount</a> is calculated as the difference between what your employer pays you and the standard rate prescribed by the <strong>Unemployment Insurance Act</strong>. It is important to know that the combined total of the benefit and any payment from your employer cannot exceed 100 percent of the normal salary you would have received if you were working. To facilitate this, your employer must formally declare whether you will receive full, partial, or no remuneration while on sick leave.</p>
-
-<p>Finally, the duration of these payments depends on your accumulated credits. Subject to these credits, you may receive benefits for a maximum of 365 days within any four-year cycle; our <a href="{{ url_for('home.uif_credit_days_explained') }}">UIF credit days guide</a> explains the one-credit-day-for-four-days-worked rule in more detail.</p>
-                    <hr class="my-4">
-
-                <h3 class="h4 fw-bold text-primary">How Do Maternity Benefits Work? (Maternity UIF Calculator)</h3>
-                <p>You should submit your application either prior to the birth or within 12 months of the child being born. To qualify for these benefits, you must have been employed for at least 13 weeks before the date of your application, and you must be receiving <strong>less than your normal remuneration</strong> while on maternity leave.</p><p>Benefits are generally payable at a <strong>flat rate of 66 percent</strong> for the confinement period. The actual amount paid is calculated as the difference between what your employer pays and the prescribed rate, ensuring that the total combined income does not exceed 100 percent of your normal salary. To verify this, your employer must declare whether you will receive full, partial, or no pay while on leave.</p>
-
-<p>Payments are provided for a maximum of 121 days, which also applies in the unfortunate event of a miscarriage or stillbirth. Importantly, claiming maternity benefits does not affect your right to claim Unemployment benefits later should you become unemployed.</p>
-
-<p>Use our <strong>maternity UIF calculator</strong> &mdash; also called a <strong>UIF maternity benefit calculator</strong> &mdash; to estimate your potential benefit amount, and check the <a href="{{ url_for('home.maternity_uif_documents_needed') }}">maternity UIF documents checklist</a> before you submit your claim. It's the same tool whether you're calculating maternity, adoption, parental or illness leave top-ups: <a href="{{ url_for("uif.leave_benefit_calculator") }}">try the maternity UIF calculator here</a>.</p>
-<hr class="my-4">
-
-                <h3 class="h4 fw-bold text-primary">Adoption Benefits</h3>
-                <p>Application for Adoption Benefits must be submitted within 6 months after the court issues the adoption order. To qualify, the adopted child must be younger than 2 years, and only one of the adopting parents is eligible to apply for the benefit, which covers the time spent caring for the child.</p><p>The benefit amount is calculated as the difference between any pay received from the employer and the prescribed benefit rate, ensuring your total income does not exceed 100 percent of your normal salary. The employer must declare any pay given during the adoption leave. Subject to credits, benefits can be claimed for a <strong>maximum of 365 days</strong> within a four-year period.</p>
-                    <hr class="my-4">
-
-                <h3 class="h4 fw-bold text-primary">Can I Claim If My Spouse Passed Away?</h3>
-                <p>A surviving spouse or life partner must apply for benefits within 18 months from the contributor’s date of death. A dependent child can only apply if the spouse or life partner has not claimed the benefit within 14 days after that initial 18-month period expires.</p><p>A child aged between 21 and 25 may also qualify if they are a learner or student and were wholly dependent on the deceased contributor. Subject to credits, benefits can be paid for a maximum of 365 days within a four-year period.</p>
-
-<p>Contributors are allowed to nominate their own beneficiaries for the death benefit only if there is no surviving spouse, life partner, or child.</p>
-                    <hr class="my-4">
-
-                <h3 class="h4 fw-bold text-primary">How Much Will I Get From UIF?</h3>
-                <p>The calculation of general benefit days is now based on receiving <strong>one day of benefit credit for every four days worked</strong>. If you have contributed for four years or more, you remain eligible for up to 365 days of benefits. If your credits look too low, missing employer declarations may be the reason; the <a href="{{ url_for('home.missing_uif_contributions') }}">missing UIF contributions guide</a> explains what to check.</p><p>For Maternity or Adoption claims, the maximum payment duration is fixed at 121 days. The amount you receive is calculated on a sliding scale, based on a percentage of your previous salary &mdash; the same formula we walked through above.</p>
-
-<p>The total benefit amount payable is subject to a maximum ceiling of approximately <strong>R65,000</strong>.</p>
+            <div class="row g-5">
+                <div class="col-lg-8 mx-auto">
                     
-                <hr class="my-4">
+                    <h3 class="h4 fw-bold text-primary">Who Should Check Their UIF Status?</h3>
+                    <p>You may need to check your UIF status if you:</p>
+                    <ul class="list-check">
+                        <li>Recently lost your job</li>
+                        <li>Applied for unemployment benefits</li>
+                        <li>Applied for maternity benefits</li>
+                        <li>Applied for illness benefits</li>
+                        <li>Applied for adoption benefits</li>
+                        <li>Applied for parental benefits</li>
+                        <li>Are waiting for a UIF payment</li>
+                        <li>Have received a UIF payment before and want to check the next payment</li>
+                        <li>Want to know whether your claim has been approved</li>
+                    </ul>
+                    <p>If you are trying to calculate how much you may receive, use our <a href="{{ url_for('uif.unemployment_calculator') }}">UIF unemployment calculator</a> or <a href="{{ url_for('uif.leave_benefit_calculator') }}">maternity UIF calculator</a>.</p>
+                    <hr class="my-4">
 
-                <h3 class="h4 fw-bold text-primary">How to Apply for UIF – Step by Step</h3>
-                <p>
-                    You can apply for UIF either by visiting your nearest Labour Centre or by submitting your application online through the uFiling website. Before you apply, it’s a good idea to estimate your UIF benefit using our UIF calculators on <a href="https://uifcalculators.co.za">uifcalculators.co.za</a> so you know what to expect. If you prefer the online route, our <a href="{{ url_for('home.how_to_claim_uif_online') }}">how to claim UIF online guide</a> walks through the uFiling process. Whether applying in person or online, you will need key documents such as your bar-coded ID, your last six payslips, and the UI-19 form provided by your employer. If you choose to apply online, make sure you first register an account on the uFiling platform at <a href="https://uifonline.labour.gov.za/uifOnline/loginJsp">uifonline.labour.gov.za</a> before submitting your claim.
-                    </p>
-                    
-                <hr class="my-4">
+                    <h3 class="h4 fw-bold text-primary">UIF Unemployment Status Check</h3>
+                    <p>If you have lost your job, you may be able to claim UIF unemployment benefits if you meet the relevant requirements. After submitting your claim, you should monitor its progress. Your status can help you determine whether:</p>
+                    <ul class="list-check">
+                        <li>Your application has been received</li>
+                        <li>Your claim is being processed</li>
+                        <li>Your claim has been approved</li>
+                        <li>A payment has been processed</li>
+                        <li>You need to provide additional information</li>
+                    </ul>
+                    <p>If you are unsure whether you qualify, read our guide on <a href="{{ url_for('home.can_i_claim_uif_if_i_resigned') }}">claiming UIF after resignation</a> or <a href="{{ url_for('home.uif_fixed_term_contracts') }}">fixed-term contract UIF</a>.</p>
+                    <hr class="my-4">
 
-                <h3 class="h4 fw-bold text-primary">Documents Needed (Unemployment)</h3>
-                <p>For a fuller explanation of each form, see the <a href="{{ url_for('home.uif_documents_needed') }}">UIF documents needed for unemployment claims</a> checklist.</p>
-                <ul class="small">
-                    <li>13-digit bar-coded ID or passport</li>
-                    <li>UI-19 form (from employer)</li>
-                    <li>Last 6 payslips</li>
-                    <li>Bank details & proof</li>
-                    <li>Proof of registration as work seeker</li>
-                </ul>
-                <p>If your payment is blocked or reversed, the issue is often banking verification; our <a href="{{ url_for('home.uif_banking_details_ui_2_8') }}">UIF banking details and UI-2.8 guide</a> explains what that status can mean.</p>
+                    <h3 class="h4 fw-bold text-primary">UIF Maternity Status Check</h3>
+                    <p>If you have applied for maternity benefits, you can also monitor the progress of your claim. Maternity claims can involve additional information and documentation, so make sure the information submitted with your application is accurate.</p>
+                    <p>If you are planning maternity leave and want to estimate your potential UIF benefit, see our <a href="{{ url_for('uif.leave_benefit_calculator') }}">maternity UIF calculator</a> and <a href="{{ url_for('home.maternity_uif_documents_needed') }}">maternity UIF documents checklist</a>.</p>
+                    <hr class="my-4">
 
-                <hr class="my-4">
+                    <h3 class="h4 fw-bold text-primary">How to Check UIF Balance</h3>
+                    <p>People often search for their UIF balance when they want to know how much benefit they may still receive or how many credit days they have available. Learn more in our <a href="{{ url_for('home.how_to_check_uif_balance') }}">guide to checking your UIF balance online</a> or read how <a href="{{ url_for('home.uif_credit_days_explained') }}">UIF credit days are calculated</a>. To get an immediate estimate, try our <a href="{{ url_for('uif.unemployment_calculator') }}">UIF calculator</a>.</p>
+                    <hr class="my-4">
 
-                <!-- ============ SOCIAL PROOF: real, sourced, not fabricated ============ -->
-                <h3 class="h4 fw-bold text-primary">What UIF Actually Pays Out</h3>
-                <p>
-                    It's a real fund with real numbers behind it, not just an abstract payroll deduction. According
-                    to the UIF's own 2024/25 Annual Report, the Fund paid <strong>R18 billion in benefits to 3.1
-                    million beneficiaries</strong> that year despite a slow economy, and closed the year with a
-                    R23 billion surplus &mdash; meaning it's in a financially sound position to keep paying claims.
-                </p>
-                <p>
-                    That said, the process isn't always smooth. Reporting from
-                    <a href="https://www.dailymaverick.co.za/article/2025-08-06-uif-how-to-make-process-as-stress-free-as-possible/" target="_blank" rel="noopener noreferrer">Daily Maverick</a>
-                    found that claimants commonly face delays beyond the standard processing window, long queues at
-                    Labour Centres, and recurring issues with the online filing platform &mdash; usually traced back
-                    to incomplete employer declarations or banking details that don't quite match. Knowing your
-                    estimated payout in advance, and having your documents ready before you apply, is the single
-                    biggest thing that keeps a claim moving.
-                </p>
+                    <h3 class="h4 fw-bold text-primary">UIF Status Check Without Internet</h3>
+                    <p>If you cannot access the UIF online service, you can check your claim using <a href="{{ url_for('home.uif_status_check_whatsapp') }}">UIF status check via WhatsApp</a>, call the official UIF toll-free hotline, or visit a local labour centre. View our <a href="{{ url_for('home.uif_call_centre_contact_list') }}">UIF Call Centre and Labour Centre Contact List</a> to find phone numbers near you.</p>
+                    <ul>
+                        <li>ID document</li>
+                        <li>UIF information</li>
+                        <li>Employer information</li>
+                        <li>Claim reference information</li>
+                        <li>Banking information</li>
+                    </ul>
+                    <div class="alert alert-warning">
+                        <i class="bi bi-shield-exclamation me-2"></i>
+                        <strong>Never give</strong> your online banking password, PIN or OTP to another person claiming that they can check your UIF status for you.
+                    </div>
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">What Information Do I Need to Check UIF Status?</h3>
+                    <p>Depending on the service you use, your South African ID number is the primary key. See our detailed instructions on <a href="{{ url_for('home.uif_status_check_id_number') }}">how to check UIF status with an ID number</a>, or ensure you have these details ready:</p>
+                    <ul>
+                        <li>South African ID number</li>
+                        <li>Phone number</li>
+                        <li>Email address</li>
+                        <li>UIF registration information</li>
+                        <li>Login details</li>
+                        <li>Claim information</li>
+                    </ul>
+                    <p>Keep your personal information secure. The UIF will not require you to give your bank card PIN or online banking password to check a UIF claim.</p>
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">What If My UIF Information Is Wrong?</h3>
+                    <p>If your UIF claim contains incorrect information, do not simply ignore it. Examples include:</p>
+                    <ul>
+                        <li>Incorrect ID information</li>
+                        <li>Wrong employer information</li>
+                        <li>Incorrect banking details</li>
+                        <li>Incorrect employment dates</li>
+                        <li>Missing contributions</li>
+                        <li>Incorrect contact information</li>
+                    </ul>
+                    <p>The correct process depends on the type of information that needs to be changed. Contact UIF or the Department of Employment and Labour if you are unsure how to correct the information. Our <a href="{{ url_for('home.uif_banking_details_ui_2_8') }}">UIF banking details and UI-2.8 guide</a> may help if the issue is payment-related.</p>
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">What If My Employer Did Not Pay UIF?</h3>
+                    <p>Your UIF contributions are normally linked to employment records and employer declarations. If you believe UIF contributions were deducted from your salary but your records do not show the expected information, you should investigate the issue. Keep copies of:</p>
+                    <ul>
+                        <li>Payslips</li>
+                        <li>Employment contract</li>
+                        <li>Termination letter</li>
+                        <li>UIF documents</li>
+                        <li>Proof of deductions</li>
+                    </ul>
+                    <p>These documents can help when you contact the relevant department about a contribution or employment-record problem. Read our <a href="{{ url_for('home.missing_uif_contributions') }}">missing UIF contributions guide</a> for more detail.</p>
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">UIF Contact Details & Support Numbers</h3>
+                    <p>If you cannot resolve your UIF issue online, contact the South African Department of Employment and Labour through its official channels. For regional office phone numbers, email addresses, and call centre operating hours, refer to our complete <a href="{{ url_for('home.uif_call_centre_contact_list') }}">UIF Call Centre & Labour Centre Contact List</a>.</p>
+                    <p>Always verify UIF contact information on the <a href="https://www.labour.gov.za" target="_blank" rel="noopener noreferrer">official government website</a> before calling or sending personal documents.</p>
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">Important UIF Scams to Avoid</h3>
+                    <p>Be careful when searching for UIF assistance online. Scammers may claim that they can:</p>
+                    <ul>
+                        <li>Release your UIF payment</li>
+                        <li>Speed up your claim</li>
+                        <li>Fix your UIF status</li>
+                        <li>Change your banking details</li>
+                        <li>Get your payment immediately</li>
+                    </ul>
+                    <p><strong>You should never give another person your:</strong></p>
+                    <ul class="list-unstyled ms-4">
+                        <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Banking password</li>
+                        <li><i class="bi bi-x-circle-fill text-danger me-2"></i>ATM PIN</li>
+                        <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Online banking PIN</li>
+                        <li><i class="bi bi-x-circle-fill text-danger me-2"></i>OTP</li>
+                        <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Card PIN</li>
+                    </ul>
+                    <p>Be especially careful if someone contacts you unexpectedly and asks for money to release a UIF payment.</p>
+                    <hr class="my-4">
+
+                    <h3 class="h4 fw-bold text-primary">What UIF Actually Pays Out</h3>
+                    <p>It's a real fund with real numbers behind it. According to the UIF's own 2024/25 Annual Report, the Fund paid <strong>R18 billion in benefits to 3.1 million beneficiaries</strong> that year despite a slow economy, and closed the year with a R23 billion surplus.</p>
+                    <p>That said, the process isn't always smooth. Reporting from <a href="https://www.dailymaverick.co.za/article/2025-08-06-uif-how-to-make-process-as-stress-free-as-possible/" target="_blank" rel="noopener noreferrer">Daily Maverick</a> found that claimants commonly face delays beyond the standard processing window, long queues at Labour Centres, and recurring issues with the online filing platform — usually traced back to incomplete employer declarations or banking details that don't quite match. Knowing your estimated payout in advance, and having your documents ready before you apply, is the single biggest thing that keeps a claim moving.</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        
-    </div>
-</section>
-<section class="py-4 bg-primary text-white">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-8 mx-auto">
-          <h2>Calculate Your UIF Benefits Today</h2>
-          <p class="text-white">
-            Don't wait until you need it &mdash; understand your UIF entitlements now. Our free calculators use the
-            same formula the Department applies, so you know roughly what to expect before you file.
-          </p>
-          <div class="d-flex flex-column flex-md-row gap-2 justify-content-center">
-            <a href="{{ url_for("uif.unemployment_calculator")}}"
-               class="btn btn-outline-light btn-sm">Calculate Unemployment Benefits</a>
-            <a href="{{ url_for("uif.leave_benefit_calculator")}}"
-               class="btn btn-outline-light btn-sm">Calculate Maternity Benefits</a>
-            <a href="{{ url_for("home.vat_calculator")}}"
-               class="btn btn-outline-light btn-sm">Calculate VAT</a>
-          </div>
-          <p class="text-white small mt-3">
-            UIF paid R18 billion to 3.1 million South Africans in benefits last year &mdash; know your number before you apply.
-          </p>
+    <!-- FAQ Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-4 text-center">Frequently Asked Questions</h2>
+                    
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    How do I check my UIF status?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    You can check your UIF claim through the UIF's official online services. You will generally need your identifying information and the details used for your UIF application. Sign in to the relevant service, locate your claim, and review the status and payment information.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    How do I check my UIF payment status?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sign in to the relevant UIF online service and check the payment information connected to your claim. Look for statuses like "payment processed" or "payment made" to understand where your money is in the pipeline.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Why is my UIF claim still pending?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Your claim may still be undergoing verification, or UIF may be waiting for employer information, documents, banking details confirmation, or contribution record checks before the claim can move forward.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Does approved UIF mean I will be paid immediately?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    No. An approved claim and a completed payment are different stages of the process. After approval, the claim still goes through payment processing before the money reaches your bank account.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    Why has my UIF payment not arrived?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Check whether the payment has actually been processed and whether your banking details are correct. If the UIF system indicates that payment was made but you have not received it, contact UIF for assistance. Do not submit multiple applications for the same benefit.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    Can I check UIF status with my ID number?
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Your ID number is commonly used to identify you when accessing UIF services, but you may need additional information or login details depending on the service being used.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                                    Can I check UIF status on my phone?
+                                </button>
+                            </h2>
+                            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes. You can use a smartphone with internet access to access the relevant UIF online services.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                                    Can I check UIF status without going to a labour centre?
+                                </button>
+                            </h2>
+                            <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    In many cases, yes. UIF provides online services that allow users to perform certain UIF-related activities remotely. However, some problems may still require assistance from UIF or a labour centre.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
+                                    How long does UIF take to process?
+                                </button>
+                            </h2>
+                            <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    There is no single processing time that applies to every claim. The time can depend on the type of benefit and whether the application and supporting information are complete.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
+                                    Can I apply for UIF if I resigned?
+                                </button>
+                            </h2>
+                            <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    UIF unemployment benefits have specific requirements. Resigning voluntarily can affect eligibility, although there can be exceptions depending on the circumstances. You should check the applicable UIF rules for your situation.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq11">
+                                    What happens if my UIF claim is declined?
+                                </button>
+                            </h2>
+                            <div id="faq11" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Check the reason for the decision and follow the appropriate UIF process to correct information, provide documents or request a review where applicable.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Related Guides -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h3 class="h4 fw-bold mb-4 text-center">Related UIF Guides and Support Resources</h3>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-telephone-outbound text-primary fs-2 mb-3"></i>
+                                    <h4 class="h6 fw-bold">UIF Call Centre Contacts</h4>
+                                    <p class="small text-muted">Phone numbers, email addresses, and regional Labour Centre contact details.</p>
+                                    <a href="{{ url_for('home.uif_call_centre_contact_list') }}" class="btn btn-sm btn-outline-primary">View Contact List</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-whatsapp text-success fs-2 mb-3"></i>
+                                    <h4 class="h6 fw-bold">Status Check via WhatsApp</h4>
+                                    <p class="small text-muted">Step-by-step guide to checking your UIF claim status using WhatsApp on your phone.</p>
+                                    <a href="{{ url_for('home.uif_status_check_whatsapp') }}" class="btn btn-sm btn-outline-success">WhatsApp Guide</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-card-heading text-info fs-2 mb-3"></i>
+                                    <h4 class="h6 fw-bold">Check Status with ID</h4>
+                                    <p class="small text-muted">How to check your UIF claim and payment status using your South African ID number.</p>
+                                    <a href="{{ url_for('home.uif_status_check_id_number') }}" class="btn btn-sm btn-outline-info">Check with ID</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-box-arrow-in-right text-primary fs-2 mb-3"></i>
+                                    <h4 class="h6 fw-bold">uFiling Login Guide</h4>
+                                    <p class="small text-muted">How to register, log in, reset passwords, and navigate the uFiling online portal.</p>
+                                    <a href="{{ url_for('home.uif_ufiling_login') }}" class="btn btn-sm btn-outline-primary">uFiling Guide</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-wallet2 text-warning fs-2 mb-3"></i>
+                                    <h4 class="h6 fw-bold">How to Check UIF Balance</h4>
+                                    <p class="small text-muted">Learn how to check your credit days and estimated remaining benefit payout.</p>
+                                    <a href="{{ url_for('home.how_to_check_uif_balance') }}" class="btn btn-sm btn-outline-warning text-dark">Check Balance</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-calculator text-success fs-2 mb-3"></i>
+                                    <h4 class="h6 fw-bold">UIF Calculator</h4>
+                                    <p class="small text-muted">Estimate your potential UIF benefit based on your salary and months employed.</p>
+                                    <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-sm btn-outline-success">Calculate Benefits</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-4 bg-primary text-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-8 mx-auto">
+                    <h2>Check Your UIF Status & Know Your Numbers</h2>
+                    <p class="text-white">
+                        Don't wait without knowing what's happening to your claim. Check your UIF status online, understand what each status means, and estimate your potential benefit before you file.
+                    </p>
+                    <div class="d-flex flex-column flex-md-row gap-2 justify-content-center">
+                        <a href="https://uifonline.labour.gov.za/uifOnline/loginJsp"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn btn-light btn-sm">
+                           <i class="bi bi-box-arrow-up-right me-1"></i>Check Status on uFiling
+                        </a>
+                        <a href="{{ url_for('uif.unemployment_calculator') }}"
+                           class="btn btn-outline-light btn-sm">Estimate Unemployment Benefits</a>
+                        <a href="{{ url_for('uif.leave_benefit_calculator') }}"
+                           class="btn btn-outline-light btn-sm">Estimate Maternity Benefits</a>
+                    </div>
+                    <p class="text-white small mt-3">
+                        UIF paid R18 billion to 3.1 million South Africans in benefits last year — know your status and your number before you apply.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 {% endblock %}
