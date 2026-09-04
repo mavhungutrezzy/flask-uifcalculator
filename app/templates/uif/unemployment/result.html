@@ -6,38 +6,39 @@
 {% endblock meta %}
 
 {% block content %}
+<!-- Result Summary Section -->
 <section class="py-5 bg-light">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8 col-xl-7">
 
         <!-- Calculation Result Card -->
-        <div class="card shadow border rounded-4 mb-4">
-          <div class="card-body text-center p-4">
+        <div class="card shadow-sm border-0 rounded-3 mb-4">
+          <div class="card-body text-center p-5">
             <span class="badge bg-success-subtle text-success p-2 rounded-pill border border-success fw-semibold small mb-3">
               <i class="bi bi-check-circle-fill me-1"></i>Calculation Complete
             </span>
-            <p class="text-muted small text-uppercase fw-bold mb-1">Estimated Total UIF Benefit</p>
-            <h1 class="display-4 fw-bold text-success mb-2">R{{ "%.2f"|format(total_benefit) }}</h1>
-            <p class="text-muted small mb-4">Based on official Department of Employment & Labour formula</p>
+            <p class="text-muted small text-uppercase fw-bold letter-spacing mb-1">Estimated Total UIF Benefit</p>
+            <h1 class="display-4 fw-bold text-success mb-3">R{{ "%.2f"|format(total_benefit) }}</h1>
+            <p class="text-muted small mb-0">Based on official Department of Employment & Labour formula</p>
 
-            <div class="row text-start border-top pt-4 g-3">
+            <div class="row text-start border-top pt-4 mt-4 g-3">
               <div class="col-6 col-sm-3">
-                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Credit Days</div>
+                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem; letter-spacing: 0.05em;">Credit Days</div>
                 <div class="h5 fw-bold mb-0 text-dark">{{ credit_days }} Days</div>
               </div>
               <div class="col-6 col-sm-3">
-                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Daily Benefit</div>
+                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem; letter-spacing: 0.05em;">Daily Benefit</div>
                 <div class="h5 fw-bold mb-0 text-dark">R{{ "%.2f"|format(daily_benefit) }}</div>
               </div>
               <div class="col-6 col-sm-3">
-                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Avg. Monthly</div>
+                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem; letter-spacing: 0.05em;">Avg. Monthly</div>
                 <div class="h5 fw-bold mb-0 text-dark">
                   {% if credit_days > 0 %}R{{ "%.2f"|format(average_monthly_benefit) }}{% else %}R0.00{% endif %}
                 </div>
               </div>
               <div class="col-6 col-sm-3">
-                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem;">Duration</div>
+                <div class="small text-muted text-uppercase fw-bold" style="font-size: 0.75rem; letter-spacing: 0.05em;">Duration</div>
                 <div class="h5 fw-bold mb-0 text-dark">
                   {% if credit_days > 0 %}{{ months_for_benefits|round|int }} Months{% else %}0 Months{% endif %}
                 </div>
@@ -46,11 +47,11 @@
           </div>
         </div>
 
-        <!-- Calculation Detail Accordion -->
-        <div class="card border rounded-3 mb-4 shadow-sm">
+        <!-- Calculation Details Card -->
+        <div class="card border rounded-3 shadow-sm mb-4">
           <div class="card-body p-4">
             <h2 class="h6 fw-bold text-uppercase text-primary mb-3">Calculation Details</h2>
-            <div class="row g-2 small">
+            <div class="row g-3 small border-top pt-3">
               <div class="col-6 text-muted">Average Monthly Salary:</div>
               <div class="col-6 text-end fw-semibold">R{{ "%.2f"|format(average_salary) }}</div>
               <div class="col-6 text-muted">Daily Income (Salary × 12 ÷ 365):</div>
@@ -59,82 +60,102 @@
               <div class="col-6 text-end fw-semibold">{{ "%.2f"|format(irr) }}%</div>
               <div class="col-6 text-muted">Daily Benefit Amount:</div>
               <div class="col-6 text-end fw-semibold">R{{ "%.2f"|format(daily_benefit) }}</div>
-              <div class="col-6 text-muted">Earned Credit Days:</div>
-              <div class="col-6 text-end fw-semibold">{{ credit_days }} Days</div>
+              <div class="col-12 border-top pt-2 mt-2"></div>
+              <div class="col-6 text-muted fw-bold text-primary">Earned Credit Days:</div>
+              <div class="col-6 text-end fw-bold text-success h6 mb-0">{{ credit_days }} Days</div>
             </div>
+          </div>
+        </div>
+
+        <!-- Information Alert -->
+        <div class="alert alert-info d-flex align-items-start rounded-3 mb-4">
+          <i class="bi bi-info-circle-fill me-3 text-info" style="font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;"></i>
+          <div>
+            <strong>Important:</strong> This calculation is an estimate based on the UIF formula. Your actual benefit amount may differ once your claim is submitted and verified by the Department of Employment and Labour.
           </div>
         </div>
 
         <!-- Action Buttons -->
-        <div class="d-flex flex-column flex-sm-row gap-2 mb-5">
+        <div class="d-flex flex-column flex-sm-row gap-2 mb-4">
           <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-primary btn-lg flex-fill fw-bold">
             <i class="bi bi-calculator me-2"></i>Recalculate
           </a>
-          <a href="{{ url_for('home.uif_documents_needed') }}" class="btn btn-outline-secondary btn-lg flex-fill">
-            <i class="bi bi-file-earmark-text me-2"></i>View Documents Needed
+          <a href="{{ url_for('home.uif_documents_needed') }}" class="btn btn-outline-primary btn-lg flex-fill fw-bold">
+            <i class="bi bi-file-earmark-text me-2"></i>Documents Needed
           </a>
         </div>
 
-        <!-- Loan Affiliate CTA -->
-        <div class="card border-0 rounded-3 mb-5 overflow-hidden shadow" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
-          <div class="card-body p-4 text-white">
-            <div class="d-flex align-items-start gap-3">
-              <div class="flex-shrink-0 d-none d-sm-block" style="font-size: 2.2rem; line-height: 1;">💰</div>
-              <div class="flex-grow-1">
-                <p class="fw-bold mb-1 text-warning" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">
-                  While You Wait for UIF Payout
-                </p>
-                <h2 class="h5 fw-bold mb-2 text-white">Need cash to cover expenses right now?</h2>
-                <p class="mb-3 small" style="color: rgba(255,255,255,0.8);">
-                  UIF processing can take 4–6 weeks. If you need money sooner to cover rent, groceries, or bills,
-                  Boost Loans offers quick personal loans with flexible repayment.
-                </p>
-                <a href="https://boostloans.co.za?ref=2521"
-                   target="_blank"
-                   rel="noopener sponsored"
-                   class="btn fw-semibold px-4 py-2"
-                   style="background: linear-gradient(90deg, #e2b714, #f5d442); color: #1a1a2e; border: none; border-radius: 8px;">
-                  Check If You Qualify →
-                </a>
-                <p class="mt-2 mb-0" style="font-size: 0.7rem; color: rgba(255,255,255,0.5);">
-                  Sponsored · Subject to credit approval
-                </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Next Steps Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-xl-7">
+        <div class="text-center mb-5">
+          <h2 class="h4 fw-bold mb-2">Next Steps for Your UIF Claim</h2>
+          <p class="text-muted">Learn more about the forms, documents, and process for claiming your UIF benefit.</p>
+        </div>
+
+        <div class="row g-3 mb-0">
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center p-4">
+                <i class="bi bi-file-earmark-text text-primary fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold mb-2">UI-19 Form Explained</h4>
+                <p class="small text-muted mb-3">Learn how the UI-19 employer declaration affects your credit days and payout amount.</p>
+                <a href="{{ url_for('uif.ui19_form_explained') }}" class="btn btn-sm btn-outline-primary fw-semibold">UI-19 Guide</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center p-4">
+                <i class="bi bi-folder-check text-success fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold mb-2">Documents Checklist</h4>
+                <p class="small text-muted mb-3">Complete list of documents required to claim UIF online or at a Labour Centre.</p>
+                <a href="{{ url_for('home.uif_documents_needed') }}" class="btn btn-sm btn-outline-success fw-semibold">View Documents</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center p-4">
+                <i class="bi bi-laptop text-info fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold mb-2">How to Claim Online</h4>
+                <p class="small text-muted mb-3">Step-by-step guide to submitting your UIF claim through the official portal.</p>
+                <a href="{{ url_for('home.how_to_claim_uif_online') }}" class="btn btn-sm btn-outline-info fw-semibold">Claim Guide</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center p-4">
+                <i class="bi bi-calculator text-warning fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold mb-2">How Calculation Works</h4>
+                <p class="small text-muted mb-3">Understand the UIF formula, income replacement rate, and how your benefit is calculated.</p>
+                <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="btn btn-sm btn-outline-warning fw-semibold">Learn Formula</a>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Related Guides -->
-        <div class="card border rounded-3 p-4 mb-4">
-          <h3 class="h6 fw-bold mb-3 text-uppercase text-muted">Related Guides & Next Steps</h3>
-          <ul class="list-group list-group-flush small">
-            <li class="list-group-item px-0">
-              <a href="{{ url_for('uif.ui19_form_explained') }}" class="text-decoration-none fw-semibold">
-                <i class="bi bi-arrow-right-circle text-primary me-2"></i>What the UI-19 form is and why it affects your payout
-              </a>
-            </li>
-            <li class="list-group-item px-0">
-              <a href="{{ url_for('home.uif_documents_needed') }}" class="text-decoration-none fw-semibold">
-                <i class="bi bi-arrow-right-circle text-primary me-2"></i>Every document you need before applying for UIF
-              </a>
-            </li>
-            <li class="list-group-item px-0">
-              <a href="{{ url_for('home.how_to_claim_uif_online') }}" class="text-decoration-none fw-semibold">
-                <i class="bi bi-arrow-right-circle text-primary me-2"></i>Step-by-step: claiming UIF online through uFiling
-              </a>
-            </li>
-            <li class="list-group-item px-0">
-              <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="text-decoration-none fw-semibold">
-                <i class="bi bi-arrow-right-circle text-primary me-2"></i>How the UIF calculation formula works
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <p class="text-center text-muted small">
-          This is an independent estimation tool, not affiliated with the Department of Employment and Labour or UIF.
+<!-- Disclaimer Section -->
+<section class="py-4 bg-white border-top">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-xl-7">
+        <p class="text-center text-muted small mb-0">
+          <i class="bi bi-info-circle me-2"></i>This is an independent estimation tool, not affiliated with the Department of Employment and Labour or UIF. Always verify your claim status and benefit amount through official UIF channels.
         </p>
-
       </div>
     </div>
   </div>

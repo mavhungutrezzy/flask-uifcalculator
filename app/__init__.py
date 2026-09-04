@@ -14,7 +14,7 @@ def create_app(config_class=Config):
     # Attach Scout APM monitoring
     ScoutApm(app)
 
-    CSRFProtect(app)
+    csrf = CSRFProtect(app)
 
     Squeeze(app)
 
@@ -24,9 +24,13 @@ def create_app(config_class=Config):
     from app.routes.home import home_bp
     from app.routes.uif import uif_bp
     from app.routes.errors import errors_bp
+    from app.routes.api import api_bp
 
     app.register_blueprint(home_bp)
     app.register_blueprint(uif_bp)
     app.register_blueprint(errors_bp)
+    app.register_blueprint(api_bp)
+
+    csrf.exempt(api_bp)
 
     return app

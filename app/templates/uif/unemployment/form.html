@@ -86,7 +86,7 @@
       <div class="col-lg-6">
         <div class="mb-3">
           <span class="badge bg-success-subtle text-success fw-semibold border border-success px-3 py-2 small rounded-pill">
-            <i class="bi bi-shield-check me-2"></i>Official 2026 Formula
+            Official 2026 Formula
           </span>
         </div>
         <h1 class="fw-bold mb-3 display-6">UIF Unemployment Calculator</h1>
@@ -101,7 +101,7 @@
           </div>
           <div class="d-flex align-items-center gap-3 mb-2">
             <i class="bi bi-check-circle-fill text-success fs-5"></i>
-            <span>Calculates sliding Income Replacement Rate (38% – 60%)</span>
+            <span>Calculates sliding Income Replacement Rate</span>
           </div>
           <div class="d-flex align-items-center gap-3 mb-3">
             <i class="bi bi-check-circle-fill text-success fs-5"></i>
@@ -112,17 +112,17 @@
 
       <!-- Calculator Card Front & Center -->
       <div class="col-lg-6" id="calculatorSection">
-        <div class="border rounded-4 p-4 bg-white shadow">
+        <div class="border-1 rounded-2 p-4 bg-white shadow">
           <div class="card-body p-1 bg-white text-black">
             <h2 class="h5 fw-bold mb-3 text-center text-primary">
-              <i class="bi bi-calculator me-2"></i>Calculate Your UIF Benefit
+              Calculate Your UIF Benefit
             </h2>
             <form id="quickCalc" method="post" action="{{ url_for('uif.unemployment_calculator_result') }}">
               <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
               <input type="hidden" name="sameSalaryCheck" value="on">
 
               <div class="mb-3">
-                <label for="singleSalary" class="form-label mb-1 small fw-bold text-uppercase text-muted">
+                <label for="singleSalary" class="form-label mb-1 small fw-medium text-uppercase text-muted">
                   Average Gross Monthly Salary (R)
                 </label>
                 <div class="input-group">
@@ -140,7 +140,7 @@
               </div>
 
               <div class="mb-3">
-                <label for="monthsEmployed" class="form-label mb-1 small fw-bold text-uppercase text-muted">
+                <label for="monthsEmployed" class="form-label mb-1 small fw-medium text-uppercase text-muted">
                   Months Employed & Contributing
                 </label>
                 <div class="input-group">
@@ -156,7 +156,7 @@
                          required>
                   <span class="input-group-text bg-light">Months</span>
                 </div>
-                <div class="form-text small">Count working months where 1% UIF was deducted (48+ months gives maximum credits).</div>
+                <div class="form-text small">Maximum 48 months (4 years).</div>
               </div>
 
               <button type="submit" class="btn btn-primary btn-lg w-100 mt-3 fw-bold">

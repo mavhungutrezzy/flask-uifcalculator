@@ -1,0 +1,379 @@
+{% extends "base.html" %}
+
+{% block title %}Check SASSA SRD Status Online 2026 – Instant Status Check Form{% endblock %}
+
+{% block meta %}
+<meta name="description"
+  content="Use our instant SASSA SRD R370 status check tool. Enter your ID number and registered phone number to check application status, payment dates, and outcomes.">
+<meta name="keywords"
+  content="sassa status check form, check srd sassa status, sassa status tool, sassa srd status online, check sassa status id number">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.sassa_status_check_form', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.sassa_status_check_form', _external=True) }}{% endblock %}
+{% block og_title %}Check SASSA SRD Status Online 2026 – Instant Status Check Form{% endblock %}
+{% block og_description %}Use our instant SASSA SRD R370 status check tool. Enter your ID number and registered phone number to check application status, payment dates, and outcomes.{% endblock %}
+{% block twitter_url %}{{ url_for('home.sassa_status_check_form', _external=True) }}{% endblock %}
+{% block twitter_title %}Check SASSA SRD Status Online 2026 – Instant Status Check Form{% endblock %}
+{% block twitter_description %}Use our instant SASSA SRD R370 status check tool. Enter your ID number and registered phone number to check application status and payment dates.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SASSA Status Check Guide",
+          "item": "{{ url_for('home.sassa_status_check', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Status Check Tool",
+          "item": "{{ url_for('home.sassa_status_check_form', _external=True) }}"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ url_for('home.sassa_status_check_form', _external=True) }}#webpage",
+      "url": "{{ url_for('home.sassa_status_check_form', _external=True) }}",
+      "name": "Check SASSA SRD Status Online 2026",
+      "description": "Instant online SASSA SRD R370 status check tool using South African ID and cellphone number.",
+      "inLanguage": "en-ZA"
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .sassa-result-box {
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    border-radius: 0.85rem;
+    padding: 1.25rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+  }
+
+  .sassa-status-badge {
+    display: inline-block;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .sassa-status-approved {
+    background: #e9f9ee;
+    color: #157347;
+  }
+
+  .sassa-status-pending {
+    background: #fff4d6;
+    color: #a16207;
+  }
+
+  .sassa-status-declined {
+    background: #ffe7e7;
+    color: #b42318;
+  }
+
+  .sassa-status-unknown {
+    background: #eef2ff;
+    color: #4338ca;
+  }
+</style>
+
+
+<!-- Status Check Form Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+
+        <div class="card border-0 rounded-3 shadow">
+          <div class="card-body p-4 p-md-5">
+            <div class="text-center mb-4">
+              <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 48px; height: 48px;">
+                <i class="bi bi-search fs-4"></i>
+              </div>
+              <h2 class="h5 fw-bold mb-1 text-primary">
+                Check Your SASSA SRD Status
+              </h2>
+              <p class="text-muted small mb-0">Enter your details exactly as submitted during application</p>
+            </div>
+
+            <form id="sassaStatusForm" method="post" action="#">
+              <div class="mb-3">
+                <label for="idNumber" class="form-label mb-1 small fw-medium text-uppercase text-muted">
+                  ID Number <span class="text-danger">*</span>
+                </label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-end-0"><i class="bi bi-person-badge text-muted"></i></span>
+                  <input type="text"
+                         class="form-control form-control-lg border-start-0 ps-0"
+                         id="idNumber"
+                         name="id_number"
+                         placeholder="e.g. 0099035919087"
+                         maxlength="13"
+                         required>
+                </div>
+                <div class="form-text small">Your 13-digit South African ID number.</div>
+              </div>
+
+              <div class="mb-4">
+                <label for="phoneNumber" class="form-label mb-1 small fw-medium text-uppercase text-muted">
+                  Cellphone Number <span class="text-danger">*</span>
+                </label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-end-0"><i class="bi bi-phone text-muted"></i></span>
+                  <input type="tel"
+                         class="form-control form-control-lg border-start-0 ps-0"
+                         id="phoneNumber"
+                         name="phone_number"
+                         placeholder="e.g. 0724999834"
+                         maxlength="10"
+                         required>
+                </div>
+                <div class="form-text small">The cellphone number you used when applying for SRD.</div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold shadow-sm">
+                <i class="bi bi-search me-2"></i>Check Status Now
+              </button>
+            </form>
+
+            <div class="alert alert-info d-flex align-items-center small mt-4 mb-0 rounded-3">
+              <i class="bi bi-lock-fill me-2 fs-5 flex-shrink-0"></i>
+              <div>Instant & secure status query. No payment or registration required.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Help & Guidelines -->
+        <div class="card border rounded-3 mt-4 bg-light">
+          <div class="card-body p-4">
+            <h3 class="h6 fw-bold mb-3"><i class="bi bi-info-circle text-primary me-2"></i>Before You Check</h3>
+            <ul class="list-unstyled small mb-0">
+              <li class="mb-2 d-flex align-items-start">
+                <i class="bi bi-check2 text-success me-2 mt-1"></i>
+                <span>Ensure your ID number is 13 digits without spaces.</span>
+              </li>
+              <li class="mb-2 d-flex align-items-start">
+                <i class="bi bi-check2 text-success me-2 mt-1"></i>
+                <span>Must use the active phone number linked to your SRD grant application.</span>
+              </li>
+              <li class="mb-0 d-flex align-items-start">
+                <i class="bi bi-check2 text-success me-2 mt-1"></i>
+                <span>If your application shows <strong>Declined</strong>, you can submit an appeal on srd.dsd.gov.za within 90 days.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Additional Resources Section -->
+<section class="py-4 bg-light border-top">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <h3 class="h6 text-muted text-uppercase fw-semibold mb-3">Related Benefit Resources</h3>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+          <a href="{{ url_for('home.sassa_status_check') }}" class="btn btn-sm btn-white border shadow-sm">
+            <i class="bi bi-journal-text me-1 text-primary"></i> Full SASSA Status Guide
+          </a>
+          <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-sm btn-white border shadow-sm">
+            <i class="bi bi-calculator me-1 text-success"></i> UIF Calculator
+          </a>
+          <a href="{{ url_for('home.uif_status_check_online') }}" class="btn btn-sm btn-white border shadow-sm">
+            <i class="bi bi-info-circle me-1 text-info"></i> UIF Status Check
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('sassaStatusForm');
+    const idInput = document.getElementById('idNumber');
+    const phoneInput = document.getElementById('phoneNumber');
+    const checkBtn = form.querySelector('button[type="submit"]');
+
+    if (!form || !idInput || !phoneInput || !checkBtn) return;
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const idNumber = idInput.value.trim();
+      const phoneNumber = phoneInput.value.trim();
+
+      if (!/^\d{13}$/.test(idNumber)) {
+        idInput.classList.add('is-invalid');
+        idInput.focus();
+        alert('Please enter a valid 13-digit ID number.');
+        return;
+      }
+
+      if (!/^\d{10}$/.test(phoneNumber)) {
+        phoneInput.classList.add('is-invalid');
+        phoneInput.focus();
+        alert('Please enter a valid 10-digit cellphone number.');
+        return;
+      }
+
+      idInput.classList.remove('is-invalid');
+      phoneInput.classList.remove('is-invalid');
+
+      checkBtn.disabled = true;
+      const originalText = checkBtn.innerHTML;
+      checkBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Checking Status...';
+
+      try {
+        const response = await fetch('/api/srd-outcome', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            idnumber: idNumber,
+            mobile: phoneNumber
+          })
+        });
+
+        const responseText = await response.text();
+        let responseData = null;
+
+        try {
+          responseData = responseText ? JSON.parse(responseText) : null;
+        } catch (parseError) {
+          throw new Error('The status service returned an unexpected response. Please try again later.');
+        }
+
+        const apiData = responseData && responseData.data ? responseData.data : responseData;
+
+        if (!response.ok) {
+          throw new Error((responseData && responseData.error) || 'Status check failed.');
+        }
+
+        const status = apiData.status || apiData.outcome || 'Unknown';
+        const normalized = String(status).trim();
+        const badgeClass = normalized.toLowerCase().includes('approved') || normalized.toLowerCase() === 'application complete'
+          ? 'sassa-status-approved'
+          : normalized.toLowerCase().includes('declined')
+            ? 'sassa-status-declined'
+            : normalized.toLowerCase().includes('pending')
+              ? 'sassa-status-pending'
+              : 'sassa-status-unknown';
+
+        const outcomes = Array.isArray(apiData.outcomes) ? apiData.outcomes.slice(0, 6) : [];
+
+        const escapeHtml = (value) => {
+          const text = value == null ? '' : String(value);
+          return text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+        };
+
+        const accordionHtml = outcomes.length
+          ? outcomes.map((item, index) => {
+              const outcome = item.outcome || 'Unknown';
+              const period = item.period || `Month ${index + 1}`;
+              const reason = item.reason ? escapeHtml(item.reason) : 'No reason provided.';
+              const payday = item.payday ? escapeHtml(item.payday) : 'No payday yet.';
+              const itemBadgeClass = String(outcome).trim().toLowerCase().includes('approved') || String(outcome).trim().toLowerCase() === 'application complete'
+                ? 'sassa-status-approved'
+                : String(outcome).trim().toLowerCase().includes('declined')
+                  ? 'sassa-status-declined'
+                  : String(outcome).trim().toLowerCase().includes('pending')
+                    ? 'sassa-status-pending'
+                    : 'sassa-status-unknown';
+
+              return `
+                <div class="accordion-item border-0 mb-2">
+                  <h3 class="accordion-header" id="sassaHeading-${index}">
+                    <button class="accordion-button ${index === 0 ? '' : 'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#sassaCollapse-${index}" aria-expanded="${index === 0 ? 'true' : 'false'}" aria-controls="sassaCollapse-${index}">
+                      <span class="d-flex justify-content-between align-items-center w-100 gap-3 me-3">
+                        <span class="fw-semibold">${escapeHtml(period)}</span>
+                        <span class="sassa-status-badge ${itemBadgeClass}">${escapeHtml(outcome)}</span>
+                      </span>
+                    </button>
+                  </h3>
+                  <div id="sassaCollapse-${index}" class="accordion-collapse collapse ${index === 0 ? 'show' : ''}" aria-labelledby="sassaHeading-${index}">
+                    <div class="accordion-body bg-light rounded-bottom-3 border">
+                      <div class="small text-muted mb-2"><strong>Reason:</strong> ${reason}</div>
+                      <div class="small text-muted mb-0"><strong>Payday:</strong> ${payday}</div>
+                    </div>
+                  </div>
+                </div>
+              `;
+            }).join('')
+          : '<div class="text-muted small">No monthly outcomes returned.</div>';
+
+        const resultBox = document.createElement('div');
+        resultBox.className = 'sassa-result-box mt-4';
+        resultBox.innerHTML = `
+          <div class="d-flex justify-content-between align-items-center gap-2 mb-3">
+            <h3 class="h6 mb-0 fw-bold">Latest Status Result</h3>
+            <span class="sassa-status-badge ${badgeClass}">${escapeHtml(status)}</span>
+          </div>
+          <div class="small text-muted mb-3">Application ID: ${escapeHtml(apiData.appId || 'N/A')}</div>
+          <div class="row g-2 small text-muted mb-3">
+            <div class="col-sm-6"><strong>Risk Assessment:</strong> ${escapeHtml(apiData.risk === true ? 'Yes' : 'No')}</div>
+            <div class="col-sm-6"><strong>Pay Office / SAPO:</strong> ${escapeHtml(apiData.sapo || 'Not selected')}</div>
+          </div>
+          <div>
+            <div class="fw-semibold mb-2 small text-uppercase text-muted">Recent Monthly Outcomes</div>
+            <div class="accordion" id="sassaOutcomeAccordion">
+              ${accordionHtml}
+            </div>
+          </div>
+        `;
+
+        const existing = form.parentElement.querySelector('.sassa-result-box');
+        if (existing) existing.remove();
+        form.insertAdjacentElement('afterend', resultBox);
+      } catch (error) {
+        const resultBox = document.createElement('div');
+        resultBox.className = 'sassa-result-box mt-4 border-danger text-danger';
+        resultBox.innerHTML = `
+          <strong class="d-block mb-1"><i class="bi bi-exclamation-triangle-fill me-1"></i>Unable to check status</strong>
+          <div class="small mt-1">${error.message || 'Something went wrong.'}</div>
+          <div class="small mt-2 text-muted">Please check your details and try again or visit the official SASSA SRD website.</div>
+        `;
+
+        const existing = form.parentElement.querySelector('.sassa-result-box');
+        if (existing) existing.remove();
+        form.insertAdjacentElement('afterend', resultBox);
+      } finally {
+        checkBtn.disabled = false;
+        checkBtn.innerHTML = originalText;
+      }
+    });
+  });
+</script>
+
+{% endblock %}

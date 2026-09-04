@@ -286,14 +286,10 @@
             <dd class="col-sm-9 text-secondary mt-3 mt-sm-0 mb-0">The Department of Employment and Labour website also has a UIF section that links through to the same uFiling login, useful if you land there first from a search.</dd>
           </dl>
         <p class="text-secondary mt-3 mb-0">
-    Checking on someone else's behalf, or need the ID number-specific steps in one place? Read our
-    <a href="{{ url_for('home.uif_status_check_id_number') }}" class="fw-semibold">UIF status check using your ID number</a>
-    guide. You can also learn how to
-    <a href="{{ url_for('home.uif_status_check_whatsapp') }}" class="fw-semibold">check your UIF status on WhatsApp</a>
-    or find the correct
-    <a href="{{ url_for('home.uif_call_centre_contact_list') }}" class="fw-semibold">UIF call centre and Labour Centre contact details</a>
-    if you need further assistance.
-</p>
+          Need to contact the Department of Employment and Labour or visit a local office? Find the official
+          <a href="{{ url_for('home.uif_call_centre_contact_list') }}" class="fw-semibold">UIF call centre and Labour Centre contact details</a>
+          for direct support.
+        </p>
         </section>
 
         <hr class="my-5">
@@ -369,7 +365,7 @@
           <h2 class="h3 fw-bold mb-3 font-serif">Checking Your UIF Balance and Credits</h2>
           <p class="text-secondary">There isn't really a separate UIF balance number like you'd see in a bank account. What people usually mean by UIF balance is two things: your available credit days, and how much of your current claim has already been paid out. Both show up in the same place.</p>
           <p class="text-secondary">Log into uFiling and open Benefit Payments, then View My Claims, to see your remaining credit days and full payment history for the claim. Your credit days build up while you work and get used up while you claim, roughly one day of benefit for every four days you were employed.</p>
-          <p class="text-secondary mb-0">If your credits look lower than you expected, it's often because your employer hasn't declared your contributions correctly. Read our guide on <a href="{{ url_for('home.missing_uif_contributions') }}" class="fw-semibold">missing UIF contributions</a>, see <a href="{{ url_for('home.uif_credit_days_explained') }}" class="fw-semibold">how credit days work</a>, or go straight to <a href="{{ url_for('home.how_to_check_uif_balance') }}" class="fw-semibold">how to check your UIF balance</a> for a dedicated walkthrough.</p>
+          <p class="text-secondary mb-0">If your credits look lower than expected, it is often because your employer has not declared your contributions correctly. Read our guide on <a href="{{ url_for('home.missing_uif_contributions') }}" class="fw-semibold">missing UIF contributions</a> or see <a href="{{ url_for('home.uif_credit_days_explained') }}" class="fw-semibold">how credit days work</a> for a complete explanation.</p>
         </section>
 
         <hr class="my-5">

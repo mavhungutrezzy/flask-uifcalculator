@@ -1,0 +1,717 @@
+{% extends "base.html" %}
+
+{% block title %}SASSA Status Check 2026 – Check SRD R370 Status Online{% endblock %}
+
+{% block meta %}
+<meta name="description"
+  content="Check your SASSA SRD status the easy way. See what Approved, Pending and Declined mean, current payment dates, and how to appeal if you were declined.">
+<meta name="keywords"
+  content="sassa status check, srd sassa status check, sassa, sassa srd status check, sassa status check for r350, sassa srd, sassa status check for r350 payment dates, sassa payment dates, srd sassa, sassa status, sassa srd status">
+{% endblock %}
+
+{% block canonical_href %}{{ url_for('home.sassa_status_check', _external=True) }}{% endblock %}
+{% block og_url %}{{ url_for('home.sassa_status_check', _external=True) }}{% endblock %}
+{% block og_title %}SASSA Status Check 2026 – Check SRD R370 Status Online{% endblock %}
+{% block og_description %}Check your SASSA SRD status the easy way. See what Approved, Pending and Declined mean, current payment dates, and how to appeal if you were declined.{% endblock %}
+{% block twitter_url %}{{ url_for('home.sassa_status_check', _external=True) }}{% endblock %}
+{% block twitter_title %}SASSA Status Check 2026 – Check SRD R370 Status Online{% endblock %}
+{% block twitter_description %}Check your SASSA SRD status the easy way, what each status means, payment dates, and how to appeal.{% endblock %}
+
+{% block structured_data %}
+{{ super() }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url_for('home.index', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Articles",
+          "item": "{{ url_for('home.articles', _external=True) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SASSA Status Check",
+          "item": "{{ url_for('home.sassa_status_check', _external=True) }}"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "{{ url_for('home.sassa_status_check', _external=True) }}#article",
+      "mainEntityOfPage": "{{ url_for('home.sassa_status_check', _external=True) }}",
+      "headline": "SASSA Status Check 2026: SRD R370 Payment Dates and Appeals",
+      "description": "Check your SASSA SRD status the easy way. See what Approved, Pending and Declined mean, current payment dates, and how to appeal if you were declined.",
+      "inLanguage": "en-ZA",
+      "datePublished": "2026-07-30",
+      "dateModified": "2026-09-04",
+      "author": {
+        "@type": "Organization",
+        "name": "SA Benefits & Calculators"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SA Benefits & Calculators"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "{{ url_for('home.sassa_status_check', _external=True) }}#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I get SASSA SRD and UIF at the same time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. If you are receiving UIF, you will not qualify for SRD for that same period, since UIF is treated as another source of income and support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between the SRD R350 and R370 grant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They are the same grant. It started at R350 a month in 2020 and moved up to R370 in April 2024. R370 is the current amount."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my SASSA status keep changing month to month?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because SASSA reassesses your income fresh every single month, using an automated check against bank, SARS, UIF and NSFAS records."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does an SRD appeal take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no fixed timeframe, but straightforward appeals usually resolve faster than ones involving identity checks. Submitting clear proof helps speed things up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the SRD grant going to increase again?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no confirmed increase at the time of writing. The amount has stayed at R370 since April 2024."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<style>
+.pulse-btn {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 15px rgba(13, 110, 253, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+    }
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 92px;
+    padding: 0.42rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 2px 8px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(255,255,255,0.25);
+    margin-right: 0.75rem;
+}
+
+.status-badge.received { background: #6c757d; color: #fff; }
+.status-badge.processing { background: #f4c95d; color: #1f2937; }
+.status-badge.approved { background: #198754; color: #fff; }
+.status-badge.payment { background: #0dcaf0; color: #0f172a; }
+.status-badge.declined { background: #dc3545; color: #fff; }
+.status-badge.action { background: #0d6efd; color: #fff; }
+
+.sassa-link-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sassa-link-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08) !important;
+}
+
+.list-check {
+    list-style: none;
+    padding-left: 0;
+}
+
+.list-check li {
+    position: relative;
+    padding-left: 1.6rem;
+    margin-bottom: 0.75rem;
+}
+
+.list-check li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: #198754;
+    font-weight: 700;
+}
+</style>
+
+<!-- Main Content Wrapper -->
+<div class="py-3">
+
+  <!-- Hero Section -->
+  <section class="py-4 hero-home">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 text-center text-lg-start">
+          <div class="mb-2">
+            <span class="badge bg-success-subtle p-2 rounded-pill border border-success text-success fw-semibold small">
+              <i class="bi bi-check-circle-fill me-1"></i>Official SASSA SRD R370
+              <i class="bi bi-check-circle-fill ms-2 me-1"></i>Updated 2026
+            </span>
+          </div>
+          <h1 class="fw-bold mb-2">SASSA Status Check 2026</h1>
+          <p class="lead mb-3">
+            Check your SASSA Social Relief of Distress (SRD) grant status instantly. Find out if you're approved, pending, or declined, see payment dates, and learn how to appeal.
+          </p>
+          <div class="d-grid gap-2 d-md-flex mb-3">
+            <a href="{{ url_for('home.sassa_status_check_form') }}"
+               class="btn btn-primary pulse-btn btn-lg px-4 shadow">
+              <i class="bi bi-search me-2"></i>Check Status Now
+            </a>
+            <a href="{{ url_for('uif.unemployment_calculator') }}"
+               class="btn btn-outline-success btn-lg px-4 shadow">
+              <i class="bi bi-calculator me-2"></i>Estimate UIF Payout
+            </a>
+          </div>
+          <div class="small text-muted">
+            SASSA is administered by the South African Social Security Agency. 
+            This is an independent information website, not the official SASSA site.
+          </div>
+        </div>
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <!-- Quick Status Guide Widget -->
+          <div class="card border-1 shadow-sm rounded-2 h-100">
+            <div class="card-body p-4">
+              <div class="text-center mb-3">
+                <h3 class="h6 mb-1 text-primary fw-bold">Before You Check Your SASSA Status</h3>
+                <p class="text-muted small mb-0">Have these ready and the check takes under a minute</p>
+              </div>
+
+              <ul class="list-group list-group-flush small">
+                <li class="list-group-item d-flex align-items-start px-0">
+                  <span class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 32px; height: 32px;">
+                    <i class="bi bi-person-badge"></i>
+                  </span>
+                  <div>
+                    <strong>13-Digit SA ID number</strong>
+                    <div class="text-muted">Your South African ID number used when you applied</div>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex align-items-start px-0">
+                  <span class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 32px; height: 32px;">
+                    <i class="bi bi-phone"></i>
+                  </span>
+                  <div>
+                    <strong>Cellphone number</strong>
+                    <div class="text-muted">The exact mobile number used during your SRD registration</div>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex align-items-start px-0">
+                  <span class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 32px; height: 32px;">
+                    <i class="bi bi-bank"></i>
+                  </span>
+                  <div>
+                    <strong>Banking details</strong>
+                    <div class="text-muted">Required if your status is approved and you need to verify payout account</div>
+                  </div>
+                </li>
+                <li class="list-group-item d-flex align-items-start px-0">
+                  <span class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 32px; height: 32px;">
+                    <i class="bi bi-shield-check"></i>
+                  </span>
+                  <div>
+                    <strong>Income threshold check</strong>
+                    <div class="text-muted">Monthly income must be under R624 to qualify for SRD R370</div>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="alert alert-danger d-flex align-items-start small mt-3 mb-0 rounded-3">
+                <i class="bi bi-exclamation-octagon-fill me-2 fs-6 flex-shrink-0"></i>
+                <div>
+                  SASSA will never ask for your banking PIN, password, or OTP.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust / Scale Strip -->
+  <section class="py-3 border-top border-bottom bg-white">
+    <div class="container">
+      <div class="row g-3 text-center">
+        <div class="col-6 col-md-3">
+          <div class="fw-bold h4 mb-0 text-success">R370</div>
+          <div class="small text-muted">Monthly SRD grant amount</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="fw-bold h4 mb-0 text-primary">4 Ways</div>
+          <div class="small text-muted">Online, WhatsApp, USSD, phone</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="fw-bold h4 mb-0 text-warning">18–59 Years</div>
+          <div class="small text-muted">Age requirement for SRD</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="fw-bold h4 mb-0 text-info">R624 Limit</div>
+          <div class="small text-muted">Monthly income threshold</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resource Cards -->
+  <section class="py-4">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <a class="text-decoration-none" href="{{ url_for('home.sassa_status_check_form') }}">
+            <div class="card h-100 border-0 shadow-sm sassa-link-card">
+              <div class="card-body">
+                <i class="bi bi-search text-primary fs-3"></i>
+                <h2 class="h5 mt-3 text-dark">SASSA Status Check Tool</h2>
+                <p class="text-muted mb-0">Use our instant status check tool with your ID and cellphone number to see outcomes.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a class="text-decoration-none" href="{{ url_for('uif.unemployment_calculator') }}">
+            <div class="card h-100 border-0 shadow-sm sassa-link-card">
+              <div class="card-body">
+                <i class="bi bi-calculator text-success fs-3"></i>
+                <h2 class="h5 mt-3 text-dark">UIF Unemployment Calculator</h2>
+                <p class="text-muted mb-0">Estimate payout days and benefit amount after retrenchment or contract expiry.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a class="text-decoration-none" href="{{ url_for('uif.leave_benefit_calculator') }}">
+            <div class="card h-100 border-0 shadow-sm sassa-link-card">
+              <div class="card-body">
+                <i class="bi bi-person-hearts text-info fs-3"></i>
+                <h2 class="h5 mt-3 text-dark">Maternity UIF Calculator</h2>
+                <p class="text-muted mb-0">Estimate maternity, adoption, parental, or illness leave top-up benefits.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ways to Check Your SASSA Status -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="fw-bold mb-3">Ways to Check Your SASSA Status</h2>
+          <p>You need your South African ID number and the cellphone number you applied with. Here are all the ways to check:</p>
+
+          <div class="card border rounded-3 mb-3">
+            <div class="card-body d-flex align-items-start">
+              <span class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold me-3 flex-shrink-0" style="width: 34px; height: 34px;">1</span>
+              <div>
+                <h3 class="h6 fw-bold mb-1">Online SASSA Status Check Form</h3>
+                <p class="mb-0 small">Use our dedicated <a href="{{ url_for('home.sassa_status_check_form') }}" class="fw-bold">Online Status Check Tool</a> or go to the official SASSA website (srd.sassa.gov.za). This gives you the most detail, including monthly outcomes and specific decline reasons.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card border rounded-3 mb-3">
+            <div class="card-body d-flex align-items-start">
+              <span class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold me-3 flex-shrink-0" style="width: 34px; height: 34px;">2</span>
+              <div>
+                <h3 class="h6 fw-bold mb-1">WhatsApp (082 046 8553)</h3>
+                <p class="mb-0 small">Save the number and send "SASSA" or "Status". Follow the menu prompts and enter your ID number. Ideal if you use WhatsApp daily.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card border rounded-3 mb-3">
+            <div class="card-body d-flex align-items-start">
+              <span class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold me-3 flex-shrink-0" style="width: 34px; height: 34px;">3</span>
+              <div>
+                <h3 class="h6 fw-bold mb-1">USSD Code (Dial *134*7371#)</h3>
+                <p class="mb-0 small">Works on any phone model, even without internet or data. Follow the on-screen prompts to view status.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card border rounded-3 mb-3">
+            <div class="card-body d-flex align-items-start">
+              <span class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold me-3 flex-shrink-0" style="width: 34px; height: 34px;">4</span>
+              <div>
+                <h3 class="h6 fw-bold mb-1">Call SASSA Toll-Free (0800 60 10 11)</h3>
+                <p class="mb-0 small">Call the official toll-free hotline. Have your 13-digit South African ID ready for the customer agent.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center my-4">
+            <a class="btn btn-primary pulse-btn btn-lg px-4"
+               href="{{ url_for('home.sassa_status_check_form') }}">
+               <i class="bi bi-box-arrow-up-right me-2"></i>Launch Instant SASSA Status Check Form
+            </a>
+          </div>
+
+          <div class="alert alert-info small rounded-3">
+            <i class="bi bi-info-circle-fill me-2"></i>
+            <strong>Important:</strong> SASSA is administered by the South African Social Security Agency. This website is an independent information resource designed to help you navigate grant processes.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Status Meanings Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="fw-bold mb-3">What Your SASSA Status Means</h2>
+          <p class="text-muted mb-4">Getting a status result is one thing, understanding what to do next is another.</p>
+
+          <div class="accordion" id="sassaStatusAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sassaApprovedCollapse">
+                  <span class="status-badge approved">Approved</span> Application Approved
+                </button>
+              </h2>
+              <div id="sassaApprovedCollapse" class="accordion-collapse collapse show" data-bs-parent="#sassaStatusAccordion">
+                <div class="accordion-body">
+                  Your application was accepted for that month. Payment will be made on the next scheduled payment date. Check your status regularly to see the exact payment date assigned to your account.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sassaPendingCollapse">
+                  <span class="status-badge processing">Pending</span> Application Pending
+                </button>
+              </h2>
+              <div id="sassaPendingCollapse" class="accordion-collapse collapse" data-bs-parent="#sassaStatusAccordion">
+                <div class="accordion-body">
+                  Your application is still undergoing verification. SASSA cross-checks your ID against SARS, banks, UIF, and NSFAS records. Most pending cases resolve before the 20th of the month.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sassaDeclinedCollapse">
+                  <span class="status-badge declined">Declined</span> Application Declined
+                </button>
+              </h2>
+              <div id="sassaDeclinedCollapse" class="accordion-collapse collapse" data-bs-parent="#sassaStatusAccordion">
+                <div class="accordion-body">
+                  Your application was not approved for that specific month. The status result usually displays the exact reason (e.g. income > R624, UIF registered, or NSFAS contributor). You can appeal within 90 days via the DSD Appeals portal (srd.dsd.gov.za).
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sassaReferredCollapse">
+                  <span class="status-badge received">Referred</span> Referred / Identity Verification
+                </button>
+              </h2>
+              <div id="sassaReferredCollapse" class="accordion-collapse collapse" data-bs-parent="#sassaStatusAccordion">
+                <div class="accordion-body">
+                  This indicates that your ID number or phone number was flagged for potential fraud or identity verification checks with Home Affairs. Follow up with SASSA to clear the flag.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sassaBankPendingCollapse">
+                  <span class="status-badge action">Bank Action</span> Bank Details Pending
+                </button>
+              </h2>
+              <div id="sassaBankPendingCollapse" class="accordion-collapse collapse" data-bs-parent="#sassaStatusAccordion">
+                <div class="accordion-body">
+                  Your application was approved, but SASSA is waiting for bank details verification or payout preference selection. Update your banking details on the official SRD portal (srd.sassa.gov.za) to release funds.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Article Content Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+          <article>
+            <!-- What is SASSA -->
+            <section id="what-is-sassa" class="mb-5">
+              <h2 class="h4 fw-bold mb-3">What Is SASSA and the SRD Grant?</h2>
+              <p class="text-secondary">SASSA stands for the South African Social Security Agency. It is the government body that pays out social grants, including the Older Persons Grant, Disability Grant, Child Support Grant, and the SRD grant. SASSA falls under the Department of Social Development, and it is a completely separate organisation from UIF, even though people often mix the two up because both pay out money to people who are struggling for income.</p>
+              <p class="text-secondary">The SRD grant started in May 2020, during the hard early months of the Covid pandemic, as a short-term measure to help people with no income at all. It began at R350 a month, which is why so many people still search for the "R350 grant" even though the amount is different now. In April 2024, the amount moved up to R370 a month, and it has stayed at R370 since then. The 2026 national budget set aside funding to keep the grant active, serving millions of South Africans.</p>
+              <p class="text-secondary mb-0">If you are receiving UIF benefits, you cannot also get the SRD grant for the same period, since UIF counts as another form of income and support.</p>
+            </section>
+
+            <hr class="my-5">
+
+            <!-- Who qualifies -->
+            <section id="who-qualifies" class="mb-5">
+              <h2 class="h4 fw-bold mb-3">Who Can Get the SRD Grant</h2>
+              <p class="text-secondary">SASSA checks a few key criteria before approving an SRD application. You must meet every requirement below:</p>
+              <ul class="list-check text-secondary">
+                <li><strong class="text-dark">Age:</strong> You must be between 18 and 59 years old.</li>
+                <li><strong class="text-dark">Residency:</strong> South African citizen, permanent resident, or registered refugee/asylum seeker with valid permits.</li>
+                <li><strong class="text-dark">Unemployed with no regular income:</strong> You cannot be earning above R624 a month from any source.</li>
+                <li><strong class="text-dark">No other social grant:</strong> You cannot be receiving another SASSA grant for yourself at the same time.</li>
+                <li><strong class="text-dark">Not receiving UIF or NSFAS:</strong> If you receive UIF payments or NSFAS funding, you do not qualify for SRD for that period.</li>
+              </ul>
+            </section>
+
+            <hr class="my-5">
+
+            <!-- Means test -->
+            <section id="means-test" class="mb-5">
+              <h2 class="h4 fw-bold mb-3">The R624 Means Test Explained</h2>
+              <p class="text-secondary">To qualify for SRD, your total income from every source must be under R624 a month. SASSA checks your bank account automatically using data from SARS, UIF, NSFAS, banks, and Home Affairs.</p>
+              <p class="text-secondary">The important part: the system adds up everything that lands in your account that month, not just regular salary. A stokvel payout, a family member sending you money, a once-off refund, or casual work paid electronically — all of it counts. If the total for the month is R624 or more, you will be declined for that specific month, even if none of it was regular income.</p>
+              <p class="text-secondary mb-0">The check runs fresh every single month. Being declined in one month does not mean you are declined forever. SASSA reassesses your whole situation every month before releasing payment.</p>
+            </section>
+
+            <hr class="my-5">
+
+            <!-- Payment dates -->
+            <section id="payment-dates" class="mb-5">
+              <h2 class="h4 fw-bold mb-3">SASSA Payment Dates for 2026</h2>
+              <p class="text-secondary">SASSA pays different grants on different days, and exact payment schedules shift slightly each month. SRD grants are typically processed toward the end of each month after bank verification cycles.</p>
+              <p class="text-secondary mb-0">Once your status check shows you are approved, it displays your exact assigned payment date directly in your online outcome.</p>
+            </section>
+
+            <hr class="my-5">
+
+            <!-- Appeal -->
+            <section id="appeal" class="mb-5">
+              <h2 class="h4 fw-bold mb-3">How to Appeal a Declined Application</h2>
+              <p class="text-secondary">A decline is not always the end of the road. If you believe SASSA got it wrong, you can appeal within 90 days from the date of decline.</p>
+              <ol class="text-secondary ps-3">
+                <li class="mb-2">Go to the official DSD SRD appeals portal (srd.dsd.gov.za).</li>
+                <li class="mb-2">Enter your ID number and registered cellphone number, then enter the OTP sent to your phone.</li>
+                <li class="mb-2">Select the specific month you are appealing.</li>
+                <li class="mb-0">Provide the reason for appeal and submit. Keep proof of non-income deposits ready if requested.</li>
+              </ol>
+            </section>
+
+            <hr class="my-5">
+
+            <!-- Common problems -->
+            <section id="common-problems" class="mb-5">
+              <h2 class="h4 fw-bold mb-3">Common Problems and How to Fix Them</h2>
+              <ul class="list-check text-secondary">
+                <li><strong class="text-dark">Lost your cellphone number:</strong> Update your phone number on file via the official SASSA portal (srd.sassa.gov.za) or call 0800 60 10 11.</li>
+                <li><strong class="text-dark">Approved but no payment received:</strong> Verify your banking details are correct and that the bank account is active in your name.</li>
+                <li><strong class="text-dark">Status keeps changing month to month:</strong> SASSA reassesses every month fresh. Temporary bank deposits can trigger a monthly decline.</li>
+                <li><strong class="text-dark">Application declined:</strong> Check the specific reason given in your status outcome and submit an appeal on srd.dsd.gov.za within 90 days if eligible.</li>
+                <li><strong class="text-dark">SASSA website not loading:</strong> Try WhatsApp (082 046 8553), USSD (*134*7371#), or call toll-free 0800 60 10 11.</li>
+              </ul>
+            </section>
+
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="fw-bold mb-4 text-center">Frequently Asked Questions</h2>
+
+          <div class="accordion" id="sassaFaqAccordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sassaFaq1">
+                  Can I get SASSA SRD and UIF at the same time?
+                </button>
+              </h3>
+              <div id="sassaFaq1" class="accordion-collapse collapse show" data-bs-parent="#sassaFaqAccordion">
+                <div class="accordion-body">
+                  No. If you are receiving UIF payouts, you will not qualify for SRD for that same period, since UIF is treated as another source of income and support.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sassaFaq2">
+                  What is the difference between the SRD R350 and R370 grant?
+                </button>
+              </h3>
+              <div id="sassaFaq2" class="accordion-collapse collapse" data-bs-parent="#sassaFaqAccordion">
+                <div class="accordion-body">
+                  They are the exact same grant. It started at R350 a month in 2020 and moved up to R370 in April 2024. Many people still call it the R350 grant out of habit, but R370 is the current official amount.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sassaFaq3">
+                  Why does my SASSA status keep changing month to month?
+                </button>
+              </h3>
+              <div id="sassaFaq3" class="accordion-collapse collapse" data-bs-parent="#sassaFaqAccordion">
+                <div class="accordion-body">
+                  Because SASSA reassesses your financial situation fresh every single month, using an automated check against bank accounts, SARS, UIF and NSFAS records. A month with once-off deposits over R624 can be declined even if earlier months were approved.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sassaFaq4">
+                  How long does an SRD appeal take?
+                </button>
+              </h3>
+              <div id="sassaFaq4" class="accordion-collapse collapse" data-bs-parent="#sassaFaqAccordion">
+                <div class="accordion-body">
+                  There is no fixed timeframe, but straightforward appeals usually take between 30 and 90 days. Submitting clear documentation and appealing promptly speeds up the review process.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sassaFaq5">
+                  Is the SRD grant going to increase again?
+                </button>
+              </h3>
+              <div id="sassaFaq5" class="accordion-collapse collapse" data-bs-parent="#sassaFaqAccordion">
+                <div class="accordion-body">
+                  There is no confirmed increase at the time of writing. The amount has stayed at R370 since April 2024. Any future increase would be announced during a national budget speech.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Support Guides -->
+  <section class="py-4 bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <h3 class="h4 fw-bold mb-4 text-center">Related Calculators & Benefit Resources</h3>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm text-center p-3">
+                <div class="card-body">
+                  <i class="bi bi-clock-history text-primary fs-2 mb-2"></i>
+                  <h4 class="h6 fw-bold">UIF Status Check Guide</h4>
+                  <p class="small text-muted mb-3">Check your UIF claim status online and track processing times.</p>
+                  <a href="{{ url_for('home.uif_status_check_online') }}" class="btn btn-sm btn-outline-primary">Check UIF Status</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm text-center p-3">
+                <div class="card-body">
+                  <i class="bi bi-calculator text-success fs-2 mb-2"></i>
+                  <h4 class="h6 fw-bold">UIF Unemployment Calculator</h4>
+                  <p class="small text-muted mb-3">Estimate your monthly payout and total benefit credits.</p>
+                  <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-sm btn-outline-success">Calculate UIF</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm text-center p-3">
+                <div class="card-body">
+                  <i class="bi bi-person-hearts text-info fs-2 mb-2"></i>
+                  <h4 class="h6 fw-bold">Maternity UIF Calculator</h4>
+                  <p class="small text-muted mb-3">Calculate maternity leave payouts and benefit top-ups.</p>
+                  <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="btn btn-sm btn-outline-info">Maternity Calculator</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scam Warning Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="alert alert-warning d-flex align-items-start rounded-3 shadow-sm">
+            <i class="bi bi-exclamation-triangle-fill me-3 text-warning fs-4 flex-shrink-0"></i>
+            <div>
+              <strong class="d-block mb-1">Watch Out for SASSA Scams</strong>
+              <p class="mb-0 small">SASSA will never ask you to pay a fee to check status, speed up your application, or release payment. Don't send your ID, PIN, or banking details to unknown WhatsApp numbers or unverified websites. Always use the official srd.sassa.gov.za website or verified SASSA channels.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+{% endblock %}

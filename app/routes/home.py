@@ -22,6 +22,7 @@ def index():
 @home_bp.route("/uif-status-check-id-number")
 @home_bp.route("/uif-status-check-whatsapp")
 @home_bp.route("/how-to-check-uif-balance")
+@home_bp.route("/articles/how-to-check-uif-balance/")
 def redirect_uif_status_variations():
     return redirect(url_for("home.uif_status_check_online"), code=301)
 
@@ -145,9 +146,19 @@ def maternity_leave_south_africa():
     return render_template("pages/maternity-leave-south-africa.html")
 
 
-# Legacy Off-Topic / Scaled Content Redirects (SASSA & NSFAS Pruned)
-@home_bp.route("/sassa")
+# SASSA Routes
 @home_bp.route("/sassa-status-check")
+def sassa_status_check():
+    return render_template("pages/sassa-status-check.html")
+
+
+@home_bp.route("/sassa-status-check-form")
+@home_bp.route("/check-sassa-status")
+def sassa_status_check_form():
+    return render_template("pages/sassa-status-check-form.html")
+
+
+@home_bp.route("/sassa")
 @home_bp.route("/sassa-payment-dates")
 @home_bp.route("/sassa-how-to-apply")
 @home_bp.route("/sassa-appeal")
@@ -159,9 +170,9 @@ def maternity_leave_south_africa():
 @home_bp.route("/sassa-eligibility")
 @home_bp.route("/sassa-status-not-working")
 @home_bp.route("/sassa-srd-r370")
-@home_bp.route("/nsfas-status-check")
-def redirect_off_topic_scaled_content():
-    return redirect(url_for("home.index"), code=301)
+def legacy_sassa_redirects():
+    return redirect(url_for("home.sassa_status_check"), code=301)
+
 
 
 @home_bp.route("/calculators/vat-calculator/", methods=["GET", "POST"])
