@@ -350,7 +350,7 @@
 
         <h3 class="h4 fw-bold text-primary">Maternity UIF Forms Explained</h3>
         <p>
-          The <a href="{{ url_for('uif.ui19_form_explained') }}" class="fw-bold">UI-19 form</a> confirms your employment details and UIF contributions. The <strong>UI-2.7 form</strong> specifies how much salary (if any) your employer pays you while on leave. The <strong>UI-2.8 form</strong> verifies your bank account to prevent payment fraud.
+          The <strong>UI-19 form</strong> confirms your employment details and UIF contributions. The <strong>UI-2.7 form</strong> specifies how much salary (if any) your employer pays you while on leave. The <strong>UI-2.8 form</strong> verifies your bank account to prevent payment fraud.
         </p>
         <p>These forms are critical because UIF uses them to calculate maternity benefits and verify your claim authorization.</p>
 
@@ -516,19 +516,19 @@
             <div class="card h-100 border-0 shadow-sm bg-light">
               <div class="card-body text-center p-4">
                 <i class="bi bi-file-earmark-text text-primary fs-2 mb-3"></i>
-                <h4 class="h6 fw-bold">UI-19 Form Guide</h4>
-                <p class="small text-muted mb-3">Learn how employer UI-19 declarations affect maternity and leave claim approvals.</p>
-                <a href="{{ url_for('uif.ui19_form_explained') }}" class="btn btn-sm btn-outline-primary">UI-19 Guide</a>
+                <h4 class="h6 fw-bold">How to Calculate UIF</h4>
+                <p class="small text-muted mb-3">Learn the statutory calculation formulas, credit days, and benefit duration rules.</p>
+                <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="btn btn-sm btn-outline-primary">Calculation Guide</a>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card h-100 border-0 shadow-sm bg-light">
               <div class="card-body text-center p-4">
-                <i class="bi bi-folder-check text-info fs-2 mb-3"></i>
-                <h4 class="h6 fw-bold">Required Documents</h4>
-                <p class="small text-muted mb-3">Check the complete list of forms required to claim maternity UIF online.</p>
-                <a href="{{ url_for('home.uif_documents_needed') }}" class="btn btn-sm btn-outline-info">View Documents</a>
+                <i class="bi bi-shield-check text-info fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold">SASSA Status Check</h4>
+                <p class="small text-muted mb-3">Check your SASSA SRD R370 grant application status and payment dates online.</p>
+                <a href="{{ url_for('home.sassa_status_check') }}" class="btn btn-sm btn-outline-info">Status Check</a>
               </div>
             </div>
           </div>

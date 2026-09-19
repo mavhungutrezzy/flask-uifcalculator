@@ -469,35 +469,35 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10">
-        <h3 class="h4 fw-bold mb-4 text-center">Related UIF Calculators and Guides</h3>
+        <h3 class="h4 fw-bold mb-4 text-center">Related South African Benefit Tools</h3>
         <div class="row g-3">
           <div class="col-md-4">
             <div class="card h-100 border-0 shadow-sm">
               <div class="card-body text-center">
-                <i class="bi bi-person-hearts text-primary fs-2 mb-3"></i>
-                <h4 class="h6 fw-bold">UIF Maternity Calculator</h4>
-                <p class="small text-muted">Estimate maternity, adoption, parental or illness leave top-up benefits.</p>
-                <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="btn btn-sm btn-outline-primary">Maternity Calculator</a>
+                <i class="bi bi-journal-code text-primary fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold">How Calculation Works</h4>
+                <p class="small text-muted">Learn how the sliding scale (IRR) and credit days work with detailed examples.</p>
+                <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="btn btn-sm btn-outline-primary">Formula Guide</a>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card h-100 border-0 shadow-sm">
               <div class="card-body text-center">
-                <i class="bi bi-file-earmark-text text-success fs-2 mb-3"></i>
-                <h4 class="h6 fw-bold">UI-19 Form Explained</h4>
-                <p class="small text-muted">Learn how the UI-19 employer declaration affects your credit days and payout.</p>
-                <a href="{{ url_for('uif.ui19_form_explained') }}" class="btn btn-sm btn-outline-success">UI-19 Guide</a>
+                <i class="bi bi-shield-check text-success fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold">SASSA Status Check</h4>
+                <p class="small text-muted">Instant online status checking for SASSA SRD R370 grant applications.</p>
+                <a href="{{ url_for('home.sassa_status_check') }}" class="btn btn-sm btn-outline-success">Check Grant Status</a>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card h-100 border-0 shadow-sm">
               <div class="card-body text-center">
-                <i class="bi bi-folder-check text-info fs-2 mb-3"></i>
-                <h4 class="h6 fw-bold">Required UIF Documents</h4>
-                <p class="small text-muted">Check the complete list of documents required to claim UIF online or at Labour Centres.</p>
-                <a href="{{ url_for('home.uif_documents_needed') }}" class="btn btn-sm btn-outline-info">View Documents</a>
+                <i class="bi bi-calendar3 text-info fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold">SASSA Payment Dates</h4>
+                <p class="small text-muted">View official 2026 payment calendars for Older Persons, Disability, Child, and SRD grants.</p>
+                <a href="{{ url_for('home.sassa_payment_dates') }}" class="btn btn-sm btn-outline-info">Payment Schedule</a>
               </div>
             </div>
           </div>
@@ -520,7 +520,7 @@
           <a href="#calculatorSection" class="btn btn-light btn-sm fw-bold">
             <i class="bi bi-arrow-up-circle me-1"></i>Calculate UIF Payout
           </a>
-          <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="btn btn-outline-light btn-sm">Maternity UIF Calculator</a>
+          <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="btn btn-outline-light btn-sm">How to Calculate Guide</a>
         </div>
         <p class="text-white small mt-3 mb-0">
           UIF paid R18 billion to 3.1 million South Africans last year — calculate your estimated entitlement today.

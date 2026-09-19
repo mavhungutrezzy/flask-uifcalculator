@@ -4,29 +4,17 @@
       <i class="bi bi-compass me-1 text-primary"></i> SASSA Quick Links:
     </span>
     <div class="d-flex flex-wrap gap-1 gap-md-2">
-      <a href="{{ url_for('home.sassa_status_check', _anchor='status-check-tool') }}" 
+      <a href="{{ url_for('home.sassa_status_check') }}" 
          class="btn btn-sm {% if request.path == url_for('home.sassa_status_check') %}btn-primary fw-semibold{% else %}btn-outline-secondary bg-white text-dark{% endif %}">
         <i class="bi bi-search me-1"></i> Status Check
-      </a>
-      <a href="{{ url_for('home.sassa_srd_r370') }}" 
-         class="btn btn-sm {% if request.path == url_for('home.sassa_srd_r370') %}btn-primary fw-semibold{% else %}btn-outline-secondary bg-white text-dark{% endif %}">
-        <i class="bi bi-info-circle me-1"></i> SRD R370
       </a>
       <a href="{{ url_for('home.sassa_payment_dates') }}" 
          class="btn btn-sm {% if request.path == url_for('home.sassa_payment_dates') %}btn-primary fw-semibold{% else %}btn-outline-secondary bg-white text-dark{% endif %}">
         <i class="bi bi-calendar-event me-1"></i> Payment Dates
       </a>
-      <a href="{{ url_for('home.sassa_how_to_apply') }}" 
-         class="btn btn-sm {% if request.path == url_for('home.sassa_how_to_apply') %}btn-primary fw-semibold{% else %}btn-outline-secondary bg-white text-dark{% endif %}">
-        <i class="bi bi-file-earmark-text me-1"></i> How to Apply
-      </a>
-      <a href="{{ url_for('home.sassa_appeal') }}" 
-         class="btn btn-sm {% if request.path == url_for('home.sassa_appeal') %}btn-primary fw-semibold{% else %}btn-outline-secondary bg-white text-dark{% endif %}">
-        <i class="bi bi-arrow-counterclockwise me-1"></i> Appeal
-      </a>
-      <a href="{{ url_for('home.sassa_status_not_working') }}" 
-         class="btn btn-sm {% if request.path in [url_for('home.sassa_status_not_working'), url_for('home.sassa_declined'), url_for('home.sassa_pending'), url_for('home.sassa_payment_not_received'), url_for('home.sassa_change_phone_number'), url_for('home.sassa_banking_details')] %}btn-primary fw-semibold{% else %}btn-outline-secondary bg-white text-dark{% endif %}">
-        <i class="bi bi-question-circle me-1"></i> SASSA Help
+      <a href="https://srd.sassa.gov.za" target="_blank" rel="noopener noreferrer"
+         class="btn btn-sm btn-outline-secondary bg-white text-dark">
+        <i class="bi bi-box-arrow-up-right me-1"></i> Official SASSA Portal
       </a>
     </div>
   </div>

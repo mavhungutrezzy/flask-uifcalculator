@@ -80,8 +80,8 @@
           <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-primary btn-lg flex-fill fw-bold">
             <i class="bi bi-calculator me-2"></i>Recalculate
           </a>
-          <a href="{{ url_for('home.uif_documents_needed') }}" class="btn btn-outline-primary btn-lg flex-fill fw-bold">
-            <i class="bi bi-file-earmark-text me-2"></i>Documents Needed
+          <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="btn btn-outline-primary btn-lg flex-fill fw-bold">
+            <i class="bi bi-journal-text me-2"></i>How It's Calculated
           </a>
         </div>
 
@@ -98,47 +98,47 @@
       <div class="col-lg-8 col-xl-7">
         <div class="text-center mb-5">
           <h2 class="h4 fw-bold mb-2">Next Steps for Your UIF Claim</h2>
-          <p class="text-muted">Learn more about the forms, documents, and process for claiming your UIF benefit.</p>
+          <p class="text-muted">Learn more about the calculation formula and check related benefit resources.</p>
         </div>
 
         <div class="row g-3 mb-0">
           <div class="col-md-6">
             <div class="card h-100 border-0 shadow-sm">
               <div class="card-body text-center p-4">
-                <i class="bi bi-file-earmark-text text-primary fs-2 mb-3"></i>
-                <h4 class="h6 fw-bold mb-2">UI-19 Form Explained</h4>
-                <p class="small text-muted mb-3">Learn how the UI-19 employer declaration affects your credit days and payout amount.</p>
-                <a href="{{ url_for('uif.ui19_form_explained') }}" class="btn btn-sm btn-outline-primary fw-semibold">UI-19 Guide</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body text-center p-4">
-                <i class="bi bi-folder-check text-success fs-2 mb-3"></i>
-                <h4 class="h6 fw-bold mb-2">Documents Checklist</h4>
-                <p class="small text-muted mb-3">Complete list of documents required to claim UIF online or at a Labour Centre.</p>
-                <a href="{{ url_for('home.uif_documents_needed') }}" class="btn btn-sm btn-outline-success fw-semibold">View Documents</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body text-center p-4">
-                <i class="bi bi-laptop text-info fs-2 mb-3"></i>
-                <h4 class="h6 fw-bold mb-2">How to Claim Online</h4>
-                <p class="small text-muted mb-3">Step-by-step guide to submitting your UIF claim through the official portal.</p>
-                <a href="{{ url_for('home.how_to_claim_uif_online') }}" class="btn btn-sm btn-outline-info fw-semibold">Claim Guide</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100 border-0 shadow-sm">
-              <div class="card-body text-center p-4">
-                <i class="bi bi-calculator text-warning fs-2 mb-3"></i>
+                <i class="bi bi-calculator text-primary fs-2 mb-3"></i>
                 <h4 class="h6 fw-bold mb-2">How Calculation Works</h4>
-                <p class="small text-muted mb-3">Understand the UIF formula, income replacement rate, and how your benefit is calculated.</p>
-                <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="btn btn-sm btn-outline-warning fw-semibold">Learn Formula</a>
+                <p class="small text-muted mb-3">Understand the UIF sliding formula, income replacement rate (IRR), and credit days.</p>
+                <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="btn btn-sm btn-outline-primary fw-semibold">Calculation Guide</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center p-4">
+                <i class="bi bi-shield-check text-success fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold mb-2">SASSA Status Check</h4>
+                <p class="small text-muted mb-3">Check the outcome and payment progress for your SASSA SRD grant application.</p>
+                <a href="{{ url_for('home.sassa_status_check') }}" class="btn btn-sm btn-outline-success fw-semibold">Check Grant Status</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center p-4">
+                <i class="bi bi-calendar-event text-info fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold mb-2">SASSA Payment Dates</h4>
+                <p class="small text-muted mb-3">View the complete 2026 payment schedule for all grant categories.</p>
+                <a href="{{ url_for('home.sassa_payment_dates') }}" class="btn btn-sm btn-outline-info fw-semibold">Payment Calendar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center p-4">
+                <i class="bi bi-house-door text-warning fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold mb-2">Home & Summary</h4>
+                <p class="small text-muted mb-3">Return to the homepage for quick estimator comparisons and official directory.</p>
+                <a href="{{ url_for('home.index') }}" class="btn btn-sm btn-outline-warning fw-semibold">Home Hub</a>
               </div>
             </div>
           </div>

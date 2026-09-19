@@ -73,10 +73,10 @@ endblock %}
         <!-- Action Buttons -->
         <div class="d-flex flex-column flex-sm-row gap-2 mb-5">
           <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="btn btn-primary btn-lg flex-fill fw-bold">
-            <i class="bi bi-calculator me-2"></i>Recalculate
+            <i class="bi bi-arrow-counterclockwise me-2"></i>Recalculate
           </a>
-          <a href="{{ url_for('home.uif_documents_needed') }}" class="btn btn-outline-primary btn-lg flex-fill fw-bold">
-            <i class="bi bi-file-earmark-text me-2"></i>Documents Needed
+          <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-outline-primary btn-lg flex-fill fw-bold">
+            <i class="bi bi-calculator me-2"></i>Unemployment Calculator
           </a>
         </div>
 
@@ -91,38 +91,38 @@ endblock %}
     <div class="row justify-content-center">
       <div class="col-lg-8 col-xl-7">
         <div class="text-center mb-5">
-          <h2 class="h4 fw-bold mb-2">Next Steps for Your Maternity Claim</h2>
-          <p class="text-muted">Learn more about the documents, forms, and process for claiming maternity UIF.</p>
+          <h2 class="h4 fw-bold mb-2">Explore Related Calculators & Guides</h2>
+          <p class="text-muted">Learn more about South African statutory benefits, formulas, and grant statuses.</p>
         </div>
 
         <div class="row g-3">
           <div class="col-md-4">
             <div class="card h-100 border-0 shadow-sm">
               <div class="card-body text-center p-4">
-                <i class="bi bi-file-earmark-text text-primary fs-2 mb-3"></i>
-                <h4 class="h6 fw-bold mb-2">UI-19 Form Explained</h4>
-                <p class="small text-muted mb-3">Learn how the UI-19 employer declaration affects your maternity claim and credit days.</p>
-                <a href="{{ url_for('uif.ui19_form_explained') }}" class="btn btn-sm btn-outline-primary fw-semibold">UI-19 Guide</a>
+                <i class="bi bi-journal-code text-primary fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold mb-2">How to Calculate</h4>
+                <p class="small text-muted mb-3">Understand statutory benefit formulas, sliding scales, and ceilings.</p>
+                <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="btn btn-sm btn-outline-primary fw-semibold">View Guide</a>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card h-100 border-0 shadow-sm">
               <div class="card-body text-center p-4">
-                <i class="bi bi-folder-check text-success fs-2 mb-3"></i>
-                <h4 class="h6 fw-bold mb-2">Maternity Documents</h4>
-                <p class="small text-muted mb-3">Every document you need to claim maternity UIF online or at a Labour Centre.</p>
-                <a href="{{ url_for('home.uif_documents_needed') }}" class="btn btn-sm btn-outline-success fw-semibold">View Documents</a>
+                <i class="bi bi-calculator text-success fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold mb-2">Unemployment UIF</h4>
+                <p class="small text-muted mb-3">Estimate retrenchment benefits and credit day accumulation.</p>
+                <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-sm btn-outline-success fw-semibold">UIF Calculator</a>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card h-100 border-0 shadow-sm">
               <div class="card-body text-center p-4">
-                <i class="bi bi-laptop text-info fs-2 mb-3"></i>
-                <h4 class="h6 fw-bold mb-2">How to Claim Online</h4>
-                <p class="small text-muted mb-3">Step-by-step guide to submitting your maternity claim through UIF Online.</p>
-                <a href="{{ url_for('home.how_to_claim_uif_online') }}" class="btn btn-sm btn-outline-info fw-semibold">Claim Guide</a>
+                <i class="bi bi-shield-check text-warning fs-2 mb-3"></i>
+                <h4 class="h6 fw-bold mb-2">SASSA Status Check</h4>
+                <p class="small text-muted mb-3">Track your SRD R370 grant application status and payment details.</p>
+                <a href="{{ url_for('home.sassa_status_check') }}" class="btn btn-sm btn-outline-warning text-dark fw-semibold">Check Status</a>
               </div>
             </div>
           </div>

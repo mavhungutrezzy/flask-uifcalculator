@@ -30,13 +30,13 @@
         </p>
 
         <div class="d-grid gap-2 d-md-flex justify-content-center">
-            <a href="/uif/unemployment-calculator/" 
+            <a href="{{ url_for('uif.unemployment_calculator') }}" 
                class="btn btn-success btn-lg px-4 pulse-btn shadow">
-                <i class="bi bi-calculator me-2"></i>Unemployment UIF
+                <i class="bi bi-calculator me-2"></i>UIF Calculator
             </a>
-            <a href="{{ url_for('uif.leave_benefit_calculator') }}" 
+            <a href="{{ url_for('home.sassa_status_check') }}" 
                class="btn btn-outline-primary btn-lg">
-                Maternity UIF
+                SASSA Status Check
             </a>
         </div>
 
