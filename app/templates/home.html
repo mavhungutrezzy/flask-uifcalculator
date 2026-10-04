@@ -91,7 +91,7 @@
                 <div class="col-lg-6 text-center text-lg-start">
                     <div class="mb-3">
                         <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold small">
-                            <i class="bi bi-shield-check me-1"></i> Updated for 2026 South African Regulations
+                            Updated for 2026 South African Regulations
                         </span>
                     </div>
                     <h1 class="display-5 fw-bold text-dark mb-3">
@@ -118,80 +118,87 @@
 
                 <!-- Interactive Quick Estimator Card -->
                 <div class="col-lg-6">
-                    <div class="card border-0 shadow rounded-4 p-3 p-md-4 bg-white">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-3">
-                                <h2 class="h5 fw-bold text-dark mb-0">
-                                    <i class="bi bi-lightning-charge-fill text-warning me-2"></i>Quick Benefit Estimator
-                                </h2>
-                                <span class="badge bg-light text-secondary border">Instant Estimate</span>
+                    <div class="calculator-card p-3 p-md-4 bg-white shadow-sm">
+                        <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="icon-box bg-warning-subtle text-warning-emphasis">
+                                    <i class="bi bi-lightning-charge-fill fs-5"></i>
+                                </div>
+                                <div>
+                                    <h2 class="h6 fw-bold text-dark mb-0">Quick Benefit Estimator</h2>
+                                    <span class="text-body-tertiary small" style="font-size: 0.78rem;">Instant 2026 Statutory Calculation</span>
+                                </div>
                             </div>
+                            <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle rounded-pill small px-2 py-1">
+                                <i class="bi bi-patch-check-fill me-1"></i>Verified Formula
+                            </span>
+                        </div>
 
-                            <form id="quick-uif-form" class="mb-3" onsubmit="return false;">
-                                <div class="mb-3">
-                                    <label for="quick-salary" class="form-label fw-semibold text-secondary small">
+                        <form id="quick-uif-form" class="mb-3" onsubmit="return false;">
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label for="quick-salary" class="form-label fw-semibold text-secondary small mb-0">
                                         Gross Monthly Salary (ZAR)
                                     </label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light fw-bold">R</span>
-                                        <input type="number" class="form-control form-control-lg fw-bold" id="quick-salary"
-                                            placeholder="e.g. 12000" min="500" max="250000" value="12000" step="100">
-                                    </div>
-                                    <div class="form-text small">
-                                        Statutory maximum cap applied at R17,712/month.
-                                    </div>
+                                    <span class="badge bg-light text-body-secondary border small" style="font-size: 0.68rem;">Cap: R17,712/mo</span>
                                 </div>
-
-                                <div class="mb-3">
-                                    <label for="quick-months" class="form-label fw-semibold text-secondary small">
-                                        Total Months Worked as UIF Contributor
-                                    </label>
-                                    <div class="input-group mb-2">
-                                        <span class="input-group-text bg-light"><i class="bi bi-calendar3"></i></span>
-                                        <input type="number" class="form-control form-control-lg fw-bold" id="quick-months"
-                                            min="1" max="48" value="24" placeholder="e.g. 24"
-                                            oninput="document.getElementById('quick-months-range').value = Math.min(Math.max(this.value || 1, 1), 48); recalculateQuickUIF();">
-                                        <span class="input-group-text bg-light fw-semibold">Months</span>
-                                    </div>
-                                    <input type="range" class="form-range" id="quick-months-range" min="1" max="48" value="24"
-                                        oninput="document.getElementById('quick-months').value = this.value; recalculateQuickUIF();">
-                                    <div class="d-flex justify-content-between text-muted" style="font-size: 0.75rem;">
-                                        <span>1 month</span>
-                                        <span>24 months (2 yrs)</span>
-                                        <span>48 months (4 yrs max)</span>
-                                    </div>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light fw-bold text-muted">R</span>
+                                    <input type="number" class="form-control form-control-lg fw-bold" id="quick-salary"
+                                        placeholder="e.g. 12000" min="500" max="250000" value="12000" step="100">
                                 </div>
-                            </form>
-
-                            <!-- Live Results Box -->
-                            <div class="p-3 bg-light rounded-3 border">
-                                <div class="row text-center g-2">
-                                    <div class="col-4">
-                                        <span class="text-muted small d-block">Est. Pay Rate</span>
-                                        <span class="h6 fw-bold text-dark mb-0" id="quick-res-rate">40.6%</span>
-                                    </div>
-                                    <div class="col-4 border-start border-end">
-                                        <span class="text-muted small d-block">Monthly Benefit</span>
-                                        <span class="h6 fw-bold text-success mb-0" id="quick-res-monthly">R 4,876</span>
-                                    </div>
-                                    <div class="col-4">
-                                        <span class="text-muted small d-block">Benefit Days</span>
-                                        <span class="h6 fw-bold text-primary mb-0" id="quick-res-days">182 days</span>
-                                    </div>
-                                </div>
-                                <hr class="my-2 text-muted">
-                                <div class="d-flex justify-content-between align-items-center pt-1">
-                                    <span class="small text-muted">Total Potential Benefit:</span>
-                                    <span class="fw-bold text-dark" id="quick-res-total">R 29,176</span>
+                                <div class="form-text small" style="font-size: 0.78rem;">
+                                    Your normal monthly earnings before tax and standard deductions.
                                 </div>
                             </div>
 
-                            <div class="text-center mt-3">
-                                <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-outline-primary btn-sm w-100 fw-semibold">
-                                    Open Full Detailed Calculator & Summary Breakdown <i class="bi bi-arrow-right ms-1"></i>
-                                </a>
+                            <div class="mb-3">
+                                <label for="quick-months" class="form-label fw-semibold text-secondary small mb-1">
+                                    Total Months Worked as UIF Contributor
+                                </label>
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text bg-light text-muted"><i class="bi bi-calendar3"></i></span>
+                                    <input type="number" class="form-control form-control-lg fw-bold" id="quick-months"
+                                        min="1" max="48" value="24" placeholder="e.g. 24"
+                                        oninput="document.getElementById('quick-months-range').value = Math.min(Math.max(this.value || 1, 1), 48); recalculateQuickUIF();">
+                                    <span class="input-group-text bg-light fw-semibold text-muted">Months</span>
+                                </div>
+                                <input type="range" class="form-range" id="quick-months-range" min="1" max="48" value="24"
+                                    oninput="document.getElementById('quick-months').value = this.value; recalculateQuickUIF();">
+                                <div class="d-flex justify-content-between text-muted" style="font-size: 0.72rem;">
+                                    <span>1 mo</span>
+                                    <span>24 mo (2 yrs)</span>
+                                    <span>48 mo (4 yrs max)</span>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Live Results Box -->
+                        <div class="p-3 bg-light rounded-3 border mb-3">
+                            <div class="row text-center g-2">
+                                <div class="col-4">
+                                    <span class="text-muted small d-block" style="font-size: 0.75rem;">Est. Pay Rate</span>
+                                    <span class="h6 fw-bold text-dark mb-0" id="quick-res-rate">40.6%</span>
+                                </div>
+                                <div class="col-4 border-start border-end">
+                                    <span class="text-muted small d-block" style="font-size: 0.75rem;">Monthly Benefit</span>
+                                    <span class="h6 fw-bold text-success mb-0" id="quick-res-monthly">R 4,876</span>
+                                </div>
+                                <div class="col-4">
+                                    <span class="text-muted small d-block" style="font-size: 0.75rem;">Benefit Days</span>
+                                    <span class="h6 fw-bold text-primary mb-0" id="quick-res-days">182 days</span>
+                                </div>
+                            </div>
+                            <hr class="my-2 text-muted opacity-25">
+                            <div class="d-flex justify-content-between align-items-center pt-1">
+                                <span class="small text-muted" style="font-size: 0.8rem;">Total Potential Payout:</span>
+                                <span class="fw-bold text-dark" id="quick-res-total">R 29,176</span>
                             </div>
                         </div>
+
+                        <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-outline-primary btn-sm w-100 fw-semibold py-2">
+                            Open Full Detailed Calculator & Summary Breakdown <i class="bi bi-arrow-right ms-1 action-arrow"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -202,101 +209,161 @@
     <section class="py-5 bg-light">
         <div class="container">
             <div class="text-center max-w-700 mx-auto mb-5">
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-2 small fw-semibold mb-2">
+                    <i class="bi bi-grid-fill me-1"></i>Public Benefit Services
+                </span>
                 <h2 class="h3 fw-bold text-dark">Essential South African Benefit Tools</h2>
                 <p class="text-secondary">
-                    Select a tool below to calculate your entitlement, review the statutory calculation mechanics, check grant status, or view official payment dates.
+                    Select a tool below to calculate your entitlement, review statutory calculation mechanics, or estimate maternity and illness top-ups.
                 </p>
             </div>
 
             <div class="row g-4 justify-content-center">
                 <!-- Tool 1: Unemployment Calculator -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm rounded-3 hover-lift">
-                        <div class="card-body p-4 d-flex flex-column">
-                            <div class="bg-primary bg-opacity-10 text-primary rounded-3 d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 54px; height: 54px;">
+                    <a href="{{ url_for('uif.unemployment_calculator') }}"
+                       class="app-card d-flex flex-column h-100 text-decoration-none text-body p-3 p-md-4 shadow-xs">
+                        <!-- Header: Logo + Title -->
+                        <div class="d-flex align-items-start gap-3 mb-2">
+                            <div class="icon-box bg-primary-subtle text-primary">
                                 <i class="bi bi-calculator fs-4"></i>
                             </div>
-                            <h3 class="h5 fw-bold text-dark mb-2">UIF Unemployment Calculator</h3>
-                            <p class="text-muted small flex-grow-1">
-                                Estimate your unemployment benefit payout, credit day accrual, and month-by-month payout breakdown based on your salary and employment history.
-                            </p>
-                            <a href="{{ url_for('uif.unemployment_calculator') }}" class="btn btn-outline-primary btn-sm fw-bold mt-2">
-                                Launch Calculator <i class="bi bi-arrow-right ms-1"></i>
-                            </a>
+                            <div class="min-w-0 flex-grow-1">
+                                <h3 class="fw-bold mb-0 fs-6 text-truncate tool-title">UIF Unemployment</h3>
+                                <div class="d-flex align-items-center gap-2 mt-1 flex-wrap">
+                                    <span class="badge bg-light text-body-secondary border rounded-pill small px-2 py-0" style="font-size:0.7rem;">
+                                        <i class="bi bi-cash me-1 text-success"></i>Monthly Payout
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+
+                        <!-- Tagline -->
+                        <p class="small text-body-secondary mb-2 lh-base line-clamp-2" style="font-size:0.82rem;">
+                            Estimate unemployment benefit payouts, daily rates, and credit days after retrenchment or contract expiry.
+                        </p>
+
+                        <!-- Feature Badges -->
+                        <div class="d-flex align-items-center gap-1 flex-wrap mb-3">
+                            <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill small" style="font-size:0.7rem;">
+                                Sliding Scale IRR
+                            </span>
+                            <span class="badge bg-light text-body-secondary border rounded-pill small" style="font-size:0.7rem;">
+                                100% Free
+                            </span>
+                            <span class="badge bg-light text-body-secondary border rounded-pill small" style="font-size:0.7rem;">
+                                Instant Calculation
+                            </span>
+                        </div>
+
+                        <!-- Footer meta -->
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pt-2 border-top mt-auto">
+                            <span class="badge rounded-pill bg-primary-subtle text-primary fw-medium small" style="font-size:0.72rem;">
+                                UIF Benefits
+                            </span>
+                            <span class="small text-primary fw-semibold d-inline-flex align-items-center gap-1">
+                                Launch Calculator <i class="bi bi-arrow-right action-arrow"></i>
+                            </span>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- Tool 2: Maternity & Illness Leave Calculator -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm rounded-3 hover-lift">
-                        <div class="card-body p-4 d-flex flex-column">
-                            <div class="bg-danger bg-opacity-10 text-danger rounded-3 d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 54px; height: 54px;">
+                    <a href="{{ url_for('uif.leave_benefit_calculator') }}"
+                       class="app-card d-flex flex-column h-100 text-decoration-none text-body p-3 p-md-4 shadow-xs">
+                        <!-- Header: Logo + Title -->
+                        <div class="d-flex align-items-start gap-3 mb-2">
+                            <div class="icon-box bg-danger-subtle text-danger">
                                 <i class="bi bi-heart-pulse fs-4"></i>
                             </div>
-                            <h3 class="h5 fw-bold text-dark mb-2">Maternity & Illness Calculator</h3>
-                            <p class="text-muted small flex-grow-1">
-                                Calculate statutory top-up benefits for paid or unpaid maternity, illness, parental, and adoption leave according to Department of Labour rules.
-                            </p>
-                            <a href="{{ url_for('uif.leave_benefit_calculator') }}" class="btn btn-outline-danger btn-sm fw-bold mt-2">
-                                Calculate Leave Top-Up <i class="bi bi-arrow-right ms-1"></i>
-                            </a>
+                            <div class="min-w-0 flex-grow-1">
+                                <h3 class="fw-bold mb-0 fs-6 text-truncate tool-title">Maternity & Illness</h3>
+                                <div class="d-flex align-items-center gap-2 mt-1 flex-wrap">
+                                    <span class="badge bg-light text-body-secondary border rounded-pill small px-2 py-0" style="font-size:0.7rem;">
+                                        <i class="bi bi-calendar2-heart me-1 text-danger"></i>Leave Top-Up
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+
+                        <!-- Tagline -->
+                        <p class="small text-body-secondary mb-2 lh-base line-clamp-2" style="font-size:0.82rem;">
+                            Calculate statutory top-up benefits for paid or unpaid maternity, illness, adoption, and parental leave.
+                        </p>
+
+                        <!-- Feature Badges -->
+                        <div class="d-flex align-items-center gap-1 flex-wrap mb-3">
+                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle rounded-pill small" style="font-size:0.7rem;">
+                                66% Top-Up Cap
+                            </span>
+                            <span class="badge bg-light text-body-secondary border rounded-pill small" style="font-size:0.7rem;">
+                                121 Days Max
+                            </span>
+                            <span class="badge bg-light text-body-secondary border rounded-pill small" style="font-size:0.7rem;">
+                                Instant Calculation
+                            </span>
+                        </div>
+
+                        <!-- Footer meta -->
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pt-2 border-top mt-auto">
+                            <span class="badge rounded-pill bg-danger-subtle text-danger fw-medium small" style="font-size:0.72rem;">
+                                Leave Benefits
+                            </span>
+                            <span class="small text-danger fw-semibold d-inline-flex align-items-center gap-1">
+                                Calculate Top-Up <i class="bi bi-arrow-right action-arrow"></i>
+                            </span>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- Tool 3: Calculation Formulas & Guide -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm rounded-3 hover-lift">
-                        <div class="card-body p-4 d-flex flex-column">
-                            <div class="bg-success bg-opacity-10 text-success rounded-3 d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 54px; height: 54px;">
+                    <a href="{{ url_for('uif.how_to_calculate_uif') }}"
+                       class="app-card d-flex flex-column h-100 text-decoration-none text-body p-3 p-md-4 shadow-xs">
+                        <!-- Header: Logo + Title -->
+                        <div class="d-flex align-items-start gap-3 mb-2">
+                            <div class="icon-box bg-success-subtle text-success">
                                 <i class="bi bi-journal-code fs-4"></i>
                             </div>
-                            <h3 class="h5 fw-bold text-dark mb-2">How to Calculate UIF</h3>
-                            <p class="text-muted small flex-grow-1">
-                                Detailed walkthrough of the Income Replacement Rate (IRR) sliding scale formula, statutory earning ceilings, and step-by-step worked examples.
-                            </p>
-                            <a href="{{ url_for('uif.how_to_calculate_uif') }}" class="btn btn-outline-success btn-sm fw-bold mt-2">
-                                Read Guide <i class="bi bi-arrow-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tool 4: SASSA Status Check Guide & Tool -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm rounded-3 hover-lift">
-                        <div class="card-body p-4 d-flex flex-column">
-                            <div class="bg-warning bg-opacity-10 text-dark rounded-3 d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 54px; height: 54px;">
-                                <i class="bi bi-shield-check fs-4"></i>
+                            <div class="min-w-0 flex-grow-1">
+                                <h3 class="fw-bold mb-0 fs-6 text-truncate tool-title">How to Calculate UIF</h3>
+                                <div class="d-flex align-items-center gap-2 mt-1 flex-wrap">
+                                    <span class="badge bg-light text-body-secondary border rounded-pill small px-2 py-0" style="font-size:0.7rem;">
+                                        <i class="bi bi-book me-1 text-primary"></i>Statutory Law
+                                    </span>
+                                </div>
                             </div>
-                            <h3 class="h5 fw-bold text-dark mb-2">SASSA Status Check</h3>
-                            <p class="text-muted small flex-grow-1">
-                                Check the progress of your SRD R370 grant application, understand status definitions (Approved, Pending, Bank Details Pending), and file appeals.
-                            </p>
-                            <a href="{{ url_for('home.sassa_status_check') }}" class="btn btn-outline-warning text-dark btn-sm fw-bold mt-2">
-                                Status Check Tool <i class="bi bi-arrow-right ms-1"></i>
-                            </a>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Tool 5: SASSA Payment Dates Schedule -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm rounded-3 hover-lift">
-                        <div class="card-body p-4 d-flex flex-column">
-                            <div class="bg-info bg-opacity-10 text-info rounded-3 d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 54px; height: 54px;">
-                                <i class="bi bi-calendar3 fs-4"></i>
-                            </div>
-                            <h3 class="h5 fw-bold text-dark mb-2">Payment Dates 2026</h3>
-                            <p class="text-muted small flex-grow-1">
-                                Complete monthly calendar for Older Persons, Disability, Children's Grants, and SRD R370 payment windows for the entire 2026 year.
-                            </p>
-                            <a href="{{ url_for('home.sassa_payment_dates') }}" class="btn btn-outline-info text-dark btn-sm fw-bold mt-2">
-                                View Schedule <i class="bi bi-arrow-right ms-1"></i>
-                            </a>
+                        <!-- Tagline -->
+                        <p class="small text-body-secondary mb-2 lh-base line-clamp-2" style="font-size:0.82rem;">
+                            Step-by-step statutory walkthrough of the Income Replacement Rate (IRR) sliding scale and salary ceilings.
+                        </p>
+
+                        <!-- Feature Badges -->
+                        <div class="d-flex align-items-center gap-1 flex-wrap mb-3">
+                            <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill small" style="font-size:0.7rem;">
+                                Act No. 63
+                            </span>
+                            <span class="badge bg-light text-body-secondary border rounded-pill small" style="font-size:0.7rem;">
+                                Worked Examples
+                            </span>
+                            <span class="badge bg-light text-body-secondary border rounded-pill small" style="font-size:0.7rem;">
+                                2026 Rules
+                            </span>
                         </div>
-                    </div>
+
+                        <!-- Footer meta -->
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pt-2 border-top mt-auto">
+                            <span class="badge rounded-pill bg-success-subtle text-success fw-medium small" style="font-size:0.72rem;">
+                                Statutory Guide
+                            </span>
+                            <span class="small text-success fw-semibold d-inline-flex align-items-center gap-1">
+                                Read Guide <i class="bi bi-arrow-right action-arrow"></i>
+                            </span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
