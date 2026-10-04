@@ -111,10 +111,7 @@
             <a class="nav-link" href="{{ url_for('uif.leave_benefit_calculator') }}">Maternity & Leave</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('home.sassa_status_check') }}">SASSA Status Check</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('home.sassa_payment_dates') }}">SASSA Payment Dates</a>
+            <a class="nav-link" href="{{ url_for('uif.how_to_calculate_uif') }}">How to Calculate UIF</a>
           </li>
         </ul>
       </div>
@@ -138,13 +135,9 @@
             <a href="{{ url_for('uif.leave_benefit_calculator') }}">Maternity & Leave</a>
             <span class="mx-1 text-muted">|</span>
             <a href="{{ url_for('uif.how_to_calculate_uif') }}">How to Calculate UIF</a>
-            <span class="mx-1 text-muted">|</span>
-            <a href="{{ url_for('home.sassa_status_check') }}">SASSA Status Check</a>
-            <span class="mx-1 text-muted">|</span>
-            <a href="{{ url_for('home.sassa_payment_dates') }}">SASSA Payment Dates</a>
           </p>
           <p class="mt-2 mb-0 small text-muted">
-            Independent informational site. Not affiliated with the Department of Employment and Labour, UIF, SASSA, or
+            Independent informational site. Not affiliated with the Department of Employment and Labour, UIF, or
             uFiling.
           </p>
         </div>
@@ -180,18 +173,6 @@
           "name": "How to Calculate UIF",
           "description": "Learn how to calculate UIF payout in South Africa",
           "url": "{{ url_for('uif.how_to_calculate_uif', _external=True) }}"
-        },
-        {
-          "@type": "SiteNavigationElement",
-          "name": "SASSA Status Check",
-          "description": "Check your SASSA SRD R370 grant application status online",
-          "url": "{{ url_for('home.sassa_status_check', _external=True) }}"
-        },
-        {
-          "@type": "SiteNavigationElement",
-          "name": "SASSA Payment Dates",
-          "description": "View SASSA grant payment dates for 2026",
-          "url": "{{ url_for('home.sassa_payment_dates', _external=True) }}"
         }
       ]
     }
